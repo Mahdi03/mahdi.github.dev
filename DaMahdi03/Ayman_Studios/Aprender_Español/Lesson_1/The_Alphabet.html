@@ -32,7 +32,7 @@
             padding: 0;
         }
         
-        @media (min-width: 320px) {
+        @media (max-width: 320px) {
             td {
                 font-size: 0.5em;
                 border-width: 0.5px;
@@ -129,10 +129,12 @@
             <td>Z</td>
         </tr>
     </table>
+
     <div id="YouTubePronunciationVideo">
         <p style="text-align: center;">Check Out This YouTube Video!!!</p>
         <iframe>Hey!!</iframe>
     </div>
+
     <script>
         function startListening() {
             var recognition = new(webkitSpeechRecognition || SpeechRecognition)();
