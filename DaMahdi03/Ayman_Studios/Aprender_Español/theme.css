@@ -3,6 +3,7 @@
     body {
         margin: 0 auto;
         width: 30%;
+        font-size: 0.5em;
     }
 }
 
@@ -43,6 +44,7 @@
     body {
         margin: 0 auto;
         width: 75%;
+        font-size: 1.75em;
     }
 }
 
@@ -51,7 +53,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 body {
-    font-size: 1.75em;
     font-family: 'Titillium Web', sans-serif;
     line-height: 1.5;
 }
