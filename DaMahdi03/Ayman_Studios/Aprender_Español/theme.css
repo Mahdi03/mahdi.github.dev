@@ -93,3 +93,11 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+.intro {
+    margin: 0 auto;
+}
+
+.lesson {
+    visibility: hidden;
+}
