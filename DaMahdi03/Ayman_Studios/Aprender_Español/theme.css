@@ -32,7 +32,7 @@
     }
 }
 
-@media screen and(max-width:481px) {
+@media screen and (max-width:481px) {
     /* smartphones, iPhone, portrait 480x320 phones */
     body {
         margin: 0 auto;
