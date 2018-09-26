@@ -44,9 +44,8 @@
     /* smartphones, iPhone, portrait 480x320 phones */
     body {
         margin: 0 auto;
-        width: 90%;
-        font-size: 0.5em;
-        background: red;
+        width: 100%;
+        font-size: 1em;
     }
 }
 
@@ -57,7 +56,6 @@
 body {
     font-family: 'Titillium Web', sans-serif;
     line-height: 1.5;
-    color: pink;
 }
 
 form {
