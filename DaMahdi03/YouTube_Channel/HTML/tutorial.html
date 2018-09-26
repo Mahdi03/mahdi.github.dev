@@ -1,0 +1,85 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>
+	Tutorial Site for Youtube
+</title>
+<link href="tutorial.css" rel="stylesheet">
+</head>
+<body>
+    
+    <script>
+        window.onload = intro();
+        function intro() {
+            var firstName = prompt("Please enter your fist name:");
+            if (firstName == null, firstName == "") {
+                var firstName = prompt("Please type your first name!");
+                if (firstName == null, firstName == "") {
+                    var firstName = prompt("Please type your first name!");
+                    if (firstName == null, firstName == "") {
+                        alert("Welcome to my website for my channel How To Code (Basic).This is where you will see me making changes to the site in my YouTube Videos.Please subscribe to my channel!!!!");
+                    }
+                    else {
+                        alert("Hello " + firstName + "! Welcome to my website for my channel How To Code (Basic). This is where you will see me making changes to the site in my YouTube Videos. Please subscribe to my channel!!!!");
+                    }
+
+                }
+                else {
+                    alert("Hello " + firstName + "! Welcome to my website for my channel How To Code (Basic). This is where you will see me making changes to the site in my YouTube Videos. Please subscribe to my channel!!!!");
+                }
+            }
+            else {
+                alert("Hello " + firstName + "! Welcome to my website for my channel How To Code (Basic). This is where you will see me making changes to the site in my YouTube Videos. Please subscribe to my channel!!!!");
+            }
+        }
+        function info() {
+            alert("Welcome To How To Code (Basic)");
+        }
+        function askName() {
+            var txt;
+            var firstName = prompt("Please enter your first name:");
+            if (firstName == null, firstName == "") {
+                txt = "Please type your first name!";
+            }
+            else {
+                txt = "Hello " + firstName + ". Welcome to this YouTube tutorial site. This is the website I make all of my HTML videos on. I hope you learn something today!"
+            }
+            document.getElementById("firstname").innerHTML = txt;
+        }
+         
+    </script>
+    <div id="htmlinfo">
+        <h1>What is HTML?</h1>
+        <p>
+        HTML stands for Hyper-Text Markup Language. It is the frame or the building block to most websites in and
+        around the web. If you want to see the HTML used in websites, just go to any website and press these three
+        keys: Ctrl + Shift + I. If you have function keys, F12 works also. Anyway, HTML is not so hard to understand.
+        When making your own website, you will find that you won't be using too much HTML. You'll be using your basic
+        everyday words even more. HTML has a pattern that is easy to remember. So when you are writing something, you
+        will not forget what code to write at the end. But, enough said, lets move on to CSS.
+        </p>
+    </div>
+    <div id="time">
+        <p>
+            This Portion of The Website Only Took <strong> 7 minutes </strong> and <strong>34 lines of code</strong> to make.
+        </p>
+        <p>Once you get the hang of it, it is <strong>NOT SO HARD</strong>.</p>
+    </div>
+    <div id="hideandshow">
+        <p>There are endless posibilities of things you can do when you incorporate another language. These three buttons were made using JavaScript.</p>
+    </div>
+    <button type="button" onclick="document.getElementById('hideandshow').style.display='none'">Hide</button>
+    <button type="button" onclick="document.getElementById('hideandshow').style.display='block'">Show</button>
+    <script>
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+    <button type="button" onclick="toggle_visibility('hideandshow')">Show/Hide</button>
+</body>
+</html>

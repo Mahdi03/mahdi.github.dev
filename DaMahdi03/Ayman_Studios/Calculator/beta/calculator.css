@@ -1,0 +1,268 @@
+/* CSS Document */
+body {
+    margin: 0;
+    padding: 0;
+    touch-action: none;
+}
+#guide {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+#main-guide {
+    background-color: #fefefe;
+    margin: 3% auto; /* 15% from the top and centered */
+    padding: 40px;
+    border: 1px solid #888;
+    border-radius: 30px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    height: 80%;
+    overflow-x: none;
+    overflow-y: auto;
+}
+#main-guide p {
+    padding-left: 20%;
+    padding-right: 20%;
+    font-family: 'Itim', cursive;
+    font-size: 20px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#guideButton {
+    float: center;
+    width: 35%;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(64, 128, 128);
+    font-family: 'Mina', cursive;
+    font-size: 20px;
+}
+.title1 {
+    text-align: center;
+    font-size: 75px;
+    color: rgb(3, 168, 158);
+    margin: 0;
+    font-family: 'Fredoka One', cursive;
+}
+input {
+    margin: 3px;
+}
+#numbox {
+    width: 540px;
+    height: 100px;
+    font-size: 50px;
+}
+#calculator {
+    text-align: center;
+}
+#size {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: none;
+}
+#size:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#sign:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#num:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#zero:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#sign {
+    width: 210px;
+    height: 100px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 80, 0);
+    border: none;
+}
+#num {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(135, 135, 135);
+    border: none;
+}
+#zero {
+    width: 210px;
+    height: 100px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(135, 135, 135);
+    border: none;
+}
+.title2 {
+    text-align: center;
+    font-size: 70px;
+    color: rgb(168, 42, 3);
+    margin: 0;
+    font-family: 'Fredoka One', cursive;
+}
+#advcalc {
+    text-align: center;
+}
+input#sign {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#sign2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#size {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#size2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#trigset1 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#trigset2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#num {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#zero {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#num2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#zero2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#numbox {
+    border-radius: 8px;
+    text-align: right;
+    text-overflow: ellipsis;
+    background-color: rgb(60, 120, 60);
+    border: none;
+}
+input#display {
+    border-radius: 8px;
+    text-align: right;
+    text-overflow: ellipsis;
+    background-color: rgb(60, 120, 60);
+    border: none;
+}
+#display {
+    width: 469px;
+    height: 75px;
+    font-size: 50px;
+}
+#size2 {
+    width: 75px;
+    height: 75px;
+    font-size: 37.5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: none;
+}
+
+#sign2 {
+    width: 153px;
+    height: 75px;
+    font-size: 37.5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 80, 0);
+    border: none;
+}
+#num2 {
+    width: 75px;
+    height: 75px;
+    font-size: 37.5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(135, 135, 135);
+    border: none;
+}
+#zero2 {
+    width: 153px;
+    height: 75px;
+    font-size: 37.5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(135, 135, 135);
+    border: none;
+}
+#trigset1 {
+    width: 75px;
+    height: 70px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: none;
+}
+#trigset2 {
+    width: 75px;
+    height: 70px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: none;
+}
+#num2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#zero2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#trigset1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#trigset2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#sign2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#size2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            text-align: center;
+            font-size: 55px;
+        }
+        table {
+            width: 100%;
+        }
+        input[type=text], input[type=password], input[type=email] {
+            border-radius: 15px;
+            font-size: 55px;
+            width: 500px;
+        }
+        td {
+            padding: 15px;
+        }
+        .colon {
+            padding: 0;
+            margin: 0;
+         }
+    </style>
+</head>
+<body>
+    <div id="mainCenteredDiv">
+        <h2>Sign Up:</h2>
+        <form action="" method="POST" onsubmit="signUp()">
+            First Name: <input type="text" id="input_name" />
+            <br />
+            <br />
+            Email: <input type="email" id="input_email" />
+            <br />
+            <br />
+            Username: <input type="text" id="input_username" />
+            <br />
+            <br />
+            Password: <input type="password" id="input_password" />
+            <br />
+            <br >
+            Confirm Password: <input type="password" id="input_confirm_password" />
+            <br />
+            <br />
+            <button>Sign Me Up</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+        function signUp() {
+            alert(0);
+        }
+    </script>
+    <div id="mainCenteredDiv">
+    <h2>Sign Up:</h2>
+    <form action="" method="POST" onsubmit="signUp()">
+    <table>
+    <tr><th></th><th></th></tr>
+    <tr><td class="">First Name</td><td class="colon">:</td><td><input type="text" id="input_name" /></td></tr>
+    <br />
+    <br />
+    <tr><td>Email</td><td class="colon">:</td><td><input type="email" id="input_email" /></td></tr>
+    <br />
+    <br />
+    <tr><td>Username</td><td class="colon">:</td><td><input type="text" id="input_username" /></td></tr>
+    <br />
+    <br />
+    <tr><td>Password</td><td class="colon">:</td><td><input type="password" id="input_password" /></td></tr>
+    <br />
+    <br >
+    <tr><td>Confirm Password</td><td class="colon">:</td><td><input type="password" id="input_confirm_password" /></td></tr>
+    <br />
+    </table>
+    <button>Sign Me Up</button>
+    </form>
+    </div>
+    <form>
+        <table>
+            <tr><td><input type="text" id="input_name" /></td></tr>
+            <tr><td><input type="email" id="input_email" /></td></tr>
+            <tr><td><input type="text" id="input_username" /></td></tr>
+            <tr><td><input type="password" id="input_password" /></td></tr>
+            <tr><td><input type="password" id="input_confirm_password" /></td></tr>
+        </table>
+    </form>
+    <div id="colorPicker">
+        <input type="color" id="input_color" onchange="updateColor()" />
+        <p id="input_color_display"></p>
+        <script type="text/javascript">
+            function updateColor() {
+                var input_color = document.querySelector("#input_color");
+                var input_color_value = input_color.value;
+                var input_color_display = document.querySelector("#input_color_display");
+                input_color_display.innerHTML = input_color_value + convertHexToRGB(input_color_value);
+            }
+            function convertHexToRGB(hexColor) {
+                hexColor = hexColor.replace("#", "");
+                var R = parseInt(hexColor.substring(0, 2), 16);
+                var G = parseInt(hexColor.substring(2, 4), 16);
+                var B = parseInt(hexColor.substring(4, 6), 16);
+                var rgbColor = "<br>rgb(" + R + ", " + G + ", " + B + ")";
+                return rgbColor;
+            }
+        </script>
+    </div>
+</body>
+</html>

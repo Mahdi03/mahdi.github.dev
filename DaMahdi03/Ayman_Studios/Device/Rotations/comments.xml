@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This Is Where All The Comments Are Stored-->
+<allComments>
+  <comment>
+    <name>Ayman Studios</name>
+    <mainComment>
+      Greetings users. We present to you our first, all new web application!!! Here's a gift from us to you:
+      <u>Click on the ball while playing!!! See what happens...</u> Stay Tuned For More!!!!
+    </mainComment>
+    <datePosted>03/16/2018</datePosted>
+    <timePosted>11:57:11pm</timePosted>
+  </comment>
+  <comment>
+    <name>Da Mahdi03</name>
+    <mainComment>
+      Woah Dude!!! Nice Programming Skills You Got There!!!
+    </mainComment>
+    <datePosted>03/17/2018</datePosted>
+    <timePosted>11:31:39am</timePosted>
+  </comment>
+  <comment>
+    <name>Mr. Prange</name>
+    <mainComment>Testing.  It works.</mainComment>
+    <datePosted>03/24/2018</datePosted>
+    <timePosted>07:57:59pm</timePosted>
+  </comment>
+<comment>
+    <name>Mahdi</name>
+    <mainComment>This is so cool dude!!!! You should pursue a career in the field of Web Development!!!
+      But you should make a wonderful game too!! Whoo JavaScript!!!!!!!!!!!
+    </mainComment>
+    <datePosted>03/27/2018</datePosted>
+    <timePosted>01:08:20pm</timePosted>
+  </comment>
+  <comment>
+    <name>Victor</name>
+    <mainComment>Nice website m8</mainComment>
+    <datePosted>03/27/2018</datePosted>
+    <timePosted>04:40:00pm</timePosted>
+  </comment>
+  <comment>
+    <name>J. Khan</name>
+    <mainComment>Cool stuff!</mainComment>
+    <datePosted>03/28/2018</datePosted>
+    <timePosted>06:32:38pm</timePosted>
+  </comment>
+<comment><name/><mainComment/><datePosted>04/29/2018</datePosted><timePosted>02:24:06pm</timePosted></comment><comment><name>Me llamo es Carlos!!</name><mainComment>&lt;img src=c /&gt;</mainComment><datePosted>04/30/2018</datePosted><timePosted>04:24:02pm</timePosted></comment></allComments>

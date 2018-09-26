@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .bgdiv {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+        }
+        .bgdiv:after {
+            content: "\200b";
+        }
+        #overlay {
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <!--Animated Background-->
+    <script>
+        $(document).ready(function () {
+            createDivs();
+            function createDivs() {
+                //2nd Set:
+                $("body").append("<div class='bgdiv top2' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv right2' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv bottom2' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv left2' style='background-color: " + getRandomColor() + ";'></div>");
+                //1st Set:
+                $("body").append("<div class='bgdiv top' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv right' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv bottom' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv left' style='background-color: " + getRandomColor() + ";'></div>");
+                setTimeout(function () {
+                    slideDivsSet1();
+                }, 1000);
+            }
+            function slideDivsSet1() {
+                $(".left").animate({
+                    "margin-left": - $(this).width()
+                }, 2000);
+
+                setTimeout(function () {
+                    $(".bottom").animate({
+                        "margin-top": $(this).height()
+                    }, 2000);
+                    $(".left").remove();
+                }, 2000);
+                
+                setTimeout(function () {
+                    $(".right").animate({
+                        "margin-left": $(this).width()
+                    }, 2000);
+                    $(".bottom").remove();
+                }, 4000);
+
+                setTimeout(function () {
+                    $(".top").animate({
+                        "margin-top": - $(this).height()
+                    }, 2000);
+                    $(".right").remove();
+                }, 6000);
+
+                setTimeout(function () {
+                    $(".top").remove();
+                    slideDivsSet2();
+                }, 8000);
+            }
+            function slideDivsSet2() {
+                $(".left2").animate({
+                    "margin-left": - $(this).width()
+                }, 2000);
+
+                setTimeout(function () {
+                    $(".bottom2").animate({
+                        "margin-top": $(this).height()
+                    }, 2000);
+                    $(".left2").remove();
+                }, 2000);
+
+                setTimeout(function () {
+                    $(".right2").animate({
+                        "margin-left": $(this).width()
+                    }, 2000);
+                    $(".bottom2").remove();
+                }, 4000);
+
+                setTimeout(function () {
+                    $(".top2").animate({
+                        "margin-top": - $(this).height()
+                    }, 2000);
+                    $("body").css("background-color", getRandomColor());
+                    $(".right2").remove();
+                }, 6000);
+
+                setTimeout(function () {
+                    $(".top2").remove();
+                    $("body").append("<div class='bgdiv top2' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv right2' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv bottom2' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv left2' style='background-color: " + getRandomColor() + ";'></div>");
+                    //1st Set:
+                    $("body").append("<div class='bgdiv top' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv right' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv bottom' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv left' style='background-color: " + $("body").css("background-color") + ";'></div>");
+                    slideDivsSet1();
+                }, 8000);
+            }
+            //Random Hex Color Generator
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+    <!--Main Content In Div Below-->
+    <div id="overlay"></div>
+</body>
+</html>

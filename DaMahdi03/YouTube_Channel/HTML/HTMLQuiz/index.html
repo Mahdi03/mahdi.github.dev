@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HTML Quiz</title>
+    <link href="HTMLQuiz.css" rel="stylesheet" />
+</head>
+<body>
+    <form action="Grade.php" method="POST">
+        <!--Quick Info-->
+        <div id="headerInfo">
+            <span>Last Name: </span><input type="text" name="lastName" id="lastName" class="textbox" required />
+            <span>First Name: </span><input type="text" name="firstName" id="firstName" class="textbox" required />
+            <span>Date: </span><input type="date" name="testDate" id="testDate" class="textbox" required />
+        </div>
+        <!--Start Quiz-->
+        <h1>HTML Quiz</h1>
+        <!--1.-->
+        <div>
+            <h2>1. What does HTML stand for?</h2>
+            <code>Remember to Match-Case!!!!</code>
+            <div>
+                <input type="text" name="answer1" class="textbox" maxlength="27" />
+            </div>
+        </div>
+        <!--2.-->
+        <div>
+            <h2>2. What is HTML?</h2>
+            <div>
+                <div>
+                    <input type="radio" name="answer2" id="answer2A" class="multipleChoice" value="A" />
+                    <label for="answer2A">A) HTML is a language used in hacking.</label>
+                </div>
+                <div>
+                    <input type="radio" name="answer2" id="answer2B" class="multipleChoice" value="B" />
+                    <label for="answer2B">B) HTML is the backbone of most websites. It is used as the skeletal structure in Web Development.</label>
+                </div>
+                <div>
+                    <input type="radio" name="answer2" id="answer2C" class="multipleChoice" value="C" />
+                    <label for="answer2C">C) HTML is a language spoken in the Southwest Regions of Asia.</label>
+                </div>
+                <div>
+                    <input type="radio" name="answer2" id="answer2D" class="multipleChoice" value="D" />
+                    <label for="answer2D">D) All of the Above.</label>
+                </div>
+                <div>
+                    <input type="radio" name="answer2" id="answer2E" class="multipleChoice" value="E" />
+                    <label for="answer2E">E) None of the Above.</label>
+                </div>
+            </div>
+        </div>
+        <!--3.-->
+        <div>
+            <h2>3. How many required parts are there to create an HTML document?</h2>
+            <input type="number" name="answer3" class="textbox" maxlength="1" />
+        </div>
+        <!--4-->
+        <div>
+            <h2>4. Which of the following languages are straight up compatible with HTML?</h2>
+            <div>
+                <input type="radio" name="answer4" id="answer4A" class="multipleChoice" value="A" />
+                <label for="answer4A">A) Visual Basic</label>
+            </div>
+            <div>
+                <input type="radio" name="answer4" id="answer4B" class="multipleChoice" value="B" />
+                <label for="answer4B">B) Java</label>
+            </div>
+            <div>
+                <input type="radio" name="answer4" id="answer4C" class="multipleChoice" value="C" />
+                <label for="answer4C">C) Python</label>
+            </div>
+            <div>
+                <input type="radio" name="answer4" id="answer4D" class="multipleChoice" value="D" />
+                <label for="answer4D">D) All of the Above.</label>
+            </div>
+            <div>
+                <input type="radio" name="answer4" id="answer4E" class="multipleChoice" value="E" />
+                <label for="answer4E">E) None of the Above.</label>
+            </div>
+        </div>
+        <!--5.-->
+        <div>
+            <h2>5. T or F: There are variables in HTML.</h2>
+            <div>
+                <input type="radio" name="answer5" id="answer5T" class="multipleChoice" value="T" />
+                <label for="answer5T">True</label>
+            </div>
+            <div>
+                <input type="radio" name="answer5" id="answer5F" class="multipleChoice" value="F" />
+                <label for="answer5F">False</label>
+            </div>
+        </div>
+        <!--6.-->
+        <div>
+            <h2>6. Which language below is used to control both HTML and XML using DOM (Document Object Modifier)?</h2>
+            <div>
+                <input type="radio" name="answer6" id="answer6A" class="multipleChoice" value="A" />
+                <label for="answer6A">A) C#</label>
+            </div>
+            <div>
+                <input type="radio" name="answer6" id="answer6B" class="multipleChoice" value="B" />
+                <label for="answer6B">B) Python</label>
+            </div>
+            <div>
+                <input type="radio" name="answer6" id="answer6C" class="multipleChoice" value="C" />
+                <label for="answer6C">C) JavaScript</label>
+            </div>
+            <div>
+                <input type="radio" name="answer6" id="answer6D" class="multipleChoice" value="D" />
+                <label for="answer6D">D) All of the Above.</label>
+            </div>
+            <div>
+                <input type="radio" name="answer6" id="answer6E" class="multipleChoice" value="E" />
+                <label for="answer6E">E) None of the Above.</label>
+            </div>
+        </div>
+        <!--7.-->
+        <div>
+            <h2>7. Using which tags allow you to put in Cascading Style Sheets (CSS) into your HTML code?</h2>
+            <div>
+                <input type="radio" name="answer7" id="answer7A" class="multipleChoice" value="A" />
+                <label for="answer7A">A) &lt;script&gt;&lt;/script&gt;</label>
+            </div>
+            <div>
+                <input type="radio" name="answer7" id="answer7B" class="multipleChoice" value="B" />
+                <label for="answer7B">B) &lt;style&gt;&lt;/style&gt;</label>
+            </div>
+            <div>
+                <input type="radio" name="answer7" id="answer7C" class="multipleChoice" value="C" />
+                <label for="answer7C">C) &lt;link href="Your CSS File Here" rel="stylesheet" /&gt;</label>
+            </div>
+            <div>
+                <input type="radio" name="answer7" id="answer7D" class="multipleChoice" value="D" />
+                <label for="answer7D">D) All of the Above.</label>
+            </div>
+            <div>
+                <input type="radio" name="answer7" id="answer7E" class="multipleChoice" value="E" />
+                <label for="answer7E">E) None of the Above.</label>
+            </div>
+        </div>
+        <!--8.-->
+        <div>
+            <h2>8. Which of the following tags are inline?</h2>
+            <div>
+                <input type="radio" name="answer8" id="answer8A" class="multipleChoice" value="A" />
+                <label for="answer8A">A) &lt;a&gt;&lt;/a&gt;</label>
+            </div>
+            <div>
+                <input type="radio" name="answer8" id="answer8B" class="multipleChoice" value="B" />
+                <label for="answer8B">B) &lt;script&gt;&lt;/script&gt;</label>
+            </div>
+            <div>
+                <input type="radio" name="answer8" id="answer8C" class="multipleChoice" value="C" />
+                <label for="answer8C">C) &lt;span&gt;&lt;/span&gt;</label>
+            </div>
+            <div>
+                <input type="radio" name="answer8" id="answer8D" class="multipleChoice" value="D" />
+                <label for="answer8D">D) All of the Above.</label>
+            </div>
+            <div>
+                <input type="radio" name="answer8" id="answer8E" class="multipleChoice" value="E" />
+                <label for="answer8E">E) None of the Above.</label>
+            </div>
+        </div>
+        <!--9.-->
+        <div>
+            <h2>9. T or F: HTML is made to display data.</h2>
+            <div>
+                <input type="radio" name="answer9" id="answer9T" class="multipleChoice" value="T" />
+                <label for="answer9T">True</label>
+            </div>
+            <div>
+                <input type="radio" name="answer9" id="answer9F" class="multipleChoice" value="F" />
+                <label for="answer9F">False</label>
+            </div>
+        </div>
+        <!--10.-->
+        <div>
+            <h2>10. T or F: HTML can carry data.</h2>
+            <div>
+                <input type="radio" name="answer10" id="answer10T" class="multipleChoice" value="T" />
+                <label for="answer10T">True</label>
+            </div>
+            <div>
+                <input type="radio" name="answer10" id="answer10F" class="multipleChoice" value="F" />
+                <label for="answer10F">False</label>
+            </div>
+        </div>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

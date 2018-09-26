@@ -1,0 +1,120 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body {
+    background-color: darkgreen;
+    overflow: hidden;
+}
+#Sign-Up {
+    display: inline-block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin: 0 auto;
+    padding: 0;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    transform: perspective(1px) translateY(-50%) translateX(-35%);
+    transform: perspective(1px) translateY(-50%) translateX(-35%);
+}
+legend {
+    font-size: 25px;
+    color: white;
+}
+input {
+    border-radius: 5px;
+    background-color: rgb(0, 255, 144);
+    border: none;
+    padding: 3px 5px;
+    color: white;
+    margin: 5px;
+    font-size: 20px;
+}
+input:focus {
+    border: solid;
+    border-width: 2px;
+    border-color: #0b3705;
+}
+.user_info {
+    color: white;
+    font-size: 20px;
+}
+#button {
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    background: rgb(66, 229, 244);
+    font-weight: bold;
+    font-size: 20px;
+}
+.button {
+    border-radius: 4px;
+    background-color: #0b3705;
+    border: none;
+    color: royalblue;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Elephant';
+    padding: 20px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+.button {
+    text-align: center;
+}

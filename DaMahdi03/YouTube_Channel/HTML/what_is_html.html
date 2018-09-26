@@ -1,0 +1,717 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        What is HTML?
+    </title>
+    <!--Used For Google Analytics-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116674321-1');
+    </script>
+    <!--Used For Google AdSense!!(Monetization)-->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8495483038077603",
+            enable_page_level_ads: true
+        });
+    </script>
+    <style>
+
+        #quick_quiz1 {
+            padding-left: 20px;
+        }
+    </style>
+    <link href="what_is_html.css" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="https://hsmscreativitycenter.org/DaMahdi03/Random_Fun/YouTube_Channel/How_To_Code_(Basic).html">Home</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">What Is...</a>
+                <div class="dropdown-content">
+                    <a href="what_is_html.html">HTML</a>
+                    <a href="#">CSS</a>
+                    <a href="#">JavaScript</a>
+                    <a href="#">PHP</a>
+                    <a href="#">Python</a>
+                </div>
+            </li>
+            <li><a href="javascript:void(0)">HTML Project</a></li>
+            <li><a href="javascript:void(0)">CSS Project</a></li>
+            <li><a href="javascript:void(0)">JavaScript Project</a></li>
+            <li><a href="javascript:void(0)">PHP Project</a></li>
+            <li><a href="javascript:void(0)">Python Project</a></li>
+            <li style="float:right"><a href="https://www.youtube.com/channel/UCaf5B9A8ALEJ2T8EUlWZx1Q" target="_blank">My Youtube Channel</a></li>
+        </ul>
+        <!--This is my navigation bar at the top of the page-->
+    </nav>
+    <canvas width="100%" height="500%" id="html_presentation_intro">Sorry but you cannot see the presentation about HTML because your browser is out of date.</canvas>
+    <script>
+        strokeWidth = "10px";
+        var canvas = document.getElementById("html_presentation_intro");
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
+        var item = canvas.getContext("2d");
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "blue");
+        grd.addColorStop(1, "green");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+
+        item.font = "150px Fantasy";
+        item.fillStyle = "red";
+        item.textAlign = "center";
+        item.fillText("What is HTML?", canvas.width / 2, canvas.height / 2);
+        
+        item.font = "50px Agency FB";
+        item.strokeStyle = "orange";
+        item.textAlign = "center";
+        item.strokeText("↓↓↓Scroll Down To Find Out↓↓↓", canvas.width / 2, canvas.height / 1.5);
+    </script>
+    <!--This is the "Cover Page" of the website.-->
+    <script>
+        function validateForm() {
+            var x = document.forms["miniquiz"]["htmlguess"].value;
+            if (x == "") {
+                alert("At least make a guess!!!");
+                return false;
+            }
+        }
+    </script>
+    <form name="miniquiz" action="html_quiz1.php" method="post" id="htmlabbrev" onsubmit="return validateForm()">
+        <h3>Before we get started, can you guess what HTML stands for?</h3>
+        I think it stands for: <input id="input_box" type="text" name="htmlguess" /><button class="button"><span>Guess </span></button>
+    </form>
+    <!--This is the question where you would guess what HTML stands for. It redirects you to a PHP page to see if you got the answer correct.
+        then it will redirect you back to this page.-->
+    <canvas width="100px" height="500px" id="warning"></canvas>
+    <script>
+        strokeWidth = "10px";
+        var canvas = document.getElementById("warning");
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
+        var item = canvas.getContext("2d");
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "green");
+        grd.addColorStop(1, "blue");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+
+        item.font = "100px Fantasy";
+        item.fillStyle = "red";
+        item.textAlign = "center";
+        item.fillText("↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑", canvas.width / 2, canvas.height / 2);
+
+        item.font = "75px Agency FB";
+        item.strokeStyle = "orange";
+        item.textAlign = "center";
+        item.strokeText("Please Answer The Question Above Before Proceeding", canvas.width / 2, canvas.height / 1.5);
+    </script>
+    <!--Warning not to pass further down beyond this point before answering question.-->
+    <canvas width="100%" height="625px" id="htmlstandsfor"></canvas>
+    <script>
+        strokeWidth = "10px";
+        var canvas = document.getElementById("htmlstandsfor");
+        canvas.width = document.body.clientWidth;
+        var item = canvas.getContext("2d");
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "yellow");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+        //Background for canvas
+        item.font = "100px Fantasy";
+        item.fillStyle = "red";
+        item.textAlign = "center";
+        item.fillText("HyperText Markup Language!!!", canvas.width / 2, 110);
+        //Title
+        item.font = "25px Agency FB";
+        item.fillStyle = "black";
+        //Default Text Styling
+        item.fillText("֎ HTML is the backbone of any website. It is not the only language used in the website but it is the language that supports it all.", canvas.width / 2, 270);
+        item.fillText("֎ HTML supports the following: CSS, JavaScript, PHP, and many more...", canvas.width / 2, 320);
+        item.fillText("֎ In order to add fashion and colors to the webpage, we would use the language CSS, but I'll talk about that in another lesson.", canvas.width / 2, 370);
+        item.fillText("֎ We can use JavaScript for interactive content but that is saved for another lesson.", canvas.width / 2, 420);
+        item.fillText("֎ PHP can be used to grade tests like the one that you will be taking about HTML after this lesson. It can also be used with databases to store data.", canvas.width / 2, 470);
+        //Basic Info On HTML
+        item.strokeStyle = "blue";
+        item.font = "100px Agency FB";
+        item.strokeText("֎ Let's get started. Shall We?", canvas.width / 2, 580);
+        //THE BIG QUESTION
+    </script>
+
+    <button width="500" class="button" onclick="window.location.href='#syntax'"><span>I'm Ready </span></button>
+    <!--Button to click if ready to learn HTML, scrolls a bit down automatically.-->
+    <canvas width="100px" height="900px" id="syntax"></canvas>
+    <!--Lesson 1: HTML Syntax-->
+    <script>
+        var canvas = document.getElementById("syntax");
+        canvas.width = document.body.clientWidth;
+        var item = canvas.getContext("2d");
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "blue");
+        grd.addColorStop(1, "green");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+        //Background Styling
+        item.font = "100px Fantasy";
+        item.fillStyle = "red";
+        item.textAlign = "center";
+        item.fillText("Syntax", canvas.width / 2, 110);
+        //Title and Style for Title
+        item.strokeStyle = "green";
+        item.font = "25px Agency FB";
+        item.fillStyle = "red";
+        //Default Style for Text
+        item.strokeText("֎ In HTML, there is a certain syntax that you have to follow.", canvas.width / 2, 270);
+        item.fillText("֎ First of all, there are start tags and end tags. By the time you are done with this lesson, you will be familiar with certain tags.", canvas.width / 2, 320);
+        item.strokeText("֎ Start tags start with just a '<'", canvas.width / 2, 370);
+        item.fillText("֎ End tags start with a '</'", canvas.width / 2, 420);
+        item.strokeText("֎ All tags end with a '>'", canvas.width / 2, 470);
+        item.fillText("֎ Start tags end with just a '>'", canvas.width / 2, 520);
+        item.strokeText("֎ In between those goes the phrase that tells the browser what to do.", canvas.width / 2, 570);
+        //Main Lesson
+        item.fillText("֎ Here's an example:", canvas.width / 2, 620);
+        item.strokeStyle = "green";
+        item.font = "75px Agency FB";
+        item.fillText("<p>'p' stands for paragraph</p>", canvas.width / 2, 780);
+        item.font = "50px Agency FB";
+        item.fillText("<p>(This is where you would write text to show up on the screen.)</p>", canvas.width / 2, 850);
+        //Main Example
+    </script>
+    <!--Lesson 2: Parts Of an HTML Document-->
+    <canvas width="100px" height="1000px" id="parts"></canvas>
+    <script>
+        var canvas = document.getElementById("parts");
+        canvas.width = document.body.clientWidth;
+        var item = canvas.getContext("2d");
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "pink");
+        grd.addColorStop(1, "purple");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+        //Background
+        item.textAlign = "center";
+        item.font = "100px Fantasy";
+        item.fillStyle = "red";
+        item.fillText("Parts of an HTML Document", canvas.width / 2, 100);
+        //Title
+        item.font = "25px Impact";
+        item.fillStyle = "rgb(75, 185, 255)";
+        item.strokeStyle = "rgb(200, 185, 255)";
+        item.fillText("An HTML Document has 4 parts.", canvas.width / 2, 130);
+        item.fillText("They are as follows:", canvas.width / 2, 180);
+        item.strokeText("<!DOCTYPE HTML>", canvas.width / 2, 220);
+        item.strokeText("<html></html>", canvas.width / 2, 260);
+        item.strokeText("<head></head>", canvas.width / 2, 300);
+        item.strokeText("<body></body>", canvas.width / 2, 340);
+        //list of parts/main list
+        item.fillText("They go in this order:", canvas.width / 2, 390);
+        item.strokeText("<!DOCTYPE HTML>", canvas.width / 2, 440);
+        item.strokeText("<html>", canvas.width / 2, 480);
+        item.strokeText("<head>", canvas.width / 2, 520);
+        item.strokeText("</head>", canvas.width / 2, 560);
+        item.strokeText("<body>", canvas.width / 2, 600);
+        item.strokeText("</body>", canvas.width / 2, 640);
+        item.strokeText("</html>", canvas.width / 2, 680);
+        //list of important tags in order
+        item.fillStyle = "rgb(0, 255, 122)";
+        item.font = "30px Tw Cen MT";
+        item.fillText("<!DOCTYPE HTML> tells the browser to interpret the code as HTML and not some other language.", canvas.width / 2, 720);
+        item.fillText("In between the <html> tags is where you put all of the HTML code.", canvas.width / 2, 760);
+        item.fillText("The <head> tags house scripts and the title of the page that is found on the small tab at the top.", canvas.width / 2, 800);
+        item.fillText("(For this page it says What is HTML?)", canvas.width / 2, 830);
+        item.fillText("The <body> tags hold all of the code that is visible to the viewers.", canvas.width / 2, 870);
+        
+    </script>
+    <!--Lesson 3: Headers-->
+    <canvas width="100px" height="780px" id="headers"></canvas>
+    <script>
+        var canvas = document.getElementById("headers");
+        canvas.width = document.body.clientWidth;
+        var item = canvas.getContext("2d");
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "orange");
+        grd.addColorStop(1, "green");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+        //Background
+        item.textAlign = "center";
+        item.font = "100px Fantasy";
+        item.fillStyle = "red";
+        item.fillText("Headers (Titles)", canvas.width / 2, 110);
+        //Title
+        item.strokeStyle = "white";
+        item.font = "25px Monospace";
+        item.fillStyle = "white";
+        //Default Style for Text
+        item.strokeText("When you write an essay, you put a title, no?", canvas.width / 2, 200);
+        //Lesson Intro
+        item.strokeText("In HTML, you would write that title or header using <h1></h1>", canvas.width / 2, 230);
+        item.strokeText("Headers can have different sizes.", canvas.width / 2, 260);
+        item.strokeText("In HTML, you can use the tags:", canvas.width / 2, 290);
+        item.fillText("<h1></h1>", canvas.width / 2, 315);
+        item.fillText("<h2></h2>", canvas.width / 2, 340);
+        item.fillText("<h3></h3>", canvas.width / 2, 365);
+        item.fillText("<h4></h4>", canvas.width / 2, 390);
+        item.fillText("<h5></h5>", canvas.width / 2, 415);
+        item.fillText("<h6></h6>", canvas.width / 2, 440);
+        item.strokeText("Where <h1> is the largest and <h6> is the smallest.", canvas.width / 2, 470);
+        item.strokeText("In between the two tags goes the title or subtitle.", canvas.width / 2, 500);
+        //main lesson
+        item.strokeText("For instance, say I want to write a research paper on the emission in cars.", canvas.width / 2, 530);
+        item.strokeText("My title would be written as follows:", canvas.width / 2, 560);
+        //intro to example
+        item.fillStyle = "black";
+        item.font = "30px Monospace";
+        //style of example
+        item.fillText("<h1>The Amount of Emission a Car Produces on Average in a Year</h1>", canvas.width / 2, 600);
+        //example of headers in HTML
+        item.fillStyle = "white";
+        item.font = "25px Monospace";
+        //resetting the default style of text
+        item.strokeText("The other header tags can be used as subtitles because they have a smaller size.", canvas.width / 2, 640);
+        item.strokeText("If I were to title my paragraghs in the research paper, the code could look like this:", canvas.width / 2, 670);
+        //intro to next example
+        item.fillStyle = "black";
+        item.font = "30px Monospace";
+        //style of example
+        item.fillText("<h3>Which Cars Produce the Most Emissions</h3>", canvas.width / 2, 710);
+        //last example for this lesson
+        item.fillStyle = "white";
+        item.font = "25px Monospace";
+        //restoring default styles
+        item.strokeText("In order to write the paragraphs for the essay, you would need to use another command.", canvas.width / 2, 750);
+        //transition to next lesson
+    </script>
+    <!--Lesson 4: Writing and Editing Text-->
+    <canvas width="100px" height="1000px" id="text"></canvas>
+    <script>
+        var canvas = document.getElementById("text");
+        canvas.width = document.body.clientWidth;
+        var item = canvas.getContext("2d");
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "green");
+        grd.addColorStop(1, "orange");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+        item.textAlign = "center";
+        item.font = "100px Fantasy";
+        item.fillStyle = "red";
+        //style for title
+        item.fillText("Writing and Editing Text ( Just HTML)", canvas.width / 2, 110);
+        //title
+        item.strokeStyle = "blue";
+        item.font = "25px Monospace";
+        item.fillStyle = "green";
+        //setting the default style for text
+        item.strokeText("Now that you know how to make titles, how would you write normal text?", canvas.width / 2, 200);
+        //intro to lesson
+        item.strokeText("In HTML, the command <p></p> takes care of that.", canvas.width / 2, 250);
+        item.strokeText("Using <p></p>, you can write multiple paragraphs and the text", canvas.width / 2, 300);
+        item.strokeText("will automatically wrap around to fit itself to the screen.", canvas.width / 2, 330);
+        item.strokeText("When using the <p> tag, keep in mind that the 'p' stands for paragraph", canvas.width / 2, 380);
+        item.strokeText("In between <p></p>, you can add more start tags and end tags.", canvas.width / 2, 430);
+        item.strokeText("The tags you would put inside the <p> tags or the header tags would be used for style.", canvas.width / 2, 480);
+        item.strokeText("There are many of those tags. I'm only going to touch upon some of the simple ones.", canvas.width / 2, 530);
+        item.strokeText("<b></b> and <strong></strong> prints the letters inside as bold letters.", canvas.width / 2, 580);
+        item.strokeText("<em></em> and <i></i> makes the letters inside italicized.", canvas.width / 2, 630);
+        item.strokeText("<u></u> underlines letters in between the tags.", canvas.width / 2, 680);
+        //list of styling commands
+        //main lesson
+        item.strokeText("Here is an example of how to underline and bold the word 'hi' in a paragraph.", canvas.width / 2, 730);
+        //intro to first example
+        item.fillStyle = "purple";
+        item.font = "30px Monospace";
+        //style of both examples
+        item.fillText("<p><strong><i>Hi!</i></strong></p>", canvas.width / 2, 780);
+        //example
+        item.font = "25px Monospace";
+        item.strokeText("You are also allowed to put style tags in header tags.", canvas.width / 2, 830);
+        item.strokeText("For example:", canvas.width / 2, 880);
+        //intro to example
+        item.font = "30px Monospace";
+        item.fillText("<h1><u><i>Which Type of Cars Produce More Emission?</i></u></h1>", canvas.width / 2, 930);
+    </script>
+    <!--First Code Terminal Project in HTML-->
+    <form name="miniproject1" action="htmlproject1.php" method="post" id="htmlproject1" onsubmit="return validateForm()">
+        <h3>Do you think you learned something from the previous lessons?</h3>
+        <h3>Time To Find Out!</h3>
+        <h5>Create an HTML webpage that has the <i>biggest header</i> possible. The header should read "Hello World!". The paragraph underneath should read "Hello World!" as well.</h5>
+        <h6>Please don't mess around with the other code writen beforehand.</h6>
+        <script>
+            var codeTerminal = document.getElementById("code_terminal");
+            codeTerminal.width = document.body.clientWidth;
+        </script>
+        <textarea id="code_terminal" rows="20" cols="100" name="code_terminal">
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>My First HTML Project</title>
+</head>
+<body>
+<!--Please Type In Your Code After This Line!(This is a Comment in HTML Code)-->
+</body>
+</html>
+</textarea>
+        <br />
+        <button class="button"><span>Submit </span></button>
+    </form>
+    <!--This is the question where you would guess what HTML stands for. It redirects you to a PHP page to see if you got the answer correct.
+        then it will redirect you back to this page.-->
+
+    <!--Lesson 5: Links-->
+    <canvas width="100px" height="1000px" id="links"></canvas>
+    <script>
+        var canvas = document.getElementById("links");
+        canvas.width = document.body.clientWidth;
+        var item = canvas.getContext("2d");
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "pink");
+        grd.addColorStop(1, "orange");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+        item.textAlign = "center";
+        item.font = "100px Fantasy";
+        item.fillStyle = "red";
+        item.fillText("Links", canvas.width / 2, 100);
+        //title
+        item.font = "25px Script";
+        item.strokeStyle = "green";
+        //default color/size
+        item.strokeText("When you are on a website, sometimes there are links that go to different websites.", canvas.width / 2, 150);
+        item.strokeText("Sometimes the link goes to another part of the same page.", canvas.width / 2, 200);
+        item.strokeText('In HTML, we use the command <a href="your link goes here"></a>. Usually nothing goes in between the tags.', canvas.width / 2, 250);
+
+        item.strokeText("If I wanted to add a link to Google on my webpage, I would use:", canvas.width / 2, 300);
+        //intro to first example
+        item.fillStyle = "blue";
+        item.font = "30px Script";
+        //styling for example
+        item.fillText('<a href="https://www.google.com"></a>', canvas.width / 2, 350);
+        //first example
+        item.font = "25px Script";
+        //restoring default style
+        item.strokeText("If you want to add a link to a whole other website, you have to type in the whole link including the 'https://'.", canvas.width / 2, 400);
+        item.strokeText("If you want to add a link to another file in your directory in the same folder as the webpage the link is on,", canvas.width / 2, 450);
+        item.strokeText(" all you have to do is type the file name instead of the whole link.", canvas.width / 2, 480);
+        //intro to second example
+        item.font = "30px Script";
+        //styling for example
+        item.fillText('<a href="index.html"></a>', canvas.width / 2, 530);
+        //2nd example
+        item.font = "25px Script";
+        //restoring defaults
+        item.strokeText('To get styles to connect with your webpage, you would need to use:', canvas.width / 2, 580);
+        //intro to 3rd example
+        item.font = "30px Script";
+        item.fillText('<link href="styles.css" rel="stylesheet">', canvas.width / 2, 630);
+        item.font = "25px Script";
+        item.strokeText("To hook up a script to your webpage, you will need the command:", canvas.width / 2, 680);
+        item.font = "30px Script";
+        item.fillText('<script src="script.js"></ script >', canvas.width / 2, 730);
+        item.font = "25px Script";
+        //two more examples
+        item.strokeText("If you don't want to link the file to the page, then you can", canvas.width / 2, 780);
+        //intro to more examples
+        item.font = "30px Script";
+        //style for examples
+        item.fillText("Use <style></style>, to put your CSS code in between the tags and have it in an HTML document.", canvas.width / 2, 830);
+        item.fillText("Use <script></ script>, to put your JavaScript and a couple of other", canvas.width / 2, 880);
+        item.fillText("languages in your HTML document.", canvas.width / 2, 910);
+        //two last examples for this lesson
+        item.strokeStyle = "rgb(200, 185, 255)";
+        item.fillStyle = "rgb(0, 255, 122)";
+        item.font = "40px Impact";
+        item.fillText("Ready For A Quick Quiz On What You Have Learned So Far?", canvas.width / 2, 960);
+        item.font = "25px Tw Cen MT";
+        item.strokeText("P.S.: It's okay to cheat!!!", canvas.width / 2, 990);
+    </script>
+    <!--Quick Quiz on Everything So Far...-->
+
+    <form action="html_quiz2.php" method="post" id="quick_quiz1">
+        <div>
+            <!--Question 1 (All Questions Multiple Choice)-->
+            <h3>1. What is the correct way to make a header of largest size?</h3>
+            <div>
+                <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
+                <label for="question-1-answers-A"><strong>A)</strong> &lth1&gt&lth1&gt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+                <label for="question-1-answers-B"><strong>B)</strong> &gth1&lt&gt/h1&lt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
+                <label for="question-1-answers-C"><strong>C)</strong> &lth1&gt&lt/h1&gt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
+                <label for="question-1-answers-D"><strong>D)</strong> &lt/h1&gt&lth1&gt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-1-answers" id="question-1-answers-E" value="E" />
+                <label for="question-1-answers-E"><strong>E)</strong> None of the above.</label>
+            </div>
+        </div>
+        <div>
+            <!--Question 2-->
+            <h3>2. What Comes First In An HTML Document?</h3>
+            <div>
+                <input type="radio" name="question-2-answers" id="question-2-answers-A" value="A" />
+                <label for="question-2-answers-A"><strong>A)</strong> &lthead&gt&lt/head&gt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-2-answers" id="question-2-answers-B" value="B" />
+                <label for="question-2-answers-B"><strong>B)</strong> &lthtml&gt&lt/html&gt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-2-answers" id="question-2-answers-C" value="C" />
+                <label for="question-2-answers-C"><strong>C)</strong> &ltbody&gt&lt/body&gt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-2-answers" id="question-2-answers-D" value="D" />
+                <label for="question-2-answers-D"><strong>D)</strong> &lt!DOCTYPE HTML&gt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-2-answers" id="question-2-answers-E" value="E" />
+                <label for="question-2-answers-E"><strong>E)</strong> None of the above.</label>
+            </div>
+        </div>
+        <div>
+            <!--Question 3-->
+            <h3>3. Which tags would you use to make an Italic yet Bold paragraph?</h3>
+
+            <div>
+                <input type="radio" name="question-3-answers" id="question-3-answers-A" value="A" />
+                <label for="question-3-answers-A"><strong>A)</strong> &ltp&gt&lti&gt&ltb&gtYour text goes here&lt/b&gt&lt/i&gt&lt/p&gt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-3-answers" id="question-3-answers-B" value="B" />
+                <label for="question-3-answers-B"><strong>B)</strong> &lti&gtYour text goes here&ltstrong&gt&ltp&gt&lt/i&gt&lt/strong&gt</label>
+            </div>
+            <div>
+                <input type="radio" name="question-3-answers" id="question-3-answers-C" value="C" />
+                <label for="question-3-answers-C"><strong>C)</strong> &ltem&gt&ltp&gt&ltstrong&gtYour text goes here&lt/strong&gt&lt/p&gt&lt/em&gt</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-3-answers" id="question-3-answers-D" value="D" />
+                <label for="question-3-answers-D"><strong>D)</strong> A and C are both correct.</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-3-answers" id="question-3-answers-E" value="E" />
+                <label for="question-3-answers-E"><strong>E)</strong> None of the above.</label>
+            </div>
+        </div>
+        <div>
+            <!--Question 4-->
+            <h3>4. What is one language you put in between the &ltstyle&gt&lt/style&gt tags?</h3>
+
+            <div>
+                <input type="radio" name="question-4-answers" id="question-4-answers-A" value="A" />
+                <label for="question-4-answers-A"><strong>A)</strong> JavaScript</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-4-answers" id="question-4-answers-B" value="B" />
+                <label for="question-4-answers-B"><strong>B)</strong> CSS</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-4-answers" id="question-4-answers-C" value="C" />
+                <label for="question-4-answers-C"><strong>C)</strong> JQuery</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-4-answers" id="question-4-answers-D" value="D" />
+                <label for="question-4-answers-D"><strong>D)</strong> HTML</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-4-answers" id="question-4-answers-E" value="E" />
+                <label for="question-4-answers-E"><strong>E)</strong> None of the above.</label>
+            </div>
+        </div>
+        <div>
+            <!--Question 5-->
+            <h3>5. What are the &ltscript&gt&lt/script&gt tags used for?</h3>
+
+            <div>
+                <input type="radio" name="question-5-answers" id="question-5-answers-A" value="A" />
+                <label for="question-4-answers-A"><strong>A)</strong> Making the font into a handwriting font.</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-5-answers" id="question-5-answers-B" value="B" />
+                <label for="question-5-answers-B"><strong>B)</strong> Housing another langauge for use in HTML.</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-5-answers" id="question-5-answers-C" value="C" />
+                <label for="question-5-answers-C"><strong>C)</strong> Making user input in HTML.</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-5-answers" id="question-5-answers-D" value="D" />
+                <label for="question-5-answers-D"><strong>D)</strong> B and C are both correct.</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-5-answers" id="question-5-answers-E" value="E" />
+                <label for="question-5-answers-E"><strong>E)</strong> None of the Above.</label>
+            </div>
+        </div>
+        <div>
+            <!--Question 6-->
+            <h3>6. What does HTML stand for?</h3>
+
+            <div>
+                <input type="radio" name="question-6-answers" id="question-6-answers-A" value="A" />
+                <label for="question-6-answers-A"><strong>A)</strong> Highly Toxic Mental Limitations</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-6-answers" id="question-6-answers-B" value="B" />
+                <label for="question-6-answers-B"><strong>B)</strong> Highly Toxic Miniscual Licorice</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-6-answers" id="question-6-answers-C" value="C" />
+                <label for="question-6-answers-C"><strong>C)</strong> Hyper-Text Markup Language</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-6-answers" id="question-6-answers-D" value="D" />
+                <label for="question-6-answers-D"><strong>D)</strong> High-Tech Meaning Of Life</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-6-anwsers" id="question-5-answers-E" value="D" />
+                <label for="question-6-answers-E"><strong>E)</strong> None of The Above</label>
+            </div>
+        </div>
+        <div>
+            <!--Last Question(7.)-->
+            <h3>7. Lastly, under what circumstance could you use HTML?</h3>
+
+            <div>
+                <input type="radio" name="question-7-answers" id="question-7-answers-A" value="A" />
+                <label for="question-7-answers-A"><strong>A)</strong> A friend asks you to build him a website for his newly opened coffee-house.</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-7-answers" id="question-7-answers-B" value="B" />
+                <label for="question-7-answers-B"><strong>B)</strong> You want to make a small web game with a dog as the main character.</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-7-answers" id="question-7-answers-C" value="C" />
+                <label for="question-7-answers-C"><strong>C)</strong> You'd like to make a place where people can share their photos of interesting places.</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-7-answers" id="question-7-answers-D" value="D" />
+                <label for="question-7-answers-D"><strong>D)</strong> All of the above.</label>
+            </div>
+
+            <div>
+                <input type="radio" name="question-7-answers" id="question-7-answers-E"value="E" />
+                <label for="question-7-answers-E"><strong>E)</strong> None of the above.</label>
+            </div>
+        </div>
+        <div id="submit">
+            <button class="button"><span>Submit Your Mini-Quiz! </span></button>
+        </div>
+    </form>
+    <!--Lesson 6: HTML Attributes-->
+    <canvas width="100px" height="500px" id="attributes"></canvas>
+    <script>
+        var canvas = document.getElementById("attributes");
+        canvas.width = document.body.clientWidth;
+        var item = canvas.getContext("2d");
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "green");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+        item.textAlign = "center";
+        item.font = "100px Fantasy";
+        item.fillStyle = "red";
+        item.fillText("Attributes", canvas.width / 2, 100);
+        //title
+        item.fillStyle = "orange";
+        item.font = "25px Script";
+        item.strokeStyle = "yellow";
+        item.strokeText("Most HTML tags have attributes. Attributes in HTML go in the start tag.", canvas.width / 2, 130);
+        item.fillText("Attributes are traits or characteristics of a certain object. They modify HTML elements.", canvas.width / 2, 160);
+        item.strokeText("In this case, the object is whatever is in between the start and end tags.", canvas.width / 2, 190);
+        item.fillText('For instance, <p style="color:blue;">HI</p>', canvas.width / 2, 220);
+        item.fillText('style="color:blue;" makes the text blue inside the <p> tags.', canvas.width / 2, 250);
+        item.strokeText("There are many attributes for diffrent HTML tags.", canvas.width / 2, 280);
+        item.strokeText('For some ceratin elements, you can change the height and width by width="__px" and height="__px".', canvas.width / 2, 310);
+        item.fillText("(px means pixels)", canvas.width / 2, 340);
+        item.strokeText('Text boxes, buttons, canvas, and more are resizable using the "width" and "height" attributes.', canvas.width / 2, 370);
+        item.strokeText('Many HTML elements can have the "style" attribute.', canvas.width / 2, 400);
+        item.strokeText('In the style attribute, you can directly input CSS code without any formatting. (No spaces, no indenting. Just Semi-Colon after each command.)', canvas.width / 2, 430);
+
+
+
+    </script>
+    <canvas width="100px" height="900px" id="list"></canvas>
+    <!--I use the canvas command to display the gradient backgrounds. As shown below in the JavaScript.-->
+    <!--This will go at the very bottom of the page right before the button to take the quiz.-->
+    <script>
+        
+        //REMEMBER TO ORDER THESE IN THE ORDER THEY WERE DISPLAYED EARLIER!!!!!!!!!!!!
+
+        var canvas = document.getElementById("list");
+        //this tells the JavaScript which canvas to draw the text in
+        canvas.width = document.body.clientWidth;
+        //this is supposed to set the width of the canvas to the width of the viewers screen
+        var item = canvas.getContext("2d");
+        //this is how the browser knows which dimension to draw in
+        var grd = item.createRadialGradient(canvas.width / 2, canvas.height / 2, canvas.width, 0, 0, 20);
+        grd.addColorStop(0, "orange");
+        grd.addColorStop(1, "blue");
+        item.fillStyle = grd;
+        item.fillRect(0, 0, canvas.width, canvas.height);
+        //this is the gradient background
+        item.textAlign = "center";
+        item.font = "75px Agency FB";
+        item.strokeStyle = "pink";
+        //this is the styling for the title
+        item.strokeText("Here is the list of some tags in HTML:", canvas.width / 2, 100);
+        //title
+        item.font = "25px Courier";
+        item.fillStyle = "pink";
+        //this is the styling for the text
+        item.fillText("<p></p>", canvas.width / 2, 150);
+        //this is the HTML paragraph command <p></p>
+        item.fillText("<h (1-6) >1 being the largest size and six being the smallest</h (1-6) >", canvas.width / 2, 200);
+        //this is the HTML header command <h1></h1>, <h2></h2>, <h3></h3>, etc.
+        item.fillText("<head></head>", )
+    </script>
+    <h1><i>Try It Yourself:</i></h1>
+    <input type="text" id="input" cols="70" rows="20" placeholder="Type the <p> command and see it work right in front of you eyes." onclick="output.js"/><input type="text" id="output" cols="70" rows="20" placeholder="The product of your code should show up here" readonly/>
+</body>
+</html>

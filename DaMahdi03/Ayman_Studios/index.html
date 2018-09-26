@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Ayman Studios</title>
+    <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .bgdiv {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+        }
+        .bgdiv:after {
+            content: "\200b";
+        }
+        #overlay {
+            position: fixed;
+            z-index: 1;
+            width: 80%;
+            height: 100%;
+            overflow: auto;
+            margin: 10px;
+            margin-left: 10%;
+            margin-right: 10%;
+            text-align: center;
+        }
+        #header {
+            width: 100%;
+            height: auto;
+            text-align: center;
+            margin: 0 auto;
+            font-family: 'Fugaz One', cursive;
+            font-size: 75px;
+        }
+    </style>
+</head>
+<body>
+    <!--Animated Background-->
+    <script>
+        $(document).ready(function () {
+            createDivs();
+            function createDivs() {
+                //2nd Set:
+                $("body").append("<div class='bgdiv top2' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv right2' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv bottom2' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv left2' style='background-color: " + getRandomColor() + ";'></div>");
+                //1st Set:
+                $("body").append("<div class='bgdiv top' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv right' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv bottom' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bgdiv left' style='background-color: " + getRandomColor() + ";'></div>");
+                setTimeout(function () {
+                    slideDivsSet1();
+                }, 1000);
+            }
+            function slideDivsSet1() {
+                $(".left").animate({
+                    "margin-left": - $(this).width()
+                }, 2000);
+
+                setTimeout(function () {
+                    $(".bottom").animate({
+                        "margin-top": $(this).height()
+                    }, 2000);
+                    $(".left").remove();
+                }, 2000);
+                
+                setTimeout(function () {
+                    $(".right").animate({
+                        "margin-left": $(this).width()
+                    }, 2000);
+                    $(".bottom").remove();
+                }, 4000);
+
+                setTimeout(function () {
+                    $(".top").animate({
+                        "margin-top": - $(this).height()
+                    }, 2000);
+                    $(".right").remove();
+                }, 6000);
+
+                setTimeout(function () {
+                    $(".top").remove();
+                    slideDivsSet2();
+                }, 8000);
+            }
+            function slideDivsSet2() {
+                $(".left2").animate({
+                    "margin-left": - $(this).width()
+                }, 2000);
+
+                setTimeout(function () {
+                    $(".bottom2").animate({
+                        "margin-top": $(this).height()
+                    }, 2000);
+                    $(".left2").remove();
+                }, 2000);
+
+                setTimeout(function () {
+                    $(".right2").animate({
+                        "margin-left": $(this).width()
+                    }, 2000);
+                    $(".bottom2").remove();
+                }, 4000);
+
+                setTimeout(function () {
+                    $(".top2").animate({
+                        "margin-top": - $(this).height()
+                    }, 2000);
+                    $("body").css("background-color", getRandomColor());
+                    $(".right2").remove();
+                }, 6000);
+
+                setTimeout(function () {
+                    $(".top2").remove();
+                    $("body").append("<div class='bgdiv top2' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv right2' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv bottom2' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv left2' style='background-color: " + getRandomColor() + ";'></div>");
+                    //1st Set:
+                    $("body").append("<div class='bgdiv top' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv right' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv bottom' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bgdiv left' style='background-color: " + $("body").css("background-color") + ";'></div>");
+                    slideDivsSet1();
+                }, 8000);
+            }
+            //Random Hex Color Generator
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+    <!--<script>
+        /* hexToComplimentary : Converts hex value to HSL, shifts
+         * hue by 180 degrees and then converts hex, giving complimentary color
+         * as a hex value
+         * @param  [String] hex : hex value  
+         * @return [String] : complimentary color as hex value
+        */
+        function hexToComplimentary(hex) {
+
+            // Convert hex to rgb
+            // Credit to Denis http://stackoverflow.com/a/36253499/4939630
+            var rgb = 'rgb(' + (hex = hex.replace('#', '')).match(new RegExp('(.{' + hex.length / 3 + '})', 'g')).map(function (l) { return parseInt(hex.length % 2 ? l + l : l, 16); }).join(',') + ')';
+
+            // Get array of RGB values
+            rgb = rgb.replace(/[^\d,]/g, '').split(',');
+
+            var r = rgb[0], g = rgb[1], b = rgb[2];
+
+            // Convert RGB to HSL
+            // Adapted from answer by 0x000f http://stackoverflow.com/a/34946092/4939630
+            r /= 255.0;
+            g /= 255.0;
+            b /= 255.0;
+            var max = Math.max(r, g, b);
+            var min = Math.min(r, g, b);
+            var h, s, l = (max + min) / 2.0;
+
+            if (max == min) {
+                h = s = 0;  //achromatic
+            } else {
+                var d = max - min;
+                s = (l > 0.5 ? d / (2.0 - max - min) : d / (max + min));
+
+                if (max == r && g >= b) {
+                    h = 1.0472 * (g - b) / d;
+                } else if (max == r && g < b) {
+                    h = 1.0472 * (g - b) / d + 6.2832;
+                } else if (max == g) {
+                    h = 1.0472 * (b - r) / d + 2.0944;
+                } else if (max == b) {
+                    h = 1.0472 * (r - g) / d + 4.1888;
+                }
+            }
+
+            h = h / 6.2832 * 360.0 + 0;
+
+            // Shift hue to opposite side of wheel and convert to [0-1] value
+            h += 180;
+            if (h > 360) { h -= 360; }
+            h /= 360;
+
+            // Convert h s and l values into r g and b values
+            // Adapted from answer by Mohsen http://stackoverflow.com/a/9493060/4939630
+            if (s === 0) {
+                r = g = b = l; // achromatic
+            }
+            else {
+                var hue2rgb = function hue2rgb(p, q, t) {
+                    if (t < 0) t += 1;
+                    if (t > 1) t -= 1;
+                    if (t < 1 / 6) return p + (q - p) * 6 * t;
+                    if (t < 1 / 2) return q;
+                    if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+                    return p;
+                };
+
+                var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                var p = 2 * l - q;
+
+                r = hue2rgb(p, q, h + 1 / 3);
+                g = hue2rgb(p, q, h);
+                b = hue2rgb(p, q, h - 1 / 3);
+            }
+            r = Math.round(r * 255);
+            g = Math.round(g * 255);
+            b = Math.round(b * 255);
+
+            // Convert r b and g values to hex
+            rgb = b | (g << 8) | (r << 16);
+            return "#" + (0x1000000 | rgb).toString(16).substring(1);
+        }
+        $(document).ready(function () {
+            setInterval(function () {
+                $("#header").css("color", hexToComplimentary($(".bgdiv:last").css("color")));
+            }, 1);
+        });
+    </script>-->
+    <!--Main Content In Div Below-->
+    <div id="overlay">
+        <header id="header">
+            <h1>Ayman Studios</h1>
+        </header>
+        <div id="calculators">
+            <button onclick="calcOpen()">Calculator</button>
+            <div id="hovercalc">
+                <style>
+                    #advcalc {
+                        text-align: center;
+                    }
+
+                    input#sign {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#sign2 {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#size {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#size2 {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#trigset1 {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#trigset2 {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#num {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#zero {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#num2 {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#zero2 {
+                        cursor: pointer;
+                        border-radius: 12px;
+                    }
+
+                    input#numbox {
+                        border-radius: 8px;
+                        text-align: right;
+                        text-overflow: ellipsis;
+                        background-color: rgb(60, 120, 60);
+                        border: none;
+                    }
+
+                    input#display {
+                        border-radius: 8px;
+                        text-align: right;
+                        text-overflow: ellipsis;
+                        background-color: rgb(60, 120, 60);
+                        border: none;
+                    }
+
+                    #display {
+                        width: 469px;
+                        height: 75px;
+                        font-size: 50px;
+                    }
+
+                    #size2 {
+                        width: 75px;
+                        height: 75px;
+                        font-size: 37.5px;
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(0, 0, 0);
+                        border: none;
+                    }
+
+                    #sign2 {
+                        width: 153px;
+                        height: 75px;
+                        font-size: 37.5px;
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(0, 80, 0);
+                        border: none;
+                    }
+
+                    #num2 {
+                        width: 75px;
+                        height: 75px;
+                        font-size: 37.5px;
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(135, 135, 135);
+                        border: none;
+                    }
+
+                    #zero2 {
+                        width: 153px;
+                        height: 75px;
+                        font-size: 37.5px;
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(135, 135, 135);
+                        border: none;
+                    }
+
+                    #trigset1 {
+                        width: 75px;
+                        height: 70px;
+                        font-size: 30px;
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(0, 0, 0);
+                        border: none;
+                    }
+
+                    #trigset2 {
+                        width: 75px;
+                        height: 70px;
+                        font-size: 30px;
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(0, 0, 0);
+                        border: none;
+                    }
+
+                    #num2:hover {
+                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        transition-duration: 0.4s;
+                    }
+
+                    #zero2:hover {
+                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        transition-duration: 0.4s;
+                    }
+
+                    #trigset1:hover {
+                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        transition-duration: 0.4s;
+                    }
+
+                    #trigset2:hover {
+                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        transition-duration: 0.4s;
+                    }
+
+                    #sign2:hover {
+                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        transition-duration: 0.4s;
+                    }
+
+                    #size2:hover {
+                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        transition-duration: 0.4s;
+                    }
+                </style>
+                <form name="advcalc" id="advcalc">
+                    <input type="text" id="display" name="exp" value="" readonly>
+                    <br />
+                    <input type="reset" id="sign2" value="AC">
+                    <input type="button" id="size2" value="&plusmn;" onClick="advcalc.exp.value = advcalc.exp.value / -1">
+                    <input type="button" id="size2" value="&pi;" onClick="advcalc.exp.value = advcalc.exp.value.replace(advcalc.exp.value, Math.PI)">
+                    <input type="button" id="size2" value="!" onClick="advcalc.exp.value = fact(advcalc.exp.value)">
+                    <input type="button" id="size2" value="&larr;" onClick="advcalc.exp.value = advcalc.exp.value.substring(0, advcalc.exp.value.length - 1)">
+                    <br />
+                    <input type="button" id="trigset1" value="sin" onClick="advcalc.exp.value = (Math.sin(advcalc.exp.value) * 180 / Math.PI);">
+                    <input type="button" id="trigset1" value="cos" onClick="advcalc.exp.value = Math.cos(advcalc.exp.value) * 180 / Math.PI;">
+                    <input type="button" id="trigset1" value="tan" onClick="advcalc.exp.value = Math.tan(advcalc.exp.value) * 180 / Math.PI;">
+                    <input type="button" id="trigset2" value="sinh" onClick="advcalc.exp.value = Math.sinh(advcalc.exp.value)">
+                    <input type="button" id="trigset2" value="cosh" onClick="advcalc.exp.value = Math.cosh(advcalc.exp.value)">
+                    <input type="button" id="trigset2" value="tanh" onClick="advcalc.exp.value = Math.tanh(advcalc.exp.value)">
+                    <br />
+                    <input type="button" id="size2" value="1/x" onClick="advcalc.exp.value = 1 / advcalc.exp.value">
+                    <input type="button" id="size2" value="(" onClick="document.advcalc.exp.value += '('">
+                    <input type="button" id="size2" value=")" onClick="document.advcalc.exp.value += ')'">
+                    <input type="button" id="size2" value="|x|" onClick="advcalc.exp.value = Math.abs(advcalc.exp.value)">
+                    <input type="button" id="sign2" value="&divide;" onClick="document.advcalc.exp.value += ' &divide; '">
+                    <br />
+                    <input type="button" id="size2" value="10ˣ" onClick="advcalc.exp.value = Math.pow(10, advcalc.exp.value)">
+                    <input type="button" id="num2" value="7" onClick="document.advcalc.exp.value += '7'">
+                    <input type="button" id="num2" value="8" onClick="document.advcalc.exp.value += '8'">
+                    <input type="button" id="num2" value="9" onClick="document.advcalc.exp.value += '9'">
+                    <input type="button" id="sign2" value="&times;" onClick="document.advcalc.exp.value += ' &times; '">
+                    <br />
+                    <input type="button" id="size2" value="&radic;" onClick="advcalc.exp.value = Math.sqrt(advcalc.exp.value)">
+                    <input type="button" id="num2" value="4" onClick="document.advcalc.exp.value += '4'">
+                    <input type="button" id="num2" value="5" onClick="document.advcalc.exp.value += '5'">
+                    <input type="button" id="num2" value="6" onClick="document.advcalc.exp.value += '6'">
+                    <input type="button" id="sign2" value="&minus;" onClick="document.advcalc.exp.value += ' &minus; '">
+                    <br />
+                    <input type="button" id="size2" value="x&sup2;" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value">
+                    <input type="button" id="num2" value="1" onClick="document.advcalc.exp.value += '1'">
+                    <input type="button" id="num2" value="2" onClick="document.advcalc.exp.value += '2'">
+                    <input type="button" id="num2" value="3" onClick="document.advcalc.exp.value += '3'">
+                    <input type="button" id="sign2" value="+" onClick="document.advcalc.exp.value += '+'">
+                    <br />
+                    <input type="button" id="size2" value="x&sup3;" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value * advcalc.exp.value">
+                    <input type="button" id="zero2" value="0" onClick="document.advcalc.exp.value += '0'">
+                    <input type="button" id="num2" value="." onClick="document.advcalc.exp.value += '.'">
+                    <input type="button" id="sign2" value="=" onClick="document.advcalc.exp.value = evaluate(document.advcalc.exp.value);">
+                </form>
+                <script>
+                    function evaluate(answer) {
+                        if (answer.includes("−") === true) {
+                            answer.replace(/−/gi, "-");
+                            evaluate(document.advcalc.exp.value);
+                        }
+                        else if (answer.includes("×") === true) {
+                            answer.replace(/×/gi, "*");
+                            evaluate(document.advcalc.exp.value);
+                        }
+                        else {
+                            return eval(answer);
+                        }
+                    }
+                </script>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

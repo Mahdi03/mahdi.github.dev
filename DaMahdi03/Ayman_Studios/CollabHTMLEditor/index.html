@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        // Create WebSocket connection.
+        const socket = new WebSocket('ws://hsmscreativitycenter.org/DaMahdi03/Ayman_Studios/CollabHTMLEditor/');
+
+        // Connection opened
+        socket.addEventListener('open', function (event) {
+            socket.send('Hello Server!');
+        });
+
+        // Listen for messages
+        socket.addEventListener('message', function (event) {
+            console.log('Message from server ', event.data);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

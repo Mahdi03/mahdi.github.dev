@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #mainGame {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function startListening() {
+            var recognition = new (webkitSpeechRecognition || SpeechRecognition)();
+            var language = document.getElementById('language-selector').value;
+            if (language === "English") {
+                 recognition.lang = 'en-US';
+            }
+            else if (language === "Spanish") {
+                 recognition.lang = 'es';
+            }
+            else {
+                 recognition.lang = 'en-US';
+            }
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+            recognition.start();
+            //When Something Happens With Mic:
+            [
+            'onaudiostart',
+            'onaudioend',
+            'onend',
+            'onerror',
+            'onnomatch',
+            'onresult',
+            'onsoundstart',
+            'onsoundend',
+            'onspeechend',
+            'onstart'
+            ].forEach(function (eventName) {
+            recognition[eventName] = function (e) {
+                console.log(eventName, e);
+            };
+        });
+        recognition['onend'] = function () {
+        game();
+        };
+        //When Result is calculated
+        recognition['onresult'] = function () {
+        game();
+        };
+        
+        recognition.onstart = function () {
+        window.speechSynthesis.cancel();
+        document.querySelector('#textbox').innerHTML = 'Listening...';
+        };
+        recognition.onresult = function () {
+        document.querySelector('#textbox').innerHTML = event.results[0][0].transcript + "?";
+        canvasClick();
+        };
+        recognition.onerror = function () {
+        document.querySelector('#textbox').innerHTML = `Error...
+        Refresh to continue`;
+        }
+        };
+        (function () {
+        document.querySelector('#start-button').addEventListener('click', startListening());
+        })();
+    </script>
+    <button onclick="startListening()" id="start-button">Click Me!!!</button>
+    <br>
+    <input id="textbox" type="text" disabled>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <h2>
+            9. Now, write Some HTML Code that Shows a "Username: " and "Password: " text inputs with placeholders of "Type Here...". Their classes should be "textbox";
+            Then create normal input button that has an id of "button". The button should read: "Login".
+        </h2>
+        <textarea id="code_terminal1" rows="20" cols="100" name="answer9">
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;My First HTML Quiz&lt;/title&gt;
+&lt;style&gt;
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--Please Type In Your Code After This Line!(This is a Comment in HTML Code)--&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+    </div>
+    <!--10.-->
+    <div>
+        <h2>10. Finally, in the &lt;head&gt; tags, put in some CSS that: </h2>
+        <h3>For the Textboxes:</h3>
+        <ul>
+            <li>Round the corners by 10px.</li>
+            <li>Removes all borders.</li>
+            <li>Sets the background color to rgb(0, 0, 0)</li>
+            <li>Sets the Text color to rgb(255, 255, 255).</li>
+        </ul>
+        <h3>For The Button:</h3>
+        <ul>
+            <li>Round the corners by 10px.</li>
+            <li>Removes all borders.</li>
+            <li>Sets the background color to rgb(0, 0, 0)</li>
+            <li>Sets the Text color to rgb(255, 255, 255).</li>
+        </ul>
+        <textarea id="code_terminal2" rows="20" cols="100" name="answer10"></textarea>
+        <p id="p1" name="p1"></p>
+        <p id="p2" name="p2"></p>
+    </div>
+    <script>
+            var code_terminal2 = document.getElementById('code_terminal2');
+            code_terminal2.onmouseover = function () {
+                var code_terminal1Text = document.getElementById('code_terminal1').value;
+                code_terminal2.appendChild(document.createTextNode(code_terminal1Text));
+            }
+    </script>
+    <!--End Quiz-->
+    <button onclick="translate()">Submit </button>
+    <script>
+            function translate() {
+                var code_terminal2Text = document.getElementById('code_terminal2').value;
+                var code_terminal1Text = document.getElementById('code_terminal1').value;
+                code_terminal1Text = code_terminal1Text.replace("<", "&lt;");
+                code_terminal1Text = code_terminal1Text.replace(">", "&gt;");
+                code_terminal2Text = code_terminal2Text.replace("<", "&lt;");
+                code_terminal2Text = code_terminal2Text.replace(">", "&gt;");
+
+                var code_terminal1 = document.getElementById('code_terminal1');
+                var code_terminal2 = document.getElementById('code_terminal2');
+                var p1 = document.getElementById('p1');
+                var p2 = document.getElementById('p2');
+                p1.innerHTML = code_terminal1Text;
+                p2.innerHTML = code_terminal2Text;
+            }
+    </script>
+
+</body>
+</html>

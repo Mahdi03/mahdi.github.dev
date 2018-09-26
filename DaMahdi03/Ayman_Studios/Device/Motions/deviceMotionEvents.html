@@ -1,0 +1,20 @@
+<DOCTYPE html>
+<script type="text/javascript">
+    window.addEventListener("devicemotion", handleMotion, true);
+    function handleMotion(motions) {
+        var accelerationX = motions.acceleration.x;
+        var accelerationY = motions.acceleration.y;
+        var accelerationZ = motions.acceleration.z;
+        var rotationRate = motions.rotationRate.x;
+        var accelerationIncludingGravity = motions.accelerationIncludingGravity.x;
+        var interval = motions.interval;
+        var translations = document.querySelector('#translations');
+        translations.innerHTML = "However, your device's Acceleration is: " + "<br>";
+        translations.innerHTML += "X: " + accelerationX + "<br>";
+        translations.innerHTML += "Y: " + accelerationY + "<br>";
+        translations.innerHTML += "Z: " + accelerationZ + "<br>";
+    }
+</script>
+<h1>TRANSLATIONS!!!</h1>
+<h2>(Movement)</h2>
+<p id="translations"></p>

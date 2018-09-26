@@ -1,0 +1,44 @@
+﻿#helloWorld {
+    text-align: right;
+    
+}
+p {
+    color: white;
+}
+.textbox {
+    text-align: left;
+    background-color: lightseagreen;
+    border: 3px solid;
+    border-color: rgb(0, 83, 255);
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: Highlight;
+}
+.textbox:focus {
+    border-color: palevioletred;
+}
+#form {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    color: rgb(0, 148, 255);
+}
+body {
+    background-color: lightseagreen;
+}
+.submit {
+    background-color: rgb(0, 83, 255);
+    border: none;
+    padding: 5px;
+    border-radius: 15px;
+}
+.submit:hover {
+    cursor: pointer;
+    background-color: red;
+}
+.submit:active {
+    background-color: hotpink;
+}

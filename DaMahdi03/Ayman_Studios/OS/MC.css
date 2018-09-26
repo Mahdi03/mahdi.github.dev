@@ -1,0 +1,353 @@
+﻿#standOut {
+    font-size: 70px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.standOutIntro {
+    font-size: 40px;
+    padding: 0px;
+    margin: 5px;
+}
+
+.rapContainer {
+    text-align: center;
+    font-size: 30px;
+}
+
+.button {
+    border-radius: 4px;
+    background-color: black;
+    border: 2px solid;
+    border-color: green;
+    color: green;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Elephant';
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 15px;
+}
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.modal {
+    position: relative;
+    -webkit-animation-name: calcanimate;
+    -webkit-animation-duration: 0.5s;
+    animation-name: calcanimate;
+    animation-duration: 0.25s
+}
+
+@-webkit-keyframes calcanimate {
+    from {
+        bottom: -100px;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes calcanimate {
+    from {
+        bottom: -100px;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 0px;
+        opacity: 1;
+    }
+}
+
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatebottom;
+    animation-duration: 0.5s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+body {
+    background-color: black;
+    color: green;
+    font-family: monospace 'Monotype Corsiva';
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+#texts {
+    color: green;
+    font-family: monospace 'Monotype Corsiva';
+    text-align: center;
+}
+#bg_page {
+    text-align: center;
+    position: relative;
+}
+/* The Popup (background) */
+
+.popup {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: black;
+}
+/* Popup Content */
+
+
+.animate-bottom {
+    background-color: black;
+    color: green;
+    font-family: monospace 'Monotype Corsiva';
+    font-size: 20px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: justify;
+    
+}
+
+#content {
+    
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    height: 350px;
+    
+}
+#user_name {
+    display: inline;
+}
+
+.input {
+    background-color: black;
+    color: green;
+    font-family: monospace 'Monotype Corsiva';
+    font-size: 20px;
+    width: 100%;
+    border: 1px solid green;
+    display: inline;
+}
+
+.user_input {
+    display: inline;
+    width: 100%;
+    padding: 5px;
+    font-family: monospace 'Monotype Corsiva';
+    font-size: 20px;
+}
+#submit {
+    background-color: black;
+    color: green;
+    font-family: monospace 'Monotype Corsiva';
+    font-size: 20px;
+    width: 100%;
+    border: 1px solid green;
+    display: inline;
+}
+    #submit:hover {
+        cursor: pointer;
+    }
+
+#input {
+    display: inline;
+    width: 60%;
+    padding: 10px;
+    font-family: monospace 'Monotype Corsiva';
+    font-size: 20px;
+}
+/* The Close Button */
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #808080;
+        text-decoration: none;
+        cursor: pointer;
+    }
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #464646;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: darkgrey;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.closeCalc {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .closeCalc:hover,
+    .closeCalc:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }

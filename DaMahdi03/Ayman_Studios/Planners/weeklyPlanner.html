@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Weekly Planner</title>
+    <style>
+        /*Font For All Normal Text - font-family: 'Noto Sans', sans-serif;*/
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+        /*Font For Buttons - font-family: 'Arvo', serif;*/
+        @import url('https://fonts.googleapis.com/css?family=Arvo');
+
+        body {
+            margin: 20px;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        #title {
+            text-align: center;
+            width: 100%;
+        }
+
+        h1 {
+            margin: 3px auto;
+            text-align: center;
+            border: 2px dashed rgb(22, 22, 22);
+            width: 30%;
+        }
+
+            h1:focus {
+                border-color: rgb(0, 0, 0);
+            }
+
+        table, tr, th, td {
+            border: 3px solid;
+            border-color: rgb(0, 148, 255);
+            border-radius: 5px;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        td {
+            text-align: justify;
+        }
+
+        #tableField {
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        #weekPlan {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        #buttons {
+            float: right;
+            width: 50%;
+        }
+
+        .icon {
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+
+        button {
+            width: 250px;
+            height: 60px;
+            margin-bottom: 15px;
+            border-radius: 25px;
+            border: 3px outset;
+            border-color: rgb(0, 148, 255);
+            color: rgb(27, 62, 87);
+            background-color: rgb(119, 187, 235);
+            font-family: 'Arvo', serif;
+            font-size: 20px;
+        }
+
+            button:active {
+                border: 3px inset;
+                border-color: rgb(0, 148, 255);
+            }
+
+            button:hover, .colorWrap:hover, input[type=color]:hover {
+                cursor: pointer;
+            }
+            
+            .noGrab:hover {
+                 cursor: not-allowed;
+            }
+
+        input[type=color] {
+            opacity: 0;
+            width: 20px;
+            height: 20px;
+        }
+
+        #colors {
+            float: left;
+            width: 50%;
+        }
+
+        .colorWrap {
+            display: inline;
+            width: 18px;
+            height: 18px;
+            border: 2px outset;
+            padding: 0;
+        }
+
+            .colorWrap:active {
+                border: inset 2px;
+            }
+
+        th[data-placeholder]:not(:focus):empty:after, td[data-placeholder]:not(:focus):empty:after {
+            content: attr(data-placeholder);
+            color: #b3b3b3;
+        }
+        /*Hide Everything Else When window.print();*/
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #weekPlan, h1, #weekPlan * {
+                visibility: visible;
+            }
+
+            #weekPlan {
+                position: relative;
+                left: 0;
+                top: 0;
+            }
+
+            h1 {
+                border: none;
+            }
+
+            th[data-placeholder]:not(:focus):empty:after, td[data-placeholder]:not(:focus):empty:after {
+                content: "";
+            }
+        }
+    </style>
+    <!--Google Firebase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDAw7PwC554EsWQpnN_XQw3f3Am89ItW1Y",
+            authDomain: "simply-planning-life.firebaseapp.com",
+            databaseURL: "https://simply-planning-life.firebaseio.com",
+            projectId: "simply-planning-life",
+            storageBucket: "simply-planning-life.appspot.com",
+            messagingSenderId: "1090342730977"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!--Add Ads From Google AdSense-->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8495483038077603",
+        enable_page_level_ads: true
+      });
+    </script>
+    <!--JQuery Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--JQuery UI Styles and Script-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div id="title">
+        <h1 contenteditable="true" title="Customize the Title">Weekly Planner</h1>
+    </div>
+    <br />
+    <div id="tableField">
+        <table id="weekPlan">
+            <tr>
+                <th>Times</th>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thurs</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+            <tr>
+                <th data-placeholder="6:00-7:00"></th>
+                <td data-placeholder="N/A"></td>
+                <td data-placeholder="Get Ready For Work"></td>
+                <td data-placeholder="Get Ready For Work"></td>
+                <td data-placeholder="Get Ready For Work"></td>
+                <td data-placeholder="Get Ready For Work"></td>
+                <td data-placeholder="Get Ready For Work"></td>
+                <td data-placeholder="N/A"></td>
+            </tr>
+            <tr>
+                <th data-placeholder="7:00-8:00"></th>
+                <td data-placeholder="N/A"></td>
+                <td data-placeholder="Drive To Work"></td>
+                <td data-placeholder="Drive To Work"></td>
+                <td data-placeholder="Drive To Work"></td>
+                <td data-placeholder="Drive To Work"></td>
+                <td data-placeholder="Drive To Work"></td>
+                <td data-placeholder="N/A"></td>
+            </tr>
+            <tr>
+                <th data-placeholder="10:00"></th>
+                <td data-placeholder="Wake Up"></td>
+                <td data-placeholder="Snack Time"></td>
+                <td data-placeholder="Snack Time"></td>
+                <td data-placeholder="Snack Time"></td>
+                <td data-placeholder="Snack Time"></td>
+                <td data-placeholder="Snack Time"></td>
+                <td data-placeholder="Wake Up"></td>
+            </tr>
+            <tr>
+                <th data-placeholder="1:00"></th>
+                <td data-placeholder="Lunch"></td>
+                <td data-placeholder="Lunch"></td>
+                <td data-placeholder="Lunch"></td>
+                <td data-placeholder="Lunch"></td>
+                <td data-placeholder="Lunch"></td>
+                <td data-placeholder="Lunch"></td>
+                <td data-placeholder="Lunch"></td>
+            </tr>
+            <tr id="addText">
+                <td colspan="8" style="text-align: center;" data-placeholder="Add More..."></td>
+            </tr>
+        </table>
+        <br />
+        <div id="colors">
+            <h2><u>Customize</u>:</h2>
+            Choose a Text Color: <div id="textColorWrap" class="colorWrap"><input id="textColor" type="color" onchange="refreshColors(); updateDivColorWraps();" title="Choose a Color" value="#000000" style="background-color: #000000;" /></div><br /><br />
+            Choose a Background Color: <div id="bgColorWrap" class="colorWrap"><input id="bgColor" type="color" onchange="refreshColors(); updateDivColorWraps();" title="Choose a Color" value="#ffffff" style="background-color: #ffffff" /></div><br /><br />
+            Choose a Border Color: <div id="borderColorWrap" class="colorWrap"><input id="borderColor" type="color" onchange="refreshColors(); updateDivColorWraps();" title="Choose a Color" value="#0094ff" style="background-color: #0094ff" /></div>
+        </div>
+        <div id="buttons">
+            <button id="addRow" title="Add Another Row"><span class="icon">&#10010;</span> Add Row</button>
+            <button id="rearrangeRows" title="Rearrange The Rows In The Table"><span class="icon">&#9776;</span> Rearrange Rows</button>
+            <button id="printWeekPlan" title="Print or Save to PDF"><span class="icon">&#128438;</span> Print Week Planner</button>
+            <button id="downloadAsHTML" title="Save to Device And Continue Working Later"><span class="icon"><strong>&#8681;</strong></span> Download As HTML</button>
+        </div>
+    </div>
+    <!--Main Script To Trigger All Events-->
+    <!--Script At End To Speed Up Loading-->
+    <script>
+        alert("Remember to customize your table's colors!");
+        updateDivColorWraps();
+        $("#weekPlan").css("max-width", $("#weekPlan").outerWidth());
+        //Make Text Boxes Editable
+        $("td").attr("contenteditable", true);
+        $("td").attr("spellcheck", true);
+        $("tr:gt(0) th").attr("contenteditable", true);
+        $("tr:gt(0) th").attr("spellcheck", true);
+        //Create|Update\\ Tooltips For Table OnMouseOver and OnKeyUp
+        $("th, td").on("mouseover", function () {
+            var title = String($(this).text());
+            $(this).attr("title", title);
+        });
+        $("th, td").on("keyup", function () {
+            var title = String($(this).text());
+            $(this).attr("title", title);
+        });
+
+        /*Table Editing Properties*/
+        //Add Row To Bottom Of Table
+        $("#addRow").on("click", function () {
+            addRow();
+        });
+        function addRow() {
+            var tableRow = '<tr><th data-placeholder="1:00"></th><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td></tr>';
+            $("#weekPlan").append(tableRow);
+            $("#addText").remove();
+            $("td").attr("contenteditable", true);
+            $("td").attr("spellcheck", true);
+            $("tr:gt(0) th").attr("contenteditable", true);
+            $("tr:gt(0) th").attr("spellcheck", true);
+            refreshColors();
+        }
+        $("#rearrangeRows").on("click", function () {
+            rearrangeRows();
+        });
+        function rearrangeRows() {
+            $("tr:first").prepend('<td class="grab noGrab" style="color: rgb(185, 185, 185);">&#9776;</td>')
+            $("tr:gt(0)").prepend('<td class="grab">&#9776;</td>');
+            $("#buttons").css("display", "none");
+            $("#tableField").append('<button id="doneRearrangingRows" title="Finish Rearranging Rows In The Table">Done...</button>');
+            $("#doneRearrangingRows").on("click", function () {
+                endRearrangeRows();
+            });
+            console.log("Rearranging Session Started...");
+        }
+        function endRearrangeRows() {
+            $(".grab, #doneRearrangingRows").remove();
+            $("#buttons").css("display", "block");
+            console.log("Rearranging Session Ended...");
+        }
+        //Enforce Colors on Table
+        function refreshColors() {
+            var textColor = $("#textColor").val();
+            $("tr, td").css("color", textColor);
+            var bgColor = $("#bgColor").val();
+            $("#weekPlan").css("backgroundColor", bgColor);
+            var borderColor = $("#borderColor").val();
+            $("table, tr, th, td").css("borderColor", borderColor);
+        }
+        //Disguise Div Color Wraps As Their Children Input[Type=Color]
+        $("#textColorWrap").on("click", function () {
+            $("#textColor").trigger("click");
+        });
+        $("#bgColorWrap").on("click", function () {
+            $("#bgColor").trigger("click");
+        });
+        $("#borderColorWrap").on("click", function () {
+            $("#borderColor").trigger("click");
+        });
+        function updateDivColorWraps() {
+            $("#textColorWrap").css("backgroundColor", $("#textColor").val());
+            $("#bgColorWrap").css("backgroundColor", $("#bgColor").val());
+            $("#borderColorWrap").css("backgroundColor", $("#borderColor").val());
+        }
+        //Print Table
+        $("#printWeekPlan").on("click", function () {
+            window.print();
+        });
+        //Download Table And Editor As HTML For Later Editing (Save & Continue)
+        $("#downloadAsHTML").on("click", function () {
+            var filename = String($("h1").html() + ".html");
+            filename.replace(/br/gi, " ");
+            $("#colors").remove();
+            var HTMLData = String($("html").html());
+            downloadAsHTML(filename, HTMLData);
+        });
+        function downloadAsHTML(filename, data) {
+            var a = document.createElement("a");
+            a.setAttribute("href", "data:text/html;charset=utf-8," + encodeURIComponent(data));
+            a.setAttribute("download", filename);
+            a.style.display = "none";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+    <br />
+    <hr />
+    <br />
+    <style>
+        .grab {
+            cursor: grab;
+        }
+
+        .grabbed {
+            box-shadow: 0 0 13px #000;
+        }
+
+        .grabCursor, .grabCursor * {
+            cursor: grabbing !important;
+        }
+    </style>
+    <table>
+        <tr><th>...</th></tr>
+        <tr><td class="grab">&#9776;</td><td>...</td></tr>
+    </table>
+
+    <script>
+        $(".grab").mousedown(function (e) {
+            var tr = $(e.target).closest("TR"), si = tr.index(), sy = e.pageY, b = $(document.body), drag;
+            if (si == 0) return;
+            b.addClass("grabCursor").css("userSelect", "none");
+            tr.addClass("grabbed");
+            function move(e) {
+                if (!drag && Math.abs(e.pageY - sy) < 10) return;
+                drag = true;
+                tr.siblings().each(function () {
+                    var s = $(this), i = s.index(), y = s.offset().top;
+                    if (i > 0 && e.pageY >= y && e.pageY < y + s.outerHeight()) {
+                        if (i < tr.index())
+                            s.insertAfter(tr);
+                        else
+                            s.insertBefore(tr);
+                        return false;
+                    }
+                });
+            }
+            function up(e) {
+                if (drag && si != tr.index()) {
+                    drag = false;
+                    alert("moved!");
+                }
+                $(document).unbind("mousemove", move).unbind("mouseup", up);
+                b.removeClass("grabCursor").css("userSelect", "none");
+                tr.removeClass("grabbed");
+            }
+            $(document).mousemove(move).mouseup(up);
+        });
+    </script>
+</body>
+</html>

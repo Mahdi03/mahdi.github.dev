@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Slide</title>
+    <link href="https://fonts.googleapis.com/css?family=Titan+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        div {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+        }
+        div:after {
+            content: "\200b";
+        }
+        #overlay {
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: table;
+            overflow: auto;
+        }
+        #overlay p {
+            margin: 50px;
+            padding: 20px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            color: aliceblue;
+            font-size: 250%;
+            font-family: 'Merienda', cursive;
+        }
+        #row1 {
+            text-align: center;
+            width: 100%;
+            height: 15%;
+        }
+        #row2 {
+            width: 100%;
+            text-align: center;
+        }
+        #row3 {
+            width: 100%;
+            position: fixed;
+            clear: both;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        #row3 h1 {
+            font-family: 'Titan One', cursive;
+            font-size: 250%;
+            color: rgba(102, 95, 95, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <!--Script for Animated Background-->
+    <script>
+        $(document).ready(function () {
+            createDivs();
+            function createDivs() {
+                //2nd Set:
+                $("body").append("<div class='top2' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='right2' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bottom2' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='left2' style='background-color: " + getRandomColor() + ";'></div>");
+                //1st Set:
+                $("body").append("<div class='top' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='right' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='bottom' style='background-color: " + getRandomColor() + ";'></div>");
+                $("body").append("<div class='left' style='background-color: " + getRandomColor() + ";'></div>");
+                setTimeout(function () {
+                    slideDivsSet1();
+                }, 1000);
+            }
+            function slideDivsSet1() {
+                $(".left").animate({
+                    "margin-left": - $(this).width()
+                }, 2000);
+
+                setTimeout(function () {
+                    $(".bottom").animate({
+                        "margin-top": $(this).height()
+                    }, 2000);
+                    $(".left").remove();
+                }, 2000);
+                
+                setTimeout(function () {
+                    $(".right").animate({
+                        "margin-left": $(this).width()
+                    }, 2000);
+                    $(".bottom").remove();
+                }, 4000);
+
+                setTimeout(function () {
+                    $(".top").animate({
+                        "margin-top": - $(this).height()
+                    }, 2000);
+                    $(".right").remove();
+                }, 6000);
+
+                setTimeout(function () {
+                    $(".top").remove();
+                    slideDivsSet2();
+                }, 8000);
+            }
+            function slideDivsSet2() {
+                $(".left2").animate({
+                    "margin-left": - $(this).width()
+                }, 2000);
+
+                setTimeout(function () {
+                    $(".bottom2").animate({
+                        "margin-top": $(this).height()
+                    }, 2000);
+                    $(".left2").remove();
+                }, 2000);
+
+                setTimeout(function () {
+                    $(".right2").animate({
+                        "margin-left": $(this).width()
+                    }, 2000);
+                    $(".bottom2").remove();
+                }, 4000);
+
+                setTimeout(function () {
+                    $(".top2").animate({
+                        "margin-top": - $(this).height()
+                    }, 2000);
+                    $("body").css("background-color", getRandomColor());
+                    $(".right2").remove();
+                }, 6000);
+
+                setTimeout(function () {
+                    $(".top2").remove();
+                    $("body").append("<div class='top2' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='right2' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bottom2' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='left2' style='background-color: " + getRandomColor() + ";'></div>");
+                    //1st Set:
+                    $("body").append("<div class='top' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='right' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='bottom' style='background-color: " + getRandomColor() + ";'></div>");
+                    $("body").append("<div class='left' style='background-color: " + $("body").css("background-color") + ";'></div>");
+                    slideDivsSet1();
+                }, 8000);
+            }
+            //Random Hex Color Generator
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+    <!--Script for Timer-->
+    <script>
+        $(document).ready(function () {
+            //Hours
+            var hour = Number(localStorage.getItem('hour'));
+            setInterval(function () {
+                hour++;
+                localStorage.setItem('hour', hour);
+            }, 3600000);
+            //Minutes
+            var min = Number(localStorage.getItem('min'));
+            setInterval(function () {
+                min++;
+                if (min > 59) {
+                    min = 0;
+                }
+                if (min === 59) {
+                    hour++;
+                }
+                localStorage.setItem('min', min);
+                localStorage.setItem('hour', hour);
+            }, 60000);
+            
+            //Seconds
+            var sec = Number(localStorage.getItem('sec'));
+            setInterval(function () {
+                sec++;
+                if (sec > 59) {
+                    sec = 0;
+                }
+                if (sec === 59) {
+                    min++;
+                }
+                localStorage.setItem('sec', sec);
+                localStorage.setItem('min', min);
+            }, 1000);
+            //Wiped From Program b/c Devices Not Fast Enough to Compute and Show MilliSeconds Along With Other Complex JS Methods
+            //MilliSeconds
+            /*
+            var milliSec = 0;
+            setInterval(function () {
+                milliSec++;
+                if (milliSec > 1000) {
+                    milliSec = 0;
+                }
+            }, 1);
+            */
+            setInterval(function () {
+                $("#stopwatch").html("<u>You've been on this website for</u>: <br /> " + hour + " hours, " + min + " minutes, and " + sec + " seconds.");
+            }, 1);
+            
+        });
+    </script>
+    <article id="overlay">
+        <section id="row1">
+            <p><b>Enjoy these infinite random color-changing animations!!!</b></p>
+        </section>
+        <section id="row2">
+            <p id="stopwatch"></p>
+        </section>
+        <section id="row3">
+            <p><em>This was made using only a couple lines of HTML and mainly JQuery (A JavaScript Library)!!</em></p>
+            <marquee><h1>by Ayman Studios</h1></marquee>
+        </section>
+    </article>
+</body>
+</html>

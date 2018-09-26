@@ -1,0 +1,214 @@
+/* CSS Document */
+h2#headerinfo {
+    text-align: center;
+    font-size: 50px;
+    color: rgb(26, 79, 165);
+}
+h3#headerinfo {
+    text-align: center;
+    font-size: 45px;
+    color: rgb(163, 65, 25);
+}
+#title1 {
+    text-align: center;
+    font-size: 75px;
+    color: rgb(3, 168, 158);
+}
+#numbox {
+    width: 517px; height: 100px;
+    font-size: 50px;
+}
+#calculator {
+    text-align:center;
+}
+#size {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: none;
+}
+#size:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#sign:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#num:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#zero:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#sign {
+    width: 204px;
+    height: 100px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 80, 0);
+    border: none;
+}
+#num {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(135, 135, 135);
+    border: none;
+}
+#zero {
+    width: 204px;
+    height: 100px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(135, 135, 135);
+    border: none;
+}
+.hi {
+    font-size: 0px;
+}
+#title2 {
+    text-align: center;
+    font-size: 70px;
+    color: rgb(168, 42, 3);
+}
+#advcalc {
+    text-align: center;
+}
+input#sign {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#sign2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#size {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#size2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#trigset1 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#trigset2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#num {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#zero {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#num2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#zero2 {
+    cursor: pointer;
+    border-radius: 12px;
+}
+input#numbox {
+    border-radius: 8px;
+    text-align: right;
+    text-overflow: ellipsis;
+    background-color: rgb(60, 120, 60);
+    border: none;
+}
+input#display {
+    border-radius: 8px;
+    text-align: right;
+    text-overflow: ellipsis;
+    background-color: rgb(60, 120, 60);
+    border: none;
+}
+#display {
+    width: 469px;
+    height: 75px;
+    font-size: 50px;
+}
+#size2 {
+    width: 75px;
+    height: 75px;
+    font-size: 37.5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: none;
+}
+
+#sign2 {
+    width: 153px;
+    height: 75px;
+    font-size: 37.5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 80, 0);
+    border: none;
+}
+#num2 {
+    width: 75px;
+    height: 75px;
+    font-size: 37.5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(135, 135, 135);
+    border: none;
+}
+#zero2 {
+    width: 153px;
+    height: 75px;
+    font-size: 37.5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(135, 135, 135);
+    border: none;
+}
+#trigset1 {
+    width: 75px;
+    height: 70px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: none;
+}
+#trigset2 {
+    width: 75px;
+    height: 70px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: none;
+}
+#num2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#zero2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#trigset1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#trigset2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#sign2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}
+#size2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+}

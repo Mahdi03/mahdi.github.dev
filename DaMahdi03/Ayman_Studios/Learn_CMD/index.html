@@ -1,0 +1,997 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Learn CMD</title>
+    <link href="Icons/CMDIcon.ico" rel="icon" />
+    <style>
+        @font-face {
+            font-family: Consolas;
+            src: url(Fonts/Consolas.ttf);
+        }
+        body {
+            color: rgb(0, 255, 0);
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
+            font-family: Consolas;
+        }
+        #cmdWindow {
+            position: absolute;
+            height: 500px;
+            width: 975px;
+            top: 100px;
+            left: 100px;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            z-index: 100;
+            display: none;
+        }
+        #cmdWindowHeader {
+            width: 100%;
+            height: 5%;
+            background-color: rgba(0, 148, 255, 0.75);
+            z-index: 100;
+        }
+        #windowControlButtons {
+            margin: 0;
+            padding: 0;
+            display: inline;
+            width: 100%;
+            background-color: rgba(0, 148, 255, 0.75);
+            height: 10%;
+        }
+        #CMDIcon, #location {
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+        #CMDIcon {
+            width: 24px;
+            height: 24px;
+        }
+        #location {
+            color: rgb(0, 0, 0);
+            font-family: Arial;
+            font-size: 15px;
+        }
+        #close, #maximize, #minimize {
+            margin: 0;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            float: right;
+        }
+        #cmdWindowContent {
+            color: rgb(0, 255, 0);
+            background-color: rgb(0, 0, 0);
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
+            font-family: Consolas;
+            width: 100%;
+            height: 95%;
+            overflow-y: scroll;
+            z-index: 101;
+        }
+
+        #cmd {
+            word-wrap: break-word;
+            cursor: default;
+            text-align: left;
+            float: left;
+            white-space: pre-wrap;
+        }
+            /*Changes Highlight Properties Of Text Inside CMD*/
+            #cmd::selection, .typeable::selection {
+                background-color: rgb(255, 255, 255);
+                color: rgb(255, 0, 255);
+            }
+            #cmd::-moz-selection, .typeable::-moz-selection {
+                background-color: rgb(255, 255, 255);
+                color: rgb(255, 0, 255);
+            }
+        .typeable {
+            font-family: Consolas;
+            font-size: 16px;
+            border: none;
+            margin: 0;
+            padding: 0;
+            word-break: break-word;
+            display: inline;
+            position: page;
+        }
+    </style>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8495483038077603",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!--JQuery Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--JQuery UI Styles and Script-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div id="cmdWindow" spellcheck="false" draggable="false">
+        <div id="cmdWindowHeader">
+            <div id="windowControlButtons">
+                <img id="CMDIcon" src="Icons/CMDIcon.png" alt="CMD Icon" />
+                <span id="location"></span>
+                <button id="close" onclick="closeCMD()">&times;</button>
+                <button id="maximize" onclick="maximizeCMD()">&#9645;</button>
+                <button id="minimize" onclick="minimizeCMD()">&minus;</button>
+            </div>
+        </div>
+        <div id="cmdWindowContent">
+            <!--Content To Be Added Here By JS and User-->
+            <div id="cmd" oncopy="cmdCopy()" oncut="cmdCut()"></div>
+            <!--BR's Used To Fill Up Space To Simulate Real CMD-->
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+    <button onclick="loadCMD()">CMD!!!</button>
+    <script>
+        //Global Vars
+        var name;
+        var introRun = true;
+        var echo = true;
+        var dir = String("C:\\Users\\" + name + ">");
+        var signedIn = false;
+
+        function loadCMD() {
+            getName();
+        }
+        function getName() {
+            var username = localStorage.getItem('learnCMDName');
+            name = username;
+            if (username === null || username === "") {
+                name = prompt("What Is Your Name?");
+                localStorage.setItem('learnCMDName', name);
+            }
+            openCMD();
+        }
+        function runIntro() {
+            if (introRun) {
+                $("#cmdWindow").show("fade", 500).dequeue().show("scale", 500);
+                setTimeout(typingEffect, 1000);
+                var introString = "Welcome to Learn CMD, " + name + "!!! In this tutorial, you will learn many things about the Windows Command Line Interface, or the Windows CLI for short. To get started, type HELP INTRO";
+                var i = 0;
+                var speed = 100;
+                function typingEffect() {
+                    if (i < introString.length) {
+                        document.querySelector("#cmd").innerHTML += introString.charAt(i);
+                        i++;
+                        setTimeout(typingEffect, speed);
+                    }
+                    else if (i = introString.length) {
+                        $("#cmd").append("<br />*CAPS or no caps, it doesn't matter.*");
+                        readLine();
+                    }
+                }
+                introRun = false;
+            }
+        }
+        /*$("#cmdWindowHeader").draggable({
+            addClasses: false,
+            containment: "window"
+        });*/
+        function CMD() {
+            var inputTerm = String(stripHTML($("#active").text())).toLowerCase();
+
+            var listOfWords = inputTerm.split(" ");
+            var totalAmountOfWords = listOfWords.length;
+            var firstWord = String(stripHTML($("#active").text())).substr(0, String(stripHTML($("#active").text())).indexOf(" "));
+            //Also Works\\ var firstWord = listOfWords[0];
+            var secondWord = listOfWords[1];
+            var thirdWord = listOfWords[2];
+            var fourthWord = listOfWords[3];
+            var fifthWord = listOfWords[4];
+            var sixthWord = listOfWords[5];
+            var seventhWord = listOfWords[6];
+            var eighthWord = listOfWords[7];
+            var ninthWord = listOfWords[8];
+            var tenthWord = listOfWords[9];
+            var eleventhWord = listOfWords[10];
+            /*
+            var firstWord;
+            if (inputTerm.includes(" ") === false) {
+                firstWord = inputTerm;
+            }
+            else {
+                firstWord = String(stripHTML($("#active").text())).substr(0, String(stripHTML($("#active").text())).indexOf(" "));
+            }
+            */
+            console.log("The Entered String: " + inputTerm);
+            console.log("The First Word of Said Entered String: " + firstWord);
+            console.log("The Second Word of Said Entered String: " + secondWord);
+            console.log("The Third Word of Said Entered String: " + thirdWord);
+            console.log("The Total Amount Of Words Used In Said Entered String: " + totalAmountOfWords);
+
+            if (inputTerm === "" || inputTerm === null) {
+                readLine();
+            }
+            else if (inputTerm === "cd" || inputTerm === "chdir") {
+                $("#cmd").append("<br />" + dir);
+                readLine();
+            }
+            else if (firstWord === "cd" || firstWord === "chdir") {
+                if (signedIn === false) {
+                    $("#cmd").append('<br />You must <a href="register.html">Create an Account</a> or <a href="sign_in.">Sign In</a> to Create/Edit Directories.');
+                    readLine();
+                }
+            }
+            else if (inputTerm === "cls" || inputTerm === "cmd" || inputTerm === "start") {
+                $("#cmd").empty();
+                readLine();
+            }
+            else if (inputTerm === "help intro") {
+                $("#active").attr("contentEditable", false);
+                $("#active").removeAttr("id");
+                $("#cmd").append("<br />First of all, are you familiar with the basics of how file systems and directories work " + name + '? (Y/N): <span id="yn" class="typeable" contenteditable="true"></span>');
+                $("#yn").focus();
+                $("#yn").on("keydown", (event) => {
+                    if (event.key === "Y" || event.key === "y") {
+                        $("#cmd").append("<br />Okay, it seems to be that you have at least some understanding of file systems and directories and how they work. In the Command Prompt, we can control directories on a disk drive as well.");
+                        setTimeout(function () {
+                            $("#cmd").append("<br />Type HELP DIRECTORIES to find out more.<br />");
+                            $("#YN").attr("contentEditable", false);
+                            $("#YN").removeAttr("id");
+                            readLine();
+                        }, 100);
+                    }
+                    else if (event.key === "N" || event.key === "n") {
+                        $("#cmd").append("<br />Okay, it seems to be that you have little understanding of file systems and directories. No need to worry! That'll be fixed very soon!!");
+                        $("#cmd").append("<br />It is very easy to latch onto. When you have a folder, you can put more folders and files into it. There, you're all caught up!");
+                        setTimeout(function () {
+                            $("#cmd").append("<br />Type HELP DIRECTORIES to find out more.<br />");
+                            $("#YN").attr("contentEditable", false);
+                            $("#YN").removeAttr("id");
+                            readLine();
+                        }, 100);
+                    }
+                });
+            }
+            else if (inputTerm === "help directories") {
+                var cdControls = `<br />Okay, we'll start off with these 2: <br />CD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the name of or changes the current directory.<br />
+CHDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the name of or changes the current directory.<br />Okay, they both do the exact same thing so we recommend using CD (Change Directory)!!! They are used to navigate through all of the available folders and directories.<br /> Type HELP CD or HELP CHDIR to find out more . . .<br />`;
+                $("#cmd").append(cdControls);
+                $("#active").attr("contentEditable", false);
+                $("#active").removeAttr("id");
+                $("#cmd").append('<br /><p id="paktc">Press any key to continue . . . </p>');
+                $("#cmd").one("keydown", function () {
+                    $("#paktc").remove();
+                    var mdControls = `Next, we'll learn how to create new directories and folders with: <br />MD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a directory.<br />
+MKDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a directory.<br />Again, they both have the same task so we recommend using MD (Make Directory)!!! They are used to create new folders and directories for later use. To find out more, type HELP MD or HELP MKDIR . . .<br />`;
+                    $("#cmd").append(mdControls);
+                    $("#cmd").append('<br /><p id="paktc">Press any key to continue . . . </p>');
+                    $("#cmd").one("keydown", function () {
+                        $("#paktc").remove();
+                        $("#cmd").off("keydown");
+                        var rdControls = `Finally, we'll learn how to remove existing directories and folders with: <br />Same as last time, they are equivalent. So we recommend RD (Remove Directory)!!! They are used to remove or delete directories and folders To find out more, type HELP RD or HELP RMDIR . . .<br />`;
+                        $("#cmd").append(mdControls);
+                        readLine();
+                    });
+                });
+            }
+
+            else if (inputTerm === "help") {
+                var listOfCommands = `<br />For more information on a specific command, type HELP command-name
+ASSOC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or modifies file extension associations.
+ATTRIB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or changes file attributes.
+BREAK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets or clears extended CTRL+C checking.
+BCDEDIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets properties in boot database to control boot loading.
+CACLS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or modifies access control lists (ACLs) of files.
+CALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calls one batch program from another.
+CD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the name of or changes the current directory.
+CHCP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or sets the active code page number.
+CHDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the name of or changes the current directory.
+CHKDSK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks a disk and displays a status report.
+CHKNTFS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or modifies the checking of disk at boot time.
+CLS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clears the screen.
+CMD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Starts a new instance of the Windows command interpreter.
+COLOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the default console foreground and background colors.
+COMP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compares the contents of two files or sets of files.
+COMPACT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or alters the compression of files on NTFS partitions.
+CONVERT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Converts FAT volumes to NTFS.  You cannot convert the
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current drive.
+COPY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copies one or more files to another location.
+DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or sets the date.
+DEL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deletes one or more files.
+DIR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays a list of files and subdirectories in a directory.
+DISKPART&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or configures Disk Partition properties.
+DOSKEY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edits command lines, recalls Windows commands, and
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;creates macros.
+DRIVERQUERY&nbsp;&nbsp;&nbsp;&nbsp;Displays current device driver status and properties.
+ECHO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays messages, or turns command echoing on or off.
+ENDLOCAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ends localization of environment changes in a batch file.
+ERASE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deletes one or more files.
+EXIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quits the CMD.EXE program (command interpreter).
+FC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compares two files or sets of files, and displays the
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;differences between them.
+FIND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Searches for a text string in a file or files.
+FINDSTR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Searches for strings in files.
+FOR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Runs a specified command for each file in a set of files.
+FORMAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formats a disk for use with Windows.
+FSUTIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or configures the file system properties.
+FTYPE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or modifies file types used in file extension
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;associations.
+GOTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Directs the Windows command interpreter to a labeled line in
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a batch program.
+GPRESULT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays Group Policy information for machine or user.
+GRAFTABL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enables Windows to display an extended character set in
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;graphics mode.
+HELP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides Help information for Windows commands.
+ICACLS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Display, modify, backup, or restore ACLs for files and
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directories.
+IF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Performs conditional processing in batch programs.
+LABEL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates, changes, or deletes the volume label of a disk.
+MD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a directory.
+MKDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a directory.
+MKLINK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates Symbolic Links and Hard Links
+MODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configures a system device.
+MORE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays output one screen at a time.
+MOVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Moves one or more files from one directory to another
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory.
+OPENFILES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays files opened by remote users for a file share.
+PATH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or sets a search path for executable files.
+PAUSE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suspends processing of a batch file and displays a message.
+POPD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Restores the previous value of the current directory saved by
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PUSHD.
+PRINT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prints a text file.
+PROMPT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Changes the Windows command prompt.
+PUSHD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Saves the current directory then changes it.
+RD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Removes a directory.
+RECOVER        Recovers readable information from a bad or defective disk.
+REM            Records comments (remarks) in batch files or CONFIG.SYS.
+REN            Renames a file or files.
+RENAME         Renames a file or files.
+REPLACE        Replaces files.
+RMDIR          Removes a directory.
+ROBOCOPY       Advanced utility to copy files and directory trees.
+SET            Displays, sets, or removes Windows environment variables.
+SETLOCAL       Begins localization of environment changes in a batch file.
+SC             Displays or configures services (background processes).
+SCHTASKS       Schedules commands and programs to run on a computer.
+SHIFT          Shifts the position of replaceable parameters in batch files.
+SHUTDOWN       Allows proper local or remote shutdown of machine.
+SORT           Sorts input.
+START          Starts a separate window to run a specified program or command.
+SUBST          Associates a path with a drive letter.
+SYSTEMINFO     Displays machine specific properties and configuration.
+TASKLIST       Displays all currently running tasks including services.
+TASKKILL       Kill or stop a running process or application.
+TIME           Displays or sets the system time.
+TITLE          Sets the window title for a CMD.EXE session.
+TREE           Graphically displays the directory structure of a drive or
+               path.
+TYPE           Displays the contents of a text file.
+VER            Displays the Windows version.
+VERIFY         Tells Windows whether to verify that your files are written
+               correctly to a disk.
+VOL            Displays a disk volume label and serial number.
+XCOPY          Copies files and directory trees.
+WMIC           Displays WMI information inside interactive command shell.`;
+                $("#cmd").append(listOfCommands);
+                readLine();
+            }
+            else if (firstWord === "help") {
+                if (secondWord === "cls") {
+                    $("#cmd").append('<br />Clears the screen.<br /><br />CLS<br />');
+                    readLine();
+                }
+                else if (secondWord === "cd" || secondWord === "chdir") {
+                    var help = `Displays the name of or changes the current directory.
+
+CHDIR [/D] [drive:][path]
+CHDIR [..]
+CD [/D] [drive:][path]
+CD [..]
+
+  ..   Specifies that you want to change to the parent directory.
+
+Type CD drive: to display the current directory in the specified drive.
+Type CD without parameters to display the current drive and directory.
+
+Use the /D switch to change current drive in addition to changing current
+directory for a drive.
+
+If Command Extensions are enabled CHDIR changes as follows:
+
+The current directory string is converted to use the same case as
+the on disk names.  So CD C:\\TEMP would actually set the current
+directory to C:\\Temp if that is the case on disk.
+
+CHDIR command does not treat spaces as delimiters, so it is possible to
+CD into a subdirectory name that contains a space without surrounding
+the name with quotes.  For example:
+
+    cd \\winnt\\profiles\\username\\programs\\start menu
+
+is the same as:
+
+    cd "\\winnt\\profiles\\username\\programs\\start menu"
+
+which is what you would have to type if extensions were disabled.`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (secondWord === "color") {
+                    var help = `Sets the default console foreground and background colors.
+
+COLOR [attr]
+
+  attr        Specifies color attribute of console output
+
+Color attributes are specified by TWO hex digits -- the first
+corresponds to the background; the second the foreground.  Each digit
+can be any of the following values:
+
+    0 = Black       8 = Gray
+    1 = Blue        9 = Light Blue
+    2 = Green       A = Light Green
+    3 = Aqua        B = Light Aqua
+    4 = Red         C = Light Red
+    5 = Purple      D = Light Purple
+    6 = Yellow      E = Light Yellow
+    7 = White       F = Bright White
+
+If no argument is given, this command restores the color to what it was
+when CMD.EXE started.  This value either comes from the current console
+window, the /T command line switch or from the DefaultColor registry
+value.
+
+The COLOR command sets ERRORLEVEL to 1 if an attempt is made to execute
+the COLOR command with a foreground and background color that are the
+same.
+
+Example: "COLOR fc" produces light red on bright white<br />`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (secondWord === "echo") {
+                    var help = `Displays messages, or turns command-echoing on or off.
+
+  ECHO [ON | OFF]
+  ECHO [message]
+
+Type ECHO without parameters to display the current echo setting.
+`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (secondWord === "exit") {
+                    var help = `Quits the CMD.EXE program (command interpreter) or the current batch
+script.
+
+EXIT [/B] [exitCode]
+
+  /B          specifies to exit the current batch script instead of
+              CMD.EXE.  If executed from outside a batch script, it
+              will quit CMD.EXE
+
+  exitCode    specifies a numeric number.  if /B is specified, sets
+              ERRORLEVEL that number.  If quitting CMD.EXE, sets the process
+              exit code with that number.
+`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (secondWord === "help" || secondWord === "/?") {
+                    var help = `<br />Provides help information for Windows commands.
+
+HELP [command]
+
+    command - displays help information on that command.
+`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (secondWord === "md" || secondWord === "mkdir") {
+                    var help = `Creates a directory.
+
+MKDIR [drive:]path
+MD [drive:]path
+
+If Command Extensions are enabled MKDIR changes as follows:
+
+MKDIR creates any intermediate directories in the path, if needed.
+For example, assume \a does not exist then:
+
+    mkdir \a\b\c\d
+
+is the same as:
+
+    mkdir \a
+    chdir \a
+    mkdir b
+    chdir b
+    mkdir c
+    chdir c
+    mkdir d
+
+which is what you would have to type if extensions were disabled.`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (secondWord === "rd" || secondWord === "rmdir") {
+                    var help = `Removes (deletes) a directory.
+
+RMDIR [/S] [/Q] [drive:]path
+RD [/S] [/Q] [drive:]path
+
+    /S      Removes all directories and files in the specified directory
+            in addition to the directory itself.  Used to remove a directory
+            tree.
+
+    /Q      Quiet mode, do not ask if ok to remove a directory tree with /S
+`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (secondWord === "login" || secondWord === "signin") {
+                    $("#cmd").empty();
+
+                }
+                else if (secondWord === "register" || secondWord === "signup") {
+                    $("#cmd").empty();
+                    $("#cmd").append("Register Now!!! <br />Name: " + name);
+                    readLine();
+                }
+                else {
+                    $("#cmd").append('<br />This command is not supported by the help utility.  Try "' + secondWord + ' /?".');
+                    readLine();
+                }
+            }
+            else if (secondWord === "/?") {
+                if (firstWord === "cls") {
+                    $("#cmd").append('<br />Clears the screen.<br /><br />CLS<br />');
+                    readLine();
+                }
+                else if (firstWord === "cd" || firstWord === "chdir") {
+                    var help = `Displays the name of or changes the current directory.
+
+CHDIR [/D] [drive:][path]
+CHDIR [..]
+CD [/D] [drive:][path]
+CD [..]
+
+  ..   Specifies that you want to change to the parent directory.
+
+Type CD drive: to display the current directory in the specified drive.
+Type CD without parameters to display the current drive and directory.
+
+Use the /D switch to change current drive in addition to changing current
+directory for a drive.
+
+If Command Extensions are enabled CHDIR changes as follows:
+
+The current directory string is converted to use the same case as
+the on disk names.  So CD C:\\TEMP would actually set the current
+directory to C:\\Temp if that is the case on disk.
+
+CHDIR command does not treat spaces as delimiters, so it is possible to
+CD into a subdirectory name that contains a space without surrounding
+the name with quotes.  For example:
+
+    cd \\winnt\\profiles\\username\\programs\\start menu
+
+is the same as:
+
+    cd "\\winnt\\profiles\\username\\programs\\start menu"
+
+which is what you would have to type if extensions were disabled.`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (firstWord === "color") {
+                    var help = `Sets the default console foreground and background colors.
+
+COLOR [attr]
+
+  attr        Specifies color attribute of console output
+
+Color attributes are specified by TWO hex digits -- the first
+corresponds to the background; the second the foreground.  Each digit
+can be any of the following values:
+
+    0 = Black       8 = Gray
+    1 = Blue        9 = Light Blue
+    2 = Green       A = Light Green
+    3 = Aqua        B = Light Aqua
+    4 = Red         C = Light Red
+    5 = Purple      D = Light Purple
+    6 = Yellow      E = Light Yellow
+    7 = White       F = Bright White
+
+If no argument is given, this command restores the color to what it was
+when CMD.EXE started.  This value either comes from the current console
+window, the /T command line switch or from the DefaultColor registry
+value.
+
+The COLOR command sets ERRORLEVEL to 1 if an attempt is made to execute
+the COLOR command with a foreground and background color that are the
+same.
+
+Example: "COLOR fc" produces light red on bright white<br />`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (firstWord === "echo") {
+                    var help = `Displays messages, or turns command-echoing on or off.
+
+  ECHO [ON | OFF]
+  ECHO [message]
+
+Type ECHO without parameters to display the current echo setting.
+`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (firstWord === "exit") {
+                    var help = `Quits the CMD.EXE program (command interpreter) or the current batch
+script.
+
+EXIT [/B] [exitCode]
+
+  /B          specifies to exit the current batch script instead of
+              CMD.EXE.  If executed from outside a batch script, it
+              will quit CMD.EXE
+
+  exitCode    specifies a numeric number.  if /B is specified, sets
+              ERRORLEVEL that number.  If quitting CMD.EXE, sets the process
+              exit code with that number.
+`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (firstWord === "help") {
+                    var help = `<br />Provides help information for Windows commands.
+
+HELP [command]
+
+    command - displays help information on that command.
+`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (firstWord === "md" || firstWord === "mkdir") {
+                    var help = `Creates a directory.
+
+MKDIR [drive:]path
+MD [drive:]path
+
+If Command Extensions are enabled MKDIR changes as follows:
+
+MKDIR creates any intermediate directories in the path, if needed.
+For example, assume \a does not exist then:
+
+    mkdir \a\b\c\d
+
+is the same as:
+
+    mkdir \a
+    chdir \a
+    mkdir b
+    chdir b
+    mkdir c
+    chdir c
+    mkdir d
+
+which is what you would have to type if extensions were disabled.`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else if (firstWord === "rd" || firstWord === "rmdir") {
+                    var help = `Removes (deletes) a directory.
+
+RMDIR [/S] [/Q] [drive:]path
+RD [/S] [/Q] [drive:]path
+
+    /S      Removes all directories and files in the specified directory
+            in addition to the directory itself.  Used to remove a directory
+            tree.
+
+    /Q      Quiet mode, do not ask if ok to remove a directory tree with /S
+`;
+                    $("#cmd").append(help);
+                    readLine();
+                }
+                else {
+                    if (listOfWords.length === 1) {
+                        $("#cmd").append("<br />'" + inputTerm + "' is not recognized as an internal or external command,<br />operable program or batch file.<br />");
+                        readLine();
+                    }
+                    else {
+                        $("#cmd").append("<br />'" + firstWord + "' is not recognized as an internal or external command,<br />operable program or batch file.<br />");
+                        readLine();
+                    }
+                }
+            }
+
+            else if (inputTerm === "echo") {
+                if (echo === true) {
+                    $("#cmd").append("<br />ECHO is on.<br />");
+                    readLine();
+                }
+                else if (echo === false) {
+                    $("#cmd").append("<br />ECHO is off.<br />");
+                    readLine();
+                }
+            }
+            else if (firstWord === "echo") {
+                if (secondWord === "off" && echo === false) {
+                    readLine();
+                }
+                else if (secondWord === "off" && echo === true) {
+                    echo = false;
+                    readLine();
+                }
+                else if (secondWord === "on" && echo === false) {
+                    echo = true;
+                    readLine();
+                }
+                else if (secondWord === "on" && echo === true) {
+                    readLine();
+                }
+                else {
+                    readLine();
+                }
+            }
+            else if (inputTerm === "exit" || firstWord === "exit") {
+                closeCMD();
+            }
+            else if (inputTerm === "md" || inputTerm === "mkdir") {
+                $("#cmd").append("<br /> The syntax of the command is incorrect.<br />");
+                readLine();
+            }
+            else if (firstWord === "md" || firstWord === "mkdir") {
+                if (signedIn === false) {
+                    $("#cmd").append('<br />You must <a href="register.html">Create an Account</a> or <a href="sign_in.">Sign In</a> to Create/Edit Directories.');
+                    readLine();
+                }
+            }
+            else if (inputTerm === "rd" || inputTerm === "rmdir") {
+                $("#cmd").append("<br /> The syntax of the command is incorrect.<br />");
+                readLine();
+            }
+            else if (firstWord === "rd" || firstWord === "rmdir") {
+                if (signedIn === false) {
+                    $("#cmd").append('<br />You must <a href="register.html">Create an Account</a> or <a href="sign_in.">Sign In</a> to Create/Edit Directories.');
+                    readLine();
+                }
+            }
+            else if (inputTerm === "shutdown") {
+                var help = `<br />Usage: shutdown [/i | /l | /s | /sg | /r | /g | /a | /p | /h | /e | /o] [/hybrid] [/soft] [/fw] [/f]
+    [/m \\computer][/t xxx][/d [p|u:]xx:yy [/c "comment"]]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;No args&nbsp;&nbsp;Display help. This is the same as typing /?.
+    /?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Display help. This is the same as not typing any options.
+    /i         Display the graphical user interface (GUI).
+               This must be the first option.
+    /l         Log off. This cannot be used with /m or /d options.
+    /s         Shutdown the computer.
+    /sg        Shutdown the computer. On the next boot,
+               restart any registered applications.
+    /r         Full shutdown and restart the computer.
+    /g         Full shutdown and restart the computer. After the system is
+               rebooted, restart any registered applications.
+    /a         Abort a system shutdown.
+               This can only be used during the time-out period.
+               Combine with /fw to clear any pending boots to firmware.
+    /p         Turn off the local computer with no time-out or warning.
+               Can be used with /d and /f options.
+    /h         Hibernate the local computer.
+               Can be used with the /f option.
+    /hybrid    Performs a shutdown of the computer and prepares it for fast startup.
+               Must be used with /s option.
+    /fw        Combine with a shutdown option to cause the next boot to go to the
+               firmware user interface.
+    /e         Document the reason for an unexpected shutdown of a computer.
+    /o         Go to the advanced boot options menu and restart the computer.
+               Must be used with /r option.
+    /m \\computer Specify the target computer.
+    /t xxx     Set the time-out period before shutdown to xxx seconds.
+               The valid range is 0-315360000 (10 years), with a default of 30.
+               If the timeout period is greater than 0, the /f parameter is
+               implied.
+    /c "comment" Comment on the reason for the restart or shutdown.
+               Maximum of 512 characters allowed.
+    /f         Force running applications to close without forewarning users.
+               The /f parameter is implied when a value greater than 0 is
+               specified for the /t parameter.
+    /d [p|u:]xx:yy  Provide the reason for the restart or shutdown.
+               p indicates that the restart or shutdown is planned.
+               u indicates that the reason is user defined.
+               If neither p nor u is specified the restart or shutdown is
+               unplanned.
+               xx is the major reason number (positive integer less than 256).
+               yy is the minor reason number (positive integer less than 65536).`;
+                $("#cmd").append(help);
+                readLine();
+            }
+            else if (firstWord === "start") {
+                if (secondWord === "cmd") {
+                    $("#cmd").empty();
+                    readLine();
+                }
+                else {
+                    $("#cmd").append("<br />The system cannot find the file " + secondWord + ".<br />");
+                    readLine();
+                }
+            }
+            else if (inputTerm === "time") {
+                var date = new Date();
+                var hours = date.getHours() + 1;
+                var minutes = date.getMinutes();
+                var seconds = date.getSeconds();
+                var milliseconds = date.getMilliseconds();
+                var time = String(hours + ":" + minutes + ":" + seconds + "." + milliseconds);
+                $("#cmd").append("<br />The current time is: " + time + "<br />");
+                readLine();
+            }
+            else if (inputTerm === "ver" || firstWord === "ver") {
+                // system
+                var nVer = navigator.appVersion;
+                var nAgt = navigator.userAgent;
+                var os = "";
+                var osVersion = "";
+                var clientStrings = [
+                    { s: 'Windows 10', r: /(Windows 10.0|Windows NT 10.0)/ },
+                    { s: 'Windows 8.1', r: /(Windows 8.1|Windows NT 6.3)/ },
+                    { s: 'Windows 8', r: /(Windows 8|Windows NT 6.2)/ },
+                    { s: 'Windows 7', r: /(Windows 7|Windows NT 6.1)/ },
+                    { s: 'Windows Vista', r: /Windows NT 6.0/ },
+                    { s: 'Windows Server 2003', r: /Windows NT 5.2/ },
+                    { s: 'Windows XP', r: /(Windows NT 5.1|Windows XP)/ },
+                    { s: 'Windows 2000', r: /(Windows NT 5.0|Windows 2000)/ },
+                    { s: 'Windows ME', r: /(Win 9x 4.90|Windows ME)/ },
+                    { s: 'Windows 98', r: /(Windows 98|Win98)/ },
+                    { s: 'Windows 95', r: /(Windows 95|Win95|Windows_95)/ },
+                    { s: 'Windows NT 4.0', r: /(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/ },
+                    { s: 'Windows CE', r: /Windows CE/ },
+                    { s: 'Windows 3.11', r: /Win16/ },
+                    { s: 'Android', r: /Android/ },
+                    { s: 'Open BSD', r: /OpenBSD/ },
+                    { s: 'Sun OS', r: /SunOS/ },
+                    { s: 'Linux', r: /(Linux|X11)/ },
+                    { s: 'iOS', r: /(iPhone|iPad|iPod)/ },
+                    { s: 'Mac OS X', r: /Mac OS X/ },
+                    { s: 'Mac OS', r: /(MacPPC|MacIntel|Mac_PowerPC|Macintosh)/ },
+                    { s: 'QNX', r: /QNX/ },
+                    { s: 'UNIX', r: /UNIX/ },
+                    { s: 'BeOS', r: /BeOS/ },
+                    { s: 'OS/2', r: /OS\/2/ },
+                    { s: 'Search Bot', r: /(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/ }
+                ];
+
+                for (var id in clientStrings) {
+                    var cs = clientStrings[id];
+                    if (cs.r.test(nAgt)) {
+                        os = cs.s;
+                        break;
+                    }
+                }
+                if (/Windows/.test(os)) {
+                    osVersion = /Windows (.*)/.exec(os)[1];
+                    os = 'Microsoft Windows';
+                }
+                switch (os) {
+                    case 'Mac OS X':
+                        osVersion = /Mac OS X (10[\.\_\d]+)/.exec(nAgt)[1];
+                        break;
+
+                    case 'Android':
+                        osVersion = /Android ([\.\_\d]+)/.exec(nAgt)[1];
+                        break;
+
+                    case 'iOS':
+                        osVersion = /OS (\d+)_(\d+)_?(\d+)?/.exec(nVer);
+                        osVersion = osVersion[1] + '.' + osVersion[2] + '.' + (osVersion[3] | 0);
+                        break;
+                }
+                $("#cmd").append("<br /><br />" + os + " [Version " + osVersion + "]<br />");
+                readLine();
+                console.log(navigator);
+                console.log("OS: " + os);
+                console.log("OS Version: " + osVersion);
+            }
+            else if (inputTerm === "vol") {
+                $("#cmd").append("<br /> Volume in drive C has no label.<br /> Volume Serial Number not found<br />");
+                readLine();
+            }
+            else if (firstWord === "vol") {
+                if (secondWord === "c:") {
+                    $("#cmd").append("<br /> Volume in drive C has no label.<br /> Volume Serial Number not found<br />");
+                    readLine();
+                }
+                else {
+                    $("#cmd").append("<br /><br />The system cannot find the drive specified.<br />");
+                    readLine();
+                }
+            }
+            else {
+                if (listOfWords.length === 1) {
+                    $("#cmd").append("<br />'" + inputTerm + "' is not recognized as an internal or external command,<br />operable program or batch file.<br />");
+                    readLine();
+                }
+                else {
+                    $("#cmd").append("<br />'" + firstWord + "' is not recognized as an internal or external command,<br />operable program or batch file.<br />");
+                    readLine();
+                }
+            }
+        }
+        function openCMD() {
+            $("#cmdWindow").dequeue().show("scale", 100).fadeIn(300);
+            runIntro();
+            $('#cmd').scrollTop($('#cmd').height());
+            $("#active").focus();
+            $("#cmdWindow").on("keydown", function () {
+                $("#active").focus();
+            });
+        }
+        function minimizeCMD() {
+            $("#cmdWindow").hide("scale", 2000).dequeue().fadeOut(300);
+        }
+        function maximizeCMD() {
+            $("#cmdWindow").css("position", "static");
+            $("#cmdWindow").animate({
+                width: "100%",
+                height: "100%"
+            }, 500);
+            $("#cmdWindowHeader").css()
+        }
+        function closeCMD() {
+            $("#cmdWindow").hide("scale", 2000).dequeue().fadeOut(300);
+            $("#cmd").empty();
+            readLine();
+        }
+        function readLine() {
+            $("#active").attr("contentEditable", false);
+            $("#active").removeAttr("id");
+            $("#location").empty();
+            $("#location").html(dir);
+            if (echo === false) {
+                $("#cmd").append('<br /><span id="active" class="typeable" contenteditable="true"></span>');
+            }
+            else {
+                $("#cmd").append('<br />' + dir + '<span id="active" class="typeable" contenteditable="true"></span>');
+            }
+            $('#cmd').scrollTop($('#cmd').height());
+            $("#active").focus();
+            $("#active").on("keydown", (event) => {
+                console.log(String("The key '" + event.key + "' has been pressed."));
+                if (event.key === "Enter") {
+                    CMD();
+                    return false;
+                }
+                else if (event.key === "ArrowUp") {
+                    alert("Support for Term Recalling has not been added yet, please check-in later..!");
+                }
+                else if (event.key === "ArrowDown") {
+                    alert("Support for Term Recalling has not been added yet, please check-in later..!");
+                }
+                /*else if (event.key === "Control") {
+                    $("#active").on("keyup", (event) => {
+                        if (event.key === ) 
+                }*/
+            });
+        }
+        function pressAnyKeyToContinue(callback) {
+            $("#cmd").append('<br />Press any key to continue . . . ');
+            $("#active").attr("contentEditable", false);
+            $("#active").removeAttr("id");
+            $("#cmd").on("keydown", callback);
+        }
+        function stripHTML(dirtyString) {
+            var span = document.createElement("span");
+            var textNode = document.createTextNode(dirtyString);
+            span.appendChild(textNode);
+            return span.innerHTML;
+        }
+    </script>
+</body>
+</html>

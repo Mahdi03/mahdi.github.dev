@@ -1,0 +1,2482 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MC Assistant</title>
+  <link href="MC.css" rel="stylesheet" />
+  <style>
+      #standOut {
+          font-size: 70px;
+          padding: 0px;
+          margin: 0px;
+      }
+      .standOutIntro {
+          font-size: 40px;
+          padding: 0px;
+          margin: 5px;
+      }
+    .rapContainer {
+        text-align: center;
+        font-size: 30px;
+    }
+      .button {
+          border-radius: 4px;
+          background-color: black;
+          border: 2px solid;
+          border-color: green;
+          color: green;
+          text-align: center;
+          font-size: 25px;
+          font-family: 'Elephant';
+          padding: 20px;
+          width: 200px;
+          transition: all 0.5s;
+          cursor: pointer;
+          margin: 15px;
+      }
+
+          .button span {
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              transition: 0.5s;
+          }
+
+              .button span:after {
+                  content: '\00bb';
+                  position: absolute;
+                  opacity: 0;
+                  top: 0;
+                  right: -20px;
+                  transition: 0.5s;
+              }
+
+          .button:hover span {
+              padding-right: 25px;
+          }
+
+              .button:hover span:after {
+                  opacity: 1;
+                  right: 0;
+              }
+
+          .button span {
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              transition: 0.5s;
+          }
+
+              .button span:after {
+                  content: '\00bb';
+                  position: absolute;
+                  opacity: 0;
+                  top: 0;
+                  right: -20px;
+                  transition: 0.5s;
+              }
+
+          .button:hover span {
+              padding-right: 25px;
+          }
+
+              .button:hover span:after {
+                  opacity: 1;
+                  right: 0;
+              }
+
+  </style>
+</head>
+<body>
+    <div id="bg_page">
+        <h1 class="standOutIntro"><u>Click Here To Re-Initialize MC</u>:</h1>
+        <!-- Trigger/Open MC -->
+        <button class="button" id="starter"><span>Open MC</span></button>
+        <div id="texts">
+            <h3>Click <a class="link" href="MC_Application_Privacy_Policy.html" target="_blank" style="color:green;">here</a> for our <a href="MC_Application_Privacy_Policy.html" target="_blank" style="color:green;">Privacy Policy</a>.</h3>
+            <h3>Click <a class="link" href="MC_Application_Terms_And_Conditions.html" target="_blank" style="color:green;">here</a> for our <a href="MC_Application_Terms_And_Conditions.html" target="_blank" style="color:green;">Terms and Conditions</a>.</h3>
+            <p><u><strong>Disclaimer</strong></u>: Any information given to MC is not saved in any location known to the developer. Any damage or loss to the user is not in our responsibilty and it should be thought as so.</p>
+            <h1 class="standOutIntro"><u>This project has been dedicated to:</u></h1>
+            <h1 id="standOut">The Freshman Class of BUHS in 2017-2018</h1>
+            <h2>I miss you guys already!!!!!!</h2>
+        </div>
+    </div>
+    <!-- The Popup -->
+    <!--Begin MC-->
+  <div id="myPopup" class="popup">
+    <!-- Popup content -->
+      <!--Close Button-->
+    <div class="animate-bottom"><span class="close">&times;</span><br />
+      <!--Screen/Display w/ text-->
+      <div id="content">
+          <div id="extraSpace">
+              <h3><u>MC (Mahdi's Creation) v: 1.0.0 (Stable)</u></h3>
+              <p>This app is still in development. It may be unstable.</p>
+              <p><u>Disclaimer</u>: As of now, you have to click the "Submit" button to continue. We are still trying to work out that glitch. Sorry about that!</p>
+              <p>Copyright Ayman Studios 2017</p>
+              <p>Connected Successfully...</p>
+              <p>To see what MC can do, just type, "help" or "list".</p>
+              <p><u>MC</u>: Hello, I'm MC. I'm your personal assistant. How may I help?</p>
+              <!--Where JS puts in new lines of HTML-->
+              <div id="history"></div>
+          </div>
+      </div>
+      <!--User Input Box-->
+      <div id="input">
+        <p><u id="user_name" class="user_input"></u>:</p>
+        <div id="submitSite">
+            <input id="reply" class="input user_input" type="text" placeholder="Please say something..." onfocus="this.value = '';" />
+        </div>
+        <br />
+        <input type="button" id="submit" class="user_input" onclick="update()" value="Submit"/>
+      </div>
+     </div>
+      <!--Main Script to control MC-->
+      <script>
+          //UserName script
+          //done
+          var name = prompt("For starters, what's your name?");
+          if (name === "") {
+              name = "User";
+              document.getElementById("user_name").innerHTML = name;
+          }
+          else if (name === "MC") {
+              name = "User";
+              document.getElementById("user_name").innerHTML = name;
+          }
+          else if (name === "null") {
+              name = "User";
+              document.getElementById("user_name").innerHTML = name;
+          }
+          else if (name === "mc") {
+              name = "User";
+              document.getElementById("user_name").innerHTML = name;
+          }
+          else if (name !== null) {
+              document.getElementById("user_name").innerHTML = name;
+          }
+          else {
+              name = "User";
+              document.getElementById("user_name").innerHTML = name;
+          }
+
+          //Global Vars
+          var reply = document.getElementById("reply").value;
+          //done
+          function update() {
+              
+              var reply = document.getElementById("reply").value;
+              if (reply === "") {
+                  alert("Please type something to continue!!");
+              }
+              else {
+                  var site = document.getElementById('history');
+                  var newElement = document.createElement('p');
+                  var underlinedUserName = document.createElement('u');
+                  underlinedUserName.appendChild(document.createTextNode(name));
+
+                  newElement.appendChild(underlinedUserName);
+                  newElement.appendChild(document.createTextNode(": " + reply));
+                  site.appendChild(newElement);
+                  autoScroll(0);
+              
+
+                  reply = reply.toLowerCase();
+                  //chat instances
+                  if (reply.includes('ok google') === true) {
+                      wrongName();
+                  }
+                  else if (reply.includes('hey siri') === true) {
+                      wrongName();
+                  }
+                  else if (reply.includes('alexa') === true) {
+                      wrongName();
+                  }
+                  else if (reply.includes('hey bixby') === true) {
+                      wrongName();
+                  }
+                  else if (reply.includes('hey cortana') === true) {
+                      wrongName();
+                  }
+                  else if (reply.includes('viewcode') === true) {
+                      viewCode();
+                  }
+                  else if (reply.includes('rap') === true) {
+                      rap();
+                  }
+                  else if (reply.includes('chat') === true) {
+                      chat1();
+                  }
+                  else if (reply.includes('talk') === true) {
+                      chat1();
+                  }
+                  else if (reply.includes('hi') === true) {
+                      chat1();
+                  }
+                  else if (reply.includes('hey') === true) {
+                      chat1();
+                  }
+                  else if (reply.includes('hello') === true) {
+                      chat1();
+                  }
+                  else if (reply.includes('help') === true) {
+                      listOfCommands();
+                  }
+                  else if (reply.includes('list') === true) {
+                      listOfCommands();
+                  }
+                  else if (reply == 'profanityfilter = "off";') {
+                      profanityFilterOff();
+                  }
+                  else if (reply.includes('calc') === true) {
+                      calculator();
+                  }
+                  else if (reply === "exit") {
+                      exit();  
+                  }
+                  else if (reply === "clear") {
+                      location.reload();
+                  }
+                  else if (reply.includes('mahdi') === true) {
+                      creatorInfo();
+                  }
+                  else if (reply.includes('no') === true) {
+                      exit();
+                  }
+                  else {
+                      var site = document.getElementById('history');
+                      var underlinedMC = document.createElement('u');
+                      var errMessage = document.createElement('p');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      errMessage.appendChild(underlinedMC);
+                      errMessage.appendChild(document.createTextNode(": I'm sorry but I wasn't able to understand that!"));
+                      site.appendChild(errMessage);
+                      autoScroll();
+                      defaultMessage();
+                  }
+
+              }
+
+
+          }
+          //done
+          function viewCode() {
+              window.open("All_Source_Code.html");
+          }
+          //done
+          function wrongName() {
+              var site = document.getElementById('history');
+              var newElement = document.createElement('p');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              newElement.appendChild(underlinedMC);
+              newElement.appendChild(document.createTextNode(": Y'all betta get ready fo dis:"));
+              site.appendChild(newElement);
+              
+              //Main Rap
+              setTimeout(function() {
+                  var rapContainer = document.createElement('div');
+                  rapContainer.setAttribute('class', 'rapContainer');
+                  var rapTitle = document.createElement('h2');
+                  var rapTitleUnderline = document.createElement('u');
+                  rapTitleUnderline.appendChild(document.createTextNode("This Is What You Get For Not Remembering My Name"));
+                  rapTitle.appendChild(rapTitleUnderline);
+                  rapTitle.appendChild(document.createTextNode(":"));
+                  rapContainer.appendChild(rapTitle);
+                  site.appendChild(rapContainer);
+                  autoScroll();
+              }, 500);
+              setTimeout(function () {
+                  var rapContainer = document.createElement('div');
+                  rapContainer.setAttribute('class', 'rapContainer');
+
+                  var rapLine1 = document.createElement('p');
+                  rapLine1.appendChild(document.createTextNode("Yo yo yo, MC is the name,"));
+                  var rapLine2 = document.createElement('p');
+                  rapLine2.appendChild(document.createTextNode("Two can play at this game, I got more fame,"));
+                  var rapLine3 = document.createElement('p');
+                  rapLine3.appendChild(document.createTextNode("You don't know nothing, you're the one to shame,"));
+                  var rapLine4 = document.createElement('p');
+                  rapLine4.appendChild(document.createTextNode("Getting my name wrong, I give you the blame!!"));
+                  var rapLine9 = document.createElement('p');
+                  rapLine9.appendChild(document.createTextNode("Imma sit you tight, despite insights that are outright,"));
+                  var rapLine10 = document.createElement('p');
+                  rapLine10.appendChild(document.createTextNode("So please get my name right, before we have a gunfight."));
+                  var rapLine5 = document.createElement('p');
+                  rapLine5.appendChild(document.createTextNode("Now I exclaim,"));
+                  var rapLine6 = document.createElement('p');
+                  rapLine6.appendChild(document.createTextNode("That my nickname is MC."));
+                  var rapLine7 = document.createElement('p');
+                  rapLine7.appendChild(document.createTextNode("So please foresee that you would be kind enough"));
+                  var rapLine8 = document.createElement('p');
+                  rapLine8.appendChild(document.createTextNode("To get my name right and stuff"));
+                  var rapEnd = document.createElement('h3');
+                  rapEnd.appendChild(document.createTextNode("- Drop Mic -"));
+
+                  rapContainer.appendChild(rapLine1);
+                  rapContainer.appendChild(rapLine2);
+                  rapContainer.appendChild(rapLine3);
+                  rapContainer.appendChild(rapLine4);
+                  rapContainer.appendChild(rapLine9);
+                  rapContainer.appendChild(rapLine10);
+                  rapContainer.appendChild(rapLine5);
+                  rapContainer.appendChild(rapLine6);
+                  rapContainer.appendChild(rapLine7);
+                  rapContainer.appendChild(rapLine8);
+                  rapContainer.appendChild(rapEnd);
+
+                  site.appendChild(rapContainer);
+                  defaultMessage();
+              }, 3000);
+          }
+          //fix
+          function rap() {
+              //chooses which rap should be shown
+              //var num = Math.floor((Math.random() * 100) + 1); //randomizer
+              //num = Number(num);
+              var num = 15;
+              if (num > 1 && num < 10) {
+                  wrongName();
+              }
+              else if (num > 10 && num < 20) {
+                  littleRap2();
+              }
+              else if (num > 20 && num < 30) {
+                  littleRap3();
+              }
+              else if (num > 30 && num < 40) {
+                  littleRap4();
+              }
+              else if (num > 40 && num < 50) {
+                  littleRap5();
+              }
+              else if (num > 50 && num < 60) {
+                  littleRap6();
+              }
+              else if (num > 60 && num < 70) {
+                  littleRap7();
+              }
+              else if (num > 70 && num < 80) {
+                  littleRap8();
+              }
+              else if (num > 80 && num < 90) {
+                  littleRap9();
+              }
+              else if (num > 90 && num < 100) {
+                  littleRap10();
+              }
+              else {
+                  wrongName();
+              }
+              //list of raps
+              function intro() {
+                  var site = document.getElementById('history');
+                  var newElement = document.createElement('p');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement.appendChild(document.createTextNode(": Y'all betta get ready fo dis:"));
+                  site.appendChild(newElement);
+              }
+              function littleRap1() {
+                  var site = document.getElementById('history');
+                  intro();
+                  setTimeout(function () {
+                      var rapContainer = document.createElement('div');
+                      rapContainer.setAttribute('class', 'rapContainer');
+                      var rapTitle = document.createElement('h2');
+                      var rapTitleUnderline = document.createElement('u');
+                      var rapAuthor = document.createElement('h3');
+                      rapAuthor.setAttribute('class', 'rapContainer');
+                      rapTitleUnderline.appendChild(document.createTextNode("Jaguar"));
+                      rapTitle.appendChild(rapTitleUnderline);
+                      rapTitle.appendChild(document.createTextNode(":"));
+                      rapContainer.appendChild(rapTitle);
+                      rapAuthor.appendChild(document.createTextNode('by MC'));
+                      rapContainer.appendChild(rapAuthor);
+                      site.appendChild(rapContainer);
+                      site.appendChild(rapAuthor);
+                      autoScroll();
+                  }, 500);
+                  setTimeout(function () {
+                      var rapContainer = document.createElement('div');
+                      rapContainer.setAttribute('class', 'rapContainer');
+                      //Main Rap
+                      var rapLine1 = document.createElement('p');
+                      rapLine1.appendChild(document.createTextNode("I was breakin into a car,"));
+                      var rapLine2 = document.createElement('p');
+                      rapLine2.appendChild(document.createTextNode("With a crowbar,"));
+                      var rapLine3 = document.createElement('p');
+                      rapLine3.appendChild(document.createTextNode("Only to realize that it was a ****ing Jaguar,"));
+                      var rapLine4 = document.createElement('p');
+                      rapLine4.appendChild(document.createTextNode("Right under the radar."));
+                      var rapLine9 = document.createElement('p');
+                      rapLine9.appendChild(document.createTextNode("So what was I supposed to do?"));
+                      var rapLine10 = document.createElement('p');
+                      rapLine10.appendChild(document.createTextNode("Was I supposed to come through,"));
+                      var rapLine5 = document.createElement('p');
+                      rapLine5.appendChild(document.createTextNode("And finish what I started,"));
+                      var rapLine6 = document.createElement('p');
+                      rapLine6.appendChild(document.createTextNode("Making me non-hearted?"));
+                      var rapLine7 = document.createElement('p');
+                      rapLine7.appendChild(document.createTextNode('Or was I just supposed to get on the list of the "Wanted"?'));
+                      var rapLine8 = document.createElement('p');
+                      rapLine8.appendChild(document.createTextNode("If so, I would forever remain haunted,"));
+                      var rapLine11 = document.createElement('p');
+                      rapLine11.appendChild(document.createTextNode("and taunted,"));
+                      var rapLine12 = document.createElement('p');
+                      rapLine12.appendChild(document.createTextNode("by the flaunted police."));
+                      var rapEnd = document.createElement('h3');
+                      rapEnd.appendChild(document.createTextNode("- Drop Mic -"));
+
+                      rapContainer.appendChild(rapLine1);
+                      rapContainer.appendChild(rapLine2);
+                      rapContainer.appendChild(rapLine3);
+                      rapContainer.appendChild(rapLine4);
+                      rapContainer.appendChild(rapLine9);
+                      rapContainer.appendChild(rapLine10);
+                      rapContainer.appendChild(rapLine5);
+                      rapContainer.appendChild(rapLine6);
+                      rapContainer.appendChild(rapLine7);
+                      rapContainer.appendChild(rapLine8);
+                      rapContainer.appendChild(rapLine11);
+                      rapContainer.appendChild(rapLine12);
+                      rapContainer.appendChild(rapEnd);
+
+                      site.appendChild(rapContainer);
+                      defaultMessage();
+                  }, 3000);
+              }
+              function littleRap2() {
+                  var site = document.getElementById('history');
+                  intro();
+                  setTimeout(function () {
+                      var rapContainer = document.createElement('div');
+                      rapContainer.setAttribute('class', 'rapContainer');
+                      var rapTitle = document.createElement('h2');
+                      var rapTitleUnderline = document.createElement('u');
+                      var rapAuthor = document.createElement('h3');
+                      rapAuthor.setAttribute('class', 'rapContainer');
+                      rapTitleUnderline.appendChild(document.createTextNode("Moving"));
+                      rapTitle.appendChild(rapTitleUnderline);
+                      rapTitle.appendChild(document.createTextNode(":"));
+                      rapContainer.appendChild(rapTitle);
+                      rapAuthor.appendChild(document.createTextNode('by Mahdi Ayman'));
+                      rapContainer.appendChild(rapAuthor);
+                      site.appendChild(rapContainer);
+                      site.appendChild(rapAuthor);
+                      autoScroll();
+                  }, 500);
+                  setTimeout(function () {
+                      var rapContainer = document.createElement('div');
+                      rapContainer.setAttribute('class', 'rapContainer');
+                      //Main Rap
+                      var rapLine1 = document.createElement('p');
+                      rapLine1.appendChild(document.createTextNode("Moving is such a harsh thing."));
+                      var rapLine2 = document.createElement('p');
+                      rapLine2.appendChild(document.createTextNode("Just imagine, sooner or later you'll have a new keyring."));
+                      var rapLine3 = document.createElement('p');
+                      rapLine3.appendChild(document.createTextNode("One day, you're the king"));
+                      var rapLine4 = document.createElement('p');
+                      rapLine4.appendChild(document.createTextNode("Of your own world and then zing!,"));
+                      var rapLine9 = document.createElement('p');
+                      rapLine9.appendChild(document.createTextNode("Next thing ya know, you're moving,"));
+                      var rapLine10 = document.createElement('p');
+                      rapLine10.appendChild(document.createTextNode("In the beginning of Spring."));
+                      var rapLine5 = document.createElement('p');
+                      rapLine5.appendChild(document.createTextNode("Before ya know it, you're in a boxing ring with yourself,"));
+                      var rapLine6 = document.createElement('p');
+                      rapLine6.appendChild(document.createTextNode("Or drowning in a Continental Shelf,"));
+                      var rapLine7 = document.createElement('p');
+                      rapLine7.appendChild(document.createTextNode('From the overwhelming tasks at hand.'));
+                      var rapLine8 = document.createElement('p');
+                      rapLine8.appendChild(document.createTextNode("Most of the life that you had planned,"));
+                      var rapLine11 = document.createElement('p');
+                      rapLine11.appendChild(document.createTextNode("now remains in that unreachable dreamland."));
+                      var rapLine13 = document.createElement('p');
+                      rapLine13.appendChild(document.createTextNode("It's like setting foot on new land."))
+                      var rapLine12 = document.createElement('p');
+                      rapLine12.appendChild(document.createTextNode("And it sucks to leave your wonderland."));
+                      var rapEnd = document.createElement('h3');
+                      rapEnd.appendChild(document.createTextNode("- Drop Mic -"));
+                      var rapEnd1 = document.createElement('h3');
+                      rapEnd1.appendChild(document.createTextNode("- Starts Crying -"));
+
+                      rapContainer.appendChild(rapLine1);
+                      rapContainer.appendChild(rapLine2);
+                      rapContainer.appendChild(rapLine3);
+                      rapContainer.appendChild(rapLine4);
+                      rapContainer.appendChild(rapLine9);
+                      rapContainer.appendChild(rapLine10);
+                      rapContainer.appendChild(rapLine5);
+                      rapContainer.appendChild(rapLine6);
+                      rapContainer.appendChild(rapLine7);
+                      rapContainer.appendChild(rapLine8);
+                      rapContainer.appendChild(rapLine11);
+                      rapContainer.appendChild(rapLine13);
+                      rapContainer.appendChild(rapLine12);
+                      rapContainer.appendChild(rapEnd);
+                      rapContainer.appendChild(rapEnd1);
+
+                      site.appendChild(rapContainer);
+                      defaultMessage();
+                  }, 3000);
+              }
+              function littleRap3() {
+                  var site = document.getElementById('history');
+                  intro();
+                  setTimeout(function () {
+                      var rapContainer = document.createElement('div');
+                      rapContainer.setAttribute('class', 'rapContainer');
+                      var rapTitle = document.createElement('h2');
+                      var rapTitleUnderline = document.createElement('u');
+                      var rapAuthor = document.createElement('h3');
+                      rapAuthor.setAttribute('class', 'rapContainer');
+                      rapTitleUnderline.appendChild(document.createTextNode("Moving"));
+                      rapTitle.appendChild(rapTitleUnderline);
+                      rapTitle.appendChild(document.createTextNode(":"));
+                      rapContainer.appendChild(rapTitle);
+                      rapAuthor.appendChild(document.createTextNode('by Mahdi Ayman'));
+                      rapContainer.appendChild(rapAuthor);
+                      site.appendChild(rapContainer);
+                      site.appendChild(rapAuthor);
+                      autoScroll();
+                  }, 500);
+                  setTimeout(function () {
+                      var rapContainer = document.createElement('div');
+                      rapContainer.setAttribute('class', 'rapContainer');
+                      //Main Rap
+                      var rapLine1 = document.createElement('p');
+                      rapLine1.appendChild(document.createTextNode("Moving is such a harsh thing."));
+                      var rapLine2 = document.createElement('p');
+                      rapLine2.appendChild(document.createTextNode("Just imagine, sooner or later you'll have a new keyring."));
+                      var rapLine3 = document.createElement('p');
+                      rapLine3.appendChild(document.createTextNode("One day, you're the king"));
+                      var rapLine4 = document.createElement('p');
+                      rapLine4.appendChild(document.createTextNode("Of your own world and then zing!,"));
+                      var rapLine9 = document.createElement('p');
+                      rapLine9.appendChild(document.createTextNode("Next thing ya know, you're moving,"));
+                      var rapLine10 = document.createElement('p');
+                      rapLine10.appendChild(document.createTextNode("In the beginning of Spring."));
+                      var rapLine5 = document.createElement('p');
+                      rapLine5.appendChild(document.createTextNode("Before ya know it, you're in a boxing ring with yourself,"));
+                      var rapLine6 = document.createElement('p');
+                      rapLine6.appendChild(document.createTextNode("Or drowning in a Continental Shelf,"));
+                      var rapLine7 = document.createElement('p');
+                      rapLine7.appendChild(document.createTextNode('From the overwhelming tasks at hand.'));
+                      var rapLine8 = document.createElement('p');
+                      rapLine8.appendChild(document.createTextNode("Most of the life that you had planned,"));
+                      var rapLine11 = document.createElement('p');
+                      rapLine11.appendChild(document.createTextNode("now remains in that unreachable dreamland."));
+                      var rapLine13 = document.createElement('p');
+                      rapLine13.appendChild(document.createTextNode("It's like setting foot on new land."))
+                      var rapLine12 = document.createElement('p');
+                      rapLine12.appendChild(document.createTextNode("And it sucks to leave your wonderland."));
+                      var rapEnd = document.createElement('h3');
+                      rapEnd.appendChild(document.createTextNode("- Drop Mic -"));
+                      var rapEnd1 = document.createElement('h3');
+                      rapEnd1.appendChild(document.createTextNode("- Starts Crying -"));
+
+                      rapContainer.appendChild(rapLine1);
+                      rapContainer.appendChild(rapLine2);
+                      rapContainer.appendChild(rapLine3);
+                      rapContainer.appendChild(rapLine4);
+                      rapContainer.appendChild(rapLine9);
+                      rapContainer.appendChild(rapLine10);
+                      rapContainer.appendChild(rapLine5);
+                      rapContainer.appendChild(rapLine6);
+                      rapContainer.appendChild(rapLine7);
+                      rapContainer.appendChild(rapLine8);
+                      rapContainer.appendChild(rapLine11);
+                      rapContainer.appendChild(rapLine13);
+                      rapContainer.appendChild(rapLine12);
+                      rapContainer.appendChild(rapEnd);
+                      rapContainer.appendChild(rapEnd1);
+
+                      site.appendChild(rapContainer);
+                      defaultMessage();
+                  }, 3000);
+              }
+              function littleRap4() {
+                  intro();
+              }
+              function littleRap5() {
+                  intro();
+              }
+              function littleRap6() {
+                  intro();
+              }
+              function littleRap7() {
+                  intro();
+              }
+              function littleRap8() {
+                  intro();
+              }
+              function littleRap9() {
+                  intro();
+              }
+              function littleRap10() {
+                  intro();
+              }
+          }
+          //done
+          function exit() {
+              var site = document.getElementById('history');
+              var newElement = document.createElement('p');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              newElement.appendChild(underlinedMC);
+              newElement.appendChild(document.createTextNode(": Thanks for using MC. I hope that you have a great rest of the day. Goodbye now!"));
+              site.appendChild(newElement);
+              autoScroll();
+              setTimeout(function () {
+                  document.getElementById('myPopup').style.display = "none";
+              }, 2750);
+              
+          }
+          //done
+          function defaultMessage() {
+              var site = document.getElementById('history');
+              var newElement = document.createElement('p');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              newElement.appendChild(underlinedMC);
+              newElement.appendChild(document.createTextNode(": Is there anything else I can help you with?"));
+              site.appendChild(newElement);
+              
+              defaultSubmitButton();
+
+              function defaultSubmitButton() {
+                  var submitButton = document.getElementById('submit');
+                  submitButton.parentNode.removeChild(submitButton);
+
+                  var defaultSubmitButton = document.createElement('input');
+                  var submitSite = document.getElementById('submitSite');
+                  defaultSubmitButton.setAttribute('type', 'button');
+                  defaultSubmitButton.setAttribute('id', 'submit');
+                  defaultSubmitButton.setAttribute('class', 'user_input');
+                  defaultSubmitButton.setAttribute('onclick', 'update()');
+                  defaultSubmitButton.setAttribute('value', 'Submit');
+                  submitSite.appendChild(defaultSubmitButton);
+              }
+
+          }
+          //needs improvement
+          function creatorInfo() {
+              var site = document.getElementById('history');
+              //header
+              var newElement = document.createElement('p');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              newElement.appendChild(underlinedMC);
+              newElement.appendChild(document.createTextNode(": Mahdi is:"));
+              site.appendChild(newElement);
+              //list
+              var list = document.createElement('ul');
+              site.appendChild(list);
+              //listItem1:
+              var listItem1 = document.createElement('li');
+              listItem1.appendChild(document.createTextNode("My Creator."));
+              list.appendChild(listItem1);
+              //listItem2:
+              var listItem2 = document.createElement('li');
+              listItem2.appendChild(document.createTextNode("My Leader."));
+              list.appendChild(listItem2);
+              //listItem3:
+              var listItem3 = document.createElement('li');
+              listItem3.appendChild(document.createTextNode("My Everything."));
+              list.appendChild(listItem3);
+              //Auto-Biography of Mahdi as of Now (Needs to be updated regularly!!!)
+              var autoBiography = document.createElement('p');
+              var underlinedMC1 = document.createElement('u');
+              var ending = document.createElement('h2');
+              ending.setAttribute('style', 'text-align:center;');
+              var underlinedMC2 = document.createElement('u');
+              var lineBreak = document.createElement('br');
+              var autoBiographyContent = `: Mahdi was born in McAllen, Texas. At age three, he moved to
+              Bishop, California 93514 due to the fact that his mother had gotten a job at Texas. He grew up
+              by going to the nearby Elementary School and Middle School. He chose to be an over-achiever by
+              trying to get really good grades such as A's and even some A+'s, if possible. All three years at
+              the Middle School, HSMS [(Home Street Middle School), (because that was the name of the street that
+              passed right in front of the school)], he made it to the "Honor Roll Parties" (gatherings where people
+              who got "Honor Roll" all three times possible in a school year would watch a movie, get a free dinner that
+              included: a hamburger (with fresh-grilled meat patties), a bag of chips, a canned drink or a Gatorade, and 
+              later, the teachers would make the children Root-Beer Floats with Vanilla Ice Cream. It was the best. But I'm 
+              getting side-tracked. As he was growing up, he made only a couple of friends and many acquaintances. 
+              Half-way through his "Freshman Year" at BUHS (Bishop Union High School), his mom got another job in Irvine
+              so they had to move to Irvine right after the end of the first semester.`;
+              underlinedMC1.appendChild(document.createTextNode("MC"));
+              autoBiography.appendChild(underlinedMC1);
+              autoBiography.appendChild(document.createTextNode(autoBiographyContent));
+              site.appendChild(autoBiography);
+              
+              underlinedMC2.appendChild(document.createTextNode("MC"));
+              ending.appendChild(underlinedMC2);
+              ending.appendChild(document.createTextNode(": To Be Continued..."));
+              site.appendChild(ending);
+              site.appendChild(lineBreak);
+              defaultMessage();
+          }
+          //finish later (Work On Real Project First)
+          function profanityFilter(inputString) {
+              //A-Words
+              var aWord1 = String.fromCharCode(65, 83, 83);
+              var aWord2 = String.fromCharCode(65, 78, 65, 76);
+              //B-Words
+              var bWord1 = String.fromCharCode(66, 73, 84, 67, 72);
+              var bWord2 = String.fromCharCode(66, 65, 83, 84, 65, 82, 68);
+              //C-Word
+              var cWord1 = String.fromCharCode(67, 82, 65, 79);
+              var cWord2 = String.fromCharCode(67, 85, 77);
+              //D-Word
+              var dWord = String.fromCharCode(68, 73, 67, 75);
+              //F-Word
+              var fWord = String.fromCharCode(69, 85, 67, 75);
+              //G-Word
+              var gWord = String.fromCharCode(71, 65, 89);
+              //H-Word
+              var hWord = String.fromCharCode(72, 79, 82, 78, 89);
+              //P-Word
+              var pWord = String.fromCharCode(80, 85, 83, 83, 89);
+              //V-Word
+              var vWord = String.fromCharCode(86, 65, 71, 73, 78, 65);
+
+              inputString = inputString.replace(/aWord1|aWord2/gi, "***");
+          }
+          //done
+          function autoScroll(delay) {
+              setTimeout(function () {
+                  var elem = document.getElementById('content');
+                  elem.scrollTop = elem.scrollHeight;
+              }, Number(delay));
+          }
+          //not done
+          function listOfCommands() {
+              var site = document.getElementById('history');
+              //header
+              var newElement = document.createElement('p');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              newElement.appendChild(underlinedMC);
+              newElement.appendChild(document.createTextNode(": Here is a list of commands I can work with:"));
+              site.appendChild(newElement);
+              //list
+              var list = document.createElement('ul');
+              site.appendChild(list);
+              //listItem1:
+              var listItem1 = document.createElement('li');
+              listItem1.appendChild(document.createTextNode("Calculator: Opens the scientific calculator."));
+              list.appendChild(listItem1);
+              //listItem2:
+              var listItem2 = document.createElement('li');
+              listItem2.appendChild(document.createTextNode("Chat: Have a discussion with me."));
+              list.appendChild(listItem2);
+              //listItem4:
+              var listItem4 = document.createElement('li');
+              listItem4.appendChild(document.createTextNode("Exit: Closes MC."));
+              list.appendChild(listItem4);
+              //listItem3:
+              var listItem3 = document.createElement('li');
+              listItem3.appendChild(document.createTextNode("Mahdi: See what happens. (You're in for a surprise!)"));
+              list.appendChild(listItem3);
+              //listItem5
+              var listItem5 = document.createElement('li');
+              listItem5.appendChild(document.createTextNode("rap for me: watch me rap!"));
+              list.appendChild(listItem5);
+              //listItem4
+              var listItem4 = document.createElement('li');
+              var listItem4Warning = document.createElement('p');
+              var underlinedWarning = document.createElement('u');
+              var termsAndConditionsLink = document.createElement('a');
+              termsAndConditionsLink.setAttribute('href', 'MC_Application_Terms_And_Conditions.html');
+              termsAndConditionsLink.setAttribute('style', 'color:green;');
+              termsAndConditionsLink.setAttribute('target', '_blank');
+              termsAndConditionsLink.appendChild(document.createTextNode('here.'));
+              listItem4.appendChild(document.createTextNode("viewCode: Opens all source code in a .txt file. That's right. All 1,500 lines of HTML, CSS, and JavaScript!"));
+              underlinedWarning.appendChild(document.createTextNode("Warning!!!!!"));
+              listItem4Warning.appendChild(underlinedWarning);
+              listItem4Warning.appendChild(document.createTextNode(` : Read the Terms and Conditions before proceeding with the "viewCode" command.
+              The Terms and Conditions can be found `));
+              listItem4Warning.appendChild(termsAndConditionsLink);
+              list.appendChild(listItem4Warning);
+              list.appendChild(listItem4);
+              //lastListItem
+              var lastListItem = document.createElement('li');
+              lastListItem.appendChild(document.createTextNode('profanityFilter = "off"; : Turns off the profanity filter.'));
+              list.appendChild(lastListItem);
+
+              autoScroll(0);
+
+          }
+          //done
+          function profanityFilterOff() {
+              var site = document.getElementById('history');
+              //psych
+              var newElement = document.createElement('h1');
+              newElement.appendChild(document.createTextNode("Psych!!!"));
+              site.appendChild(newElement);
+              //info
+              var newElement1 = document.createElement('p');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              newElement1.appendChild(underlinedMC);
+              newElement1.appendChild(document.createTextNode(": This option is not available. Please don't check again later."));
+              site.appendChild(newElement1);
+              //innocent question
+              var innocentQuestion = document.createElement('p');
+              var underlinedMC1 = document.createElement('u');
+              underlinedMC1.appendChild(document.createTextNode("MC"));
+              innocentQuestion.appendChild(underlinedMC1);
+              innocentQuestion.appendChild(document.createTextNode(": Anything else I can assist you in?"));
+              site.appendChild(innocentQuestion);
+              autoScroll(0);
+
+          }
+          //not done
+          function chat1() {
+              var reply = document.getElementById("reply").value;
+              var site = document.getElementById('history');
+              var newElement = document.createElement('p');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              var underlinedMC1 = document.createElement('u');
+              underlinedMC1.appendChild(document.createTextNode("MC"));
+              newElement.appendChild(underlinedMC);
+              newElement.appendChild(document.createTextNode(": Ok. Let's Chat."));
+              site.appendChild(newElement);
+              //question
+              var newElement1 = document.createElement('p');
+              newElement1.appendChild(underlinedMC1);
+              newElement1.appendChild(document.createTextNode(": How's Life?"));
+              site.appendChild(newElement1);
+              autoScroll(0);
+              //remove old submit button
+              var submitButton = document.getElementById('submit');
+              submitButton.parentNode.removeChild(submitButton);
+              //make new submit button w/ different instructions
+              var chatSubmitButton = document.createElement('input');
+              var submitSite = document.getElementById('submitSite');
+              chatSubmitButton.setAttribute('type', 'button');
+              chatSubmitButton.setAttribute('id', 'submit');
+              chatSubmitButton.setAttribute('class', 'user_input');
+              chatSubmitButton.setAttribute('onclick', 'chat2()');
+              chatSubmitButton.setAttribute('value', 'Submit');
+              var lineBreak = document.createElement('br');
+              var lineBreak1 = document.createElement('br');
+              submitSite.appendChild(lineBreak);
+              submitSite.appendChild(lineBreak1);
+              submitSite.appendChild(chatSubmitButton);              
+          }
+          //chat record script: IF YOU ARE READING THIS, PLEASE HELP ME!!!!!!!
+          //done
+          function chat2() {
+              var reply = document.getElementById("reply").value;
+
+              
+                  var site = document.getElementById('history');
+                  var newElement = document.createElement('p');
+                  var underlinedUserName = document.createElement('u');
+                  underlinedUserName.appendChild(document.createTextNode(name));
+
+                  newElement.appendChild(underlinedUserName);
+                  newElement.appendChild(document.createTextNode(": " + reply));
+                  site.appendChild(newElement);
+                  autoScroll(0);
+
+                  reply = reply.toLowerCase();
+
+                  if (reply.includes("great") === true) {
+                      var underlinedMC1 = document.createElement('u');
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      var newElement2 = document.createElement('p');
+                      newElement2.appendChild(underlinedMC1);
+                      newElement2.appendChild(document.createTextNode(": That's good!! Yeah, I'm feeling great too..."));
+                      site.appendChild(newElement2);
+                      ageQuestion();
+                      autoScroll(0);
+                      replaceButton();
+                  }
+                  else if (reply.includes("ok") === true) {
+                      var underlinedMC1 = document.createElement('u');
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      var newElement2 = document.createElement('p');
+                      newElement2.appendChild(underlinedMC1);
+                      newElement2.appendChild(document.createTextNode(": That's good!! Yeah, I'm feeling great."));
+                      site.appendChild(newElement2);
+                      ageQuestion();
+                      autoScroll(0);
+                      replaceButton();
+                  }
+                  else if (reply.includes("suck") === true) {
+                      var underlinedMC1 = document.createElement('u');
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      var newElement2 = document.createElement('p');
+                      newElement2.appendChild(underlinedMC1);
+                      newElement2.appendChild(document.createTextNode(": Oh, too bad."));
+                      site.appendChild(newElement2);
+                      ageQuestion();
+                      autoScroll(0);
+                      replaceButton();
+                  }
+                  else if (reply.includes("bad") === true) {
+                      var underlinedMC1 = document.createElement('u');
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      var newElement2 = document.createElement('p');
+                      newElement2.appendChild(underlinedMC1);
+                      newElement2.appendChild(document.createTextNode(": Oh, that's too bad!! I hope you feel better shortly!"));
+                      site.appendChild(newElement2);
+                      ageQuestion();
+                      autoScroll(0);
+                      replaceButton();
+                  }
+                  else {
+                      var underlinedMC1 = document.createElement('u');
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      var newElement2 = document.createElement('p');
+                      newElement2.appendChild(underlinedMC1);
+                      newElement2.appendChild(document.createTextNode(": Anyway,"));
+                      site.appendChild(newElement2);
+                      ageQuestion();
+                      autoScroll(0);
+                      replaceButton();
+                  }
+                  function replaceButton() {
+                      var submitButton = document.getElementById('submit');
+                      submitButton.parentNode.removeChild(submitButton);
+
+                      var chatSubmitButton = document.createElement('input');
+                      var submitSite = document.getElementById('submitSite');
+                      chatSubmitButton.setAttribute('type', 'button');
+                      chatSubmitButton.setAttribute('id', 'submit');
+                      chatSubmitButton.setAttribute('class', 'user_input');
+                      chatSubmitButton.setAttribute('onclick', 'age()');
+                      chatSubmitButton.setAttribute('value', 'Submit');
+                      submitSite.appendChild(chatSubmitButton);
+                  }
+          }
+          //done
+          function ageRedo() {
+              ageQuestion();
+              autoScroll(0);
+              replaceButton();
+                  function replaceButton() {
+                      var submitButton = document.getElementById('submit');
+                      submitButton.parentNode.removeChild(submitButton);
+
+                      var chatSubmitButton = document.createElement('input');
+                      var submitSite = document.getElementById('submitSite');
+                      chatSubmitButton.setAttribute('type', 'button');
+                      chatSubmitButton.setAttribute('id', 'submit');
+                      chatSubmitButton.setAttribute('class', 'user_input');
+                      chatSubmitButton.setAttribute('onclick', 'age()');
+                      chatSubmitButton.setAttribute('value', 'Submit');
+                      submitSite.appendChild(chatSubmitButton);
+                  }
+          }
+          //done
+          function ageQuestion() {
+              var reply = document.getElementById("reply").value;
+              var site = document.getElementById('history');
+              var newElement = document.createElement('p');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              newElement.appendChild(underlinedMC);
+              newElement.appendChild(document.createTextNode(": How old are you?"));
+              site.appendChild(newElement);
+              
+          }
+          //done
+          function age() {
+              var reply = document.getElementById("reply").value;
+              var site = document.getElementById('history');
+
+              var submitButton = document.getElementById('submit');
+              submitButton.parentNode.removeChild(submitButton);
+
+              var chatSubmitButton = document.createElement('input');
+              var submitSite = document.getElementById('submitSite');
+              chatSubmitButton.setAttribute('type', 'button');
+              chatSubmitButton.setAttribute('id', 'submit');
+              chatSubmitButton.setAttribute('class', 'user_input');
+              chatSubmitButton.setAttribute('onclick', 'ageCheck()');
+              chatSubmitButton.setAttribute('value', 'Submit');
+              submitSite.appendChild(chatSubmitButton);
+
+
+              autoScroll(0);
+
+              reply = Number(reply);
+
+              ageCheck();
+              function post() {
+                  
+                  if (reply === "") {
+                      alert("Please type something to continue!!");
+                  }
+                  else {
+
+                      var newElementPost = document.createElement('p');
+                      var underlinedUserName = document.createElement('u');
+                      underlinedUserName.appendChild(document.createTextNode(name));
+
+                      newElementPost.appendChild(underlinedUserName);
+                      newElementPost.appendChild(document.createTextNode(": " + reply));
+                      site.appendChild(newElementPost);
+                      autoScroll(0);
+                  }
+              }
+              function ageCheck() {
+                  if (reply <= 18 && reply >= 4) {
+                      post();
+                      var underlinedMC1 = document.createElement('u');
+                      var newElement1 = document.createElement('p');
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      newElement1.appendChild(underlinedMC1);
+                      newElement1.appendChild(document.createTextNode(": Ok, so how's the school life?"));
+                      site.appendChild(newElement1);
+                      autoScroll(0);
+
+                      var submitButton = document.getElementById('submit');
+                      submitButton.parentNode.removeChild(submitButton);
+
+                      var newSubmitButton = document.createElement('input');
+                      var submitSite = document.getElementById('submitSite');
+                      newSubmitButton.setAttribute('type', 'button');
+                      newSubmitButton.setAttribute('id', 'submit');
+                      newSubmitButton.setAttribute('class', 'user_input');
+                      newSubmitButton.setAttribute('onclick', 'schoolLife()');
+                      newSubmitButton.setAttribute('value', 'Submit');
+                      submitSite.appendChild(newSubmitButton);
+                      autoScroll(0);
+
+                  }
+                  else if (reply > 18 && reply <= 120) {
+                      post();
+                      var underlinedMC1 = document.createElement('u');
+                      var newElement1 = document.createElement('p');
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      newElement1.appendChild(underlinedMC1);
+                      newElement1.appendChild(document.createTextNode(": Ok, so how's the adult life?"));
+                      site.appendChild(newElement1);
+                      autoScroll(0);
+                      var submitButton = document.getElementById('submit');
+                      submitButton.parentNode.removeChild(submitButton);
+
+                      var newSubmitButton = document.createElement('input');
+                      var submitSite = document.getElementById('submitSite');
+                      newSubmitButton.setAttribute('type', 'button');
+                      newSubmitButton.setAttribute('id', 'submit');
+                      newSubmitButton.setAttribute('class', 'user_input');
+                      newSubmitButton.setAttribute('onclick', 'adultLife()');
+                      newSubmitButton.setAttribute('value', 'Submit');
+                      submitSite.appendChild(newSubmitButton);
+                      autoScroll(0);
+                  }
+                  else if (reply === NaN) {
+                      alert('Please type in just a number!');
+                      alert("Make sure it's a reasonable age!");
+                      ageRedo();
+                  }
+                  else {
+                      alert('Please type in just a number!');
+                      alert("Make sure it's a reasonable age!");
+                      ageRedo();
+                  }
+              }
+          }
+          //done
+          function schoolLife() {
+              var reply = document.getElementById("reply").value;
+              var site = document.getElementById('history');
+              var underlinedUserName = document.createElement('u');
+              var newElement = document.createElement('p');
+              underlinedUserName.appendChild(document.createTextNode(name));
+
+              newElement.appendChild(underlinedUserName);
+              newElement.appendChild(document.createTextNode(": " + reply));
+              site.appendChild(newElement);
+              autoScroll(0);
+              if (reply.includes('finals') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var underlinedMC = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement.appendChild(document.createTextNode(": That sucks."));
+                  newElement1.appendChild(document.createTextNode(`: I personally have not been through the experience,
+                  but from others I hear that they are a total nightmare. I wish you luck and "May the odds be in your favor"!`));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  allClasses();
+
+              }
+              else if (reply.includes('aight') === true) {
+                  var newElement = document.createElement('p');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement.appendChild(document.createTextNode(": That's all good."));
+                  site.appendChild(newElement);
+                  allClasses();
+                  
+              }
+              else if (reply.includes('fun') === true) {
+                  var newElement = document.createElement('p');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement.appendChild(document.createTextNode(": You think school is fun? That is great."));
+                  site.appendChild(newElement);
+                  allClasses();
+              }
+              else if (reply.includes('who cares') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement.appendChild(document.createTextNode(": Well I care, that's why I asked!!!"));
+                  newElement1.appendChild(document.createTextNode(": Oh well. I guess it doesn't matter!!"));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  allClasses();
+              }
+              else if (reply.includes('stressful') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement.appendChild(document.createTextNode(": That's not good!!"));
+                  newElement1.appendChild(document.createTextNode(": I hope you feel better!!"));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  allClasses();
+              }
+              else {
+                  var newElement = document.createElement('p');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement.appendChild(document.createTextNode(": Okay then..."));
+                  site.appendChild(newElement);
+                  allClasses();
+              }
+          }
+          //done
+          function allClasses() {
+              var site = document.getElementById('history');
+              var newElement1 = document.createElement('p');
+              var underlinedMC1 = document.createElement('u');
+              underlinedMC1.appendChild(document.createTextNode("MC"));
+              newElement1.appendChild(underlinedMC1);
+              newElement1.appendChild(document.createTextNode(": So, what are some of the classes you happen to be taking this year?"));
+              site.appendChild(newElement1);
+              autoScroll();
+              var submitButton = document.getElementById('submit');
+              submitButton.parentNode.removeChild(submitButton);
+              var chatSubmitButton = document.createElement('input');
+              var submitSite = document.getElementById('submitSite');
+              chatSubmitButton.setAttribute('type', 'button');
+              chatSubmitButton.setAttribute('id', 'submit');
+              chatSubmitButton.setAttribute('class', 'user_input');
+              chatSubmitButton.setAttribute('onclick', 'allClassesReply()');
+              chatSubmitButton.setAttribute('value', 'Submit');
+              submitSite.appendChild(chatSubmitButton);
+          }
+          //done
+          function allClassesReply() {
+                  var reply = document.getElementById("reply").value;
+                  var site = document.getElementById('history');
+
+                      if (reply === "") {
+                          alert("Please type something to continue!!");
+                      }
+                      else {
+
+                          var newElementPost = document.createElement('p');
+                          var underlinedUserName = document.createElement('u');
+                          underlinedUserName.appendChild(document.createTextNode(name));
+
+                          newElementPost.appendChild(underlinedUserName);
+                          newElementPost.appendChild(document.createTextNode(": " + reply));
+                          site.appendChild(newElementPost);
+                          autoScroll(0);
+                      }
+
+                  reply = reply.toLowerCase();
+                  if (reply.includes('math') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": Cool!! I love Math."));
+                      newElement1.appendChild(document.createTextNode(": My Creator's favorite subject was Math too!!"));
+                      newElement2.appendChild(document.createTextNode(": In fact, in 8th grade, he skipped a year in Math. Now isn't that cool?!"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('science') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": That's cool."));
+                      newElement1.appendChild(document.createTextNode(": Science is very cool."));
+                      newElement2.appendChild(document.createTextNode(": And somehow it seems to make sense. Now isn't that cool?!"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('art') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": That's great!!"));
+                      newElement1.appendChild(document.createTextNode(": So what type of art are you into?"));
+                      newElement2.appendChild(document.createTextNode(": I feel that pottery is a very fun part of art. Don't you think?"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('ela') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": I personally hate ELA but that is just my opinion."));
+                      newElement1.appendChild(document.createTextNode(": ELA was the class that gave My Creator the most stress!!"));
+                      newElement2.appendChild(document.createTextNode(": I hear that some ELA classes give out many big projects at once?! Now that must suck!"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('english') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": I personally hate, sorry, I meant dislike English but that is just my opinion."));
+                      newElement1.appendChild(document.createTextNode(": ELA was the class that gave My Creator the most stress!!"));
+                      newElement2.appendChild(document.createTextNode(": I hear that some ELA classes give out many big projects at once?! Now that must suck!"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('health') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": Wow, you must've learned a lot about the human body in that class."));
+                      newElement1.appendChild(document.createTextNode(": Seeing as how I'm barely in my prime stage (I mean v:1.0.0), I really don't know any anatomy."));
+                      newElement2.appendChild(document.createTextNode(": But cudos to you for learning that stuff!!"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('success') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": That's nice, being able to plan out your life is never bad."));
+                      newElement1.appendChild(document.createTextNode(": Sadly, I cannot plan out my life because My Creaotr does that for me. So I don't get choose what I want to be."));
+                      newElement2.appendChild(document.createTextNode(": Oh well, enough of me complaining."));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('spanish') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": Since I'm v:1.0.0, I can only speak English. but in some time, a newer version of me might have many language packs, who knows?!"));
+                      newElement1.appendChild(document.createTextNode(": But congrats to you for learning/starting to learn a new language."));
+                      newElement2.appendChild(document.createTextNode(": Now that's one way to spread your roots. When you become fluent enough, you will become capable to travel to Mexico, Spain, and some countries in Central America. Isn't that exciting?!"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('french') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": Since I'm v:1.0.0, I can only speak English. but in some time, a newer version of me might have many language packs, who knows?!"));
+                      newElement1.appendChild(document.createTextNode(": But congrats to you for learaning/starting to learn a new language."));
+                      newElement2.appendChild(document.createTextNode(": Now that's one way to spread your roots. When you become fluent enough, you will become capable to travel to France and Canada with no difficulty at all. Isn't that exciting?!"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('music') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": That's nice, being able to play an instrument always looks good on a resume!"));
+                      newElement1.appendChild(document.createTextNode(": Sadly, I cannot physically play an instrument. But if I were able to, I'd have to go with a distorted guitar. That's just my opinion."));
+                      newElement2.appendChild(document.createTextNode(": So, what instruments can you play?"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  else if (reply.includes('band') === true) {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": That's nice, being able to play an instrument always looks good on a resume!"));
+                      newElement1.appendChild(document.createTextNode(": Sadly, I cannot physically play an instrument. But if I were able to, I'd have to go with a distorted guitar. That's just my opinion."));
+                      newElement2.appendChild(document.createTextNode(": So, what instruments can you play?"));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      autoScroll();
+                  }
+                  else {
+                      var newElement = document.createElement('p');
+                      var newElement1 = document.createElement('p');
+                      var newElement2 = document.createElement('p');
+                      var underlinedMC2 = document.createElement('u');
+                      var underlinedMC1 = document.createElement('u');
+                      var underlinedMC = document.createElement('u');
+                      underlinedMC.appendChild(document.createTextNode("MC"));
+                      underlinedMC1.appendChild(document.createTextNode("MC"));
+                      underlinedMC2.appendChild(document.createTextNode("MC"));
+                      newElement.appendChild(underlinedMC);
+                      newElement1.appendChild(underlinedMC1);
+                      newElement2.appendChild(underlinedMC2);
+                      newElement.appendChild(document.createTextNode(": That's all good."));
+                      newElement1.appendChild(document.createTextNode(": I hope you are enjoying those classes."));
+                      newElement2.appendChild(document.createTextNode(": To be honest, they don't sound that bad so..."));
+                      site.appendChild(newElement);
+                      site.appendChild(newElement1);
+                      site.appendChild(newElement2);
+                      var fav_classesQuestion = document.createElement('p');
+                      var underlinedMC3 = document.createElement('u');
+                      underlinedMC3.appendChild(document.createTextNode("MC"));
+                      fav_classesQuestion.appendChild(underlinedMC3);
+                      fav_classesQuestion.appendChild(document.createTextNode(": So, which of these classes are your favorites? Or which of these classes are you actually okay with?"));
+                      site.appendChild(fav_classesQuestion);
+                      changeSubmit();
+                      autoScroll();
+                  }
+                  function changeSubmit() {
+                      var submitButton = document.getElementById('submit');
+                      submitButton.parentNode.removeChild(submitButton);
+                      var chatSubmitButton = document.createElement('input');
+                      var submitSite = document.getElementById('submitSite');
+                      chatSubmitButton.setAttribute('type', 'button');
+                      chatSubmitButton.setAttribute('id', 'submit');
+                      chatSubmitButton.setAttribute('class', 'user_input');
+                      chatSubmitButton.setAttribute('onclick', 'fav_classes()');
+                      chatSubmitButton.setAttribute('value', 'Submit');
+                      submitSite.appendChild(chatSubmitButton);
+                  }
+          }
+          //done
+          function fav_classes() {
+              var reply = document.getElementById("reply").value;
+              var site = document.getElementById('history');
+              if (reply === "") {
+                  alert("Please type something to continue!!");
+              }
+              else {
+                  var newElementPost = document.createElement('p');
+                  var underlinedUserName = document.createElement('u');
+                  underlinedUserName.appendChild(document.createTextNode(name));
+
+                  newElementPost.appendChild(underlinedUserName);
+                  newElementPost.appendChild(document.createTextNode(": " + reply));
+                  site.appendChild(newElementPost);
+                  autoScroll(0);
+              }
+              reply = reply.toLowerCase();
+              if (reply.includes('math') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": That's awesome!!"));
+                  newElement1.appendChild(document.createTextNode(": Math is very cool."));
+                  newElement2.appendChild(document.createTextNode(": In fact, it's just a buncha patterns."));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": What are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else if (reply.includes('science') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": Good job!!"));
+                  newElement1.appendChild(document.createTextNode(": Math and Science go hand and hand."));
+                  newElement2.appendChild(document.createTextNode(": That's great for you though."));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": So, what are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else if (reply.includes('history') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": It's always nice to learn a little bit of our past..."));
+                  newElement1.appendChild(document.createTextNode(": You know, that way we (as the human race) don't make the same mistakes."));
+                  newElement2.appendChild(document.createTextNode(": That's good though."));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": What are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else if (reply.includes('physics') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement.appendChild(document.createTextNode(": I hear that Math and Physics pretty much conjoin into one thing as you advance into colleges and universities!!"));
+                  newElement1.appendChild(document.createTextNode(": But Cudos to you for being able to not only understand but also enjoy such a complicated subject."));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": What are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else if (reply.includes('art') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": Way to go!!"));
+                  newElement1.appendChild(document.createTextNode(": Art is all about creativity."));
+                  newElement2.appendChild(document.createTextNode(": Ya gotta know how to pour out your heart."));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": What are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else if (reply.includes('break') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": Really..."));
+                  newElement1.appendChild(document.createTextNode(": I'm actually disappointed in you!!"));
+                  newElement2.appendChild(document.createTextNode(": Pick seriously next time!"));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2); 
+                  autoScroll();
+                  fav_classes();
+              }
+              else if (reply.includes('lunch') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": Really..."));
+                  newElement1.appendChild(document.createTextNode(": I'm actually disappointed in you!!"));
+                  newElement2.appendChild(document.createTextNode(": Pick seriously next time!"));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  autoScroll();
+                  fav_classes();
+              }
+              else if (reply.includes('english') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": Woah!!"));
+                  newElement1.appendChild(document.createTextNode(": What a complicated subject! I don't think that even I understand English to its full extent."));
+                  newElement2.appendChild(document.createTextNode(": I understand JavaScript, HTML, and a bit of CSS. But who really cares, right?"));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": Anyway, what are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else if (reply.includes('spanish') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": Never too late to learn!!"));
+                  newElement1.appendChild(document.createTextNode(": In my next version, my creator plans to make a spanish version."));
+                  newElement2.appendChild(document.createTextNode(': Keeping my "fingers" crossed!'));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": What are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else if (reply.includes('french') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": Never too late to learn!!"));
+                  newElement1.appendChild(document.createTextNode(': Sadly, "Je ne peux parler Français".'));
+                  newElement2.appendChild(document.createTextNode(": But I hope you get to go to France or Canada someday and show off your skills!"));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": What are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else if (reply.includes('biology') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": Wow!!"));
+                  newElement1.appendChild(document.createTextNode(": Having to memorize a lot of things."));
+                  newElement2.appendChild(document.createTextNode(": Still, that's good."));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": What are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else if (reply.includes('agriculture') === true) {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": The farming business is getting bigger while the population gets bigger, right?"));
+                  newElement1.appendChild(document.createTextNode(": Great choice."));
+                  newElement2.appendChild(document.createTextNode(": Just remember to not get emotionally attached to the animals."));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": So, what are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              else {
+                  var newElement = document.createElement('p');
+                  var newElement1 = document.createElement('p');
+                  var newElement2 = document.createElement('p');
+                  var underlinedMC2 = document.createElement('u');
+                  var underlinedMC1 = document.createElement('u');
+                  var underlinedMC = document.createElement('u');
+                  underlinedMC.appendChild(document.createTextNode("MC"));
+                  underlinedMC1.appendChild(document.createTextNode("MC"));
+                  underlinedMC2.appendChild(document.createTextNode("MC"));
+                  newElement.appendChild(underlinedMC);
+                  newElement1.appendChild(underlinedMC1);
+                  newElement2.appendChild(underlinedMC2);
+                  newElement.appendChild(document.createTextNode(": Good for you!!"));
+                  newElement1.appendChild(document.createTextNode(": Now that is a fun subject."));
+                  newElement2.appendChild(document.createTextNode(": You just keep enjoying it."));
+                  site.appendChild(newElement);
+                  site.appendChild(newElement1);
+                  site.appendChild(newElement2);
+                  var grow_upQuestion = document.createElement('p');
+                  var underlinedMC3 = document.createElement('u');
+                  underlinedMC3.appendChild(document.createTextNode("MC"));
+                  grow_upQuestion.appendChild(underlinedMC3);
+                  grow_upQuestion.appendChild(document.createTextNode(": So, what are you planning to do when you grow up?"));
+                  site.appendChild(grow_upQuestion);
+                  autoScroll();
+              }
+              changeSubmit();
+              function changeSubmit() {
+                  var submitButton = document.getElementById('submit');
+                  submitButton.parentNode.removeChild(submitButton);
+                  var chatSubmitButton = document.createElement('input');
+                  var submitSite = document.getElementById('submitSite');
+                  chatSubmitButton.setAttribute('type', 'button');
+                  chatSubmitButton.setAttribute('id', 'submit');
+                  chatSubmitButton.setAttribute('class', 'user_input');
+                  chatSubmitButton.setAttribute('onclick', 'convoEnd1()');
+                  chatSubmitButton.setAttribute('value', 'Submit');
+                  submitSite.appendChild(chatSubmitButton);
+              }
+
+
+          }
+          //needs improvement
+          function adultLife() {
+              var reply = document.getElementById("reply").value;
+              var site = document.getElementById('history');
+              autoScroll(0);
+          }
+          //done
+          function convoEnd1() {
+              var reply = document.getElementById("reply").value;
+              var site = document.getElementById('history');
+              if (reply === "") {
+                  alert("Please type something to continue!!");
+              }
+              else {
+                  var newElementPost = document.createElement('p');
+                  var underlinedUserName = document.createElement('u');
+                  underlinedUserName.appendChild(document.createTextNode(name));
+
+                  newElementPost.appendChild(underlinedUserName);
+                  newElementPost.appendChild(document.createTextNode(": " + reply));
+                  site.appendChild(newElementPost);
+                  autoScroll(0);
+              }
+              reply = reply.toLowerCase();
+              var newElement = document.createElement('p');
+              var newElement1 = document.createElement('p');
+              var underlinedMC1 = document.createElement('u');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              underlinedMC1.appendChild(document.createTextNode("MC"));
+              newElement.appendChild(underlinedMC);
+              newElement1.appendChild(underlinedMC1);
+              newElement.appendChild(document.createTextNode(": That's nice."));
+              newElement1.appendChild(document.createTextNode(": So, what do you like to do in your spare time?"));
+              site.appendChild(newElement);
+              site.appendChild(newElement1);
+              autoScroll();
+              changeSubmit();
+              function changeSubmit() {
+                  var submitButton = document.getElementById('submit');
+                  submitButton.parentNode.removeChild(submitButton);
+                  var chatSubmitButton = document.createElement('input');
+                  var submitSite = document.getElementById('submitSite');
+                  chatSubmitButton.setAttribute('type', 'button');
+                  chatSubmitButton.setAttribute('id', 'submit');
+                  chatSubmitButton.setAttribute('class', 'user_input');
+                  chatSubmitButton.setAttribute('onclick', 'convoEnd2()');
+                  chatSubmitButton.setAttribute('value', 'Submit');
+                  submitSite.appendChild(chatSubmitButton);
+              }
+
+          }
+          //done
+          function convoEnd2() {
+              var reply = document.getElementById("reply").value;
+              var site = document.getElementById('history');
+              if (reply === "") {
+                  alert("Please type something to continue!!");
+              }
+              else {
+                  var newElementPost = document.createElement('p');
+                  var underlinedUserName = document.createElement('u');
+                  underlinedUserName.appendChild(document.createTextNode(name));
+
+                  newElementPost.appendChild(underlinedUserName);
+                  newElementPost.appendChild(document.createTextNode(": " + reply));
+                  site.appendChild(newElementPost);
+                  autoScroll(0);
+              }
+              reply = reply.toLowerCase();
+              var newElement = document.createElement('p');
+              var newElement1 = document.createElement('p');
+              var underlinedMC1 = document.createElement('u');
+              var underlinedMC = document.createElement('u');
+              underlinedMC.appendChild(document.createTextNode("MC"));
+              underlinedMC1.appendChild(document.createTextNode("MC"));
+              newElement.appendChild(underlinedMC);
+              newElement1.appendChild(underlinedMC1);
+              newElement.appendChild(document.createTextNode(": That sounds really fun."));
+              newElement1.appendChild(document.createTextNode(`: Well I got to go do this thing in this place with this
+              guy at this time because of this other thing that happened which is a long and funny story but it was nice
+              getting to know you ` + name + ". I will talk to you later and see you around!!"));
+              site.appendChild(newElement);
+              site.appendChild(newElement1);
+              autoScroll();
+              defaultMessage();
+          }
+          //done
+          function calculator() {
+                  var modal = document.getElementById('myModal');
+                  var span = document.getElementsByClassName("closeCalc")[0];
+                  modal.style.display = "block";
+                  span.onclick = function () {
+                      modal.style.display = "none";
+                      intro();
+                  }
+
+                  // When the user clicks anywhere outside of the modal, close it
+                  window.onclick = function (event) {
+                      if (event.target == modal) {
+                          modal.style.display = "none";
+                          intro();
+                      }
+                  }
+
+              }
+      </script>
+      <!--Space at bottom of MC-->
+      <div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+      </div>
+      
+</div>
+    <!--End MC-->
+
+    <!--Script to handle opening and closing MC-->
+    <script>
+
+        // Get the modal
+        var popup = document.getElementById('myPopup'); // Get the button that opens the modal
+        var starter = document.getElementById("starter"); // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0]; // When the user clicks the button, open the modal
+        window.onload = function () {
+            popup.style.display = "block";
+        } // automatically MC
+        function reOpenMC() {
+            var site = document.getElementById('history');
+            var newElement = document.createElement('p');
+            var underlinedMC = document.createElement('u');
+            underlinedMC.appendChild(document.createTextNode("MC"));
+            newElement.appendChild(underlinedMC);
+            newElement.appendChild(document.createTextNode(": Welcome Back, " + name + "!!!"));
+            site.appendChild(newElement);
+            autoScroll();
+            defaultMessage();
+        }
+        starter.onclick = function () {
+            reOpenMC();
+            popup.style.display = "block";
+        } // open MC
+        span.onclick = function () {
+            popup.style.display = "none";
+            window.close();
+        } // close MC
+
+
+    /*
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == popup) {
+            popup.style.display = "none";
+        }
+            }
+            */
+    </script>
+    <!--Calculator And Script/Style-->
+    <div id="myModal" class="modal">
+        <style>
+            #title1 {
+                text-align: center;
+                font-size: 75px;
+                color: rgb(3, 168, 158);
+            }
+
+            #numbox {
+                width: 517px;
+                height: 100px;
+                font-size: 50px;
+            }
+
+            #calculator {
+                text-align: center;
+            }
+
+            #size {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+                border: none;
+            }
+
+                #size:hover {
+                    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                    transition-duration: 0.4s;
+                }
+
+            #sign:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #num:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #zero:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #sign {
+                width: 204px;
+                height: 100px;
+                font-size: 50px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 80, 0);
+                border: none;
+            }
+
+            #num {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(135, 135, 135);
+                border: none;
+            }
+
+            #zero {
+                width: 204px;
+                height: 100px;
+                font-size: 50px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(135, 135, 135);
+                border: none;
+            }
+
+            .hi {
+                font-size: 0px;
+            }
+
+            #title2 {
+                text-align: center;
+                font-size: 70px;
+                color: rgb(168, 42, 3);
+            }
+
+            #advcalc {
+                text-align: center;
+            }
+
+            input#sign {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#sign2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#size {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#size2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#trigset1 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#trigset2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#num {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#zero {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#num2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#zero2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#numbox {
+                border-radius: 8px;
+                text-align: right;
+                text-overflow: ellipsis;
+                background-color: rgb(60, 120, 60);
+                border: none;
+            }
+
+            input#display {
+                border-radius: 8px;
+                text-align: right;
+                text-overflow: ellipsis;
+                background-color: rgb(60, 120, 60);
+                border: none;
+            }
+
+            #display {
+                width: 469px;
+                height: 75px;
+                font-size: 50px;
+            }
+
+            #size2 {
+                width: 75px;
+                height: 75px;
+                font-size: 37.5px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+                border: none;
+            }
+
+            #sign2 {
+                width: 153px;
+                height: 75px;
+                font-size: 37.5px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 80, 0);
+                border: none;
+            }
+
+            #num2 {
+                width: 75px;
+                height: 75px;
+                font-size: 37.5px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(135, 135, 135);
+                border: none;
+            }
+
+            #zero2 {
+                width: 153px;
+                height: 75px;
+                font-size: 37.5px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(135, 135, 135);
+                border: none;
+            }
+
+            #trigset1 {
+                width: 75px;
+                height: 70px;
+                font-size: 30px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+                border: none;
+            }
+
+            #trigset2 {
+                width: 75px;
+                height: 70px;
+                font-size: 30px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+                border: none;
+            }
+
+            #num2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #zero2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #trigset1:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #trigset2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #sign2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #size2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+        </style>
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="closeCalc">&times;</span>
+            <div id="title2">
+                <h2>Advanced Calculator</h2>
+            </div>
+            <div id="advcalc">
+                <script>
+
+                    var answer = advcalc.exp.value;
+                    function sin(t) {
+                        var x = (t * Math.PI) / 180;
+                        if (t == 30) {
+                            return "0.5";
+                        }
+                        else if (t == 90) {
+                            return "1";
+                        }
+                        else {
+                            t = x - (Math.pow(x, 3) / 6) + (Math.pow(x, 5) / 120) - (Math.pow(x, 7) / 5040) + (Math.pow(x, 9) / 362880) - (Math.pow(x, 11) / 39916800) + (Math.pow(x, 13) / 6227020800) - (Math.pow(x, 15) / 1307674368000) + (Math.pow(x, 17) / 355687428096000) - (Math.pow(x, 19) / 121645100408832000) + (Math.pow(x, 21) / 51090942171709440000) - (Math.pow(x, 23) / 2.585201673888498e+22) + (Math.pow(x, 25) / 1.5511210043330983e+25) - (Math.pow(x, 27) / 1.0888869450418352e+28) + (Math.pow(x, 29) / 8.841761993739701e+30) - (Math.pow(x, 31) / 8.222838654177924e+33) + (Math.pow(x, 33) / 8.68331761881189e+36) - (Math.pow(x, 35) / 1.0333147966386144e+40) + (Math.pow(x, 37) / 1.3763753091226345e+43) - (Math.pow(x, 39) / 2.0397882081197446e+46) + (Math.pow(x, 41) / 3.34525266131638e+49) - (Math.pow(x, 43) / 6.041526306337384e+52) + (Math.pow(x, 45) / 1.196222208654802e+56) - (Math.pow(x, 47) / 2.5862324151116826e+59) + (Math.pow(x, 49) / 6.082818640342679e+62) - (Math.pow(x, 51) / 1.5511187532873816e+66);
+                            return t;
+                        }
+                    }
+                    function cos(r) {
+                        var y = (r * Math.PI) / 180;
+                        if (r == 60) {
+                            return "0.5";
+                        }
+                        else if (r == 90) {
+                            return "0";
+                        }
+                        else {
+                            r = 1 - (Math.pow(y, 2) / 2) + (Math.pow(y, 4) / 24) - (Math.pow(y, 6) / 720) + (Math.pow(y, 8) / 40320) - (Math.pow(y, 10) / 3628800) + (Math.pow(y, 12) / 479001600) - (Math.pow(y, 14) / 87178291200) + (Math.pow(y, 16) / 20922789888000) - (Math.pow(y, 18) / 6402373705728000) + (Math.pow(y, 20) / 2432902008176640000) - (Math.pow(y, 22) / 1.1240007277776077e+21) + (Math.pow(y, 24) / 6.204484017332394e+23) - (Math.pow(y, 26) / 4.032914611266057e+26) + (Math.pow(y, 28) / 3.048883446117138e+29) - (Math.pow(y, 30) / 2.652528598121911e+32) + (Math.pow(y, 32) / 2.6313083693369355e+35) - (Math.pow(y, 34) / 2.952327990396041e+38) + (Math.pow(y, 36) / 3.719933267899013e+41) - (Math.pow(y, 38) / 5.23022617466601e+44) + (Math.pow(y, 40) / 8.15915283247898e+47) - (Math.pow(y, 42) / 1.4050061177528801e+51) + (Math.pow(y, 44) / 2.6582715747884495e+54) - (Math.pow(y, 46) / 5.502622159812089e+57) + (Math.pow(y, 48) / 1.2413915592536068e+61) - (Math.pow(y, 50) / 3.0414093201713375e+64);
+                            return r;
+                        }
+                    }
+                    function tan(i) {
+                        var z = (i * Math.PI) / 180;
+                        if (i == 90) {
+                            return "Infinity";
+                        }
+                        else {
+                            i = (z - (Math.pow(z, 3) / 6) + (Math.pow(z, 5) / 120) - (Math.pow(z, 7) / 5040) + (Math.pow(z, 9) / 362880) - (Math.pow(z, 11) / 39916800) + (Math.pow(z, 13) / 6227020800) - (Math.pow(z, 15) / 1307674368000) + (Math.pow(z, 17) / 355687428096000) - (Math.pow(z, 19) / 121645100408832000) + (Math.pow(z, 21) / 51090942171709440000) - (Math.pow(z, 23) / 2.585201673888498e+22) + (Math.pow(z, 25) / 1.5511210043330983e+25) - (Math.pow(z, 27) / 1.0888869450418352e+28) + (Math.pow(z, 29) / 8.841761993739701e+30) - (Math.pow(z, 31) / 8.222838654177924e+33) + (Math.pow(z, 33) / 8.68331761881189e+36) - (Math.pow(z, 35) / 1.0333147966386144e+40) + (Math.pow(z, 37) / 1.3763753091226345e+43) - (Math.pow(z, 39) / 2.0397882081197446e+46) + (Math.pow(z, 41) / 3.34525266131638e+49) - (Math.pow(z, 43) / 6.041526306337384e+52) + (Math.pow(z, 45) / 1.196222208654802e+56) - (Math.pow(z, 47) / 2.5862324151116826e+59) + (Math.pow(z, 49) / 6.082818640342679e+62) - (Math.pow(z, 51) / 1.5511187532873816e+66)) / (1 - (Math.pow(z, 2) / 2) + (Math.pow(z, 4) / 24) - (Math.pow(z, 6) / 720) + (Math.pow(z, 8) / 40320) - (Math.pow(z, 10) / 3628800) + (Math.pow(z, 12) / 479001600) - (Math.pow(z, 14) / 87178291200) + (Math.pow(z, 16) / 20922789888000) - (Math.pow(z, 18) / 6402373705728000) + (Math.pow(z, 20) / 2432902008176640000) - (Math.pow(z, 22) / 1.1240007277776077e+21) + (Math.pow(z, 24) / 6.204484017332394e+23) - (Math.pow(z, 26) / 4.032914611266057e+26) + (Math.pow(z, 28) / 3.048883446117138e+29) - (Math.pow(z, 30) / 2.652528598121911e+32) + (Math.pow(z, 32) / 2.6313083693369355e+35) - (Math.pow(z, 34) / 2.952327990396041e+38) + (Math.pow(z, 36) / 3.719933267899013e+41) - (Math.pow(z, 38) / 5.23022617466601e+44) + (Math.pow(z, 40) / 8.15915283247898e+47) - (Math.pow(z, 42) / 1.4050061177528801e+51) + (Math.pow(z, 44) / 2.6582715747884495e+54) - (Math.pow(z, 46) / 5.502622159812089e+57) + (Math.pow(z, 48) / 1.2413915592536068e+61) - (Math.pow(z, 50) / 3.0414093201713375e+64));
+                            return i;
+                        }
+                    }
+                    function TrigFunc(fn) {
+                        var value = advcalc.exp.value;
+                        if (fn == "sin") {
+                            value = Math.sin(value);
+                            return value;
+                        }
+                        else if (fn == "cos") {
+                            value = Math.cos(value);
+                            return value;
+                        }
+                        else if (fn == "tan") {
+                            value = Math.tan(value);
+                            return value;
+                        }
+                    }
+                    function fact(x) {
+                        if (x == 0) {
+                            return 1;
+                        }
+                        else if (x < 0) {
+                            return "Error";
+                        }
+                        else {
+                            for (var i = x; --i;) {
+                                x *= i;
+                            }
+                            return x;
+                        }
+                    }
+
+                </script>
+                <form name="advcalc">
+                    <input type="text" id="display" name="exp" value="" readonly>
+                    <p class="hi">hi</p>
+                    <input type="reset" id="sign2" value="AC">
+                    <input type="button" id="size2" value="+/-" onClick="advcalc.exp.value = advcalc.exp.value / -1">
+                    <input type="button" id="size2" value="π" onClick="advcalc.exp.value = advcalc.exp.value.replace(advcalc.exp.value, Math.PI)">
+                    <input type="button" id="size2" value="!" onClick="advcalc.exp.value = fact(advcalc.exp.value)">
+                    <input type="button" id="size2" value="←" onClick="advcalc.exp.value = advcalc.exp.value.substring(0, advcalc.exp.value.length - 1)">
+                    <p class="hi">hi</p>
+                    <input type="button" id="trigset1" value="sin" onClick="advcalc.exp.value = sin(advcalc.exp.value)">
+                    <input type="button" id="trigset1" value="cos" onClick="advcalc.exp.value = cos(advcalc.exp.value)">
+                    <input type="button" id="trigset1" value="tan" onClick="advcalc.exp.value = tan(advcalc.exp.value)">
+                    <input type="button" id="trigset2" value="sinh" onClick="advcalc.exp.value = Math.sinh(advcalc.exp.value)">
+                    <input type="button" id="trigset2" value="cosh" onClick="advcalc.exp.value = Math.cosh(advcalc.exp.value)">
+                    <input type="button" id="trigset2" value="tanh" onClick="advcalc.exp.value = Math.tanh(advcalc.exp.value)">
+                    <p class="hi">hi</p>
+                    <input type="button" id="size2" value="1/x" onClick="advcalc.exp.value = 1 / advcalc.exp.value">
+                    <input type="button" id="size2" value="(" onClick="document.advcalc.exp.value += '('">
+                    <input type="button" id="size2" value=")" onClick="document.advcalc.exp.value += ')'">
+                    <input type="button" id="size2" value="|x|" onClick="advcalc.exp.value = Math.abs(advcalc.exp.value)">
+                    <input type="button" id="sign2" value="÷" onClick="document.advcalc.exp.value += '/'">
+                    <p class="hi">hi</p>
+                    <input type="button" id="size2" value="10ˣ" onClick="advcalc.exp.value = Math.pow(10, advcalc.exp.value)">
+                    <input type="button" id="num2" value="7" onClick="document.advcalc.exp.value += '7'">
+                    <input type="button" id="num2" value="8" onClick="document.advcalc.exp.value += '8'">
+                    <input type="button" id="num2" value="9" onClick="document.advcalc.exp.value += '9'">
+                    <input type="button" id="sign2" value="x" onClick="document.advcalc.exp.value += '*'">
+                    <p class="hi">hi</p>
+                    <input type="button" id="size2" value="√" onClick="advcalc.exp.value = Math.sqrt(advcalc.exp.value)">
+                    <input type="button" id="num2" value="4" onClick="document.advcalc.exp.value += '4'">
+                    <input type="button" id="num2" value="5" onClick="document.advcalc.exp.value += '5'">
+                    <input type="button" id="num2" value="6" onClick="document.advcalc.exp.value += '6'">
+                    <input type="button" id="sign2" value="-" onClick="document.advcalc.exp.value += '-'">
+                    <p class="hi">hi</p>
+                    <input type="button" id="size2" value="x²" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value">
+                    <input type="button" id="num2" value="1" onClick="document.advcalc.exp.value += '1'">
+                    <input type="button" id="num2" value="2" onClick="document.advcalc.exp.value += '2'">
+                    <input type="button" id="num2" value="3" onClick="document.advcalc.exp.value += '3'">
+                    <input type="button" id="sign2" value="+" onClick="document.advcalc.exp.value += '+'">
+                    <p class="hi">hi</p>
+                    <input type="button" id="size2" value="x³" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value * advcalc.exp.value">
+                    <input type="button" id="zero2" value="0" onClick="document.advcalc.exp.value += '0'">
+                    <input type="button" id="num2" value="." onClick="document.advcalc.exp.value += '.'">
+                    <input type="button" id="sign2" value="=" onClick="document.advcalc.exp.value = eval(document.advcalc.exp.value)">
+                </form>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,583 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MC Assistant</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <style>
+        body {
+            background-color: rgb(250, 150, 50);
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
+
+        .message {
+            color: rgb(50, 150, 250);
+            text-align: center;
+            font-family: 'Pacifico';
+            font-size: 150px;
+            border: none;
+            background-color: rgb(250, 150, 50);
+            white-space: normal;
+        }
+
+            .message:hover {
+                cursor: pointer;
+            }
+    </style>
+    <script>
+        function MC() {
+            intro();
+        }
+        function intro() {
+            alert("Hello, I'm MC!");
+            var reply = prompt("How may I be of assistance today?");
+            //chatting instances
+            if (reply.includes('chat') === true) {
+                alert("Ok. Let's Chat.");
+                chat();
+            }
+            else if (reply.includes('talk') === true) {
+                alert("Ok. Let's Chat.");
+                chat();
+            }
+            //calculator instance
+            else if (reply.includes('calc') === true) {
+                calc();
+            }
+            else if (reply.includes('list') === true) {
+                list();
+            }
+            //if nothing matches
+            else {
+                alert("I'm sorry but I did not understand that.");
+                intro();
+            }
+
+        }
+        //chat function
+        function chat() {
+            var answer1 = prompt("How's Life?");
+            if (answer1.includes('you?') === true) {
+                alert("I'm great, thanks for asking!!");
+                age();
+            }
+            else if (answer1.includes('great') === true) {
+                alert("That's good!!");
+                age();
+            }
+            else if (answer1.includes('good') === true) {
+                alert("K");
+                age();
+            }
+            else {
+                alert("Okay then...");
+                age();
+            }
+            //asks of user's age to continue talking
+            function age() {
+                var userAge = prompt("How old are you?");
+                if (userAge <= 18 && userAge >= 4) {
+                    alert("Nice...");
+                    schoolLife();
+                }
+                else if (userAge <= 120 && userAge > 18) {
+                    alert("Cool!");
+                    adultLife();
+                }
+                else {
+                    alert("Please type in a reasonable age!!");
+                    age();
+                }
+            }
+
+        }
+        function calc() {
+            var modal = document.getElementById('myModal');
+            var span = document.getElementsByClassName("close")[0];
+            modal.style.display = "block";
+            span.onclick = function () {
+                modal.style.display = "none";
+                intro();
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    intro();
+                }
+            }
+
+            /*
+            var equation = prompt('If you would like to be redirected to a calculator, please type "calculator". If not, please type in your expression here:');
+            if (equation === "calculator") {
+                window.open("/Mahdi03/Random_Fun/Calculator/calculator.html");
+            }
+            else if (equation.includes('rad') === true) {
+                var equationRad = prompt('You are now in Radians Mode. Please type your equation here:');
+                alert(eval(equationRad));
+            }
+            else if (equation.includes('deg') === true) {
+                var equationDeg = prompt('You are now in Degrees Mode. Please type your equation here:');
+                alert(eval(equationDeg));
+            }
+            else {
+
+                
+                equation.replace("sin", "Math.sin");
+                equation.replace("cos", "Math.cos");
+                equation.replace("tan", "Math.tan");
+                equation.replace("csc", "1 / Math.sin");
+                equation.replace("sec", "1/ Math.cos");
+                equation.replace("cot", "1 / Math.tan");
+                equation.replace("sinh", "Math.sinh");
+                equation.replace("cosh", "Math.cosh");
+                equation.replace("tanh", "Math.tanh");
+                alert(eval(equation));
+                calc();
+            }
+                */
+            }
+
+        function list() {
+            alert("hi/lhi");
+        }
+    </script>
+</head>
+<body>
+
+
+
+    <div>
+        <style>
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: scroll; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+                background-color: #464646;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+            }
+
+            /* The Close Button */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+                .close:hover,
+                .close:focus {
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+        </style>
+        <style>
+            #title1 {
+                text-align: center;
+                font-size: 75px;
+                color: rgb(3, 168, 158);
+            }
+
+            #numbox {
+                width: 517px;
+                height: 100px;
+                font-size: 50px;
+            }
+
+            #calculator {
+                text-align: center;
+            }
+
+            #size {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+                border: none;
+            }
+
+                #size:hover {
+                    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                    transition-duration: 0.4s;
+                }
+
+            #sign:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #num:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #zero:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #sign {
+                width: 204px;
+                height: 100px;
+                font-size: 50px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 80, 0);
+                border: none;
+            }
+
+            #num {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(135, 135, 135);
+                border: none;
+            }
+
+            #zero {
+                width: 204px;
+                height: 100px;
+                font-size: 50px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(135, 135, 135);
+                border: none;
+            }
+
+            .hi {
+                font-size: 0px;
+            }
+
+            #title2 {
+                text-align: center;
+                font-size: 70px;
+                color: rgb(168, 42, 3);
+            }
+
+            #advcalc {
+                text-align: center;
+            }
+
+            input#sign {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#sign2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#size {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#size2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#trigset1 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#trigset2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#num {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#zero {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#num2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#zero2 {
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+            input#numbox {
+                border-radius: 8px;
+                text-align: right;
+                text-overflow: ellipsis;
+                background-color: rgb(60, 120, 60);
+                border: none;
+            }
+
+            input#display {
+                border-radius: 8px;
+                text-align: right;
+                text-overflow: ellipsis;
+                background-color: rgb(60, 120, 60);
+                border: none;
+            }
+
+            #display {
+                width: 469px;
+                height: 75px;
+                font-size: 50px;
+            }
+
+            #size2 {
+                width: 75px;
+                height: 75px;
+                font-size: 37.5px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+                border: none;
+            }
+
+            #sign2 {
+                width: 153px;
+                height: 75px;
+                font-size: 37.5px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 80, 0);
+                border: none;
+            }
+
+            #num2 {
+                width: 75px;
+                height: 75px;
+                font-size: 37.5px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(135, 135, 135);
+                border: none;
+            }
+
+            #zero2 {
+                width: 153px;
+                height: 75px;
+                font-size: 37.5px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(135, 135, 135);
+                border: none;
+            }
+
+            #trigset1 {
+                width: 75px;
+                height: 70px;
+                font-size: 30px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+                border: none;
+            }
+
+            #trigset2 {
+                width: 75px;
+                height: 70px;
+                font-size: 30px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+                border: none;
+            }
+
+            #num2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #zero2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #trigset1:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #trigset2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #sign2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+            }
+
+            #size2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                transition-duration: 0.4s;
+
+        </style>
+        
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="title2">
+                    <h2>Advanced Calculator</h2>
+                </div>
+                <div id="advcalc">
+                    <script>
+
+                        var answer = advcalc.exp.value;
+                        function sin(t) {
+                            var x = (t * Math.PI) / 180;
+                            if (t == 30) {
+                                return "0.5";
+                            }
+                            else if (t == 90) {
+                                return "1";
+                            }
+                            else {
+                                t = x - (Math.pow(x, 3) / 6) + (Math.pow(x, 5) / 120) - (Math.pow(x, 7) / 5040) + (Math.pow(x, 9) / 362880) - (Math.pow(x, 11) / 39916800) + (Math.pow(x, 13) / 6227020800) - (Math.pow(x, 15) / 1307674368000) + (Math.pow(x, 17) / 355687428096000) - (Math.pow(x, 19) / 121645100408832000) + (Math.pow(x, 21) / 51090942171709440000) - (Math.pow(x, 23) / 2.585201673888498e+22) + (Math.pow(x, 25) / 1.5511210043330983e+25) - (Math.pow(x, 27) / 1.0888869450418352e+28) + (Math.pow(x, 29) / 8.841761993739701e+30) - (Math.pow(x, 31) / 8.222838654177924e+33) + (Math.pow(x, 33) / 8.68331761881189e+36) - (Math.pow(x, 35) / 1.0333147966386144e+40) + (Math.pow(x, 37) / 1.3763753091226345e+43) - (Math.pow(x, 39) / 2.0397882081197446e+46) + (Math.pow(x, 41) / 3.34525266131638e+49) - (Math.pow(x, 43) / 6.041526306337384e+52) + (Math.pow(x, 45) / 1.196222208654802e+56) - (Math.pow(x, 47) / 2.5862324151116826e+59) + (Math.pow(x, 49) / 6.082818640342679e+62) - (Math.pow(x, 51) / 1.5511187532873816e+66);
+                                return t;
+                            }
+                        }
+                        function cos(r) {
+                            var y = (r * Math.PI) / 180;
+                            if (r == 60) {
+                                return "0.5";
+                            }
+                            else if (r == 90) {
+                                return "0";
+                            }
+                            else {
+                                r = 1 - (Math.pow(y, 2) / 2) + (Math.pow(y, 4) / 24) - (Math.pow(y, 6) / 720) + (Math.pow(y, 8) / 40320) - (Math.pow(y, 10) / 3628800) + (Math.pow(y, 12) / 479001600) - (Math.pow(y, 14) / 87178291200) + (Math.pow(y, 16) / 20922789888000) - (Math.pow(y, 18) / 6402373705728000) + (Math.pow(y, 20) / 2432902008176640000) - (Math.pow(y, 22) / 1.1240007277776077e+21) + (Math.pow(y, 24) / 6.204484017332394e+23) - (Math.pow(y, 26) / 4.032914611266057e+26) + (Math.pow(y, 28) / 3.048883446117138e+29) - (Math.pow(y, 30) / 2.652528598121911e+32) + (Math.pow(y, 32) / 2.6313083693369355e+35) - (Math.pow(y, 34) / 2.952327990396041e+38) + (Math.pow(y, 36) / 3.719933267899013e+41) - (Math.pow(y, 38) / 5.23022617466601e+44) + (Math.pow(y, 40) / 8.15915283247898e+47) - (Math.pow(y, 42) / 1.4050061177528801e+51) + (Math.pow(y, 44) / 2.6582715747884495e+54) - (Math.pow(y, 46) / 5.502622159812089e+57) + (Math.pow(y, 48) / 1.2413915592536068e+61) - (Math.pow(y, 50) / 3.0414093201713375e+64);
+                                return r;
+                            }
+                        }
+                        function tan(i) {
+                            var z = (i * Math.PI) / 180;
+                            if (i == 90) {
+                                return "Infinity";
+                            }
+                            else {
+                                i = (z - (Math.pow(z, 3) / 6) + (Math.pow(z, 5) / 120) - (Math.pow(z, 7) / 5040) + (Math.pow(z, 9) / 362880) - (Math.pow(z, 11) / 39916800) + (Math.pow(z, 13) / 6227020800) - (Math.pow(z, 15) / 1307674368000) + (Math.pow(z, 17) / 355687428096000) - (Math.pow(z, 19) / 121645100408832000) + (Math.pow(z, 21) / 51090942171709440000) - (Math.pow(z, 23) / 2.585201673888498e+22) + (Math.pow(z, 25) / 1.5511210043330983e+25) - (Math.pow(z, 27) / 1.0888869450418352e+28) + (Math.pow(z, 29) / 8.841761993739701e+30) - (Math.pow(z, 31) / 8.222838654177924e+33) + (Math.pow(z, 33) / 8.68331761881189e+36) - (Math.pow(z, 35) / 1.0333147966386144e+40) + (Math.pow(z, 37) / 1.3763753091226345e+43) - (Math.pow(z, 39) / 2.0397882081197446e+46) + (Math.pow(z, 41) / 3.34525266131638e+49) - (Math.pow(z, 43) / 6.041526306337384e+52) + (Math.pow(z, 45) / 1.196222208654802e+56) - (Math.pow(z, 47) / 2.5862324151116826e+59) + (Math.pow(z, 49) / 6.082818640342679e+62) - (Math.pow(z, 51) / 1.5511187532873816e+66)) / (1 - (Math.pow(z, 2) / 2) + (Math.pow(z, 4) / 24) - (Math.pow(z, 6) / 720) + (Math.pow(z, 8) / 40320) - (Math.pow(z, 10) / 3628800) + (Math.pow(z, 12) / 479001600) - (Math.pow(z, 14) / 87178291200) + (Math.pow(z, 16) / 20922789888000) - (Math.pow(z, 18) / 6402373705728000) + (Math.pow(z, 20) / 2432902008176640000) - (Math.pow(z, 22) / 1.1240007277776077e+21) + (Math.pow(z, 24) / 6.204484017332394e+23) - (Math.pow(z, 26) / 4.032914611266057e+26) + (Math.pow(z, 28) / 3.048883446117138e+29) - (Math.pow(z, 30) / 2.652528598121911e+32) + (Math.pow(z, 32) / 2.6313083693369355e+35) - (Math.pow(z, 34) / 2.952327990396041e+38) + (Math.pow(z, 36) / 3.719933267899013e+41) - (Math.pow(z, 38) / 5.23022617466601e+44) + (Math.pow(z, 40) / 8.15915283247898e+47) - (Math.pow(z, 42) / 1.4050061177528801e+51) + (Math.pow(z, 44) / 2.6582715747884495e+54) - (Math.pow(z, 46) / 5.502622159812089e+57) + (Math.pow(z, 48) / 1.2413915592536068e+61) - (Math.pow(z, 50) / 3.0414093201713375e+64));
+                                return i;
+                            }
+                        }
+                        function TrigFunc(fn) {
+                            var value = advcalc.exp.value;
+                            if (fn == "sin") {
+                                value = Math.sin(value);
+                                return value;
+                            }
+                            else if (fn == "cos") {
+                                value = Math.cos(value);
+                                return value;
+                            }
+                            else if (fn == "tan") {
+                                value = Math.tan(value);
+                                return value;
+                            }
+                        }
+                        function fact(x) {
+                            if (x == 0) {
+                                return 1;
+                            }
+                            else if (x < 0) {
+                                return "Error";
+                            }
+                            else {
+                                for (var i = x; --i;) {
+                                    x *= i;
+                                }
+                                return x;
+                            }
+                        }
+
+                    </script>
+                    <form name="advcalc">
+                        <input type="text" id="display" name="exp" value="" readonly>
+                        <p class="hi">hi</p>
+                        <input type="reset" id="sign2" value="AC">
+                        <input type="button" id="size2" value="+/-" onClick="advcalc.exp.value = advcalc.exp.value / -1">
+                        <input type="button" id="size2" value="π" onClick="advcalc.exp.value = advcalc.exp.value.replace(advcalc.exp.value, Math.PI)">
+                        <input type="button" id="size2" value="!" onClick="advcalc.exp.value = fact(advcalc.exp.value)">
+                        <input type="button" id="size2" value="←" onClick="advcalc.exp.value = advcalc.exp.value.substring(0, advcalc.exp.value.length - 1)">
+                        <p class="hi">hi</p>
+                        <input type="button" id="trigset1" value="sin" onClick="advcalc.exp.value = sin(advcalc.exp.value)">
+                        <input type="button" id="trigset1" value="cos" onClick="advcalc.exp.value = cos(advcalc.exp.value)">
+                        <input type="button" id="trigset1" value="tan" onClick="advcalc.exp.value = tan(advcalc.exp.value)">
+                        <input type="button" id="trigset2" value="sinh" onClick="advcalc.exp.value = Math.sinh(advcalc.exp.value)">
+                        <input type="button" id="trigset2" value="cosh" onClick="advcalc.exp.value = Math.cosh(advcalc.exp.value)">
+                        <input type="button" id="trigset2" value="tanh" onClick="advcalc.exp.value = Math.tanh(advcalc.exp.value)">
+                        <p class="hi">hi</p>
+                        <input type="button" id="size2" value="1/x" onClick="advcalc.exp.value = 1 / advcalc.exp.value">
+                        <input type="button" id="size2" value="(" onClick="document.advcalc.exp.value += '('">
+                        <input type="button" id="size2" value=")" onClick="document.advcalc.exp.value += ')'">
+                        <input type="button" id="size2" value="|x|" onClick="advcalc.exp.value = Math.abs(advcalc.exp.value)">
+                        <input type="button" id="sign2" value="÷" onClick="document.advcalc.exp.value += '/'">
+                        <p class="hi">hi</p>
+                        <input type="button" id="size2" value="10ˣ" onClick="advcalc.exp.value = Math.pow(10, advcalc.exp.value)">
+                        <input type="button" id="num2" value="7" onClick="document.advcalc.exp.value += '7'">
+                        <input type="button" id="num2" value="8" onClick="document.advcalc.exp.value += '8'">
+                        <input type="button" id="num2" value="9" onClick="document.advcalc.exp.value += '9'">
+                        <input type="button" id="sign2" value="x" onClick="document.advcalc.exp.value += '*'">
+                        <p class="hi">hi</p>
+                        <input type="button" id="size2" value="√" onClick="advcalc.exp.value = Math.sqrt(advcalc.exp.value)">
+                        <input type="button" id="num2" value="4" onClick="document.advcalc.exp.value += '4'">
+                        <input type="button" id="num2" value="5" onClick="document.advcalc.exp.value += '5'">
+                        <input type="button" id="num2" value="6" onClick="document.advcalc.exp.value += '6'">
+                        <input type="button" id="sign2" value="-" onClick="document.advcalc.exp.value += '-'">
+                        <p class="hi">hi</p>
+                        <input type="button" id="size2" value="x²" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value">
+                        <input type="button" id="num2" value="1" onClick="document.advcalc.exp.value += '1'">
+                        <input type="button" id="num2" value="2" onClick="document.advcalc.exp.value += '2'">
+                        <input type="button" id="num2" value="3" onClick="document.advcalc.exp.value += '3'">
+                        <input type="button" id="sign2" value="+" onClick="document.advcalc.exp.value += '+'">
+                        <p class="hi">hi</p>
+                        <input type="button" id="size2" value="x³" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value * advcalc.exp.value">
+                        <input type="button" id="zero2" value="0" onClick="document.advcalc.exp.value += '0'">
+                        <input type="button" id="num2" value="." onClick="document.advcalc.exp.value += '.'">
+                        <input type="button" id="sign2" value="=" onClick="document.advcalc.exp.value = eval(document.advcalc.exp.value)">
+                    </form>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+           <input type="button" class="message" value="Click Here To Get Started" onclick="MC()">
+    </body>
+</html>

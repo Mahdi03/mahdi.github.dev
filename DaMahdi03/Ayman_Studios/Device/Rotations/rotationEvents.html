@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Disabled Zoom Yet Kept Everything Else Intact And Not All Messed Up-->
+    <meta name='viewport' content='maximum-scale=1.0, user-scalable=0' />
+    <title>Device Rotation</title>
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Play|Baloo+Tamma|IBM+Plex+Mono|Cutive+Mono" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--Used For Google Analytics-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116674321-1');
+    </script>
+    <!--Used For Google AdSense!!(Monetization)-->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8495483038077603",
+            enable_page_level_ads: true
+        });
+    </script>
+    <style>
+
+        body {
+            background-color: rgb(0, 148, 255);
+            color: rgb(91, 216, 128);
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        #noWork {
+            margin: 0;
+            top: 50%;
+            left: 15%;
+            margin-top: -25px;
+            padding: 0;
+            text-align: center;
+            color: rgb(0, 255, 144);
+            position: absolute;
+        }
+
+        #ifWork {
+            display: block;
+            padding-left: 5%;
+            padding-right: 5%;
+            text-align: center;
+        }
+
+        .title {
+            font-family: 'Francois One', sans-serif;
+            font-size: 150px;
+        }
+
+        .subtitle {
+            font-family: 'Baloo Tamma', cursive;
+            font-size: 100px;
+            margin-top: auto;
+            margin-bottom: auto;
+            color: rgb(25, 68, 100);
+        }
+
+        button.subtitle {
+            border: 13px groove;
+            border-color: rgba(45, 143, 186, 0.49);
+            border-radius: 25px;
+            background-color: rgba(8, 83, 116, 0.8);
+            color: hotpink;
+            font-size: 75px;
+        }
+
+            button.subtitle:active {
+                border-color: rgba(121, 30, 147, 0.49);
+                background-color: rgba(73, 11, 91, 0.8);
+                color: rgb(0, 148, 255);
+                outline: none;
+            }
+
+        p {
+            font-family: 'Play', sans-serif;
+            color: rgb(91, 216, 128);
+            font-size: 40px;
+        }
+
+        img {
+            width: 100%;
+            transition: all 400ms;
+        }
+
+        .stats {
+            color: deepskyblue;
+            font-size: 50px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .compassRotate {
+            transition: all 0.75s;
+        }
+
+        #footer {
+            display: none;
+            width: 100%;
+            text-align: center;
+            border-top: 10px groove;
+            border-top-color: rgba(45, 143, 186, 0.49);
+        }
+
+        p#footer {
+            font-family: 'Cutive Mono', monospace;
+            font-size: 20px;
+        }
+
+        #xmlRotationData {
+            display: none;
+            text-wrap: normal;
+            word-wrap: break-word;
+        }
+
+        #gameTitle {
+            display: none;
+        }
+
+        #colorPicker {
+            display: none;
+            font-size: 50px;
+        }
+
+        input[type=color] {
+            width: 50px;
+            height: 50px;
+            border: none;
+        }
+
+        #game {
+            position: relative;
+            width: 100%;
+            border: 5px solid;
+            display: none;
+        }
+
+        #ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 100%;
+        }
+
+        #objective, #controls, #hint, #notice {
+            color: rgba(8, 83, 116, 0.8);
+            display: none;
+        }
+
+        input[type=text], input[type=email], textarea {
+            background-color: rgb(0, 148, 255);
+            color: rgb(91, 216, 128);
+            border: 7.5px groove;
+            border-color: rgb(45, 143, 186);
+            border-radius: 10px;
+            width: 100%;
+            height: 60px;
+            text-align: center;
+            font-family: 'Play', sans-serif;
+            font-size: 45px;
+        }
+
+        input[type=text], input[type=email] {
+            height: 100px;
+            font-size: 60px;
+        }
+
+        #postedComments {
+            border-top: 10px groove;
+            border-top-color: rgba(45, 143, 186, 0.49);
+        }
+
+        .name, .time, .date {
+            text-align: left;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        .mainComment {
+            text-align: justify;
+        }
+    </style>
+    <!--Main Content Script-->
+    <script>
+        //Global Variables
+        var alphaRotation;
+        var betaRotation;
+        var gammaRotation;
+        //Set Large Var Later To Be Downloaded By User
+        var xmlCode;
+
+        window.addEventListener("deviceorientation", handleOrientation, true);
+        function handleOrientation(event) {
+            //Local Variables
+            var absolute = event.absolute;
+            var alpha = event.alpha;
+            var beta = event.beta;
+            var gamma = event.gamma;
+            //Variables to use Outside of the Function
+            alphaRotation = alpha;
+            betaRotation = beta;
+            gammaRotation = gamma;
+            //Function To Determine Whether Facing North/South/East/West
+            var compass;
+            function facingDirection() {
+                var direction = 90 * Math.round(Number(alpha) / 90);
+                if (direction === 0) {
+                    compass = "North";
+                }
+                else if (direction === 360) {
+                    compass = "North";
+                }
+                else if (direction === 90) {
+                    compass = "West";
+                }
+                else if (direction === 180) {
+                    compass = "South";
+                }
+                else if (direction === 270) {
+                    compass = "East";
+                }
+                else {
+                    compass = "Calculating...";
+                }
+            }
+            facingDirection();
+
+            //If This Function Runs Properly, Then Hide The "Not Working" Div and Show The Main Page Div:
+            var noWork = document.querySelector('#noWork');
+            noWork.style.display = "none";
+            var ifWork = document.querySelector('#ifWork');
+            ifWork.style.display = "block";
+            var footer = document.querySelector('#footer');
+            footer.style.display = "block";
+            if (gamma === null) {
+                ifWork.style.display = "none";
+                footer.style.display = "none";
+                noWork.style.display = "block";
+            }
+
+            //Query Selectors (They Select Id's, Classes, and Probably Elements Using CSS Selectors);
+            var rotations = document.querySelector('#rotations');
+            //Text That Should Update Everytime a Device Orientation Is Caused;
+            rotations.innerHTML = "<b>You are facing</b>:" + '<br /><h3 class="stats">' + compass + "</h3>";
+            //rotations.innerHTML += '<img class="compassRotate" src="compass.png" alt="Image of Compass" />';
+            rotations.innerHTML += "<b>The Alpha Rotation is</b>:" + '<br /><h3 class="stats">' + Math.round(alpha) + '&deg;</h3><h3 class="stats">' + alpha + '&deg;</h3>';
+            rotations.innerHTML += "<b>The Beta Rotation is</b>:" + '<br /><h3 class="stats">' + Math.round(beta) + '&deg;</h3><h3 class="stats">' + beta + '&deg;</h3>';
+            rotations.innerHTML += "<b>The Gamma Rotation is</b>:" + '<br /><h3 class="stats">' + Math.round(gamma) + '&deg;</h3><h3 class="stats">' + gamma + '&deg;</h3>';;
+            // Do stuff with the new orientation data
+
+
+
+            //Tiny Little Game Design For Rotation
+            var canvas = document.querySelector('#game');
+            var ball = document.querySelector('#ball');
+            var widthOfCanvas = $('#game').width();
+            canvas.style.height = widthOfCanvas + 'px';
+            ball.style.top = (widthOfCanvas / 2) - 25;
+            ball.style.left = (widthOfCanvas / 2) - 25;
+            //Game Maneuverability:
+            beta += 90;
+            gamma += 90;
+
+            var ballColor = document.querySelector('#ballColor');
+            var maxX = canvas.clientWidth - ball.clientWidth;
+            var maxY = canvas.clientHeight - ball.clientHeight;
+            var ballTopPos = (maxX * beta / 180 - 25);
+            var ballLeftPos = (maxY * gamma / 180 - 25);
+            ball.style.top = ballTopPos + "px";
+            ball.style.left = ballLeftPos + "px";
+            ball.style.backgroundColor = ballColor.value;
+            ballColor.style.backgroundColor = ballColor.value;
+            ball.onclick = function () {
+                confirm("You have clicked the ball!! Be prepared for something exciting!");
+                alert("Caution: This may cause epilepsy. Just refresh if so...");
+                setInterval(function () {
+                    ballColor.value = getRandomColor();
+                }, 5);
+                $("#notice").fadeIn(2000);
+
+            }
+            //Random Number Generator from any set of positive numbers
+            function randNum(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            //Random Hex Color Generator
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            /*
+            //alert("You win!! You can choose to keep playing or check out other products by Ayman Studios!!");
+            if (beta = 0) {
+                alert("You win!! You can choose to keep playing or check out other products by Ayman Studios!!");
+            }
+            else if (beta = 180) {
+                alert("You win!! You can choose to keep playing or check out other products by Ayman Studios!!");
+            }
+            else if (gamma = 0) {
+                alert("You win!! You can choose to keep playing or check out other products by Ayman Studios!!");
+            }
+            else if (gamma = 180) {
+                alert("You win!! You can choose to keep playing or check out other products by Ayman Studios!!");
+            }
+            */
+            //Add 'XML' Strings To Large Var xmlCode
+            xmlCode = xmlCode;
+            function updateXMLCode() {
+                var date = new Date();
+                var minutes = date.getMinutes();
+                var hours = date.getHours() + 1;
+                var seconds = date.getSeconds();
+                var milliseconds = date.getMilliseconds();
+                var timestamp = hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+                xmlCode += '&lt;timestamp time="' + timestamp + '"&gt;\n&lt;Direction&gt;' + compass + '&lt;/Direction&gt;\n&lt;Alpha&gt;' + alpha + '&lt;/Alpha&gt;\n&lt;Beta&gt;' + beta + '&lt;/Beta&gt;\n&lt;Gamma&gt;' + gamma + '&lt;/Gamma&gt;\n&lt;/timestamp&gt;\n';
+            }
+            setInterval(function () {
+                updateXMLCode();
+            }, 1000);
+        }
+        /*
+        window.addEventListener("devicemotion", handleMotion, true);
+        function handleMotion(motions) {
+            var accelerationX = motions.acceleration.x;
+            var accelerationY = motions.acceleration.y;
+            var accelerationZ = motions.acceleration.z;
+
+            var rotationRateAlpha = motions.rotationRate.alpha;
+            var rotationRateBeta = motions.rotationRate.beta;
+            var rotationRateGamma = motions.rotationRate.gamma;
+
+            var accelerationIncludingGravityX = motions.accelerationIncludingGravity.x;
+            var accelerationIncludingGravityY = motions.accelerationIncludingGravity.y;
+            var accelerationIncludingGravityZ = motions.accelerationIncludingGravity.z;
+
+            var interval = motions.interval;
+
+            var translations = document.querySelector('#translations');
+            var title2 = document.querySelector('#title2');
+
+            title2.innerHTML = "TRANSLATIONS!!!"
+            translations.innerHTML = "However, your device's Acceleration is: " + "<br>";
+            translations.innerHTML += "X: " + accelerationX + "<br>";
+            translations.innerHTML += "Y: " + accelerationY + "<br>";
+            translations.innerHTML += "Z: " + accelerationZ + "<br>";
+            translations.innerHTML += "X: " + interval;
+        }
+        */
+        function scrollToMainContent() {
+            $('html, body').animate({
+                scrollTop: $("#mainContent").offset().top
+            }, 5000);
+        }
+        function startGame() {
+            $('#gameTitle').fadeIn(1500);
+            $('#colorPicker').fadeIn(2000);
+            $('#game').fadeIn(3000);
+            $('html, body').animate({
+                scrollTop: $('#gameTitle').offset().top
+            }, 2000);
+            setTimeout(function () {
+                $('#objective').fadeIn(1000);
+            }, 4000);
+            setTimeout(function () {
+                $('#controls').fadeIn(1500);
+            }, 6000);
+            setTimeout(function () {
+                $('#hint').fadeIn(2000);
+            }, 8000);
+            if (beta === 90) {
+                alert("You win!! You can choose to keep playing or check out other products by Ayman Studios!!");
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="noWork">
+        <h1 class="title" style="font-size: 35px;">I'm Sorry But This Application Is Only Meant For Mobile Devices!!</h1>
+    </div>
+    <div id="ifWork">
+        <h1 class="title">ROTATIONS!!!</h1>
+        <h2 class="subtitle" style="font-size: 75px;">In order to understand the data below, please read the following:</h2>
+        <button class="subtitle" onclick="scrollToMainContent();">Nope, I wanna skip to the fun stuff!!!</button>
+        <p>
+            Your touchscreen device has many features that you may not have ever known of. These
+            include GPS (Global Positioning Systems), Accelerometers, and a Gyroscope/Rotation Vector, which
+            you will be seeing below.
+        </p>
+        <p>
+            Your device is a 3-Dimensional Object so it has 3 ways of rotating. These include:
+            <ol>
+                <li>The Alpha Rotation</li>
+                <li>The Beta Rotation</li>
+                <li>The Gamma Rotation</li>
+            </ol>
+        </p>
+        <h2 class="subtitle">Alpha:</h2>
+        <p>The first way is Alpha. This means rotating the Device while it is flat, as shown below.</p>
+        <img src="alpha.png" alt="Image Of Rotating A Cellular Phone's Alpha Coordinates" />
+        <p>
+            The numbers under Alpha range from 0 - 360 (in Degrees). These numbers correspond to the
+            direction the phone is facing, where 0 is when you are 100% facing North. Using Alpha
+            Rotation, you can create a compass, which is how compasses usually work on Mobile Devices.
+            Alpha Rotation is the only one measured from 0 - 360 Degrees with no negative numbers.
+            Here is a visualization of a compass in the point of view of degrees:
+        </p>
+        <img src="360Image.png" alt="Image Of 360 Degrees" />
+        <h2 class="subtitle">Beta:</h2>
+        <p>The second way is Beta. This means rotating the Device like stick or a baton, as shown below.</p>
+        <img src="beta.png" alt="Image Of Rotating A Cellular Phone's Beta Coordinates" />
+        <p>
+            The numbers under Beta range from 0 - 180 (in Degrees). When it is at 0 Degrees, that means it is
+            perfectly flat. 90 Degrees would be upright and 180 would also be flat. Beta Rotation is also
+            measured in negative Degrees to make up for the whole 360 Degrees picture.
+        </p>
+        <h2 class="subtitle">Gamma:</h2>
+        <p>
+            You'd think Gamma as in the Gamma Radiation that poisoned Hulk but in this case, it's not.
+            Gamma Roatation on a Mobile Device means rotating the device sideways. Like this:
+        </p>
+        <img src="gamma.png" alt="Image Of Rotating A Cellular Phone's Gamma Coordinates" />
+        <p>
+            The numbers under Gamma symbolize the sideways tilt of the Device (in Degrees). It ranges
+            from 0 - 90 (negative included). Why don't you take a look for yourself?
+        </p>
+        <h1 id="mainContent" class="title">Now For The Fun Stuff!!!</h1>
+        <p id="rotations"></p>
+        <h1 class="title"><b>Challenges</b>:</h1>
+        <ul>
+            <li><p><b>Can you fully stop the rotation of your device?</b></p></li>
+            <li><p><b>Can you "zero-out" all of the values?</b></p></li>
+            <li><p><b>If you can come up with anymore Challenges, please list them in the Comments below</b>:</p></li>
+        </ul>
+        <br />
+        <button class="subtitle" onclick="startGame();">&#9787; Click Me For A Surprise!! &#9787;</button>
+        <br />
+        <br />
+        <h1 id="gameTitle" class="title">"Ball-Game":</h1>
+        <p id="colorPicker">Choose a color for the ball: <input id="ballColor" type="color" /></p>
+        <div id="game">
+            <p id="objective"><u>Objective</u>: Try To Get The Ball Past The Borders</p>
+            <p id="controls"><u>Controls</u>: Tilt your device in any way and have fun!!</p>
+            <p id="hint"><u>Hint</u>: Set Your Device Orientation To Portrait</p>
+            <p id="notice"><u>Notice</u>: The faster you move the ball, the faster the color changes, Enjoy!!!</p>
+            <div id="ball"></div>
+            <p id="coordinate" style="float: right; bottom: 0;"></p>
+        </div>
+        <br />
+        <button class="subtitle" id="downloadRotationInfoSubmitButton">Download All Rotation Data As An XML File</button>
+        <script>
+            document.querySelector("#downloadRotationInfoSubmitButton").onclick = function () {
+                var xmlFile = xmlCode.replace(/undefined/g, '<?xml version="1.0" encoding="UTF-8"?>\n<!--Below You Will Find Each Rotation Movement Under Timestamps For Every Second Or So...-->\n<allSessionRotationData>');
+                xmlFile += "</allSessionRotationData>";
+                var xmlRotationData = document.querySelector("#xmlRotationData");
+                xmlRotationData.innerHTML = xmlFile;
+                $(xmlRotationData).slideToggle("slow");
+                alert("Enjoy! Click on the download button to hide the XML code and/or download the file again!");
+                var pom = document.createElement('a');
+                var filename = "downloadRotationInfo.xml";
+                var bb = new Blob([xmlFile], { type: 'text/plain' });
+                pom.setAttribute('href', window.URL.createObjectURL(bb));
+                pom.setAttribute('download', filename);
+                pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
+                pom.draggable = true;
+                pom.classList.add('dragout');
+                pom.click();
+            };
+        </script>
+        <p id="xmlRotationData" style="display: none;"></p>
+        <div id="comments">
+            <h1 class="title">COMMENTS & QUESTIONS</h1>
+            <form id="commentBox" name="commentBox" action="commentUpdater.php" method="post">
+                <p class="name"><u>Name</u>:</p>
+                <input type="text" id="name" name="username" placeholder="John Smith" required />
+                <p class="name"><u>Email</u>: (It Is Not Saved Anywhere, Just Used For Confirmation)</p>
+                <input type="email" id="name" name="email" placeholder="johnsmith@email.com" required />
+                <p class="name"><u>Comment</u>:</p>
+                <textarea id="mainComment" class="mainComment" name="mainComment" style="height: 300px;" placeholder="Type your comment here..." required spellcheck="true"></textarea>
+                <br />
+                <br />
+                <button class="subtitle" id="postCommentButton">Submit Comment!!!</button>
+            </form>
+            <br />
+            <!--Script Solely To Deal With XML DOM (Comments)-->
+            <script>
+                $(document).ready(function () {
+                    //This Function Runs As Soon As The Browser Is Done Loading
+                    $.ajax({
+                        type: "GET",
+                        url: "comments.xml",
+                        dataType: "xml",
+                        success: loadComments
+                    });
+                });
+                //This Function Loads All Comments Stored In The comments.xml File
+                //Its done
+                function loadComments(xml) {
+                    $(xml).find("comment").each(function () {
+                        $('#postedComments').append('<div class="comment"><p class="name"><u>' + $(this).find("name").text()
+                            + '</u>:</p><p class="date">' + $(this).find("datePosted").text() + '</p><p class="time">'
+                            + $(this).find("timePosted").text() + '</p><p class="mainComment">' +
+                            $(this).find("mainComment").text() + '</p><br />');
+                    });
+                }
+            </script>
+            <div id="postedComments">
+                <h1 class="title">Posted Comments:</h1>
+            </div>
+            <footer id="footer">
+                <p>Copyright &copy; 2018 Ayman Studios</p>
+                <p>&trade; All Rights Reserved</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
