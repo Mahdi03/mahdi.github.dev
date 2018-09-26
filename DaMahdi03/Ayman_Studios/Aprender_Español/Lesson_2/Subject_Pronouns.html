@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Subject Pronouns</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../theme.css" />
+    <script src="../theme.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        table {
+            border: 3px double black;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .pronoun:hover {
+            cursor: pointer;
+        }
+        
+        #table {
+            visibility: hidden;
+        }
+        
+        input:hover,
+        label:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Lesson 1: Subject Pronouns</h2>
+    <p style="float: left; margin: 0;">From the table below, click on all the Subject Pronouns in English (Don't look it up, it's <strong>ok</strong> to guess):</p>
+    <p style="float: right; margin: 0;">
+        Score: <span id="score1">0</span>/6</p>
+    <table>
+        <tr>
+            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">I</td>
+            <td class="pronoun" onclick="correctOrIncorrect($(this))">You're</td>
+            <td class="pronoun" onclick="correctOrIncorrect($(this))">His Or Her</td>
+            <td class="pronoun" onclick="correctOrIncorrect($(this))">Our</td>
+            <td class="pronoun" onclick="correctOrIncorrect($(this))">Us</td>
+            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">They</td>
+        </tr>
+        <tr>
+            <td class="pronoun" onclick="correctOrIncorrect($(this))">Me</td>
+            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">You</td>
+            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">We</td>
+            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">She</td>
+            <td class="pronoun" onclick="correctOrIncorrect($(this))">Theirs</td>
+            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">He</td>
+        </tr>
+    </table>
+    <div id="table">
+        <style>
+            #subjectPronouns td:not(.person) {
+                margin-left: 2em;
+                max-width: 2em;
+                color: rgb(0, 162, 255);
+                border-top: 2px solid lightgray;
+            }
+            
+            #subjectPronouns .person {
+                font-weight: bold;
+                width: 10em;
+                background-color: lightgray;
+                color: rgb(0, 183, 255);
+                text-align: center;
+            }
+        </style>
+        <p>&emsp;&emsp;Now that you have a little review on Subject Pronouns (Even if you guessed), take some time to closely examine the Subject Pronouns that follow in both English and Spanish:</p>
+        <table id="subjectPronouns" style="border: 2px solid grey; margin: 0 auto;">
+            <tr>
+                <th colspan="2">Subject Pronouns</th>
+            </tr>
+            <tr>
+                <td class="person">Español</td>
+                <td>English</td>
+            </tr>
+            <tr>
+                <td class="person">Yo</td>
+                <td>I</td>
+            </tr>
+            <tr>
+                <td class="person">Tu</td>
+                <td>You</td>
+            </tr>
+            <tr>
+                <td class="person">El</td>
+                <td>He</td>
+            </tr>
+            <tr>
+                <td class="person">Ellos</td>
+                <td>They<br />(Group of Males and Females Both)</td>
+            </tr>
+            <tr>
+                <td class="person">Ella</td>
+                <td>She</td>
+            </tr>
+            <tr>
+                <td class="person">Ellas</td>
+                <td>They<br />(Group of Females Only)</td>
+            </tr>
+            <tr>
+                <td class="person">Usted</td>
+                <td>You (Formal)</td>
+            </tr>
+            <tr>
+                <td class="person">Ustedes</td>
+                <td>You Guys (Formal)</td>
+            </tr>
+            <tr>
+                <td class="person">Nosotros</td>
+                <td>We, Us</td>
+            </tr>
+            <tr>
+                <td class="person">Vosotros (Only used in Spain)</td>
+                <td>Plural You (Informal) (Yous Guys!!)</td>
+            </tr>
+        </table>
+    </div>
+    <hr />
+    <h2>Ready:</h2>
+    <form id="readySection" name="readySection" action="javascript:void(0);" onsubmit="gradeReadySection()">
+        <ol>
+            <li>What do you think <i>hablar</i> means in English?</li>
+            <div>
+                <input type="radio" id="1a" name="one" value="a" />
+                <label for="1a">To sing</label>
+                <br />
+                <input type="radio" id="1b" name="one" value="b" />
+                <label for="1b">To hate, to despise</label>
+                <br />
+                <input type="radio" id="1c" name="one" value="c" />
+                <label for="1c">To dance</label>
+                <br />
+                <input type="radio" id="1d" name="one" value="d" />
+                <label for="1d">To speak, to talk</label>
+                <br />
+            </div>
+            <li>What do you think <i>bailar</i> means in English?</li>
+            <div>
+                <input type="radio" id="2a" name="two" value="a" />
+                <label for="2a">To sing</label>
+                <br />
+                <input type="radio" id="2b" name="two" value="b" />
+                <label for="2b">To hate, to despise</label>
+                <br />
+                <input type="radio" id="2c" name="two" value="c" />
+                <label for="2c">To dance</label>
+                <br />
+                <input type="radio" id="2d" name="two" value="d" />
+                <label for="2d">To speak, to talk</label>
+                <br />
+            </div>
+            <li>What do you think <i>cantar</i> means in English?</li>
+            <div>
+                <input type="radio" id="3a" name="three" value="a" />
+                <label for="3a">To sing</label>
+                <br />
+                <input type="radio" id="3b" name="three" value="b" />
+                <label for="3b">To hate, to despise</label>
+                <br />
+                <input type="radio" id="3c" name="three" value="c" />
+                <label for="3c">To dance</label>
+                <br />
+                <input type="radio" id="3d" name="three" value="d" />
+                <label for="3d">To speak, to talk</label>
+                <br />
+            </div>
+        </ol>
+        <button>Submit!</button>
+    </form>
+    <hr />
+    <h2>Set:</h2>
+    <div id="setSection">
+        <style>
+            .word:hover {
+                cursor: pointer;
+            }
+        </style>
+        <p>In the sentences below, click on all of the Subject Pronouns, if there aren't any, skip to the next one. Even if you can't understand the language, use the table provided above to complete this section.</p>
+        <ol>
+            <li><span class="word correct">I</span> <span class="word">have</span> <span class="word">many</span> <span class="word">friends</span>.</li>
+            <li><span class="word correct">We</span> <span class="word">will</span> <span class="word">be going to the supermarket later today</span>.</li>
+            <li><span class="word correct">You guys</span> <span class="word">should go swimming one day</span>.</li>
+            <li><span class="word correct">Yo</span> <span class="word">tengo muchos amigos</span>.</li>
+            <li><span class="word correct">Nosotros</span> <span class="word">vamos al supermercado luego hoy</span></li>
+            <li><span class="word correct">Ustedes</span> <span class="word">debería ir nadando un día</span>.</li>
+        </ol>
+    </div>
+    <script>
+        i = 0;
+
+        function correctOrIncorrect(element) {
+            if (element.hasClass("correct") === true) {
+                alert("That is correct!");
+                element.css("background-color", "green");
+                i++;
+            } else if (element.hasClass("correct") === false) {
+                alert("I'm Sorry But That Was Incorrect!! Please Try Again!!");
+                element.css("background-color", "red");
+            }
+            if (i == 6) {
+                alert("You may proceed with the lesson.");
+                $("#score1").html(i);
+                delete i;
+                $("#table").css("visibility", "visible");
+            }
+            try {
+                $("#score1").html(i);
+            } finally {
+                return;
+            }
+        }
+
+        function gradeReadySection() {
+            var i = 0;
+            var readySection = document.forms["readySection"];
+            var num1 = readySection["one"].value;
+            var num2 = readySection["two"].value;
+            var num3 = readySection["three"].value;
+            if (num1 === "d") {
+                $("label[for=1d]").css("color", "green").append(" &#10004;");
+            } else {
+                str = "label[for=1" + num1 + "]";
+                $(str).css("color", "red").append(" &#10006;");
+            }
+            if (num2 === "c") {
+                $("label[for=2c]").css("color", "green").append(" &#10004;");
+            } else {
+                str = "label[for=2" + num2 + "]";
+                $(str).css("color", "red").append(" &#10006;");
+            }
+            if (num3 === "a") {
+                $("label[for=3a]").css("color", "green").append(" &#10004;");
+            } else {
+                str = "label[for=3" + num3 + "]";
+                $(str).css("color", "red").append(" &#10006;");
+            }
+            $("#readySection input, #readySection button, #readySection label").attr("disabled", "").css("cursor", "not-allowed");
+        }
+
+        function gradeSetSection() {
+
+        }
+    </script>
+</body>
+
+</html>
