@@ -222,6 +222,7 @@
             //When Result Is Calculated
             recognition.onresult = function() {
                 var result = event.results[0][0].transcript;
+                console.log(result);
                 if (listenFor === "me llamo") {
                     if (result.toLowerCase().includes("me llamo") === true) {
                         result += " &#10004;";
