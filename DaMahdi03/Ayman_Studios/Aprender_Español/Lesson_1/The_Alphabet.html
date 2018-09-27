@@ -65,7 +65,7 @@
         <audio id="meLlamoAudio">
             <source src="Me_Llamo.mp3" type="audio/mpeg" />
         </audio>
-        <div id="meLlamoTryButton"><button onclick="startListening();">Try It Now!</button></div>
+        <div id="meLlamoTryButton"><button onclick="startListening('me llamo');">Try It Now!</button></div>
         <textarea id="meLlamoTry" disabled></textarea>
     </div>
     <div class="lesson">
@@ -150,70 +150,70 @@
         <p>
             With the buttons below, pronounce each of the Spanish letters in the alphabet:
         </p>
-        <button onclick="startListeningA()">Aa</button>
+        <button onclick="startListening('a')">Aa</button>
         <br /><br />
-        <button onclick="startListeningB()">Bb</button>
+        <button onclick="startListening('b')">Bb</button>
         <br /><br />
-        <button onclick="startListeningC()">Cc</button>
+        <button onclick="startListening('c')">Cc</button>
         <br /><br />
-        <button onclick="startListeningCH()">Ch, ch</button>
+        <button onclick="startListening('ch')">Ch, ch</button>
         <br /><br />
-        <button onclick="startListeningD()">Dd</button>
+        <button onclick="startListening('d')">Dd</button>
         <br /><br />
-        <button onclick="startListeningE()">Ee</button>
+        <button onclick="startListening('e')">Ee</button>
         <br /><br />
-        <button onclick="startListeningF()">Ff</button>
+        <button onclick="startListening('f')">Ff</button>
         <br /><br />
-        <button onclick="startListeningG()">Gg</button>
+        <button onclick="startListening('g')">Gg</button>
         <br /><br />
-        <button onclick="startListeningH()">Hh</button>
+        <button onclick="startListening('h')">Hh</button>
         <br /><br />
-        <button onclick="startListeningI()">Ii</button>
+        <button onclick="startListening('i')">Ii</button>
         <br /><br />
-        <button onclick="startListeningJ()">Jj</button>
+        <button onclick="startListening('j')">Jj</button>
         <br /><br />
-        <button onclick="startListeningK()">Kk</button>
+        <button onclick="startListening('k')">Kk</button>
         <br /><br />
-        <button onclick="startListeningL()">Ll</button>
+        <button onclick="startListening('l')">Ll</button>
         <br /><br />
-        <button onclick="startListeningLL()">Ll, ll</button>
+        <button onclick="startListeningL('ll')">Ll, ll</button>
         <br /><br />
-        <button onclick="startListeningM()">Mm</button>
+        <button onclick="startListening('m')">Mm</button>
         <br /><br />
-        <button onclick="startListeningN()">Nn</button>
+        <button onclick="startListening('n')">Nn</button>
         <br /><br />
-        <button onclick="startListeningÑ()">Ññ</button>
+        <button onclick="startListening('n')">Ññ</button>
         <br /><br />
-        <button onclick="startListeningO()">Oo</button>
+        <button onclick="startListening('o')">Oo</button>
         <br /><br />
-        <button onclick="startListeningP()">Pp</button>
+        <button onclick="startListening('p')">Pp</button>
         <br /><br />
-        <button onclick="startListeningQ()">Qq</button>
+        <button onclick="startListening('q')">Qq</button>
         <br /><br />
-        <button onclick="startListeningR()">Rr</button>
+        <button onclick="startListening('r')">Rr</button>
         <br /><br />
-        <button onclick="startListeningRR()">Rr, rr</button>
+        <button onclick="startListening('r')">Rr, rr</button>
         <br /><br />
-        <button onclick="startListeningS()">Ss</button>
+        <button onclick="startListening('s')">Ss</button>
         <br /><br />
-        <button onclick="startListeningT()">Tt</button>
+        <button onclick="startListening('t')">Tt</button>
         <br /><br />
-        <button onclick="startListeningU()">Uu</button>
+        <button onclick="startListening('u')">Uu</button>
         <br /><br />
-        <button onclick="startListeningV()">Vv</button>
+        <button onclick="startListening('v')">Vv</button>
         <br /><br />
-        <button onclick="startListeningW()">Ww</button>
+        <button onclick="startListening('w')">Ww</button>
         <br /><br />
-        <button onclick="startListeningX()">Xx</button>
+        <button onclick="startListening('x')">Xx</button>
         <br /><br />
-        <button onclick="startListeningY()">Yy</button>
+        <button onclick="startListening('y')">Yy</button>
         <br /><br />
-        <button onclick="startListeningZ()">Zz</button>
+        <button onclick="startListening('z')">Zz</button>
         <br /><br />
     </div>
 
     <script>
-        function startListening() {
+        function startListening(listenFor) {
             var recognition = new(webkitSpeechRecognition || SpeechRecognition)();
             recognition.lang = "es"; //Spanish Language
             recognition.interimResults = false;
@@ -222,16 +222,20 @@
             //When Result Is Calculated
             recognition.onresult = function() {
                 var result = event.results[0][0].transcript;
-                if (result.toLowerCase().includes("me llamo") === true) {
-                    result += " &#10004;";
-                    $("#meLlamoTry").html(result).css("color", "green");
-                    $(".lesson").css("visibility", "visible");
-                } else {
-                    result += " &#10006;";
-                    $("#meLlamoTry").html(result).css("color", "red");
+                if (listenFor === "me llamo") {
+                    if (result.toLowerCase().includes("me llamo") === true) {
+                        result += " &#10004;";
+                        $("#meLlamoTry").html(result).css("color", "green");
+                        $(".lesson, #setSection").css("visibility", "visible");
+                    } else {
+                        result += " &#10006;";
+                        $("#meLlamoTry").html(result).css("color", "red");
+                    }
+                } else if (listenFor === "a") {
+                    if (result.toLowerCase().includes("a") === true) {
+                        $("button[onclick='startListening('a')']").append(" &#10004;").css("color", "green");
+                    }
                 }
-
-                console.log("Done!");
             };
         }
         i = 0
