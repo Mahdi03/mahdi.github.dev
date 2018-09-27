@@ -352,6 +352,12 @@
                     } else {
                         $("[onclick=\"startListening('r')\"]").append(" &#10006;").css("color", "red");
                     }
+                } else if (listenFor === "rr") {
+                    if (result.toLowerCase() === "r") {
+                        $("[onclick=\"startListening('rr')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('rr')\"]").append(" &#10006;").css("color", "red");
+                    }
                 } else if (listenFor === "s") {
                     if (result.toLowerCase() === "s") {
                         $("[onclick=\"startListening('s')\"]").append(" &#10004;").css("color", "green");
