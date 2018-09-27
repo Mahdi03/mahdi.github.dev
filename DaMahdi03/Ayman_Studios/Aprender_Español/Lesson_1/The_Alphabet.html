@@ -176,13 +176,13 @@
         <br /><br />
         <button onclick="startListening('l')">Ll</button>
         <br /><br />
-        <button onclick="startListeningL('ll')">Ll, ll</button>
+        <button onclick="startListening('ll')">Ll, ll</button>
         <br /><br />
         <button onclick="startListening('m')">Mm</button>
         <br /><br />
         <button onclick="startListening('n')">Nn</button>
         <br /><br />
-        <button onclick="startListening('n')">Ññ</button>
+        <button onclick="startListening('ñ')">Ññ</button>
         <br /><br />
         <button onclick="startListening('o')">Oo</button>
         <br /><br />
@@ -192,7 +192,7 @@
         <br /><br />
         <button onclick="startListening('r')">Rr</button>
         <br /><br />
-        <button onclick="startListening('r')">Rr, rr</button>
+        <button onclick="startListening('rr')">Rr, rr</button>
         <br /><br />
         <button onclick="startListening('s')">Ss</button>
         <br /><br />
@@ -239,7 +239,7 @@
                         $("[onclick=\"startListening('a')\"]").append(" &#10006;").css("color", "red");
                     }
                 } else if (listenFor === "b") {
-                    if (result.toLowerCase() === "b") {
+                    if (["v", "b"].includes(result.toLowerCase()) === true) {
                         $("[onclick=\"startListening('b')\"]").append(" &#10004;").css("color", "green");
                     } else {
                         $("[onclick=\"startListening('b')\"]").append(" &#10006;").css("color", "red");
@@ -250,8 +250,14 @@
                     } else {
                         $("[onclick=\"startListening('c')\"]").append(" &#10006;").css("color", "red");
                     }
+                } else if (listenFor === "ch") {
+                    if (["ch", "che"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('ch')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('ch')\"]").append(" &#10006;").css("color", "red");
+                    }
                 } else if (listenFor === "d") {
-                    if (result.toLowerCase() === "d") {
+                    if (["d", "de"].includes(result.toLowerCase()) === true) {
                         $("[onclick=\"startListening('d')\"]").append(" &#10004;").css("color", "green");
                     } else {
                         $("[onclick=\"startListening('d')\"]").append(" &#10006;").css("color", "red");
@@ -281,7 +287,7 @@
                         $("[onclick=\"startListening('h')\"]").append(" &#10006;").css("color", "red");
                     }
                 } else if (listenFor === "i") {
-                    if (result.toLowerCase() === "i") {
+                    if (["i", "y"].includes(result.toLowerCase()) === true) {
                         $("[onclick=\"startListening('i')\"]").append(" &#10004;").css("color", "green");
                     } else {
                         $("[onclick=\"startListening('i')\"]").append(" &#10006;").css("color", "red");
@@ -293,7 +299,7 @@
                         $("[onclick=\"startListening('j')\"]").append(" &#10006;").css("color", "red");
                     }
                 } else if (listenFor === "k") {
-                    if (result.toLowerCase() === "k") {
+                    if (["ca", "k"].includes(result.toLowerCase()) === true) {
                         $("[onclick=\"startListening('k')\"]").append(" &#10004;").css("color", "green");
                     } else {
                         $("[onclick=\"startListening('k')\"]").append(" &#10006;").css("color", "red");
@@ -315,6 +321,12 @@
                         $("[onclick=\"startListening('n')\"]").append(" &#10004;").css("color", "green");
                     } else {
                         $("[onclick=\"startListening('n')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "ñ") {
+                    if (["ñ", "enya"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('ñ')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('ñ')\"]").append(" &#10006;").css("color", "red");
                     }
                 } else if (listenFor === "o") {
                     if (result.toLowerCase() === "o") {
@@ -353,7 +365,7 @@
                         $("[onclick=\"startListening('t')\"]").append(" &#10006;").css("color", "red");
                     }
                 } else if (listenFor === "u") {
-                    if (result.toLowerCase() === "u") {
+                    if (["u", "ü"].includes(result.toLowerCase()) === true) {
                         $("[onclick=\"startListening('u')\"]").append(" &#10004;").css("color", "green");
                     } else {
                         $("[onclick=\"startListening('u')\"]").append(" &#10006;").css("color", "red");
