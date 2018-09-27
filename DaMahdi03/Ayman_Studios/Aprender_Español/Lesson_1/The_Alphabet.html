@@ -233,9 +233,9 @@
                     }
                 } else if (listenFor === "a") {
                     if (result.toLowerCase().includes("a") === true) {
-                        $("[onclick='startListening('a')']").append(" &#10004;").css("color", "green");
+                        $("[onclick=\"startListening('a')\"]").append(" &#10004;").css("color", "green");
                     } else {
-                        $("[onclick='startListening('a')']").append(" &#10006;").css("color", "red");
+                        $("[onclick=\"startListening('a')\"]").append(" &#10006;").css("color", "red");
                     }
                     console.log(result);
                 }
