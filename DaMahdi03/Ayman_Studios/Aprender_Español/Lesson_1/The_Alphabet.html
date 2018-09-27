@@ -232,13 +232,13 @@
                         $("#meLlamoTry").html(result).css("color", "red");
                     }
                 } else if (listenFor === "a") {
-                    if (result.toLowerCase().includes("a") === true) {
+                    if (result.toLowerCase() === "a") {
                         $("[onclick=\"startListening('a')\"]").append(" &#10004;").css("color", "green");
                     } else {
                         $("[onclick=\"startListening('a')\"]").append(" &#10006;").css("color", "red");
                     }
-                    console.log(result);
                 }
+
             };
         }
         i = 0
