@@ -7,6 +7,9 @@
         width: 75%;
         font-size: 1em;
     }
+    img {
+        border-radius: 1em;
+    }
 }
 
 @media (max-width:961px) {
@@ -14,6 +17,9 @@
     body {
         margin: 0 auto;
         width: 75%;
+    }
+    img {
+        border-radius: 1em;
     }
 }
 
@@ -61,7 +67,7 @@
         font-size: 1em;
     }
     html {
-        background-image: linear-gradient( to right, rgb(50, 240, 82) 4%, rgba(105, 203, 208, 0.65) 4%, rgba(105, 203, 208, 0.65) 96%, rgb(50, 240, 82) 96%);
+        background-image: linear-gradient( to right, rgba(105, 203, 208, 0.65) 5%, rgba(105, 203, 208, 0.65) 95%);
     }
     img {
         border-radius: 1em;
