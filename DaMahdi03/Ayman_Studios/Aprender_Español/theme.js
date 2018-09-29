@@ -7,7 +7,7 @@ headTag.append(TitillumWebFont);
 var jQueryScriptElement = document.createElement("script");
 jQueryScriptElement.setAttribute("src", "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js");
 bodyTag.appendChild(jQueryScriptElement);*/
-if ($(document).scrollTop() > ($(".lesson").outerHeight(true) + $(".intro").outerHeight(true))) {
+if ($(window).scrollTop() > ($(".lesson").outerHeight(true) + $(".intro").outerHeight(true))) {
     $(".practice").css("visibility", "visible");
     alert("If you feel ready enough, continue on to the Practice Section.");
 }
