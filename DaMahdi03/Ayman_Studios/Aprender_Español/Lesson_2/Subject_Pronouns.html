@@ -33,28 +33,30 @@
 
 <body>
     <h2>Lesson 2: Subject Pronouns</h2>
-    <p style="float: left; margin: 0;">From the table below, click on all the Subject Pronouns in English (Don't look it up, it's <strong>ok</strong> to guess):</p>
-    <p style="float: right; margin: 0;">
-        Score: <span id="score1">0</span>/6</p>
-    <table>
-        <tr>
-            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">I</td>
-            <td class="pronoun" onclick="correctOrIncorrect($(this))">You're</td>
-            <td class="pronoun" onclick="correctOrIncorrect($(this))">His Or Her</td>
-            <td class="pronoun" onclick="correctOrIncorrect($(this))">Our</td>
-            <td class="pronoun" onclick="correctOrIncorrect($(this))">Us</td>
-            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">They</td>
-        </tr>
-        <tr>
-            <td class="pronoun" onclick="correctOrIncorrect($(this))">Me</td>
-            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">You</td>
-            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">We</td>
-            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">She</td>
-            <td class="pronoun" onclick="correctOrIncorrect($(this))">Theirs</td>
-            <td class="pronoun correct" onclick="correctOrIncorrect($(this))">He</td>
-        </tr>
-    </table>
-    <div id="table">
+    <div class="intro">
+        <p style="float: left; margin: 0;">From the table below, click on all the Subject Pronouns in English (Don't look it up, it's <strong>ok</strong> to guess):</p>
+        <p style="float: right; margin: 0;">
+            Score: <span id="score1">0</span>/6</p>
+        <table>
+            <tr>
+                <td class="pronoun correct" onclick="correctOrIncorrect($(this))">I</td>
+                <td class="pronoun" onclick="correctOrIncorrect($(this))">You're</td>
+                <td class="pronoun" onclick="correctOrIncorrect($(this))">His Or Her</td>
+                <td class="pronoun" onclick="correctOrIncorrect($(this))">Our</td>
+                <td class="pronoun" onclick="correctOrIncorrect($(this))">Us</td>
+                <td class="pronoun correct" onclick="correctOrIncorrect($(this))">They</td>
+            </tr>
+            <tr>
+                <td class="pronoun" onclick="correctOrIncorrect($(this))">Me</td>
+                <td class="pronoun correct" onclick="correctOrIncorrect($(this))">You</td>
+                <td class="pronoun correct" onclick="correctOrIncorrect($(this))">We</td>
+                <td class="pronoun correct" onclick="correctOrIncorrect($(this))">She</td>
+                <td class="pronoun" onclick="correctOrIncorrect($(this))">Theirs</td>
+                <td class="pronoun correct" onclick="correctOrIncorrect($(this))">He</td>
+            </tr>
+        </table>
+    </div>
+    <div class="lesson">
         <style>
             #subjectPronouns td:not(.person) {
                 margin-left: 2em;
@@ -123,74 +125,143 @@
         </table>
     </div>
     <hr />
-    <h2>Ready:</h2>
-    <form id="readySection" name="readySection" action="javascript:void(0);" onsubmit="gradeReadySection()">
-        <ol>
-            <li>What do you think <i>hablar</i> means in English?</li>
-            <div>
-                <input type="radio" id="1a" name="one" value="a" />
-                <label for="1a">To sing</label>
-                <br />
-                <input type="radio" id="1b" name="one" value="b" />
-                <label for="1b">To hate, to despise</label>
-                <br />
-                <input type="radio" id="1c" name="one" value="c" />
-                <label for="1c">To dance</label>
-                <br />
-                <input type="radio" id="1d" name="one" value="d" />
-                <label for="1d">To speak, to talk</label>
-                <br />
+    <div class="practice">
+        <div class="ready">
+            <h2>Ready:</h2>
+            <form id="readySection" name="readySection" action="javascript:void(0);" onsubmit="gradeReadySection()">
+                <ol>
+                    <li>What do you think <i>hablar</i> means in English?</li>
+                    <div>
+                        <input type="radio" id="1a" name="one" value="a" />
+                        <label for="1a">To sing</label>
+                        <br />
+                        <input type="radio" id="1b" name="one" value="b" />
+                        <label for="1b">To hate, to despise</label>
+                        <br />
+                        <input type="radio" id="1c" name="one" value="c" />
+                        <label for="1c">To dance</label>
+                        <br />
+                        <input type="radio" id="1d" name="one" value="d" />
+                        <label for="1d">To speak, to talk</label>
+                        <br />
+                    </div>
+                    <li>What do you think <i>bailar</i> means in English?</li>
+                    <div>
+                        <input type="radio" id="2a" name="two" value="a" />
+                        <label for="2a">To sing</label>
+                        <br />
+                        <input type="radio" id="2b" name="two" value="b" />
+                        <label for="2b">To hate, to despise</label>
+                        <br />
+                        <input type="radio" id="2c" name="two" value="c" />
+                        <label for="2c">To dance</label>
+                        <br />
+                        <input type="radio" id="2d" name="two" value="d" />
+                        <label for="2d">To speak, to talk</label>
+                        <br />
+                    </div>
+                    <li>What do you think <i>cantar</i> means in English?</li>
+                    <div>
+                        <input type="radio" id="3a" name="three" value="a" />
+                        <label for="3a">To sing</label>
+                        <br />
+                        <input type="radio" id="3b" name="three" value="b" />
+                        <label for="3b">To hate, to despise</label>
+                        <br />
+                        <input type="radio" id="3c" name="three" value="c" />
+                        <label for="3c">To dance</label>
+                        <br />
+                        <input type="radio" id="3d" name="three" value="d" />
+                        <label for="3d">To speak, to talk</label>
+                        <br />
+                    </div>
+                </ol>
+                <button>Submit!</button>
+            </form>
+        </div>
+        <hr />
+        <div class="set">
+            <h2>Set:</h2>
+            <div id="setSection">
+                <style>
+                    .word:hover {
+                        cursor: pointer;
+                    }
+                </style>
+                <p>In the sentences below, click on all of the Subject Pronouns, if there aren't any, skip to the next one. Even if you can't understand the language, use the table provided above to complete this section.</p>
+                <ol>
+                    <li><span class="word correct">I</span> <span class="word">have</span> <span class="word">many</span> <span class="word">friends</span>.</li>
+                    <li><span class="word correct">We</span> <span class="word">will</span> <span class="word">be going to the supermarket later today</span>.</li>
+                    <li><span class="word correct">You guys</span> <span class="word">should go swimming one day</span>.</li>
+                    <li><span class="word correct">Yo</span> <span class="word">tengo muchos amigos</span>.</li>
+                    <li><span class="word correct">Nosotros</span> <span class="word">vamos al supermercado luego hoy</span></li>
+                    <li><span class="word correct">Ustedes</span> <span class="word">debería ir nadando un día</span>.</li>
+                </ol>
             </div>
-            <li>What do you think <i>bailar</i> means in English?</li>
-            <div>
-                <input type="radio" id="2a" name="two" value="a" />
-                <label for="2a">To sing</label>
-                <br />
-                <input type="radio" id="2b" name="two" value="b" />
-                <label for="2b">To hate, to despise</label>
-                <br />
-                <input type="radio" id="2c" name="two" value="c" />
-                <label for="2c">To dance</label>
-                <br />
-                <input type="radio" id="2d" name="two" value="d" />
-                <label for="2d">To speak, to talk</label>
-                <br />
-            </div>
-            <li>What do you think <i>cantar</i> means in English?</li>
-            <div>
-                <input type="radio" id="3a" name="three" value="a" />
-                <label for="3a">To sing</label>
-                <br />
-                <input type="radio" id="3b" name="three" value="b" />
-                <label for="3b">To hate, to despise</label>
-                <br />
-                <input type="radio" id="3c" name="three" value="c" />
-                <label for="3c">To dance</label>
-                <br />
-                <input type="radio" id="3d" name="three" value="d" />
-                <label for="3d">To speak, to talk</label>
-                <br />
-            </div>
-        </ol>
-        <button>Submit!</button>
-    </form>
-    <hr />
-    <h2>Set:</h2>
-    <div id="setSection">
-        <style>
-            .word:hover {
-                cursor: pointer;
-            }
-        </style>
-        <p>In the sentences below, click on all of the Subject Pronouns, if there aren't any, skip to the next one. Even if you can't understand the language, use the table provided above to complete this section.</p>
-        <ol>
-            <li><span class="word correct">I</span> <span class="word">have</span> <span class="word">many</span> <span class="word">friends</span>.</li>
-            <li><span class="word correct">We</span> <span class="word">will</span> <span class="word">be going to the supermarket later today</span>.</li>
-            <li><span class="word correct">You guys</span> <span class="word">should go swimming one day</span>.</li>
-            <li><span class="word correct">Yo</span> <span class="word">tengo muchos amigos</span>.</li>
-            <li><span class="word correct">Nosotros</span> <span class="word">vamos al supermercado luego hoy</span></li>
-            <li><span class="word correct">Ustedes</span> <span class="word">debería ir nadando un día</span>.</li>
-        </ol>
+        </div>
+        <hr />
+        <div class="go">
+            <button onclick="startListening('ch')">Ch, ch</button>
+            <br /><br />
+            <button onclick="startListening('h')">Hh</button>
+            <br /><br />
+            <button onclick="startListening('j')">Jj</button>
+            <br /><br />
+            <button onclick="startListening('ll')">Ll, ll</button>
+            <br /><br />
+            <button onclick="startListening('ñ')">Ññ</button>
+            <br /><br />
+            <button onclick="startListening('w')">Ww</button>
+            <br /><br />
+            <script>
+                function startListening(listenFor) {
+                    var recognition = new(webkitSpeechRecognition || SpeechRecognition)();
+                    recognition.lang = "es"; //Spanish Language
+                    recognition.interimResults = false;
+                    recognition.maxAlternatives = 1;
+                    recognition.start();
+                    recognition.onresult = function() {
+                        if (listenFor === "ch") {
+                            if (["ch", "che"].includes(result.toLowerCase()) === true) {
+                                $("[onclick=\"startListening('ch')\"]").append(" &#10004;").css("color", "green");
+                            } else {
+                                $("[onclick=\"startListening('ch')\"]").append(" &#10006;").css("color", "red");
+                            }
+                        } else if (listenFor === "h") {
+                            if (result.toLowerCase() === "h") {
+                                $("[onclick=\"startListening('h')\"]").append(" &#10004;").css("color", "green");
+                            } else {
+                                $("[onclick=\"startListening('h')\"]").append(" &#10006;").css("color", "red");
+                            }
+                        } else if (listenFor === "j") {
+                            if (result.toLowerCase() === "j") {
+                                $("[onclick=\"startListening('j')\"]").append(" &#10004;").css("color", "green");
+                            } else {
+                                $("[onclick=\"startListening('j')\"]").append(" &#10006;").css("color", "red");
+                            }
+                        } else if (listenFor === "ll") {
+                            if (["ll", "eie", "ella"].includes(result.toLowerCase()) === true) {
+                                $("[onclick=\"startListening('ll')\"]").append(" &#10004;").css("color", "green");
+                            } else {
+                                $("[onclick=\"startListening('ll')\"]").append(" &#10006;").css("color", "red");
+                            }
+                        } else if (listenFor === "ñ") {
+                            if (["ñ", "enya", "eñe", "etnia"].includes(result.toLowerCase()) === true) {
+                                $("[onclick=\"startListening('ñ')\"]").append(" &#10004;").css("color", "green");
+                            } else {
+                                $("[onclick=\"startListening('ñ')\"]").append(" &#10006;").css("color", "red");
+                            }
+                        } else if (listenFor === "w") {
+                            if (result.toLowerCase() === "w") {
+                                $("[onclick=\"startListening('w')\"]").append(" &#10004;").css("color", "green");
+                            } else {
+                                $("[onclick=\"startListening('w')\"]").append(" &#10006;").css("color", "red");
+                            }
+                        }
+                    }
+                }
+            </script>
+        </div>
     </div>
     <script>
         i = 0;
