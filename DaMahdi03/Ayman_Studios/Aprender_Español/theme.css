@@ -88,6 +88,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 body {
+    padding: 1em;
     font-family: 'Titillium Web', sans-serif;
     line-height: 1.5;
     background-color: rgba(0, 0, 0, 0);
