@@ -7,6 +7,9 @@
         width: 75%;
         font-size: 1em;
     }
+    html {
+        background-image: linear-gradient( to right, rgb(50, 240, 82) 5%, rgba(105, 203, 208, 0.65) 5%, rgba(105, 203, 208, 0.65) 95%, rgb(50, 240, 82) 95%);
+    }
     img {
         border-radius: 1em;
     }
@@ -17,6 +20,9 @@
     body {
         margin: 0 auto;
         width: 75%;
+    }
+    html {
+        background-image: linear-gradient( to right, rgb(50, 240, 82) 5%, rgba(105, 203, 208, 0.65) 5%, rgba(105, 203, 208, 0.65) 95%, rgb(50, 240, 82) 95%);
     }
     img {
         border-radius: 1em;
