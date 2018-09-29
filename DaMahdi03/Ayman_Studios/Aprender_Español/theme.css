@@ -27,6 +27,9 @@
         width: 75%;
         font-size: 1.75em;
     }
+    html {
+        background-image: linear-gradient( to right, rgb(50, 240, 82) 10%, rgba(105, 203, 208, 0.65) 10%, rgba(105, 203, 208, 0.65) 90%, rgb(50, 240, 82) 90%);
+    }
     img {
         border-radius: 3em;
     }
@@ -38,6 +41,9 @@
         margin: 0 auto;
         width: 75%;
         font-size: 1.75em;
+    }
+    html {
+        background-image: linear-gradient( to right, rgb(50, 240, 82) 10%, rgba(105, 203, 208, 0.65) 10%, rgba(105, 203, 208, 0.65) 90%, rgb(50, 240, 82) 90%);
     }
     img {
         border-radius: 3em;
@@ -54,6 +60,9 @@
         width: 90%;
         font-size: 1em;
     }
+    html {
+        background-image: linear-gradient( to right, rgb(50, 240, 82) 5%, rgba(105, 203, 208, 0.65) 5%, rgba(105, 203, 208, 0.65) 95%, rgb(50, 240, 82) 95%);
+    }
     img {
         border-radius: 1em;
     }
@@ -65,6 +74,9 @@
         margin: 0 auto;
         width: 90%;
         font-size: 1em;
+    }
+    html {
+        background-image: linear-gradient( to right, rgb(50, 240, 82) 5%, rgba(105, 203, 208, 0.65) 5%, rgba(105, 203, 208, 0.65) 95%, rgb(50, 240, 82) 95%);
     }
     img {
         border-radius: 1em;
@@ -83,7 +95,6 @@ body {
 
 html {
     background-color: rgb(0, 255, 128);
-    background-image: linear-gradient( to right, rgb(50, 240, 82) 10%, rgba(105, 203, 208, 0.65) 10%, rgba(105, 203, 208, 0.65) 90%, rgb(50, 240, 82) 90%);
 }
 
 form {
