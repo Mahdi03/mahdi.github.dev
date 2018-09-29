@@ -94,6 +94,11 @@ button:hover {
     cursor: pointer;
 }
 
+mark {
+    border-radius: 1em;
+    padding: 0.1em;
+}
+
 img {
     width: 100%;
     border: 3px rgb(0, 132, 255) dashed;
