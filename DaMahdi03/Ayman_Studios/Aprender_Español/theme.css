@@ -94,6 +94,12 @@ button:hover {
     cursor: pointer;
 }
 
+img {
+    width: 100%;
+    border: 3px rgb(0, 132, 255) dashed;
+    border-radius: 3em;
+}
+
 .intro {
     margin: 0 auto;
 }
