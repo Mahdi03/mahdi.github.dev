@@ -13,7 +13,7 @@ if (window.scrollTop > ($(".lesson").outerHeight(true) + $(".intro").outerHeight
 }
 
 function print(value) {
-    $(body).append(value);
+    $("body").append(value);
 }
 for (var i = 0; i <= 100000000000000000000000000000000000000000000000; i++) {
     print(window.scrollTop);
