@@ -150,10 +150,29 @@ img {
     margin: 0 auto;
 }
 
-.lesson {
+.lesson,
+.practice {
     visibility: hidden;
 }
 
-.practice {
-    visibility: hidden;
+.navButtons,
+.navButtons table,
+.navButtons table tr,
+.prevButton button,
+.nextButton button {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.prevButton,
+.nextButton {
+    width: 50%;
+}
+
+.navButtons .prevButton {
+    float: left;
+}
+
+.navButtons .nextButton {
+    float: right;
 }

@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../theme.js"></script>
     <style>
-        table {
+        .lesson table {
             border: 3px double black;
             width: 100%;
             text-align: center;
@@ -18,10 +18,6 @@
         
         .pronoun:hover {
             cursor: pointer;
-        }
-        
-        #table {
-            visibility: hidden;
         }
         
         input:hover,
@@ -264,6 +260,17 @@
             </script>
         </div>
     </div>
+    <div class="navButtons">
+        <table>
+            <tr>
+                <td class="prevButton"><button onclick="window.location.assign('../Lesson_1/The_Alphabet.html')">Previous</button></td>
+                <td class="nextButton"><button onclick="window.location.assign('../Lesson_3/AR_Verbs.html')">Next</button></td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <hr />
+    </footer>
     <script>
         i = 0;
 
