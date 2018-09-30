@@ -7,7 +7,16 @@ headTag.append(TitillumWebFont);
 var jQueryScriptElement = document.createElement("script");
 jQueryScriptElement.setAttribute("src", "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js");
 bodyTag.appendChild(jQueryScriptElement);*/
-if (window.scrollTop > ($(".lesson").outerHeight(true) + $(".intro").outerHeight(true))) {
-    $(".practice").css("visibility", "visible");
-    alert("If you feel ready enough, continue on to the Practice Section.");
+while (true) {
+    if (window.scrollTop > ($(".lesson").outerHeight(true) + $(".intro").outerHeight(true))) {
+        $(".practice").css("visibility", "visible");
+        alert("If you feel ready enough, continue on to the Practice Section.");
+    }
+}
+
+function print(value) {
+    $(body).append(value);
+}
+while (true) {
+    print(window.scrollTop);
 }
