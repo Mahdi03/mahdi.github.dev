@@ -16,6 +16,6 @@ function print(value) {
     $("body").append(value);
     console.log(value);
 }
-for (var i = 0; i <= 10000000000; i++) {
+for (var i = 0; i <= 10; i++) {
     print(window.scrollTop);
 }
