@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Alphabet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../theme.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../theme.js"></script>
+    <style>
+        .intro textarea {
+            resize: none;
+            width: 100%;
+            text-align: center;
+            margin: 1em auto;
+            border-radius: 3em;
+            font-size: 1.5em;
+        }
+        
+        .lesson table {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .lesson tr,
+        .lesson td {
+            border: 2px solid lightcoral;
+            border-radius: 2px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        @media screen and (max-width: 320px) {
+            .lesson td {
+                font-size: 0.5em;
+                border-width: 0.5px;
+            }
+        }
+        
+        @media screen and (max-width: 481px) {
+            .lesson td {
+                font-size: 0.5em;
+                border-width: 0.5px;
+            }
+        }
+        
+        sup:hover,
+        #speaker:hover,
+        .extra:hover {
+            cursor: pointer;
+        }
+        
+        #YouTubePronunciationVideo {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="intro">
+        <h2>Sentence Of The Day:</h2>
+        <h3>Me llamo <u>&emsp;(your name)&emsp;</u><sup id="#speaker" style="font-size: 0.5em;" onclick="document.getElementById('meLlamoAudio').play();">&#128266;</sup>. &rarr; My name is <u>&emsp;(your name)&emsp;</u>.</h3>
+        <audio id="meLlamoAudio">
+            <source src="Me_Llamo.mp3" type="audio/mpeg" />
+        </audio>
+        <div id="meLlamoTryButton"><button onclick="startListening('me llamo');">Try It Now!</button></div>
+        <textarea id="meLlamoTry" disabled></textarea>
+    </div>
+    <div class="lesson">
+        <h2>Lesson 1: The Alphabet</h2>
+        <p style="text-align: center;">You know the English Alphabet to be:</p>
+        <table>
+            <tr>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+                <td>G</td>
+                <td>H</td>
+                <td>I</td>
+                <td>J</td>
+                <td>K</td>
+                <td>L</td>
+                <td>M</td>
+                <td>N</td>
+                <td>O</td>
+                <td>P</td>
+                <td>Q</td>
+                <td>R</td>
+                <td>S</td>
+                <td>T</td>
+                <td>U</td>
+                <td>V</td>
+                <td>W</td>
+                <td>X</td>
+                <td>Y</td>
+                <td>Z</td>
+            </tr>
+        </table>
+        <p>
+            &emsp;&emsp;The Spanish alphabet is not too different. With only 4 extra letters, it makes it a very easy language to learn for those who are already fluent in English. The Spanish Alphabet has the same order and all of the letters as the English Alphabet.
+            Can you spot the 4 extra letters that are not found in the English Language? Click on them and then continue down the lesson page:
+        </p>
+        <table>
+            <tr>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td class="extra">CH</td>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+                <td>G</td>
+                <td>H</td>
+                <td>I</td>
+                <td>J</td>
+                <td>K</td>
+                <td>L</td>
+                <td class="extra">LL</td>
+                <td>M</td>
+                <td>N</td>
+                <td class="extra">Ñ</td>
+                <td>O</td>
+                <td>P</td>
+                <td>Q</td>
+                <td>R</td>
+                <td class="extra">RR</td>
+                <td>S</td>
+                <td>T</td>
+                <td>U</td>
+                <td>V</td>
+                <td>W</td>
+                <td>X</td>
+                <td>Y</td>
+                <td>Z</td>
+            </tr>
+        </table>
+
+        <div id="YouTubePronunciationVideo">
+            <p style="text-align: center;">Check Out This YouTube Video!!!</p>
+            <iframe>Hey!!</iframe>
+        </div>
+    </div>
+    <div class="practice">
+        <div class="set">
+            <h2>Set:</h2>
+            <div id="setSection" style="margin: 0 auto; text-align: center;">
+                <p>
+                    With the buttons below, pronounce each of the Spanish letters in the alphabet. Keep trying until it turns green! If nothing happens, remember to speak loud into the microphone:
+                </p>
+                <button onclick="startListening('a')">Aa</button>
+                <br /><br />
+                <button onclick="startListening('b')">Bb</button>
+                <br /><br />
+                <button onclick="startListening('c')">Cc</button>
+                <br /><br />
+                <button onclick="startListening('ch')">Ch, ch</button>
+                <br /><br />
+                <button onclick="startListening('d')">Dd</button>
+                <br /><br />
+                <button onclick="startListening('e')">Ee</button>
+                <br /><br />
+                <button onclick="startListening('f')">Ff</button>
+                <br /><br />
+                <button onclick="startListening('g')">Gg</button>
+                <br /><br />
+                <button onclick="startListening('h')">Hh</button>
+                <br /><br />
+                <button onclick="startListening('i')">Ii</button>
+                <br /><br />
+                <button onclick="startListening('j')">Jj</button>
+                <br /><br />
+                <button onclick="startListening('k')">Kk</button>
+                <br /><br />
+                <button onclick="startListening('l')">Ll</button>
+                <br /><br />
+                <button onclick="startListening('ll')">Ll, ll</button>
+                <br /><br />
+                <button onclick="startListening('m')">Mm</button>
+                <br /><br />
+                <button onclick="startListening('n')">Nn</button>
+                <br /><br />
+                <button onclick="startListening('ñ')">Ññ</button>
+                <br /><br />
+                <button onclick="startListening('o')">Oo</button>
+                <br /><br />
+                <button onclick="startListening('p')">Pp</button>
+                <br /><br />
+                <button onclick="startListening('q')">Qq</button>
+                <br /><br />
+                <button onclick="startListening('r')">Rr</button>
+                <br /><br />
+                <button onclick="startListening('rr')">Rr, rr</button>
+                <br /><br />
+                <button onclick="startListening('s')">Ss</button>
+                <br /><br />
+                <button onclick="startListening('t')">Tt</button>
+                <br /><br />
+                <button onclick="startListening('u')">Uu</button>
+                <br /><br />
+                <button onclick="startListening('v')">Vv</button>
+                <br /><br />
+                <button onclick="startListening('w')">Ww</button>
+                <br /><br />
+                <button onclick="startListening('x')">Xx</button>
+                <br /><br />
+                <button onclick="startListening('y')">Yy</button>
+                <br /><br />
+                <button onclick="startListening('z')">Zz</button>
+                <br /><br />
+            </div>
+        </div>
+        <div class="go">
+            <h2>Go:</h2>
+            <p>Since this is the first lesson, there will be no review or Go section.</p>
+        </div>
+    </div>
+    <div class="navButtons">
+        <table>
+            <tr>
+                <td class="prevButton"></td>
+                <td class="nextButton"><button onclick="window.location.assign('../Lesson_2/Subject_Pronouns.html')">Next</button></td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <hr />
+    </footer>
+    <script>
+        function startListening(listenFor) {
+            var recognition = new(webkitSpeechRecognition || SpeechRecognition)();
+            recognition.lang = "es"; //Spanish Language
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+            recognition.start();
+            //When Result Is Calculated
+            recognition.onresult = function() {
+                var result = event.results[0][0].transcript;
+                console.log(result);
+                if (listenFor === "me llamo") {
+                    if (result.toLowerCase().includes("me llamo") === true) {
+                        result += " &#10004;";
+                        $("#meLlamoTry").html(result).css("color", "green");
+                        $(".lesson").css("visibility", "visible");
+                    } else {
+                        result += " &#10006;";
+                        $("#meLlamoTry").html(result).css("color", "red");
+                    }
+                } else if (listenFor === "a") {
+                    if (result.toLowerCase() === "a") {
+                        $("[onclick=\"startListening('a')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('a')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "b") {
+                    if (["v", "b"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('b')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('b')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "c") {
+                    if (result.toLowerCase() === "c") {
+                        $("[onclick=\"startListening('c')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('c')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "ch") {
+                    if (["ch", "che"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('ch')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('ch')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "d") {
+                    if (["d", "de"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('d')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('d')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "e") {
+                    if (result.toLowerCase() === "e") {
+                        $("[onclick=\"startListening('e')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('e')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "f") {
+                    if (result.toLowerCase() === "f") {
+                        $("[onclick=\"startListening('f')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('f')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "g") {
+                    if (result.toLowerCase() === "g") {
+                        $("[onclick=\"startListening('g')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('g')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "h") {
+                    if (result.toLowerCase() === "h") {
+                        $("[onclick=\"startListening('h')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('h')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "i") {
+                    if (["i", "y"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('i')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('i')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "j") {
+                    if (result.toLowerCase() === "j") {
+                        $("[onclick=\"startListening('j')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('j')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "k") {
+                    if (["ca", "k"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('k')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('k')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "l") {
+                    if (result.toLowerCase() === "l") {
+                        $("[onclick=\"startListening('l')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('l')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "ll") {
+                    if (["ll", "eie", "ella"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('ll')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('ll')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "m") {
+                    if (result.toLowerCase() === "m") {
+                        $("[onclick=\"startListening('m')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('m')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "n") {
+                    if (result.toLowerCase() === "n") {
+                        $("[onclick=\"startListening('n')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('n')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "ñ") {
+                    if (["ñ", "enya", "eñe", "etnia"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('ñ')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('ñ')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "o") {
+                    if (result.toLowerCase() === "o") {
+                        $("[onclick=\"startListening('o')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('o')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "p") {
+                    if (result.toLowerCase() === "p") {
+                        $("[onclick=\"startListening('p')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('p')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "q") {
+                    if (result.toLowerCase() === "q") {
+                        $("[onclick=\"startListening('q')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('q')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "r") {
+                    if (result.toLowerCase() === "r") {
+                        $("[onclick=\"startListening('r')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('r')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "rr") {
+                    if (result.toLowerCase() === "r") {
+                        $("[onclick=\"startListening('rr')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('rr')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "s") {
+                    if (result.toLowerCase() === "s") {
+                        $("[onclick=\"startListening('s')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('s')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "t") {
+                    if (result.toLowerCase() === "t") {
+                        $("[onclick=\"startListening('t')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('t')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "u") {
+                    if (["u", "ü"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('u')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('u')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "v") {
+                    if (result.toLowerCase() === "v") {
+                        $("[onclick=\"startListening('v')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('v')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "w") {
+                    if (result.toLowerCase() === "w") {
+                        $("[onclick=\"startListening('w')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('w')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "x") {
+                    if (result.toLowerCase() === "x") {
+                        $("[onclick=\"startListening('x')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('x')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "y") {
+                    if (result.toLowerCase() === "y") {
+                        $("[onclick=\"startListening('y')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('y')\"]").append(" &#10006;").css("color", "red");
+                    }
+                } else if (listenFor === "z") {
+                    if (["z", "iata"].includes(result.toLowerCase()) === true) {
+                        $("[onclick=\"startListening('z')\"]").append(" &#10004;").css("color", "green");
+                    } else {
+                        $("[onclick=\"startListening('z')\"]").append(" &#10006;").css("color", "red");
+                    }
+                }
+
+
+            };
+        }
+        i = 0
+        $(".extra").click(function() {
+            $(this).css("color", "green");
+            i++;
+            if (i === 4) {
+                alert("Congrats!! You found all of the extra letters in the Spanish Alphabet. But can you pronounce them? Scroll down below to find out more!!!");
+                $("#YouTubePronunciationVideo").css("visibility", "visible");
+                document.getElementById("YouTubePronunciationVideoiFrame").play()
+                delete i;
+            }
+        });
+    </script>
+</body>
+
+</html>
