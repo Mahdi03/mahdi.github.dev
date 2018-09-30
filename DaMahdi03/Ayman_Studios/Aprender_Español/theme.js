@@ -7,7 +7,7 @@ headTag.append(TitillumWebFont);
 var jQueryScriptElement = document.createElement("script");
 jQueryScriptElement.setAttribute("src", "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js");
 bodyTag.appendChild(jQueryScriptElement);*/
-if (window.scrollTop > ($(".lesson").outerHeight(true) + $(".intro").outerHeight(true))) {
+if ($(document).scrollTop() > ($(".lesson").outerHeight(true) + $(".intro").outerHeight(true))) {
     $(".practice").css("visibility", "visible");
     alert("If you feel ready enough, continue on to the Practice Section.");
 }
@@ -17,5 +17,5 @@ function print(value) {
     console.log(value);
 }
 for (var i = 0; i <= 10; i++) {
-    print($(document).scrollTop());
+    setTimeout(print($(document).scrollTop()), 5000);
 }
