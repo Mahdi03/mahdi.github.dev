@@ -17,5 +17,5 @@ function print(value) {
     console.log(value);
 }
 for (var i = 0; i <= 10; i++) {
-    print(document.body.scrollTop);
+    print(document.scrollTop);
 }
