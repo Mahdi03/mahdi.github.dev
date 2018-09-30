@@ -16,6 +16,8 @@ function print(value) {
     $("body").append(value);
     console.log(value);
 }
-for (var i = 0; i <= 10; i++) {
-    setTimeout(print($(document).scrollTop()), 5000);
+for (var i = 0; i <= 1; i++) {
+    setInterval(function() {
+        print($(document).scrollTop());
+    }, 5000);
 }
