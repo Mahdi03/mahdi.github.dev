@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login to Aprender Español</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../theme.css" />
+    <script src="../theme.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../md5.min.js"></script>
+</head>
+
+<body>
+    <form class="loginForm" action="javascript:void(0);" onsubmit="loginUser()">
+        <table class="loginForm">
+            <tr>
+                <th colspan="2">
+                    <h2>Login To Aprender Español:</h2>
+                </th>
+            </tr>
+            <tr>
+                <td>Username: <input id="username" type="text" placeholder="John1234" required /></td>
+                <td>Password: <input id="password" type="password" placeholder="Password..." required /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button>Login</button></td>
+            </tr>
+        </table>
+    </form>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: 'AIzaSyC_ppWo7ATuzym-EsQxgcERM6Gcn0ZeuSM',
+            authDomain: 'to-learn-spanish.firebaseapp.com',
+            projectId: 'to-learn-spanish'
+        });
+
+        // Initialize Cloud Firestore through Firebase
+        var database = firebase.firestore();
+
+        // Disable deprecated features
+        database.settings({
+            timestampsInSnapshots: true
+        });
+
+        function loginUser() {
+            if ($(".error").length > 0) {
+                $(".error").remove();
+            }
+            var username = $("#username").val();
+            var password = md5($("#password").val());
+            if (password.length === 32) {
+                database.collection("userInfo").doc(String(username)).get().then(function(doc) {
+                    if (doc.exists === true) {
+                        if (doc.data().password === password) {
+                            console.log("You're good to go!");
+                            sessionStorage.setItem("loggedIn", true);
+                            sessionStorage.setItem("lessonsCompleted", doc.data().lessonsCompleted);
+                            console.log("Logged in...");
+                            $("body").append("<meta http-equiv='refresh' content='5;url=../intro.html' />");
+                            alert("You will be redirected shortly.");
+                        } else {
+                            console.error("The password is incorrect");
+                            notifyRegisterError("The password is incorrect. Please try another password.", "password");
+                        }
+
+                    } else {
+                        console.error("This Username doesn't exist!");
+                        notifyRegisterError("This Username Doesn't Exist!!", "username");
+                    }
+                });
+            }
+        }
+
+        function notifyRegisterError(msg, input) {
+            //If Error Deals With Password:
+            if (input === "password") {
+                //If An Error Already Exists
+                if ($("#passwordError").length > 0) {
+                    //Remove The Previous Error Message
+                    $("#passwordError").remove();
+                }
+                //Place New Error Message Under Password Input
+                $('<p id="passwordError" class="error">' + msg + '</p>').insertAfter("#password");
+                return;
+            }
+            //If Error Deals With Username:
+            else if (input === "username") {
+                //If An Error Already Exists
+                if ($("#usernameError").length > 0) {
+                    //Remove Previous Error Message
+                    $("#usernameError").remove();
+                }
+                //Place Error Message Under Username Input
+                $('<p id="usernameError" class="error">' + msg + '</p>').insertAfter("#username");
+                return;
+            }
+        }
+    </script>
+</body>
+
+</html>

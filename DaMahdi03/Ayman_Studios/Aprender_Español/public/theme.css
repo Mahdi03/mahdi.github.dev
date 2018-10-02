@@ -115,6 +115,39 @@ form {
     width: 100%;
 }
 
+.loginForm,
+.registerForm {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.loginForm td,
+.registerForm td {
+    padding: 1em;
+    max-width: 50%;
+    vertical-align: top;
+}
+
+.loginForm .error,
+.registerForm .error {
+    color: red;
+    font-size: 0.75em;
+}
+
+.loginForm input,
+.registerForm input {
+    width: 85%;
+    padding: 10px;
+    padding-left: 30px;
+    border-radius: 2em;
+    border: 3px dashed;
+    color: rgb(0, 132, 255);
+    background-color: lightblue;
+    font-size: 1em;
+    font-family: inherit;
+}
+
 h2,
 button {
     text-align: center;

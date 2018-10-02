@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Create an Account for Aprender Español</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Link To Website Theme.css-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../theme.css" />
+    <!---->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../theme.js"></script>
+    <script src="../md5.min.js"></script>
+</head>
+
+<body>
+    <!--Main Register Form-->
+    <form class="registerForm" action="javascript:void(0);" onsubmit="registerUser()">
+        <!--Table Method To Neatly Organize Inputs-->
+        <table class="registerForm">
+            <tr>
+                <th colspan="2">
+                    <h2>Register For Aprender Español Now!!!</h2>
+                </th>
+            </tr>
+            <tr>
+                <td>First Name: <input id="firstName" class="name" type="text" placeholder="John" required /></td>
+                <td>Last Name: <input id="lastName" class="name" type="text" placeholder="Doe" required /></td>
+            </tr>
+            <tr>
+                <td>Create A Username: <input id="username" type="text" placeholder="John1234" required /></td>
+                <td>Create A Password: <input id="password" type="password" placeholder="Password..." required /></td>
+            </tr>
+            <tr>
+                <td>Type In Your Email: <input id="email" type="email" placeholder="johndoe@example.com" required /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button>Register Now!!!</button></td>
+            </tr>
+        </table>
+    </form>
+    <!--Scripts That Are Required To Use Firebase and Its Database-->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+    <script>
+        //Connect To Google Firebase Application Online
+        firebase.initializeApp({
+            apiKey: 'AIzaSyC_ppWo7ATuzym-EsQxgcERM6Gcn0ZeuSM',
+            authDomain: 'to-learn-spanish.firebaseapp.com',
+            projectId: 'to-learn-spanish'
+        });
+        // Initialize Cloud Firestore through Firebase
+        var database = firebase.firestore();
+        // Disable deprecated features
+        database.settings({
+            timestampsInSnapshots: true
+        });
+        //My Code
+        function registerUser() {
+            //Removes All Error Codes Before Moving On!!
+            if ($(".error").length > 0) {
+                $(".error").remove();
+            }
+            //Function Global Scope Variables
+            var firstName = $("#firstName").val();
+            var lastName = $("#lastName").val();
+            var email = $("#email").val();
+            var username = $("#username").val();
+            //Instantiate Password Variable
+            var password;
+            //If The Password Length Is Less Than 8 Characters:
+            if ($("#password").val().length < 8) {
+                //Alert The User And Abort Register Process
+                notifyRegisterError("Your Password Is Too Short!! Try making it at least 8 characters long.", "password");
+                return;
+            } else {
+                //If Not, Hash The Password Value Securely
+                password = md5($("#password").val());
+            }
+            //If The Email Has At Least 5 Characters (@, .com) And If The Password has 32 Characters (MD5 Hashes have 32 characters):
+            if (email.length > 5 && password.length === 32) {
+                //Open Firebase Database With new Username:
+                database.collection("userInfo").doc(String(username)).get().then(function(doc) {
+                    //If The Username Already Exists:
+                    if (doc.exists === true) {
+                        //Notify the user and Abort Register Process
+                        console.error("The Username Has Already Been Taken");
+                        notifyRegisterError("This username has already been taken. Please try another username!", "username");
+                        return;
+                    } else {
+                        if (database.collection("userInfo").get().then((querySnapshot) => {
+                                querySnapshot.forEach((doc) => {
+                                    //Check Each Email One-By-One
+                                    if (doc.data().email === email) {
+                                        //Notify User That Email Is Already In-Use
+                                        notifyRegisterError("This email has already been used!!! Please try another email of yours, or <a href='login.html'>try logging in</a>.", "email");
+                                        bool = true;
+                                    }
+                                });
+                            }) === false) {
+                            //If Everything Checks Out:
+                            console.log("You're good to go!");
+                            //Open Database And Create New User With New Username and Set Credentials
+                            database.collection("userInfo").doc(String(username)).set({
+                                    firstName: firstName,
+                                    lastName: lastName,
+                                    email: email,
+                                    username: username,
+                                    password: password,
+                                    lessonsCompleted: 0
+                                }).then(function() {
+                                    //If Everything Was Successful
+                                    console.log("Document written with ID: ", username);
+                                })
+                                .catch(function(error) {
+                                    //If There Was An unknown error
+                                    console.error("Error adding record (Document) to database: ", error);
+                                });
+                        } else {
+                            console.error("This Username Has Already Been Taken");
+                        }
+                    }
+                });
+            }
+        }
+        //Self-Defined Function That Prints Error Messages
+        function notifyRegisterError(msg, input) {
+            //If Error Deals With Password:
+            if (input === "password") {
+                //If An Error Already Exists
+                if ($("#passwordError").length > 0) {
+                    //Remove The Previous Error Message
+                    $("#passwordError").remove();
+                }
+                //Place New Error Message Under Password Input
+                $('<p id="passwordError" class="error">' + msg + '</p>').insertAfter("#password");
+                return;
+            }
+            //If Error Deals With Username:
+            else if (input === "username") {
+                //If An Error Already Exists
+                if ($("#usernameError").length > 0) {
+                    //Remove Previous Error Message
+                    $("#usernameError").remove();
+                }
+                //Place Error Message Under Username Input
+                $('<p id="usernameError" class="error">' + msg + '</p>').insertAfter("#username");
+                return;
+            }
+            //If Error Deals With Email
+            else if (input === "email") {
+                //If Error Already Exists
+                if ($("#emailError").length > 0) {
+                    //Remove The Error
+                    $("#emailError").remove();
+                }
+                //Place New Error Under Email Address Input
+                $('<p id="emailError" class="error">' + msg + '</p>').insertAfter("#email");
+                return;
+            }
+        }
+    </script>
+</body>
+
+</html>
