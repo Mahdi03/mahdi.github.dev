@@ -3,7 +3,6 @@
 @media screen and (max-width:641px) {
     /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
     body {
-        margin: 0 auto;
         width: 75%;
         font-size: 1em;
     }
@@ -18,7 +17,6 @@
 @media (max-width:961px) {
     /* tablet, landscape iPad, lo-res laptops ands desktops */
     body {
-        margin: 0 auto;
         width: 75%;
     }
     html {
@@ -35,7 +33,6 @@
 @media (min-width:1025px) {
     /* big landscape tablets, laptops, and desktops */
     body {
-        margin: 0 auto;
         width: 75%;
         font-size: 1.75em;
     }
@@ -50,7 +47,6 @@
 @media (max-width:1281px) {
     /* hi-res laptops and desktops */
     body {
-        margin: 0 auto;
         width: 75%;
         font-size: 1.75em;
     }
@@ -68,7 +64,6 @@
 @media screen and (max-width:320px) {
     /* smartphones, iPhone, portrait 480x320 phones */
     body {
-        margin: 0 auto;
         width: 92%;
         font-size: 1em;
     }
@@ -83,7 +78,6 @@
 @media screen and (max-width:481px) {
     /* smartphones, iPhone, portrait 480x320 phones */
     body {
-        margin: 0 auto;
         width: 92%;
         font-size: 1em;
     }
@@ -100,6 +94,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 body {
+    margin: 0 auto;
     padding: 2px;
     font-family: 'Titillium Web', sans-serif;
     line-height: 1.5;
@@ -199,13 +194,5 @@ img {
 
 .prevButton,
 .nextButton {
-    width: 50%;
-}
-
-.navButtons .prevButton {
-    float: left;
-}
-
-.navButtons .nextButton {
-    float: right;
+    max-width: 50%;
 }
