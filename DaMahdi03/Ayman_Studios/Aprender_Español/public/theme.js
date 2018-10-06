@@ -3,5 +3,6 @@ var scrollInterval = setInterval(function() {
         $(".practice").css("visibility", "visible");
         alert("If you feel ready enough, continue onto the Practice Section.");
         clearInterval(scrollInterval);
+        lesssonSectionCompleted = true;
     }
 }, 500);
