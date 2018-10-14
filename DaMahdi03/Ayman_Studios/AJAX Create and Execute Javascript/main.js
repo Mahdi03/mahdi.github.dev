@@ -8,7 +8,8 @@ function submitJSCode() {
         data: JSScript
     }).done(function() {
         alert("Your code should run on this page shortly.");
-    }).fail(function() {
+    }).fail(function(error) {
+        alert(error);
         alert("Try refreshing the page and trying again, something went wrong.");
     });
 
