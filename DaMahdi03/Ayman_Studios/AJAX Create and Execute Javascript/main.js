@@ -2,6 +2,8 @@ var JSScript = "";
 
 function submitJSCode() {
     JSScript = $("[name=jsCodeChoices2]").val();
+    JSScript = JSON.stringify(JSScript);
+    alert(JSScript);
     $.ajax({
         type: "POST",
         url: "server.php",
