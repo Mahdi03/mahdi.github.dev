@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Automatically Generate JavaScript Code and Call It</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <p>Both of the forms are exactly the same, except the first one is directly sent to the PHP page in a new window, whereas the second one is indirectly sent through the JavaScript and AJAX.</p>
+    <form target="_blank" action="server.php" method="POST">
+        <p>Choose Your Javascript Code Below And It Will Shortly Be Run On This Same Page:</p>
+        <input type="radio" id="a" name="jsCodeChoices" value="alert(0);" />
+        <label for="a">alert(0);</label><br />
+        <input type="radio" id="b" name="jsCodeChoices" value="console.log('This code was sent through the server and now it is being run on this page.');" />
+        <label for="b">console.log('This code was sent through the server and now it is being run on this page.');</label><br />
+        <input type="radio" id="c" name="jsCodeChoices" value="function jQueryAppendTableToHTML() {$('body').append('<table><tr><th>Greetings:</th><th>Farewells:</th></tr></table>');} jQueryAppendTableToHTML();" />
+        <label for="c">function jQueryAppendTableToHTML() {<br />
+        &emsp;&emsp;&emsp;$('body').append('&lt;table&gt;&lt;tr&gt;&lt;th&gt;Greetings:&lt;/th&gt;&lt;th&gt;Farewells:&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;');
+        &emsp;}<br />
+        &emsp;&emsp;jQueryAppendTableToHTML();</label><br />
+        <input type="radio" id="d" name="jsCodeChoices" value="confirm('Are you sure that you chose to send this code to the server and back?');" />
+        <label for="d">confirm('Are you sure that you chose to send this code to the server and back?');</label><br />
+        <button>Submit</button>
+    </form>
+    <form action="javascript:void(0);" onsubmit="submitJSCode()">
+        <p>Choose Your Javascript Code Below And It Will Shortly Be Run On This Same Page:</p>
+        <input type="radio" id="2a" name="jsCodeChoices2" value="alert(0);" />
+        <label for="2a">alert(0);</label><br />
+        <input type="radio" id="2b" name="jsCodeChoices2" value="console.log('This code was sent through the server and now it is being run on this page.');" />
+        <label for="2b">console.log('This code was sent through the server and now it is being run on this page.');</label><br />
+        <input type="radio" id="2c" name="jsCodeChoices2" value="function jQueryAppendTableToHTML() {$('body').append('<table><tr><th>Greetings:</th><th>Farewells:</th></tr></table>');} jQueryAppendTableToHTML();" />
+        <label for="2c">function jQueryAppendTableToHTML() {<br />
+        &emsp;&emsp;&emsp;$('body').append('&lt;table&gt;&lt;tr&gt;&lt;th&gt;Greetings:&lt;/th&gt;&lt;th&gt;Farewells:&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;');
+        &emsp;}<br />
+        &emsp;&emsp;jQueryAppendTableToHTML();</label><br />
+        <input type="radio" id="2d" name="jsCodeChoices2" value="confirm('Are you sure that you chose to send this code to the server and back?');" />
+        <label for="2d">confirm('Are you sure that you chose to send this code to the server and back?');</label><br />
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>

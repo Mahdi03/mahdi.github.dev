@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../theme.css" />
+    <script src="../theme.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Page Not Found</h2>
+    <p>
+        &emsp;&emsp;I'm sorry but the page you were looking for has either been moved someplace else or deleted. But don't feel sad! Why feel sad when you could play this game:<br />
+    </p>
+    <div class="instructions">
+        <p>
+            Ask the "Magic-Eight-Ball" a yes or no question out loud. Then wait and see if it is a yes, a no or a maybe so! After you recieve your answer, ask again! Hope you have fun!
+        </p>
+        <code>Make sure your microphone is enabled and that the address bar starts with: <a href="https://to-learn-spanish.firebaseapp.com/notFound.html">https://</a>.</code>
+        <p>Your language is set to: </p>
+        <select name="language-selector" id="language-selector" autofocus>
+            <option value="Spanish">Spanish</option>
+            <option value="English">English</option>
+        </select>
+        <br />
+        <br />
+    </div>
+    <canvas id="game" class="game" width="400" height="400"></canvas>
+    <div id="newGame1Site"></div>
+    <button id="start-button">Start Listening</button>
+    <p id="question"></p>
+    <script>
+        //Global Vars
+        var item;
+        startListening();
+        drawCanvas();
+        $("#language-selector").on("change", function() {
+            if ($(this).val() === "English") {
+                alert("In order to play this game in English, you must be signed in. I'm sorry, but this game currently works only in Spanish. If you want to learn spanish, go to https://to-learn-spanish.firebaseapp.com");
+                $(this).val("Spanish");
+            } else {
+                return;
+            }
+        });
+
+        function drawCanvas() {
+            //Dealing w/ Canvas
+            var canvas = document.getElementById('game');
+            var ctx = canvas.getContext('2d');
+            item = ctx;
+            /*
+            var x = ((200 * Math.sqrt(2)) - 200) * ((Math.cos(45) * 180) / Math.PI);
+            var y = 400 - x;
+            */
+            //Draw Full Circle
+            ctx.beginPath();
+            var π = Math.PI;
+            ctx.arc(200, 200, 200, 0 * π, 2 * π);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            //Scale the Triangle By 75%; And Re-Center It
+            ctx.setTransform(0.75, 0, 0, 0.75, 0.25 * 200, 0.25 * 200);
+            //Draw Triangle
+            ctx.beginPath();
+            ctx.moveTo(200, 0);
+            //Using Unit-Circle Trig To Create Equilateral Points
+            /*
+            Point A
+            The Left-Hand Bottom Point
+            7π/6 is the Angle Position in Standard Form
+            Sine is Height
+            Cosine is Width
+            Sine is the Y-Value On The Graph
+            Cosine is the X-Value On The Graph
+            To get X-Value:
+            1. cos(7π/6) //In The Unit Circle, Where the Radius is 1, this will return the X-Value On The Graph
+            2. cos(7π/6) * 200 //Multiply By 200 Because That's The Radius Of The Circle
+            3. 200 + (cos(7π/6) * 200) //Add 200 Because That's Where The Y-Axis is
+
+            To get Y-Value:
+            1. sin(7π/6) //This will return Y-Value in Unit Circle
+            2. sin(7π/6) * 200 //Multiply By 200 For Larger Circle
+            3. 200 + sin(7π/6) * 200 //Add 200 because That's Where The X-Axis Is
+
+            Same Concept With Point B!!!
+            */
+            var ax = 200 + (Math.cos(7 * (π / 6)) * 200);
+            var ay = 200 + Math.abs((-0.5) * 200);
+            ctx.lineTo(ax, ay);
+            //Point B
+            var bx = 200 + (Math.cos(-(π / 6)) * 200);
+            var by = 200 + Math.abs(Math.sin(-(π / 6)) * 200);
+            ctx.lineTo(bx, by);
+            //Back To The Beginning
+            ctx.lineTo(200, 0);
+            ctx.fillStyle = "purple";
+            ctx.fill();
+        }
+        //Pre-Game
+        function startListening() {
+            var recognition = new(webkitSpeechRecognition || SpeechRecognition)();
+            var language = document.getElementById('language-selector').value;
+            if (language === "English") {
+                alert("I'm sorry, but this game currently works only in Spanish. If you want to learn spanish, go to https://to-learn-spanish.firebaseapp.com");
+                recognition.lang = 'es';
+                document.getElementById('language-selector')
+            } else if (language === "Spanish") {
+                recognition.lang = 'es';
+            } else {
+                recognition.lang = 'es';
+            }
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+            recognition.lang = "es";
+            recognition.start();
+            /*
+            TESTING PURPOSES ONLY
+            //When Something Happens With Mic:
+            [
+                'onaudiostart',
+                'onaudioend',
+                'onend',
+                'onerror',
+                'onnomatch',
+                'onresult',
+                'onsoundstart',
+                'onsoundend',
+                'onspeechend',
+                'onstart'
+            ].forEach(function(eventName) {
+                recognition[eventName] = function(e) {
+                    console.log(eventName, e);
+                };
+            });
+            */
+            recognition.onstart = function() {
+                window.speechSynthesis.cancel();
+                $('#question').html('Habla Ahora, Estoy Escuchando...');
+            };
+            recognition.onresult = function() {
+                $('#question').html(String(event.results[0][0].transcript) + "?");
+                $("#game").trigger("click");
+            };
+            recognition.onerror = function() {
+                $('#question').html("Hay Un Error...<br />Refresca la página para continuar.");
+                window.location.reload(true);
+            }
+        };
+        $("#start-button").on("click", startListening);
+        //Main Game
+        function game() {
+            //Locally Global Vars
+            item = item;
+            $("canvas").on("click", answer);
+
+            function speak(text) {
+                var utterance = new SpeechSynthesisUtterance(String(text))
+                utterance.lang = "es";
+                window.speechSynthesis.speak(utterance);
+                utterance.onend = function() {
+                    window.location.reload(true);
+                }
+            }
+
+            function answer() {
+                item.textBaseline = "middle";
+                item.textAlign = "center";
+                item.font = "30px Courier New";
+                item.fillStyle = "white";
+                var question = document.getElementById('question').textContent;
+                question = question.toLowerCase();
+                if (question.includes("llama") === true) {
+                    item.fillText("No tengo un nombre!", 200, 200);
+                    speak("No tengo un nombre!");
+                } else if (question.includes("llamo") === true) {
+                    name();
+
+                    function name() {
+                        item.fillText("No se, dime tu!", 200, 200);
+                        speak("No se, dime tu!");
+
+                        function userName() {
+                            speak("Como te llamas?");
+                            var name = prompt("Como te llamas");
+                            if (name === null || name === undefined || name === "") {
+                                userName();
+                            } else {
+                                var site = document.getElementById('newGame1Site');
+                                var oldCanvas = document.getElementById('game');
+                                oldCanvas.parentNode.removeChild(oldCanvas);
+                                var newCanvas = document.createElement('canvas');
+                                newCanvas.setAttribute('width', '400');
+                                newCanvas.setAttribute('height', '400');
+                                newCanvas.setAttribute('id', 'newGame');
+                                newCanvas.setAttribute('class', 'game');
+                                //Main Script for Part 2
+                                var newScript = document.createElement('script');
+                                newScript.appendChild(document.createTextNode(`
+                                        //Dealing w/ Canvas
+                                        var newCanvas = document.getElementById('newGame');
+                                        var cntxt = newCanvas.getContext("2d");
+                                        //Draw Full Circle
+                                        cntxt.beginPath();
+                                        cntxt.arc(200, 200, 200, 0 * Math.PI, 2 * Math.PI);
+                                        cntxt.fillStyle = "black";
+                                        cntxt.fill();
+                                        //Draw Triangle
+                                        cntxt.beginPath();
+                                        cntxt.moveTo(200, 0);
+                                        cntxt.moveTo(10, 310);
+                                        cntxt.moveTo(310, 10);
+                                        cntxt.fillStyle = "purple";
+                                        cntxt.fill();`));
+                                newScript.appendChild(document.createTextNode('cntxt.fillText("Your name is ' + name + '.", 200, 200);'));
+                                site.appendChild(newCanvas);
+                                site.appendChild(newScript);
+                            }
+
+                        }
+                    }
+                } else {
+                    //Randomized Numbers
+                    var num = Math.floor(Math.random() * 100);
+                    var negativeOrPositive = Math.floor(Math.random() * 2);
+                    //Randomly Choose If Number Is Positive or Negative
+                    if (negativeOrPositive === 0) {
+                        num = num / 1;
+                    } else if (negativeOrPositive === 1) {
+                        num = num / -1;
+                    } else {
+                        num = num / -1;
+                    }
+                    //Start Choosing Text And Reading it Out Loud
+                    if (num >= 0 && num < 11) {
+                        item.fillText("Sí!!", 200, 200);
+                        speak("Sí!!");
+                    } else if (num >= 11 && num < 21) {
+                        item.fillText("No es", 200, 185);
+                        item.strokeText("Implementado", 200, 220);
+                        speak("No es implementado!!");
+                    } else if (num >= 21 && num < 31) {
+                        item.fillText("Nunca!", 200, 200);
+                        speak("Nunca!!");
+                    } else if (num >= 31 && num < 41) {
+                        item.fillText("Tal vez...", 200, 200);
+                        speak("Tal vez");
+                    } else if (num >= 41 && num < 51) {
+                        item.fillText("Desconocido", 200, 200);
+                        speak("Desconocido");
+                    } else if (num >= 51 && num < 61) {
+                        item.fillText("¡Pregúntame una otra pregunta!", 200, 200);
+                        speak("Pregúntame una otra pregunta!");
+                    } else if (num >= 61 && num < 71) {
+                        item.fillText("¿Qué crees tú?", 200, 200);
+                        speak("Qué crees tú?");
+                    } else if (num >= 71 && num < 81) {
+                        item.fillText("Pregúntame otra vez.", 200, 200);
+                        speak("Pregúntame otra vez.")
+                    } else if (num >= 81 && num < 91) {
+                        item.fillText("¡Por supuesto!", 200, 200);
+                        speak("¡Por supuesto!");
+                    } else if (num >= 91 && num < 101) {
+                        item.fillText("¿A quien le importa?", 200, 200);
+                        speak("¿A quien le importa?");
+                    } else if (num < 0 && num > -11) {
+                        item.fillText("En realmente,", 200, 185);
+                        item.fillText("¿quieres saber?", 200, 215);
+                        speak("En realmente, ¿quieres saber?");
+                    } else if (num <= -11 && num > -21) {
+                        item.fillText("¡Sigue Soñando!", 200, 200);
+                        speak("¡Sigue Soñando!")
+                    } else if (num <= -21 && num > -31) {
+                        textSize(18);
+                        item.fillText("Tu futuro no debe ser dicho,", 200, 185);
+                        item.fillText("pero debe ser hecho.", 200, 215);
+                        speak("Tu futuro no debe ser dicho. ¡¡Pero debe ser hecho!!");
+                    } else if (num <= -31 && num > -41) {
+                        item.fillText("¡¡Absolutamente!!", 200, 200);
+                        speak("¡¡Absolutamente!!");
+                    } else if (num <= -41 && num > -51) {
+                        item.fillText("Claro,", 200, 200);
+                        item.fillText("cualquier lo crees.", 200, 240);
+                        speak("Claro. Cualquier lo crees.");
+                    } else if (num <= -51 && num > -61) {
+                        item.fillText("De ninguna manera.", 200, 200);
+                        speak("De ninguna manera");
+                    } else if (num <= -61 && num > -71) {
+                        item.fillText("Depende...", 200, 200);
+                        speak("Depende...");
+                    } else if (num <= -71 && num > -81) {
+                        item.fillText("Depende,", 200, 200);
+                        item.fillText("¿Quién está preguntando?", 200, 270);
+                        speak("Depende. ¿Quién está preguntando?");
+                    } else if (num <= -81 && num > -91) {
+                        item.fillText("No puedes controlar", 200, 200);
+                        item.strokeText("¡La Verdad!", 200, 230);
+                        speak("no puedes controlar. . . ¡La Verdad!");
+                    } else if (num <= -91 && num > -101) {
+                        item.fillText("De VERDAD piensas,", 200, 170);
+                        item.fillText("qué lo sé", 200, 200);
+                        item.strokeStyle = "white";
+                        item.font = "50px Courier New";
+                        item.strokeText("¡TODO!", 200, 230);
+                        speak("De VERDAD piensas. qué lo sé. ¡TODO!");
+
+                    } else {
+                        item.fillText("¡Lo siento, pero no pude entender lo que dijiste tu! ¿Te importa decirlo otra vez?", 200, 200);
+                        speak("¡Lo siento, pero no pude entender lo que dijiste tu! ¿Te importa decirlo otra vez?");
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
