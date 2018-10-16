@@ -3,7 +3,7 @@ var JSScript = "";
 function submitJSCode() {
     JSScript = $("[name=jsCodeChoices2]").val();
     JSScript = JSON.stringify(JSScript);
-    alert(JSScript);
+    alert(JSScript.toString());
     $.ajax({
         type: "POST",
         url: "server.php",
