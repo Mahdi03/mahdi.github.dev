@@ -1,15 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <title>Ayman Studios</title>
-    <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             overflow: hidden;
         }
+        
         .bgdiv {
             width: 100%;
             height: 100%;
@@ -19,9 +22,11 @@
             padding: 0;
             position: fixed;
         }
+        
         .bgdiv:after {
             content: "\200b";
         }
+        
         #overlay {
             position: fixed;
             z-index: 1;
@@ -33,6 +38,7 @@
             margin-right: 10%;
             text-align: center;
         }
+        
         #header {
             width: 100%;
             height: auto;
@@ -43,11 +49,13 @@
         }
     </style>
 </head>
+
 <body>
     <!--Animated Background-->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             createDivs();
+
             function createDivs() {
                 //2nd Set:
                 $("body").append("<div class='bgdiv top2' style='background-color: " + getRandomColor() + ";'></div>");
@@ -59,69 +67,71 @@
                 $("body").append("<div class='bgdiv right' style='background-color: " + getRandomColor() + ";'></div>");
                 $("body").append("<div class='bgdiv bottom' style='background-color: " + getRandomColor() + ";'></div>");
                 $("body").append("<div class='bgdiv left' style='background-color: " + getRandomColor() + ";'></div>");
-                setTimeout(function () {
+                setTimeout(function() {
                     slideDivsSet1();
                 }, 1000);
             }
+
             function slideDivsSet1() {
                 $(".left").animate({
-                    "margin-left": - $(this).width()
+                    "margin-left": -$(this).width()
                 }, 2000);
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $(".bottom").animate({
                         "margin-top": $(this).height()
                     }, 2000);
                     $(".left").remove();
                 }, 2000);
-                
-                setTimeout(function () {
+
+                setTimeout(function() {
                     $(".right").animate({
                         "margin-left": $(this).width()
                     }, 2000);
                     $(".bottom").remove();
                 }, 4000);
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $(".top").animate({
-                        "margin-top": - $(this).height()
+                        "margin-top": -$(this).height()
                     }, 2000);
                     $(".right").remove();
                 }, 6000);
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $(".top").remove();
                     slideDivsSet2();
                 }, 8000);
             }
+
             function slideDivsSet2() {
                 $(".left2").animate({
-                    "margin-left": - $(this).width()
+                    "margin-left": -$(this).width()
                 }, 2000);
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $(".bottom2").animate({
                         "margin-top": $(this).height()
                     }, 2000);
                     $(".left2").remove();
                 }, 2000);
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $(".right2").animate({
                         "margin-left": $(this).width()
                     }, 2000);
                     $(".bottom2").remove();
                 }, 4000);
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $(".top2").animate({
-                        "margin-top": - $(this).height()
+                        "margin-top": -$(this).height()
                     }, 2000);
                     $("body").css("background-color", getRandomColor());
                     $(".right2").remove();
                 }, 6000);
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $(".top2").remove();
                     $("body").append("<div class='bgdiv top2' style='background-color: " + getRandomColor() + ";'></div>");
                     $("body").append("<div class='bgdiv right2' style='background-color: " + getRandomColor() + ";'></div>");
@@ -245,57 +255,57 @@
                     #advcalc {
                         text-align: center;
                     }
-
+                    
                     input#sign {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#sign2 {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#size {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#size2 {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#trigset1 {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#trigset2 {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#num {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#zero {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#num2 {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#zero2 {
                         cursor: pointer;
                         border-radius: 12px;
                     }
-
+                    
                     input#numbox {
                         border-radius: 8px;
                         text-align: right;
@@ -303,7 +313,7 @@
                         background-color: rgb(60, 120, 60);
                         border: none;
                     }
-
+                    
                     input#display {
                         border-radius: 8px;
                         text-align: right;
@@ -311,13 +321,13 @@
                         background-color: rgb(60, 120, 60);
                         border: none;
                     }
-
+                    
                     #display {
                         width: 469px;
                         height: 75px;
                         font-size: 50px;
                     }
-
+                    
                     #size2 {
                         width: 75px;
                         height: 75px;
@@ -326,7 +336,7 @@
                         background-color: rgb(0, 0, 0);
                         border: none;
                     }
-
+                    
                     #sign2 {
                         width: 153px;
                         height: 75px;
@@ -335,7 +345,7 @@
                         background-color: rgb(0, 80, 0);
                         border: none;
                     }
-
+                    
                     #num2 {
                         width: 75px;
                         height: 75px;
@@ -344,7 +354,7 @@
                         background-color: rgb(135, 135, 135);
                         border: none;
                     }
-
+                    
                     #zero2 {
                         width: 153px;
                         height: 75px;
@@ -353,7 +363,7 @@
                         background-color: rgb(135, 135, 135);
                         border: none;
                     }
-
+                    
                     #trigset1 {
                         width: 75px;
                         height: 70px;
@@ -362,7 +372,7 @@
                         background-color: rgb(0, 0, 0);
                         border: none;
                     }
-
+                    
                     #trigset2 {
                         width: 75px;
                         height: 70px;
@@ -371,34 +381,34 @@
                         background-color: rgb(0, 0, 0);
                         border: none;
                     }
-
+                    
                     #num2:hover {
-                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
                         transition-duration: 0.4s;
                     }
-
+                    
                     #zero2:hover {
-                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
                         transition-duration: 0.4s;
                     }
-
+                    
                     #trigset1:hover {
-                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
                         transition-duration: 0.4s;
                     }
-
+                    
                     #trigset2:hover {
-                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
                         transition-duration: 0.4s;
                     }
-
+                    
                     #sign2:hover {
-                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
                         transition-duration: 0.4s;
                     }
-
+                    
                     #size2:hover {
-                        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
                         transition-duration: 0.4s;
                     }
                 </style>
@@ -445,19 +455,17 @@
                     <input type="button" id="size2" value="x&sup3;" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value * advcalc.exp.value">
                     <input type="button" id="zero2" value="0" onClick="document.advcalc.exp.value += '0'">
                     <input type="button" id="num2" value="." onClick="document.advcalc.exp.value += '.'">
-                    <input type="button" id="sign2" value="=" onClick="document.advcalc.exp.value = evaluate(document.advcalc.exp.value);">
+                    <input type="button" id="sign2" value="=" onClick="document.advcalc.exp.value = eval(document.advcalc.exp.value);">
                 </form>
                 <script>
                     function evaluate(answer) {
                         if (answer.includes("−") === true) {
                             answer.replace(/−/gi, "-");
                             evaluate(document.advcalc.exp.value);
-                        }
-                        else if (answer.includes("×") === true) {
+                        } else if (answer.includes("×") === true) {
                             answer.replace(/×/gi, "*");
                             evaluate(document.advcalc.exp.value);
-                        }
-                        else {
+                        } else {
                             return eval(answer);
                         }
                     }
@@ -467,4 +475,5 @@
         </div>
     </div>
 </body>
+
 </html>

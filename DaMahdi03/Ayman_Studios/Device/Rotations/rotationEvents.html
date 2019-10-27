@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!--Disabled Zoom Yet Kept Everything Else Intact And Not All Messed Up-->
     <meta name='viewport' content='maximum-scale=1.0, user-scalable=0' />
@@ -11,7 +12,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'UA-116674321-1');
@@ -25,7 +29,6 @@
         });
     </script>
     <style>
-
         body {
             background-color: rgb(0, 148, 255);
             color: rgb(91, 216, 128);
@@ -33,7 +36,7 @@
             margin: 0;
             padding: 0;
         }
-
+        
         #noWork {
             margin: 0;
             top: 50%;
@@ -44,19 +47,19 @@
             color: rgb(0, 255, 144);
             position: absolute;
         }
-
+        
         #ifWork {
             display: block;
             padding-left: 5%;
             padding-right: 5%;
             text-align: center;
         }
-
+        
         .title {
             font-family: 'Francois One', sans-serif;
             font-size: 150px;
         }
-
+        
         .subtitle {
             font-family: 'Baloo Tamma', cursive;
             font-size: 100px;
@@ -64,7 +67,7 @@
             margin-bottom: auto;
             color: rgb(25, 68, 100);
         }
-
+        
         button.subtitle {
             border: 13px groove;
             border-color: rgba(45, 143, 186, 0.49);
@@ -73,35 +76,35 @@
             color: hotpink;
             font-size: 75px;
         }
-
-            button.subtitle:active {
-                border-color: rgba(121, 30, 147, 0.49);
-                background-color: rgba(73, 11, 91, 0.8);
-                color: rgb(0, 148, 255);
-                outline: none;
-            }
-
+        
+        button.subtitle:active {
+            border-color: rgba(121, 30, 147, 0.49);
+            background-color: rgba(73, 11, 91, 0.8);
+            color: rgb(0, 148, 255);
+            outline: none;
+        }
+        
         p {
             font-family: 'Play', sans-serif;
             color: rgb(91, 216, 128);
             font-size: 40px;
         }
-
+        
         img {
             width: 100%;
             transition: all 400ms;
         }
-
+        
         .stats {
             color: deepskyblue;
             font-size: 50px;
             font-family: 'IBM Plex Mono', monospace;
         }
-
+        
         .compassRotate {
             transition: all 0.75s;
         }
-
+        
         #footer {
             display: none;
             width: 100%;
@@ -109,40 +112,40 @@
             border-top: 10px groove;
             border-top-color: rgba(45, 143, 186, 0.49);
         }
-
+        
         p#footer {
             font-family: 'Cutive Mono', monospace;
             font-size: 20px;
         }
-
+        
         #xmlRotationData {
             display: none;
             text-wrap: normal;
             word-wrap: break-word;
         }
-
+        
         #gameTitle {
             display: none;
         }
-
+        
         #colorPicker {
             display: none;
             font-size: 50px;
         }
-
+        
         input[type=color] {
             width: 50px;
             height: 50px;
             border: none;
         }
-
+        
         #game {
             position: relative;
             width: 100%;
             border: 5px solid;
             display: none;
         }
-
+        
         #ball {
             position: absolute;
             width: 50px;
@@ -150,13 +153,18 @@
             background-color: black;
             border-radius: 100%;
         }
-
-        #objective, #controls, #hint, #notice {
+        
+        #objective,
+        #controls,
+        #hint,
+        #notice {
             color: rgba(8, 83, 116, 0.8);
             display: none;
         }
-
-        input[type=text], input[type=email], textarea {
+        
+        input[type=text],
+        input[type=email],
+        textarea {
             background-color: rgb(0, 148, 255);
             color: rgb(91, 216, 128);
             border: 7.5px groove;
@@ -168,23 +176,26 @@
             font-family: 'Play', sans-serif;
             font-size: 45px;
         }
-
-        input[type=text], input[type=email] {
+        
+        input[type=text],
+        input[type=email] {
             height: 100px;
             font-size: 60px;
         }
-
+        
         #postedComments {
             border-top: 10px groove;
             border-top-color: rgba(45, 143, 186, 0.49);
         }
-
-        .name, .time, .date {
+        
+        .name,
+        .time,
+        .date {
             text-align: left;
             margin-top: 3px;
             margin-bottom: 3px;
         }
-
+        
         .mainComment {
             text-align: justify;
         }
@@ -199,6 +210,7 @@
         var xmlCode;
 
         window.addEventListener("deviceorientation", handleOrientation, true);
+
         function handleOrientation(event) {
             //Local Variables
             var absolute = event.absolute;
@@ -211,24 +223,20 @@
             gammaRotation = gamma;
             //Function To Determine Whether Facing North/South/East/West
             var compass;
+
             function facingDirection() {
                 var direction = 90 * Math.round(Number(alpha) / 90);
                 if (direction === 0) {
                     compass = "North";
-                }
-                else if (direction === 360) {
+                } else if (direction === 360) {
                     compass = "North";
-                }
-                else if (direction === 90) {
+                } else if (direction === 90) {
                     compass = "West";
-                }
-                else if (direction === 180) {
+                } else if (direction === 180) {
                     compass = "South";
-                }
-                else if (direction === 270) {
+                } else if (direction === 270) {
                     compass = "East";
-                }
-                else {
+                } else {
                     compass = "Calculating...";
                 }
             }
@@ -279,16 +287,16 @@
             ball.style.left = ballLeftPos + "px";
             ball.style.backgroundColor = ballColor.value;
             ballColor.style.backgroundColor = ballColor.value;
-            ball.onclick = function () {
-                confirm("You have clicked the ball!! Be prepared for something exciting!");
-                alert("Caution: This may cause epilepsy. Just refresh if so...");
-                setInterval(function () {
-                    ballColor.value = getRandomColor();
-                }, 5);
-                $("#notice").fadeIn(2000);
+            ball.onclick = function() {
+                    confirm("You have clicked the ball!! Be prepared for something exciting!");
+                    alert("Caution: This may cause epilepsy. Just refresh if so...");
+                    setInterval(function() {
+                        ballColor.value = getRandomColor();
+                    }, 5);
+                    $("#notice").fadeIn(2000);
 
-            }
-            //Random Number Generator from any set of positive numbers
+                }
+                //Random Number Generator from any set of positive numbers
             function randNum(min, max) {
                 return Math.floor(Math.random() * (max - min + 1) + min);
             }
@@ -318,6 +326,7 @@
             */
             //Add 'XML' Strings To Large Var xmlCode
             xmlCode = xmlCode;
+
             function updateXMLCode() {
                 var date = new Date();
                 var minutes = date.getMinutes();
@@ -327,7 +336,7 @@
                 var timestamp = hours + ":" + minutes + ":" + seconds + "." + milliseconds;
                 xmlCode += '&lt;timestamp time="' + timestamp + '"&gt;\n&lt;Direction&gt;' + compass + '&lt;/Direction&gt;\n&lt;Alpha&gt;' + alpha + '&lt;/Alpha&gt;\n&lt;Beta&gt;' + beta + '&lt;/Beta&gt;\n&lt;Gamma&gt;' + gamma + '&lt;/Gamma&gt;\n&lt;/timestamp&gt;\n';
             }
-            setInterval(function () {
+            setInterval(function() {
                 updateXMLCode();
             }, 1000);
         }
@@ -364,6 +373,7 @@
                 scrollTop: $("#mainContent").offset().top
             }, 5000);
         }
+
         function startGame() {
             $('#gameTitle').fadeIn(1500);
             $('#colorPicker').fadeIn(2000);
@@ -371,13 +381,13 @@
             $('html, body').animate({
                 scrollTop: $('#gameTitle').offset().top
             }, 2000);
-            setTimeout(function () {
+            setTimeout(function() {
                 $('#objective').fadeIn(1000);
             }, 4000);
-            setTimeout(function () {
+            setTimeout(function() {
                 $('#controls').fadeIn(1500);
             }, 6000);
-            setTimeout(function () {
+            setTimeout(function() {
                 $('#hint').fadeIn(2000);
             }, 8000);
             if (beta === 90) {
@@ -387,6 +397,7 @@
         }
     </script>
 </head>
+
 <body>
     <div id="noWork">
         <h1 class="title" style="font-size: 35px;">I'm Sorry But This Application Is Only Meant For Mobile Devices!!</h1>
@@ -396,9 +407,7 @@
         <h2 class="subtitle" style="font-size: 75px;">In order to understand the data below, please read the following:</h2>
         <button class="subtitle" onclick="scrollToMainContent();">Nope, I wanna skip to the fun stuff!!!</button>
         <p>
-            Your touchscreen device has many features that you may not have ever known of. These
-            include GPS (Global Positioning Systems), Accelerometers, and a Gyroscope/Rotation Vector, which
-            you will be seeing below.
+            Your touchscreen device has many features that you may not have ever known of. These include GPS (Global Positioning Systems), Accelerometers, and a Gyroscope/Rotation Vector, which you will be seeing below.
         </p>
         <p>
             Your device is a 3-Dimensional Object so it has 3 ways of rotating. These include:
@@ -412,38 +421,38 @@
         <p>The first way is Alpha. This means rotating the Device while it is flat, as shown below.</p>
         <img src="alpha.png" alt="Image Of Rotating A Cellular Phone's Alpha Coordinates" />
         <p>
-            The numbers under Alpha range from 0 - 360 (in Degrees). These numbers correspond to the
-            direction the phone is facing, where 0 is when you are 100% facing North. Using Alpha
-            Rotation, you can create a compass, which is how compasses usually work on Mobile Devices.
-            Alpha Rotation is the only one measured from 0 - 360 Degrees with no negative numbers.
-            Here is a visualization of a compass in the point of view of degrees:
+            The numbers under Alpha range from 0 - 360 (in Degrees). These numbers correspond to the direction the phone is facing, where 0 is when you are 100% facing North. Using Alpha Rotation, you can create a compass, which is how compasses usually work on Mobile
+            Devices. Alpha Rotation is the only one measured from 0 - 360 Degrees with no negative numbers. Here is a visualization of a compass in the point of view of degrees:
         </p>
         <img src="360Image.png" alt="Image Of 360 Degrees" />
         <h2 class="subtitle">Beta:</h2>
         <p>The second way is Beta. This means rotating the Device like stick or a baton, as shown below.</p>
         <img src="beta.png" alt="Image Of Rotating A Cellular Phone's Beta Coordinates" />
         <p>
-            The numbers under Beta range from 0 - 180 (in Degrees). When it is at 0 Degrees, that means it is
-            perfectly flat. 90 Degrees would be upright and 180 would also be flat. Beta Rotation is also
-            measured in negative Degrees to make up for the whole 360 Degrees picture.
+            The numbers under Beta range from 0 - 180 (in Degrees). When it is at 0 Degrees, that means it is perfectly flat. 90 Degrees would be upright and 180 would also be flat. Beta Rotation is also measured in negative Degrees to make up for the whole 360 Degrees
+            picture.
         </p>
         <h2 class="subtitle">Gamma:</h2>
         <p>
-            You'd think Gamma as in the Gamma Radiation that poisoned Hulk but in this case, it's not.
-            Gamma Roatation on a Mobile Device means rotating the device sideways. Like this:
+            You'd think Gamma as in the Gamma Radiation that poisoned Hulk but in this case, it's not. Gamma Roatation on a Mobile Device means rotating the device sideways. Like this:
         </p>
         <img src="gamma.png" alt="Image Of Rotating A Cellular Phone's Gamma Coordinates" />
         <p>
-            The numbers under Gamma symbolize the sideways tilt of the Device (in Degrees). It ranges
-            from 0 - 90 (negative included). Why don't you take a look for yourself?
+            The numbers under Gamma symbolize the sideways tilt of the Device (in Degrees). It ranges from 0 - 90 (negative included). Why don't you take a look for yourself?
         </p>
         <h1 id="mainContent" class="title">Now For The Fun Stuff!!!</h1>
         <p id="rotations"></p>
         <h1 class="title"><b>Challenges</b>:</h1>
         <ul>
-            <li><p><b>Can you fully stop the rotation of your device?</b></p></li>
-            <li><p><b>Can you "zero-out" all of the values?</b></p></li>
-            <li><p><b>If you can come up with anymore Challenges, please list them in the Comments below</b>:</p></li>
+            <li>
+                <p><b>Can you fully stop the rotation of your device?</b></p>
+            </li>
+            <li>
+                <p><b>Can you "zero-out" all of the values?</b></p>
+            </li>
+            <li>
+                <p><b>If you can come up with anymore Challenges, please list them in the Comments below</b>:</p>
+            </li>
         </ul>
         <br />
         <button class="subtitle" onclick="startGame();">&#9787; Click Me For A Surprise!! &#9787;</button>
@@ -462,7 +471,7 @@
         <br />
         <button class="subtitle" id="downloadRotationInfoSubmitButton">Download All Rotation Data As An XML File</button>
         <script>
-            document.querySelector("#downloadRotationInfoSubmitButton").onclick = function () {
+            document.querySelector("#downloadRotationInfoSubmitButton").onclick = function() {
                 var xmlFile = xmlCode.replace(/undefined/g, '<?xml version="1.0" encoding="UTF-8"?>\n<!--Below You Will Find Each Rotation Movement Under Timestamps For Every Second Or So...-->\n<allSessionRotationData>');
                 xmlFile += "</allSessionRotationData>";
                 var xmlRotationData = document.querySelector("#xmlRotationData");
@@ -471,7 +480,9 @@
                 alert("Enjoy! Click on the download button to hide the XML code and/or download the file again!");
                 var pom = document.createElement('a');
                 var filename = "downloadRotationInfo.xml";
-                var bb = new Blob([xmlFile], { type: 'text/plain' });
+                var bb = new Blob([xmlFile], {
+                    type: 'text/plain'
+                });
                 pom.setAttribute('href', window.URL.createObjectURL(bb));
                 pom.setAttribute('download', filename);
                 pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
@@ -497,7 +508,7 @@
             <br />
             <!--Script Solely To Deal With XML DOM (Comments)-->
             <script>
-                $(document).ready(function () {
+                $(document).ready(function() {
                     //This Function Runs As Soon As The Browser Is Done Loading
                     $.ajax({
                         type: "GET",
@@ -509,10 +520,10 @@
                 //This Function Loads All Comments Stored In The comments.xml File
                 //Its done
                 function loadComments(xml) {
-                    $(xml).find("comment").each(function () {
-                        $('#postedComments').append('<div class="comment"><p class="name"><u>' + $(this).find("name").text()
-                            + '</u>:</p><p class="date">' + $(this).find("datePosted").text() + '</p><p class="time">'
-                            + $(this).find("timePosted").text() + '</p><p class="mainComment">' +
+                    $(xml).find("comment").each(function() {
+                        $('#postedComments').append('<div class="comment"><p class="name"><u>' + $(this).find("name").text() +
+                            '</u>:</p><p class="date">' + $(this).find("datePosted").text() + '</p><p class="time">' +
+                            $(this).find("timePosted").text() + '</p><p class="mainComment">' +
                             $(this).find("mainComment").text() + '</p><br />');
                     });
                 }
@@ -527,4 +538,5 @@
         </div>
     </div>
 </body>
+
 </html>

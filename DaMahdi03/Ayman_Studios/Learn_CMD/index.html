@@ -1,14 +1,23 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Learn CMD</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8495483030877603",
+            enable_page_level_ads: true
+        });
+    </script>
     <link href="Icons/CMDIcon.ico" rel="icon" />
     <style>
         @font-face {
             font-family: Consolas;
             src: url(Fonts/Consolas.ttf);
         }
+        
         body {
             color: rgb(0, 255, 0);
             padding: 0;
@@ -16,6 +25,7 @@
             font-size: 16px;
             font-family: Consolas;
         }
+        
         #cmdWindow {
             position: absolute;
             height: 500px;
@@ -28,12 +38,14 @@
             z-index: 100;
             display: none;
         }
+        
         #cmdWindowHeader {
             width: 100%;
             height: 5%;
             background-color: rgba(0, 148, 255, 0.75);
             z-index: 100;
         }
+        
         #windowControlButtons {
             margin: 0;
             padding: 0;
@@ -42,27 +54,35 @@
             background-color: rgba(0, 148, 255, 0.75);
             height: 10%;
         }
-        #CMDIcon, #location {
+        
+        #CMDIcon,
+        #location {
             margin: 0;
             padding: 0;
             float: left;
         }
+        
         #CMDIcon {
             width: 24px;
             height: 24px;
         }
+        
         #location {
             color: rgb(0, 0, 0);
             font-family: Arial;
             font-size: 15px;
         }
-        #close, #maximize, #minimize {
+        
+        #close,
+        #maximize,
+        #minimize {
             margin: 0;
             padding: 0;
             width: 24px;
             height: 24px;
             float: right;
         }
+        
         #cmdWindowContent {
             color: rgb(0, 255, 0);
             background-color: rgb(0, 0, 0);
@@ -75,7 +95,7 @@
             overflow-y: scroll;
             z-index: 101;
         }
-
+        
         #cmd {
             word-wrap: break-word;
             cursor: default;
@@ -83,15 +103,20 @@
             float: left;
             white-space: pre-wrap;
         }
-            /*Changes Highlight Properties Of Text Inside CMD*/
-            #cmd::selection, .typeable::selection {
-                background-color: rgb(255, 255, 255);
-                color: rgb(255, 0, 255);
-            }
-            #cmd::-moz-selection, .typeable::-moz-selection {
-                background-color: rgb(255, 255, 255);
-                color: rgb(255, 0, 255);
-            }
+        /*Changes Highlight Properties Of Text Inside CMD*/
+        
+        #cmd::selection,
+        .typeable::selection {
+            background-color: rgb(255, 255, 255);
+            color: rgb(255, 0, 255);
+        }
+        
+        #cmd::-moz-selection,
+        .typeable::-moz-selection {
+            background-color: rgb(255, 255, 255);
+            color: rgb(255, 0, 255);
+        }
+        
         .typeable {
             font-family: Consolas;
             font-size: 16px;
@@ -116,6 +141,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
+
 <body>
     <div id="cmdWindow" spellcheck="false" draggable="false">
         <div id="cmdWindowHeader">
@@ -131,7 +157,46 @@
             <!--Content To Be Added Here By JS and User-->
             <div id="cmd" oncopy="cmdCopy()" oncut="cmdCut()"></div>
             <!--BR's Used To Fill Up Space To Simulate Real CMD-->
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+            /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
     </div>
     <button onclick="loadCMD()">CMD!!!</button>
@@ -146,6 +211,7 @@
         function loadCMD() {
             getName();
         }
+
         function getName() {
             var username = localStorage.getItem('learnCMDName');
             name = username;
@@ -155,6 +221,7 @@
             }
             openCMD();
         }
+
         function runIntro() {
             if (introRun) {
                 $("#cmdWindow").show("fade", 500).dequeue().show("scale", 500);
@@ -162,13 +229,13 @@
                 var introString = "Welcome to Learn CMD, " + name + "!!! In this tutorial, you will learn many things about the Windows Command Line Interface, or the Windows CLI for short. To get started, type HELP INTRO";
                 var i = 0;
                 var speed = 100;
+
                 function typingEffect() {
                     if (i < introString.length) {
                         document.querySelector("#cmd").innerHTML += introString.charAt(i);
                         i++;
                         setTimeout(typingEffect, speed);
-                    }
-                    else if (i = introString.length) {
+                    } else if (i = introString.length) {
                         $("#cmd").append("<br />*CAPS or no caps, it doesn't matter.*");
                         readLine();
                     }
@@ -214,22 +281,18 @@
 
             if (inputTerm === "" || inputTerm === null) {
                 readLine();
-            }
-            else if (inputTerm === "cd" || inputTerm === "chdir") {
+            } else if (inputTerm === "cd" || inputTerm === "chdir") {
                 $("#cmd").append("<br />" + dir);
                 readLine();
-            }
-            else if (firstWord === "cd" || firstWord === "chdir") {
+            } else if (firstWord === "cd" || firstWord === "chdir") {
                 if (signedIn === false) {
                     $("#cmd").append('<br />You must <a href="register.html">Create an Account</a> or <a href="sign_in.">Sign In</a> to Create/Edit Directories.');
                     readLine();
                 }
-            }
-            else if (inputTerm === "cls" || inputTerm === "cmd" || inputTerm === "start") {
+            } else if (inputTerm === "cls" || inputTerm === "cmd" || inputTerm === "start") {
                 $("#cmd").empty();
                 readLine();
-            }
-            else if (inputTerm === "help intro") {
+            } else if (inputTerm === "help intro") {
                 $("#active").attr("contentEditable", false);
                 $("#active").removeAttr("id");
                 $("#cmd").append("<br />First of all, are you familiar with the basics of how file systems and directories work " + name + '? (Y/N): <span id="yn" class="typeable" contenteditable="true"></span>');
@@ -237,17 +300,16 @@
                 $("#yn").on("keydown", (event) => {
                     if (event.key === "Y" || event.key === "y") {
                         $("#cmd").append("<br />Okay, it seems to be that you have at least some understanding of file systems and directories and how they work. In the Command Prompt, we can control directories on a disk drive as well.");
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $("#cmd").append("<br />Type HELP DIRECTORIES to find out more.<br />");
                             $("#YN").attr("contentEditable", false);
                             $("#YN").removeAttr("id");
                             readLine();
                         }, 100);
-                    }
-                    else if (event.key === "N" || event.key === "n") {
+                    } else if (event.key === "N" || event.key === "n") {
                         $("#cmd").append("<br />Okay, it seems to be that you have little understanding of file systems and directories. No need to worry! That'll be fixed very soon!!");
                         $("#cmd").append("<br />It is very easy to latch onto. When you have a folder, you can put more folders and files into it. There, you're all caught up!");
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $("#cmd").append("<br />Type HELP DIRECTORIES to find out more.<br />");
                             $("#YN").attr("contentEditable", false);
                             $("#YN").removeAttr("id");
@@ -255,21 +317,20 @@
                         }, 100);
                     }
                 });
-            }
-            else if (inputTerm === "help directories") {
+            } else if (inputTerm === "help directories") {
                 var cdControls = `<br />Okay, we'll start off with these 2: <br />CD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the name of or changes the current directory.<br />
 CHDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the name of or changes the current directory.<br />Okay, they both do the exact same thing so we recommend using CD (Change Directory)!!! They are used to navigate through all of the available folders and directories.<br /> Type HELP CD or HELP CHDIR to find out more . . .<br />`;
                 $("#cmd").append(cdControls);
                 $("#active").attr("contentEditable", false);
                 $("#active").removeAttr("id");
                 $("#cmd").append('<br /><p id="paktc">Press any key to continue . . . </p>');
-                $("#cmd").one("keydown", function () {
+                $("#cmd").one("keydown", function() {
                     $("#paktc").remove();
                     var mdControls = `Next, we'll learn how to create new directories and folders with: <br />MD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a directory.<br />
 MKDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a directory.<br />Again, they both have the same task so we recommend using MD (Make Directory)!!! They are used to create new folders and directories for later use. To find out more, type HELP MD or HELP MKDIR . . .<br />`;
                     $("#cmd").append(mdControls);
                     $("#cmd").append('<br /><p id="paktc">Press any key to continue . . . </p>');
-                    $("#cmd").one("keydown", function () {
+                    $("#cmd").one("keydown", function() {
                         $("#paktc").remove();
                         $("#cmd").off("keydown");
                         var rdControls = `Finally, we'll learn how to remove existing directories and folders with: <br />Same as last time, they are equivalent. So we recommend RD (Remove Directory)!!! They are used to remove or delete directories and folders To find out more, type HELP RD or HELP RMDIR . . .<br />`;
@@ -277,9 +338,7 @@ MKDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a direc
                         readLine();
                     });
                 });
-            }
-
-            else if (inputTerm === "help") {
+            } else if (inputTerm === "help") {
                 var listOfCommands = `<br />For more information on a specific command, type HELP command-name
 ASSOC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or modifies file extension associations.
 ATTRIB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays or changes file attributes.
@@ -378,13 +437,11 @@ XCOPY          Copies files and directory trees.
 WMIC           Displays WMI information inside interactive command shell.`;
                 $("#cmd").append(listOfCommands);
                 readLine();
-            }
-            else if (firstWord === "help") {
+            } else if (firstWord === "help") {
                 if (secondWord === "cls") {
                     $("#cmd").append('<br />Clears the screen.<br /><br />CLS<br />');
                     readLine();
-                }
-                else if (secondWord === "cd" || secondWord === "chdir") {
+                } else if (secondWord === "cd" || secondWord === "chdir") {
                     var help = `Displays the name of or changes the current directory.
 
 CHDIR [/D] [drive:][path]
@@ -419,8 +476,7 @@ is the same as:
 which is what you would have to type if extensions were disabled.`;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (secondWord === "color") {
+                } else if (secondWord === "color") {
                     var help = `Sets the default console foreground and background colors.
 
 COLOR [attr]
@@ -452,8 +508,7 @@ same.
 Example: "COLOR fc" produces light red on bright white<br />`;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (secondWord === "echo") {
+                } else if (secondWord === "echo") {
                     var help = `Displays messages, or turns command-echoing on or off.
 
   ECHO [ON | OFF]
@@ -463,8 +518,7 @@ Type ECHO without parameters to display the current echo setting.
 `;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (secondWord === "exit") {
+                } else if (secondWord === "exit") {
                     var help = `Quits the CMD.EXE program (command interpreter) or the current batch
 script.
 
@@ -480,8 +534,7 @@ EXIT [/B] [exitCode]
 `;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (secondWord === "help" || secondWord === "/?") {
+                } else if (secondWord === "help" || secondWord === "/?") {
                     var help = `<br />Provides help information for Windows commands.
 
 HELP [command]
@@ -490,8 +543,7 @@ HELP [command]
 `;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (secondWord === "md" || secondWord === "mkdir") {
+                } else if (secondWord === "md" || secondWord === "mkdir") {
                     var help = `Creates a directory.
 
 MKDIR [drive:]path
@@ -517,8 +569,7 @@ is the same as:
 which is what you would have to type if extensions were disabled.`;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (secondWord === "rd" || secondWord === "rmdir") {
+                } else if (secondWord === "rd" || secondWord === "rmdir") {
                     var help = `Removes (deletes) a directory.
 
 RMDIR [/S] [/Q] [drive:]path
@@ -532,27 +583,22 @@ RD [/S] [/Q] [drive:]path
 `;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (secondWord === "login" || secondWord === "signin") {
+                } else if (secondWord === "login" || secondWord === "signin") {
                     $("#cmd").empty();
 
-                }
-                else if (secondWord === "register" || secondWord === "signup") {
+                } else if (secondWord === "register" || secondWord === "signup") {
                     $("#cmd").empty();
                     $("#cmd").append("Register Now!!! <br />Name: " + name);
                     readLine();
-                }
-                else {
+                } else {
                     $("#cmd").append('<br />This command is not supported by the help utility.  Try "' + secondWord + ' /?".');
                     readLine();
                 }
-            }
-            else if (secondWord === "/?") {
+            } else if (secondWord === "/?") {
                 if (firstWord === "cls") {
                     $("#cmd").append('<br />Clears the screen.<br /><br />CLS<br />');
                     readLine();
-                }
-                else if (firstWord === "cd" || firstWord === "chdir") {
+                } else if (firstWord === "cd" || firstWord === "chdir") {
                     var help = `Displays the name of or changes the current directory.
 
 CHDIR [/D] [drive:][path]
@@ -587,8 +633,7 @@ is the same as:
 which is what you would have to type if extensions were disabled.`;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (firstWord === "color") {
+                } else if (firstWord === "color") {
                     var help = `Sets the default console foreground and background colors.
 
 COLOR [attr]
@@ -620,8 +665,7 @@ same.
 Example: "COLOR fc" produces light red on bright white<br />`;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (firstWord === "echo") {
+                } else if (firstWord === "echo") {
                     var help = `Displays messages, or turns command-echoing on or off.
 
   ECHO [ON | OFF]
@@ -631,8 +675,7 @@ Type ECHO without parameters to display the current echo setting.
 `;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (firstWord === "exit") {
+                } else if (firstWord === "exit") {
                     var help = `Quits the CMD.EXE program (command interpreter) or the current batch
 script.
 
@@ -648,8 +691,7 @@ EXIT [/B] [exitCode]
 `;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (firstWord === "help") {
+                } else if (firstWord === "help") {
                     var help = `<br />Provides help information for Windows commands.
 
 HELP [command]
@@ -658,8 +700,7 @@ HELP [command]
 `;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (firstWord === "md" || firstWord === "mkdir") {
+                } else if (firstWord === "md" || firstWord === "mkdir") {
                     var help = `Creates a directory.
 
 MKDIR [drive:]path
@@ -685,8 +726,7 @@ is the same as:
 which is what you would have to type if extensions were disabled.`;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else if (firstWord === "rd" || firstWord === "rmdir") {
+                } else if (firstWord === "rd" || firstWord === "rmdir") {
                     var help = `Removes (deletes) a directory.
 
 RMDIR [/S] [/Q] [drive:]path
@@ -700,72 +740,56 @@ RD [/S] [/Q] [drive:]path
 `;
                     $("#cmd").append(help);
                     readLine();
-                }
-                else {
+                } else {
                     if (listOfWords.length === 1) {
                         $("#cmd").append("<br />'" + inputTerm + "' is not recognized as an internal or external command,<br />operable program or batch file.<br />");
                         readLine();
-                    }
-                    else {
+                    } else {
                         $("#cmd").append("<br />'" + firstWord + "' is not recognized as an internal or external command,<br />operable program or batch file.<br />");
                         readLine();
                     }
                 }
-            }
-
-            else if (inputTerm === "echo") {
+            } else if (inputTerm === "echo") {
                 if (echo === true) {
                     $("#cmd").append("<br />ECHO is on.<br />");
                     readLine();
-                }
-                else if (echo === false) {
+                } else if (echo === false) {
                     $("#cmd").append("<br />ECHO is off.<br />");
                     readLine();
                 }
-            }
-            else if (firstWord === "echo") {
+            } else if (firstWord === "echo") {
                 if (secondWord === "off" && echo === false) {
                     readLine();
-                }
-                else if (secondWord === "off" && echo === true) {
+                } else if (secondWord === "off" && echo === true) {
                     echo = false;
                     readLine();
-                }
-                else if (secondWord === "on" && echo === false) {
+                } else if (secondWord === "on" && echo === false) {
                     echo = true;
                     readLine();
-                }
-                else if (secondWord === "on" && echo === true) {
+                } else if (secondWord === "on" && echo === true) {
+                    readLine();
+                } else {
                     readLine();
                 }
-                else {
-                    readLine();
-                }
-            }
-            else if (inputTerm === "exit" || firstWord === "exit") {
+            } else if (inputTerm === "exit" || firstWord === "exit") {
                 closeCMD();
-            }
-            else if (inputTerm === "md" || inputTerm === "mkdir") {
+            } else if (inputTerm === "md" || inputTerm === "mkdir") {
                 $("#cmd").append("<br /> The syntax of the command is incorrect.<br />");
                 readLine();
-            }
-            else if (firstWord === "md" || firstWord === "mkdir") {
+            } else if (firstWord === "md" || firstWord === "mkdir") {
                 if (signedIn === false) {
                     $("#cmd").append('<br />You must <a href="register.html">Create an Account</a> or <a href="sign_in.">Sign In</a> to Create/Edit Directories.');
                     readLine();
                 }
-            }
-            else if (inputTerm === "rd" || inputTerm === "rmdir") {
+            } else if (inputTerm === "rd" || inputTerm === "rmdir") {
                 $("#cmd").append("<br /> The syntax of the command is incorrect.<br />");
                 readLine();
-            }
-            else if (firstWord === "rd" || firstWord === "rmdir") {
+            } else if (firstWord === "rd" || firstWord === "rmdir") {
                 if (signedIn === false) {
                     $("#cmd").append('<br />You must <a href="register.html">Create an Account</a> or <a href="sign_in.">Sign In</a> to Create/Edit Directories.');
                     readLine();
                 }
-            }
-            else if (inputTerm === "shutdown") {
+            } else if (inputTerm === "shutdown") {
                 var help = `<br />Usage: shutdown [/i | /l | /s | /sg | /r | /g | /a | /p | /h | /e | /o] [/hybrid] [/soft] [/fw] [/f]
     [/m \\computer][/t xxx][/d [p|u:]xx:yy [/c "comment"]]<br />
 &nbsp;&nbsp;&nbsp;&nbsp;No args&nbsp;&nbsp;Display help. This is the same as typing /?.
@@ -812,18 +836,15 @@ RD [/S] [/Q] [drive:]path
                yy is the minor reason number (positive integer less than 65536).`;
                 $("#cmd").append(help);
                 readLine();
-            }
-            else if (firstWord === "start") {
+            } else if (firstWord === "start") {
                 if (secondWord === "cmd") {
                     $("#cmd").empty();
                     readLine();
-                }
-                else {
+                } else {
                     $("#cmd").append("<br />The system cannot find the file " + secondWord + ".<br />");
                     readLine();
                 }
-            }
-            else if (inputTerm === "time") {
+            } else if (inputTerm === "time") {
                 var date = new Date();
                 var hours = date.getHours() + 1;
                 var minutes = date.getMinutes();
@@ -832,41 +853,91 @@ RD [/S] [/Q] [drive:]path
                 var time = String(hours + ":" + minutes + ":" + seconds + "." + milliseconds);
                 $("#cmd").append("<br />The current time is: " + time + "<br />");
                 readLine();
-            }
-            else if (inputTerm === "ver" || firstWord === "ver") {
+            } else if (inputTerm === "ver" || firstWord === "ver") {
                 // system
                 var nVer = navigator.appVersion;
                 var nAgt = navigator.userAgent;
                 var os = "";
                 var osVersion = "";
-                var clientStrings = [
-                    { s: 'Windows 10', r: /(Windows 10.0|Windows NT 10.0)/ },
-                    { s: 'Windows 8.1', r: /(Windows 8.1|Windows NT 6.3)/ },
-                    { s: 'Windows 8', r: /(Windows 8|Windows NT 6.2)/ },
-                    { s: 'Windows 7', r: /(Windows 7|Windows NT 6.1)/ },
-                    { s: 'Windows Vista', r: /Windows NT 6.0/ },
-                    { s: 'Windows Server 2003', r: /Windows NT 5.2/ },
-                    { s: 'Windows XP', r: /(Windows NT 5.1|Windows XP)/ },
-                    { s: 'Windows 2000', r: /(Windows NT 5.0|Windows 2000)/ },
-                    { s: 'Windows ME', r: /(Win 9x 4.90|Windows ME)/ },
-                    { s: 'Windows 98', r: /(Windows 98|Win98)/ },
-                    { s: 'Windows 95', r: /(Windows 95|Win95|Windows_95)/ },
-                    { s: 'Windows NT 4.0', r: /(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/ },
-                    { s: 'Windows CE', r: /Windows CE/ },
-                    { s: 'Windows 3.11', r: /Win16/ },
-                    { s: 'Android', r: /Android/ },
-                    { s: 'Open BSD', r: /OpenBSD/ },
-                    { s: 'Sun OS', r: /SunOS/ },
-                    { s: 'Linux', r: /(Linux|X11)/ },
-                    { s: 'iOS', r: /(iPhone|iPad|iPod)/ },
-                    { s: 'Mac OS X', r: /Mac OS X/ },
-                    { s: 'Mac OS', r: /(MacPPC|MacIntel|Mac_PowerPC|Macintosh)/ },
-                    { s: 'QNX', r: /QNX/ },
-                    { s: 'UNIX', r: /UNIX/ },
-                    { s: 'BeOS', r: /BeOS/ },
-                    { s: 'OS/2', r: /OS\/2/ },
-                    { s: 'Search Bot', r: /(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/ }
-                ];
+                var clientStrings = [{
+                    s: 'Windows 10',
+                    r: /(Windows 10.0|Windows NT 10.0)/
+                }, {
+                    s: 'Windows 8.1',
+                    r: /(Windows 8.1|Windows NT 6.3)/
+                }, {
+                    s: 'Windows 8',
+                    r: /(Windows 8|Windows NT 6.2)/
+                }, {
+                    s: 'Windows 7',
+                    r: /(Windows 7|Windows NT 6.1)/
+                }, {
+                    s: 'Windows Vista',
+                    r: /Windows NT 6.0/
+                }, {
+                    s: 'Windows Server 2003',
+                    r: /Windows NT 5.2/
+                }, {
+                    s: 'Windows XP',
+                    r: /(Windows NT 5.1|Windows XP)/
+                }, {
+                    s: 'Windows 2000',
+                    r: /(Windows NT 5.0|Windows 2000)/
+                }, {
+                    s: 'Windows ME',
+                    r: /(Win 9x 4.90|Windows ME)/
+                }, {
+                    s: 'Windows 98',
+                    r: /(Windows 98|Win98)/
+                }, {
+                    s: 'Windows 95',
+                    r: /(Windows 95|Win95|Windows_95)/
+                }, {
+                    s: 'Windows NT 4.0',
+                    r: /(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/
+                }, {
+                    s: 'Windows CE',
+                    r: /Windows CE/
+                }, {
+                    s: 'Windows 3.11',
+                    r: /Win16/
+                }, {
+                    s: 'Android',
+                    r: /Android/
+                }, {
+                    s: 'Open BSD',
+                    r: /OpenBSD/
+                }, {
+                    s: 'Sun OS',
+                    r: /SunOS/
+                }, {
+                    s: 'Linux',
+                    r: /(Linux|X11)/
+                }, {
+                    s: 'iOS',
+                    r: /(iPhone|iPad|iPod)/
+                }, {
+                    s: 'Mac OS X',
+                    r: /Mac OS X/
+                }, {
+                    s: 'Mac OS',
+                    r: /(MacPPC|MacIntel|Mac_PowerPC|Macintosh)/
+                }, {
+                    s: 'QNX',
+                    r: /QNX/
+                }, {
+                    s: 'UNIX',
+                    r: /UNIX/
+                }, {
+                    s: 'BeOS',
+                    r: /BeOS/
+                }, {
+                    s: 'OS/2',
+                    r: /OS\/2/
+                }, {
+                    s: 'Search Bot',
+                    r: /(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/
+                }];
 
                 for (var id in clientStrings) {
                     var cs = clientStrings[id];
@@ -898,44 +969,42 @@ RD [/S] [/Q] [drive:]path
                 console.log(navigator);
                 console.log("OS: " + os);
                 console.log("OS Version: " + osVersion);
-            }
-            else if (inputTerm === "vol") {
+            } else if (inputTerm === "vol") {
                 $("#cmd").append("<br /> Volume in drive C has no label.<br /> Volume Serial Number not found<br />");
                 readLine();
-            }
-            else if (firstWord === "vol") {
+            } else if (firstWord === "vol") {
                 if (secondWord === "c:") {
                     $("#cmd").append("<br /> Volume in drive C has no label.<br /> Volume Serial Number not found<br />");
                     readLine();
-                }
-                else {
+                } else {
                     $("#cmd").append("<br /><br />The system cannot find the drive specified.<br />");
                     readLine();
                 }
-            }
-            else {
+            } else {
                 if (listOfWords.length === 1) {
                     $("#cmd").append("<br />'" + inputTerm + "' is not recognized as an internal or external command,<br />operable program or batch file.<br />");
                     readLine();
-                }
-                else {
+                } else {
                     $("#cmd").append("<br />'" + firstWord + "' is not recognized as an internal or external command,<br />operable program or batch file.<br />");
                     readLine();
                 }
             }
         }
+
         function openCMD() {
             $("#cmdWindow").dequeue().show("scale", 100).fadeIn(300);
             runIntro();
             $('#cmd').scrollTop($('#cmd').height());
             $("#active").focus();
-            $("#cmdWindow").on("keydown", function () {
+            $("#cmdWindow").on("keydown", function() {
                 $("#active").focus();
             });
         }
+
         function minimizeCMD() {
             $("#cmdWindow").hide("scale", 2000).dequeue().fadeOut(300);
         }
+
         function maximizeCMD() {
             $("#cmdWindow").css("position", "static");
             $("#cmdWindow").animate({
@@ -944,11 +1013,13 @@ RD [/S] [/Q] [drive:]path
             }, 500);
             $("#cmdWindowHeader").css()
         }
+
         function closeCMD() {
             $("#cmdWindow").hide("scale", 2000).dequeue().fadeOut(300);
             $("#cmd").empty();
             readLine();
         }
+
         function readLine() {
             $("#active").attr("contentEditable", false);
             $("#active").removeAttr("id");
@@ -956,8 +1027,7 @@ RD [/S] [/Q] [drive:]path
             $("#location").html(dir);
             if (echo === false) {
                 $("#cmd").append('<br /><span id="active" class="typeable" contenteditable="true"></span>');
-            }
-            else {
+            } else {
                 $("#cmd").append('<br />' + dir + '<span id="active" class="typeable" contenteditable="true"></span>');
             }
             $('#cmd').scrollTop($('#cmd').height());
@@ -967,11 +1037,9 @@ RD [/S] [/Q] [drive:]path
                 if (event.key === "Enter") {
                     CMD();
                     return false;
-                }
-                else if (event.key === "ArrowUp") {
+                } else if (event.key === "ArrowUp") {
                     alert("Support for Term Recalling has not been added yet, please check-in later..!");
-                }
-                else if (event.key === "ArrowDown") {
+                } else if (event.key === "ArrowDown") {
                     alert("Support for Term Recalling has not been added yet, please check-in later..!");
                 }
                 /*else if (event.key === "Control") {
@@ -980,12 +1048,14 @@ RD [/S] [/Q] [drive:]path
                 }*/
             });
         }
+
         function pressAnyKeyToContinue(callback) {
             $("#cmd").append('<br />Press any key to continue . . . ');
             $("#active").attr("contentEditable", false);
             $("#active").removeAttr("id");
             $("#cmd").on("keydown", callback);
         }
+
         function stripHTML(dirtyString) {
             var span = document.createElement("span");
             var textNode = document.createTextNode(dirtyString);
@@ -994,4 +1064,5 @@ RD [/S] [/Q] [drive:]path
         }
     </script>
 </body>
+
 </html>

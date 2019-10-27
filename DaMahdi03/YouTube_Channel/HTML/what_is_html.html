@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>
@@ -10,7 +11,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'UA-116674321-1');
@@ -24,13 +28,13 @@
         });
     </script>
     <style>
-
         #quick_quiz1 {
             padding-left: 20px;
         }
     </style>
     <link href="what_is_html.css" rel="stylesheet">
 </head>
+
 <body>
     <nav id="navbar">
         <ul>
@@ -71,7 +75,7 @@
         item.fillStyle = "red";
         item.textAlign = "center";
         item.fillText("What is HTML?", canvas.width / 2, canvas.height / 2);
-        
+
         item.font = "50px Agency FB";
         item.strokeStyle = "orange";
         item.textAlign = "center";
@@ -231,7 +235,6 @@
         item.fillText("The <head> tags house scripts and the title of the page that is found on the small tab at the top.", canvas.width / 2, 800);
         item.fillText("(For this page it says What is HTML?)", canvas.width / 2, 830);
         item.fillText("The <body> tags hold all of the code that is visible to the viewers.", canvas.width / 2, 870);
-        
     </script>
     <!--Lesson 3: Headers-->
     <canvas width="100px" height="780px" id="headers"></canvas>
@@ -635,7 +638,7 @@
             </div>
 
             <div>
-                <input type="radio" name="question-7-answers" id="question-7-answers-E"value="E" />
+                <input type="radio" name="question-7-answers" id="question-7-answers-E" value="E" />
                 <label for="question-7-answers-E"><strong>E)</strong> None of the above.</label>
             </div>
         </div>
@@ -673,15 +676,11 @@
         item.strokeText('Text boxes, buttons, canvas, and more are resizable using the "width" and "height" attributes.', canvas.width / 2, 370);
         item.strokeText('Many HTML elements can have the "style" attribute.', canvas.width / 2, 400);
         item.strokeText('In the style attribute, you can directly input CSS code without any formatting. (No spaces, no indenting. Just Semi-Colon after each command.)', canvas.width / 2, 430);
-
-
-
     </script>
     <canvas width="100px" height="900px" id="list"></canvas>
     <!--I use the canvas command to display the gradient backgrounds. As shown below in the JavaScript.-->
     <!--This will go at the very bottom of the page right before the button to take the quiz.-->
     <script>
-        
         //REMEMBER TO ORDER THESE IN THE ORDER THEY WERE DISPLAYED EARLIER!!!!!!!!!!!!
 
         var canvas = document.getElementById("list");
@@ -712,6 +711,8 @@
         item.fillText("<head></head>", )
     </script>
     <h1><i>Try It Yourself:</i></h1>
-    <input type="text" id="input" cols="70" rows="20" placeholder="Type the <p> command and see it work right in front of you eyes." onclick="output.js"/><input type="text" id="output" cols="70" rows="20" placeholder="The product of your code should show up here" readonly/>
+    <input type="text" id="input" cols="70" rows="20" placeholder="Type the <p> command and see it work right in front of you eyes." onclick="output.js" /><input type="text" id="output" cols="70" rows="20" placeholder="The product of your code should show up here"
+        readonly/>
 </body>
+
 </html>

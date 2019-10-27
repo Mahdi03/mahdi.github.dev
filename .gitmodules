@@ -1,3 +1,9 @@
 [submodule "DaMahdi03/Ayman_Studios/Abstract"]
 	path = DaMahdi03/Ayman_Studios/Abstract
 	url = https://github.com/Mahdi03/Abstract-HTML5-Canvas-Art.git
+[submodule "Javascript-Extended-Math-Library"]
+	path = Javascript-Extended-Math-Library
+	url = https://github.com/Mahdi03/Javascript-Extended-Math-Library.git
+[submodule "DaMahdi03/Ayman_Studios/Javascript-Extended-Math-Library"]
+	path = DaMahdi03/Ayman_Studios/Javascript-Extended-Math-Library
+	url = https://github.com/Mahdi03/Javascript-Extended-Math-Library.git

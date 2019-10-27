@@ -1,89 +1,104 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="utf-8">
     <title>Weekly Planner</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8495483030877603",
+            enable_page_level_ads: true
+        });
+    </script>
     <style>
         #title {
             text-align: center;
             width: 100%;
         }
-
+        
         h1 {
             margin: 3px auto;
             text-align: center;
             border: 2px solid rgb(22, 22, 22);
             width: 30%;
         }
-
-            h1:focus {
-                border-color: rgb(0, 0, 0);
-            }
-
-        button:hover, input[type=color]:hover {
+        
+        h1:focus {
+            border-color: rgb(0, 0, 0);
+        }
+        
+        button:hover,
+        input[type=color]:hover {
             cursor: pointer;
         }
-
-        table, tr, th, td {
+        
+        table,
+        tr,
+        th,
+        td {
             border: 3px solid;
             border-color: rgb(0, 148, 255);
             border-radius: 5px;
             padding: 5px;
             margin: 15px;
         }
-
+        
         td {
             text-align: justify;
         }
-
+        
         #tableField {
             margin: 0 auto;
             width: 80%;
         }
-
+        
         #weekPlan {
             margin: 0 auto;
             width: 100%;
         }
-
+        
         #buttons {
             float: right;
         }
-
+        
         #colors {
             float: left;
         }
-
-        th[data-placeholder]:not(:focus):empty:after, td[data-placeholder]:not(:focus):empty:after {
+        
+        th[data-placeholder]:not(:focus):empty:after,
+        td[data-placeholder]:not(:focus):empty:after {
             content: attr(data-placeholder);
             color: #b3b3b3;
         }
         /*Hide Everything Else When window.print();*/
+        
         @media print {
             body * {
                 visibility: hidden;
             }
-
-            #weekPlan, h1, #weekPlan * {
+            #weekPlan,
+            h1,
+            #weekPlan * {
                 visibility: visible;
             }
-
             #weekPlan {
                 position: relative;
                 left: 0;
                 top: 0;
             }
-
             h1 {
                 border: none;
             }
-
-            th[data-placeholder]:not(:focus):empty:after, td[data-placeholder]:not(:focus):empty:after {
+            th[data-placeholder]:not(:focus):empty:after,
+            td[data-placeholder]:not(:focus):empty:after {
                 content: "";
             }
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
 <body>
     <div id="title">
         <h1 contenteditable="true">Week Of 7/1 - 7/8<br></h1>
@@ -134,7 +149,9 @@
                 </tr>
                 <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);">
                     <th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">10:00 AM<br></th>
-                    <td data-placeholder="Lunch" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"><div>Pick-Up Specialized<sup>©</sup> Mountain Bike From Tuning Shop<br></div></td>
+                    <td data-placeholder="Lunch" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">
+                        <div>Pick-Up Specialized<sup>©</sup> Mountain Bike From Tuning Shop<br></div>
+                    </td>
                     <td data-placeholder="Lunch" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Get Out Of School &amp; Get Ready To Take Off To Bishop<br></td>
                     <td data-placeholder="Lunch" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Check Out From Hotel<br></td>
                     <td data-placeholder="Lunch" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Wake Up, Eat Breakfast, &amp; Get Ready For 4th Of July (Independence Day)<br></td>
@@ -143,19 +160,78 @@
                     <td data-placeholder="Lunch" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
                 </tr>
 
-                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);"><th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">12:00 PM<br></th><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Pool Party w/ Aurnob And Aabir<div>(Birthday Celebration!!!!)</div></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Load Up Car, Fix Up Rabbits, Take Off To Bishop<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Eat Lunch, Probably With Jordan Cooper<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td></tr>
-                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);"><th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">1:45 PM<br></th><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Barbecue Lunch<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Stop At 85°C Bakery And Get Treats For Nick's B-day<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Hopefully Meet Up With Jordan Cooper, If Not, Go Biking the Usual 10 mile Bike Ride<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"><div>Go Shopping For Fireworks Prior To Today</div><div>OR</div><div>Find Some Last Minute Fireworks<br></div></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Abbu's Doctor Appointment<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td></tr>
-                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);"><th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">3:00 PM<br></th><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Clean Up, Say Goodbyes, Finish Packing For 5 Nights<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Driving</td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Finish Bike Ride, Cool Down, Go To Schatt's Bakkery And Get COOKIES!!!<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td></tr>
-                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);"><th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">5:00 PM<br></th><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Driving</td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Take Off To Visalia While Crying Because We Will Miss Bishop<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td></tr>
-                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);"><th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">7:00-8:00</th><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Get Ready For School &amp; GO TO SLEEP<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Arrive at Bishop, Hang With Nick At His House<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Video Tape 178 On "GoPro" (Driving To Visalia)<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td></tr>
-                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);"><th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">10:00<br></th><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Go Check-In At Hotel And Sleep<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Arrive Home And Sleep Or Go Shopping For Some Survival Supplies Such As Food And Water<br></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td></tr>
+                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);">
+                    <th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">12:00 PM<br></th>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Pool Party w/ Aurnob And Aabir
+                        <div>(Birthday Celebration!!!!)</div>
+                    </td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Load Up Car, Fix Up Rabbits, Take Off To Bishop<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Eat Lunch, Probably With Jordan Cooper<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                </tr>
+                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);">
+                    <th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">1:45 PM<br></th>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Barbecue Lunch<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Stop At 85°C Bakery And Get Treats For Nick's B-day<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Hopefully Meet Up With Jordan Cooper, If Not, Go Biking the Usual 10 mile Bike Ride<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">
+                        <div>Go Shopping For Fireworks Prior To Today</div>
+                        <div>OR</div>
+                        <div>Find Some Last Minute Fireworks<br></div>
+                    </td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Abbu's Doctor Appointment<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                </tr>
+                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);">
+                    <th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">3:00 PM<br></th>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Clean Up, Say Goodbyes, Finish Packing For 5 Nights<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Driving</td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Finish Bike Ride, Cool Down, Go To Schatt's Bakkery And Get COOKIES!!!<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                </tr>
+                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);">
+                    <th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">5:00 PM<br></th>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Driving</td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Take Off To Visalia While Crying Because We Will Miss Bishop<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                </tr>
+                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);">
+                    <th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">7:00-8:00</th>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Get Ready For School &amp; GO TO SLEEP<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Arrive at Bishop, Hang With Nick At His House<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Video Tape 178 On "GoPro" (Driving To Visalia)<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                </tr>
+                <tr style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);">
+                    <th data-placeholder="1:00" spellcheck="true" style="border-color: rgb(102, 168, 30);" contenteditable="true">10:00<br></th>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Go Check-In At Hotel And Sleep<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true">Arrive Home And Sleep Or Go Shopping For Some Survival Supplies Such As Food And Water<br></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                    <td data-placeholder="Lorem Ipsum Dolor Sit Amet" spellcheck="true" style="color: rgb(87, 185, 158); border-color: rgb(102, 168, 30);" contenteditable="true"></td>
+                </tr>
             </tbody>
         </table>
         <br>
         <div id="colors">
-            Choose a Text Color: <input id="textColor" onchange="refreshColors()" type="color" value="rgb(87, 185, 158)" /><br>
-            Choose a Background Color: <input id="bgColor" onchange="refreshColors()" type="color" value="rgb(47, 55, 128)" /><br>
-            Choose a Border Color: <input id="borderColor" onchange="refreshColors()" type="color" value="rgb(102, 168, 30)" />
+            Choose a Text Color: <input id="textColor" onchange="refreshColors()" type="color" value="rgb(87, 185, 158)" /><br> Choose a Background Color: <input id="bgColor" onchange="refreshColors()" type="color" value="rgb(47, 55, 128)" /><br> Choose
+            a Border Color: <input id="borderColor" onchange="refreshColors()" type="color" value="rgb(102, 168, 30)" />
         </div>
         <div id="buttons">
             <button id="addRow">✚ Add Row</button>
@@ -165,39 +241,40 @@
         </div>
     </div>
     <script>
-
         alert("Remember to customize your table's colors!");
-            //Make Text Boxes Editable
+        //Make Text Boxes Editable
+        $("td").attr("contenteditable", true);
+        $("td").attr("spellcheck", true);
+        $("tr:gt(0) th").attr("contenteditable", true);
+        $("tr:gt(0) th").attr("spellcheck", true);
+        //Print Table
+        $("#printWeekPlan").on("click", function() {
+            window.print();
+        });
+        $("#addRow").on("click", function() {
+            addRow();
+        });
+
+        function addRow() {
+            var tableRow = '<tr><th data-placeholder="1:00"></th><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td></tr>';
+            $("#weekPlan").append(tableRow);
+            $("#addText").remove();
             $("td").attr("contenteditable", true);
             $("td").attr("spellcheck", true);
             $("tr:gt(0) th").attr("contenteditable", true);
             $("tr:gt(0) th").attr("spellcheck", true);
-            //Print Table
-            $("#printWeekPlan").on("click", function () {
-                window.print();
-            });
-            $("#addRow").on("click", function () {
-                addRow();
-            });
-            function addRow() {
-                var tableRow = '<tr><th data-placeholder="1:00"></th><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td><td data-placeholder="Lorem Ipsum Dolor Sit Amet"></td></tr>';
-                $("#weekPlan").append(tableRow);
-                $("#addText").remove();
-                $("td").attr("contenteditable", true);
-                $("td").attr("spellcheck", true);
-                $("tr:gt(0) th").attr("contenteditable", true);
-                $("tr:gt(0) th").attr("spellcheck", true);
-                refreshColors();
-            }
-            function refreshColors() {
-                var textColor = $("#textColor").val();
-                $("tr:gt(0), td").css("color", textColor);
-                var bgColor = $("#bgColor").val();
-                $("#weekPlan").css("backgroundColor", bgColor);
-                var borderColor = $("#borderColor").val();
-                $("table, tr, th, td").css("borderColor", borderColor);
-            }
-        $("#downloadAsHTML").on("click", function () {
+            refreshColors();
+        }
+
+        function refreshColors() {
+            var textColor = $("#textColor").val();
+            $("tr:gt(0), td").css("color", textColor);
+            var bgColor = $("#bgColor").val();
+            $("#weekPlan").css("backgroundColor", bgColor);
+            var borderColor = $("#borderColor").val();
+            $("table, tr, th, td").css("borderColor", borderColor);
+        }
+        $("#downloadAsHTML").on("click", function() {
             var textColor = $("tr:gt(0), td").css("color");
             $("#textColor").attr("value", textColor);
             var bgColor = $("#weekPlan").css("backgroundColor")
@@ -209,6 +286,7 @@
             var HTMLData = String($("html").html());
             downloadAsHTML(filename, HTMLData);
         });
+
         function downloadAsHTML(filename, data) {
             var a = document.createElement("a");
             a.setAttribute("href", "data:text/html;charset=utf-8," + encodeURIComponent(data));
@@ -221,4 +299,5 @@
         }
     </script>
 </body>
+
 </html>

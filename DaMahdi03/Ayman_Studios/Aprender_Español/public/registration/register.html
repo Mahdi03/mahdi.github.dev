@@ -41,21 +41,21 @@
         </table>
     </form>
     <!--Scripts That Are Required To Use Firebase and Its Database-->
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
     <script>
         //Connect To Google Firebase Application Online
         firebase.initializeApp({
-            apiKey: 'AIzaSyC_ppWo7ATuzym-EsQxgcERM6Gcn0ZeuSM',
-            authDomain: 'to-learn-spanish.firebaseapp.com',
-            projectId: 'to-learn-spanish'
+            "apiKey": "AIzaSyC_ppWo7ATuzym-EsQxgcERM6Gcn0ZeuSM",
+            "databaseURL": "https://to-learn-spanish.firebaseio.com",
+            "storageBucket": "to-learn-spanish.appspot.com",
+            "authDomain": "to-learn-spanish.firebaseapp.com",
+            "messagingSenderId": "693699153309",
+            "projectId": "to-learn-spanish"
         });
         // Initialize Cloud Firestore through Firebase
         var database = firebase.firestore();
-        // Disable deprecated features
-        database.settings({
-            timestampsInSnapshots: true
-        });
         //My Code
         function registerUser() {
             //Removes All Error Codes Before Moving On!!
@@ -71,7 +71,7 @@
             var password;
             //If The Password Length Is Less Than 8 Characters:
             if ($("#password").val().length < 8) {
-                //Alert The User And Abort Register Process
+                //Alert The User And Abort Register Processwindow.location.assign('../registration/register.html');
                 notifyRegisterError("Your Password Is Too Short!! Try making it at least 8 characters long.", "password");
                 return;
             } else {
@@ -101,17 +101,20 @@
                             }) === false) {
                             //If Everything Checks Out:
                             console.log("You're good to go!");
-                            //Open Database And Create New User With New Username and Set Credentials
-                            database.collection("userInfo").doc(String(username)).set({
+                            var userInfoOBJ = {
                                     firstName: firstName,
                                     lastName: lastName,
                                     email: email,
                                     username: username,
                                     password: password,
                                     lessonsCompleted: 0
-                                }).then(function() {
+                                }
+                                //Open Database And Create New User With New Username and Set Credentials
+                            database.collection("userInfo").doc(String(username)).set(userInfoOBJ).then(function() {
                                     //If Everything Was Successful
                                     console.log("Document written with ID: ", username);
+                                    sessionStorage.setItem("loggedIn", JSON.stringify(userInfoOBJ));
+                                    window.location.assign('../intro.html');
                                 })
                                 .catch(function(error) {
                                     //If There Was An unknown error
