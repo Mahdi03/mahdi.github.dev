@@ -416,46 +416,46 @@
                     <input type="text" id="display" name="exp" value="" readonly>
                     <br />
                     <input type="reset" id="sign2" value="AC">
-                    <input type="button" id="size2" value="&plusmn;" onClick="advcalc.exp.value = advcalc.exp.value / -1">
-                    <input type="button" id="size2" value="&pi;" onClick="advcalc.exp.value = advcalc.exp.value.replace(advcalc.exp.value, Math.PI)">
-                    <input type="button" id="size2" value="!" onClick="advcalc.exp.value = fact(advcalc.exp.value)">
-                    <input type="button" id="size2" value="&larr;" onClick="advcalc.exp.value = advcalc.exp.value.substring(0, advcalc.exp.value.length - 1)">
+                    <input type="button" id="size2" value="&plusmn;" onclick="advcalc.exp.value = advcalc.exp.value / -1">
+                    <input type="button" id="size2" value="&pi;" onclick="advcalc.exp.value = advcalc.exp.value.replace(advcalc.exp.value, Math.PI)">
+                    <input type="button" id="size2" value="!" onclick="advcalc.exp.value = fact(advcalc.exp.value)">
+                    <input type="button" id="size2" value="&larr;" onclick="advcalc.exp.value = advcalc.exp.value.substring(0, advcalc.exp.value.length - 1)">
                     <br />
-                    <input type="button" id="trigset1" value="sin" onClick="advcalc.exp.value = (Math.sin(advcalc.exp.value) * 180 / Math.PI);">
-                    <input type="button" id="trigset1" value="cos" onClick="advcalc.exp.value = Math.cos(advcalc.exp.value) * 180 / Math.PI;">
-                    <input type="button" id="trigset1" value="tan" onClick="advcalc.exp.value = Math.tan(advcalc.exp.value) * 180 / Math.PI;">
-                    <input type="button" id="trigset2" value="sinh" onClick="advcalc.exp.value = Math.sinh(advcalc.exp.value)">
-                    <input type="button" id="trigset2" value="cosh" onClick="advcalc.exp.value = Math.cosh(advcalc.exp.value)">
-                    <input type="button" id="trigset2" value="tanh" onClick="advcalc.exp.value = Math.tanh(advcalc.exp.value)">
+                    <input type="button" id="trigset1" value="sin" onclick="advcalc.exp.value = (Math.sin(advcalc.exp.value) * 180 / Math.PI);">
+                    <input type="button" id="trigset1" value="cos" onclick="advcalc.exp.value = Math.cos(advcalc.exp.value) * 180 / Math.PI;">
+                    <input type="button" id="trigset1" value="tan" onclick="advcalc.exp.value = Math.tan(advcalc.exp.value) * 180 / Math.PI;">
+                    <input type="button" id="trigset2" value="sinh" onclick="advcalc.exp.value = Math.sinh(advcalc.exp.value)">
+                    <input type="button" id="trigset2" value="cosh" onclick="advcalc.exp.value = Math.cosh(advcalc.exp.value)">
+                    <input type="button" id="trigset2" value="tanh" onclick="advcalc.exp.value = Math.tanh(advcalc.exp.value)">
                     <br />
-                    <input type="button" id="size2" value="1/x" onClick="advcalc.exp.value = 1 / advcalc.exp.value">
-                    <input type="button" id="size2" value="(" onClick="document.advcalc.exp.value += '('">
-                    <input type="button" id="size2" value=")" onClick="document.advcalc.exp.value += ')'">
-                    <input type="button" id="size2" value="|x|" onClick="advcalc.exp.value = Math.abs(advcalc.exp.value)">
-                    <input type="button" id="sign2" value="&divide;" onClick="document.advcalc.exp.value += ' &divide; '">
+                    <input type="button" id="size2" value="1/x" onclick="advcalc.exp.value = 1 / advcalc.exp.value">
+                    <input type="button" id="size2" value="(" onclick="document.advcalc.exp.value += '('">
+                    <input type="button" id="size2" value=")" onclick="document.advcalc.exp.value += ')'">
+                    <input type="button" id="size2" value="|x|" onclick="advcalc.exp.value = Math.abs(advcalc.exp.value)">
+                    <input type="button" id="sign2" value="&divide;" onclick="document.advcalc.exp.value += ' &divide; '">
                     <br />
-                    <input type="button" id="size2" value="10ˣ" onClick="advcalc.exp.value = Math.pow(10, advcalc.exp.value)">
-                    <input type="button" id="num2" value="7" onClick="document.advcalc.exp.value += '7'">
-                    <input type="button" id="num2" value="8" onClick="document.advcalc.exp.value += '8'">
-                    <input type="button" id="num2" value="9" onClick="document.advcalc.exp.value += '9'">
-                    <input type="button" id="sign2" value="&times;" onClick="document.advcalc.exp.value += ' &times; '">
+                    <input type="button" id="size2" value="10ˣ" onclick="advcalc.exp.value = Math.pow(10, advcalc.exp.value)">
+                    <input type="button" id="num2" value="7" onclick="document.advcalc.exp.value += '7'">
+                    <input type="button" id="num2" value="8" onclick="document.advcalc.exp.value += '8'">
+                    <input type="button" id="num2" value="9" onclick="document.advcalc.exp.value += '9'">
+                    <input type="button" id="sign2" value="&times;" onclick="document.advcalc.exp.value += '*'">
                     <br />
-                    <input type="button" id="size2" value="&radic;" onClick="advcalc.exp.value = Math.sqrt(advcalc.exp.value)">
-                    <input type="button" id="num2" value="4" onClick="document.advcalc.exp.value += '4'">
-                    <input type="button" id="num2" value="5" onClick="document.advcalc.exp.value += '5'">
-                    <input type="button" id="num2" value="6" onClick="document.advcalc.exp.value += '6'">
-                    <input type="button" id="sign2" value="&minus;" onClick="document.advcalc.exp.value += ' &minus; '">
+                    <input type="button" id="size2" value="&radic;" onclick="advcalc.exp.value = Math.sqrt(advcalc.exp.value)">
+                    <input type="button" id="num2" value="4" onclick="document.advcalc.exp.value += '4'">
+                    <input type="button" id="num2" value="5" onclick="document.advcalc.exp.value += '5'">
+                    <input type="button" id="num2" value="6" onclick="document.advcalc.exp.value += '6'">
+                    <input type="button" id="sign2" value="&minus;" onclick="document.advcalc.exp.value += '-'">
                     <br />
-                    <input type="button" id="size2" value="x&sup2;" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value">
-                    <input type="button" id="num2" value="1" onClick="document.advcalc.exp.value += '1'">
-                    <input type="button" id="num2" value="2" onClick="document.advcalc.exp.value += '2'">
-                    <input type="button" id="num2" value="3" onClick="document.advcalc.exp.value += '3'">
-                    <input type="button" id="sign2" value="+" onClick="document.advcalc.exp.value += '+'">
+                    <input type="button" id="size2" value="x&sup2;" onclick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value">
+                    <input type="button" id="num2" value="1" onclick="document.advcalc.exp.value += '1'">
+                    <input type="button" id="num2" value="2" onclick="document.advcalc.exp.value += '2'">
+                    <input type="button" id="num2" value="3" onclick="document.advcalc.exp.value += '3'">
+                    <input type="button" id="sign2" value="+" onclick="document.advcalc.exp.value += '+'">
                     <br />
-                    <input type="button" id="size2" value="x&sup3;" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value * advcalc.exp.value">
-                    <input type="button" id="zero2" value="0" onClick="document.advcalc.exp.value += '0'">
-                    <input type="button" id="num2" value="." onClick="document.advcalc.exp.value += '.'">
-                    <input type="button" id="sign2" value="=" onClick="document.advcalc.exp.value = eval(document.advcalc.exp.value);">
+                    <input type="button" id="size2" value="x&sup3;" onclick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value * advcalc.exp.value">
+                    <input type="button" id="zero2" value="0" onclick="document.advcalc.exp.value += '0'">
+                    <input type="button" id="num2" value="." onclick="document.advcalc.exp.value += '.'">
+                    <input type="button" id="sign2" value="=" onclick="document.advcalc.exp.value = eval(document.advcalc.exp.value);">
                 </form>
                 <script>
                     function evaluate(answer) {

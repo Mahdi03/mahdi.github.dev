@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <title>HTML Calculator</title>
     <!--Used For Google Analytics-->
@@ -6,7 +7,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116674321-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'UA-116674321-1');
@@ -22,6 +26,7 @@
     <link href="calculator.css" rel="stylesheet">
     <link href="calcIcon.ico" rel="icon">
 </head>
+
 <body bgcolor="#464646">
     <div id="headerinfo">
         <h2>Made in Summer 2017</h2>
@@ -65,73 +70,69 @@
     </div>
     <div id="advcalc">
         <script>
-
             var answer = advcalc.exp.value;
+
             function sin(t) {
                 var x = (t * Math.PI) / 180;
                 if (t == 30) {
                     return "0.5";
-                }
-                else if (t == 90) {
+                } else if (t == 90) {
                     return "1";
-                }
-                else {
+                } else {
                     t = x - (Math.pow(x, 3) / 6) + (Math.pow(x, 5) / 120) - (Math.pow(x, 7) / 5040) + (Math.pow(x, 9) / 362880) - (Math.pow(x, 11) / 39916800) + (Math.pow(x, 13) / 6227020800) - (Math.pow(x, 15) / 1307674368000) + (Math.pow(x, 17) / 355687428096000) - (Math.pow(x, 19) / 121645100408832000) + (Math.pow(x, 21) / 51090942171709440000) - (Math.pow(x, 23) / 2.585201673888498e+22) + (Math.pow(x, 25) / 1.5511210043330983e+25) - (Math.pow(x, 27) / 1.0888869450418352e+28) + (Math.pow(x, 29) / 8.841761993739701e+30) - (Math.pow(x, 31) / 8.222838654177924e+33) + (Math.pow(x, 33) / 8.68331761881189e+36) - (Math.pow(x, 35) / 1.0333147966386144e+40) + (Math.pow(x, 37) / 1.3763753091226345e+43) - (Math.pow(x, 39) / 2.0397882081197446e+46) + (Math.pow(x, 41) / 3.34525266131638e+49) - (Math.pow(x, 43) / 6.041526306337384e+52) + (Math.pow(x, 45) / 1.196222208654802e+56) - (Math.pow(x, 47) / 2.5862324151116826e+59) + (Math.pow(x, 49) / 6.082818640342679e+62) - (Math.pow(x, 51) / 1.5511187532873816e+66);
                     return t;
                 }
             }
+
             function cos(r) {
                 var y = (r * Math.PI) / 180;
                 if (r == 60) {
                     return "0.5";
-                }
-                else if (r == 90) {
+                } else if (r == 90) {
                     return "0";
-                }
-                else {
+                } else {
                     r = 1 - (Math.pow(y, 2) / 2) + (Math.pow(y, 4) / 24) - (Math.pow(y, 6) / 720) + (Math.pow(y, 8) / 40320) - (Math.pow(y, 10) / 3628800) + (Math.pow(y, 12) / 479001600) - (Math.pow(y, 14) / 87178291200) + (Math.pow(y, 16) / 20922789888000) - (Math.pow(y, 18) / 6402373705728000) + (Math.pow(y, 20) / 2432902008176640000) - (Math.pow(y, 22) / 1.1240007277776077e+21) + (Math.pow(y, 24) / 6.204484017332394e+23) - (Math.pow(y, 26) / 4.032914611266057e+26) + (Math.pow(y, 28) / 3.048883446117138e+29) - (Math.pow(y, 30) / 2.652528598121911e+32) + (Math.pow(y, 32) / 2.6313083693369355e+35) - (Math.pow(y, 34) / 2.952327990396041e+38) + (Math.pow(y, 36) / 3.719933267899013e+41) - (Math.pow(y, 38) / 5.23022617466601e+44) + (Math.pow(y, 40) / 8.15915283247898e+47) - (Math.pow(y, 42) / 1.4050061177528801e+51) + (Math.pow(y, 44) / 2.6582715747884495e+54) - (Math.pow(y, 46) / 5.502622159812089e+57) + (Math.pow(y, 48) / 1.2413915592536068e+61) - (Math.pow(y, 50) / 3.0414093201713375e+64);
                     return r;
                 }
             }
+
             function tan(i) {
                 var z = (i * Math.PI) / 180;
                 if (i == 90) {
                     return "Infinity";
-                }
-                else {
+                } else {
                     i = (z - (Math.pow(z, 3) / 6) + (Math.pow(z, 5) / 120) - (Math.pow(z, 7) / 5040) + (Math.pow(z, 9) / 362880) - (Math.pow(z, 11) / 39916800) + (Math.pow(z, 13) / 6227020800) - (Math.pow(z, 15) / 1307674368000) + (Math.pow(z, 17) / 355687428096000) - (Math.pow(z, 19) / 121645100408832000) + (Math.pow(z, 21) / 51090942171709440000) - (Math.pow(z, 23) / 2.585201673888498e+22) + (Math.pow(z, 25) / 1.5511210043330983e+25) - (Math.pow(z, 27) / 1.0888869450418352e+28) + (Math.pow(z, 29) / 8.841761993739701e+30) - (Math.pow(z, 31) / 8.222838654177924e+33) + (Math.pow(z, 33) / 8.68331761881189e+36) - (Math.pow(z, 35) / 1.0333147966386144e+40) + (Math.pow(z, 37) / 1.3763753091226345e+43) - (Math.pow(z, 39) / 2.0397882081197446e+46) + (Math.pow(z, 41) / 3.34525266131638e+49) - (Math.pow(z, 43) / 6.041526306337384e+52) + (Math.pow(z, 45) / 1.196222208654802e+56) - (Math.pow(z, 47) / 2.5862324151116826e+59) + (Math.pow(z, 49) / 6.082818640342679e+62) - (Math.pow(z, 51) / 1.5511187532873816e+66)) / (1 - (Math.pow(z, 2) / 2) + (Math.pow(z, 4) / 24) - (Math.pow(z, 6) / 720) + (Math.pow(z, 8) / 40320) - (Math.pow(z, 10) / 3628800) + (Math.pow(z, 12) / 479001600) - (Math.pow(z, 14) / 87178291200) + (Math.pow(z, 16) / 20922789888000) - (Math.pow(z, 18) / 6402373705728000) + (Math.pow(z, 20) / 2432902008176640000) - (Math.pow(z, 22) / 1.1240007277776077e+21) + (Math.pow(z, 24) / 6.204484017332394e+23) - (Math.pow(z, 26) / 4.032914611266057e+26) + (Math.pow(z, 28) / 3.048883446117138e+29) - (Math.pow(z, 30) / 2.652528598121911e+32) + (Math.pow(z, 32) / 2.6313083693369355e+35) - (Math.pow(z, 34) / 2.952327990396041e+38) + (Math.pow(z, 36) / 3.719933267899013e+41) - (Math.pow(z, 38) / 5.23022617466601e+44) + (Math.pow(z, 40) / 8.15915283247898e+47) - (Math.pow(z, 42) / 1.4050061177528801e+51) + (Math.pow(z, 44) / 2.6582715747884495e+54) - (Math.pow(z, 46) / 5.502622159812089e+57) + (Math.pow(z, 48) / 1.2413915592536068e+61) - (Math.pow(z, 50) / 3.0414093201713375e+64));
                     return i;
                 }
             }
+
             function TrigFunc(fn) {
                 var value = advcalc.exp.value;
                 if (fn == "sin") {
                     value = Math.sin(value) * 180 / Math.PI;;
                     return value;
-                }
-                else if (fn == "cos") {
+                } else if (fn == "cos") {
                     value = Math.cos(value) * 180 / Math.PI;;
                     return value;
-                }
-                else if (fn == "tan") {
+                } else if (fn == "tan") {
                     value = Math.tan(value) * 180 / Math.PI;;
                     return value;
                 }
             }
+
             function fact(x) {
                 if (x == 0) {
                     return 1;
-                }
-                else if (x < 0) {
+                } else if (x < 0) {
                     return "Error";
-                }
-                else {
+                } else {
                     for (var i = x; --i;) {
                         x *= i;
                     }
                     return x;
                 }
             }
+
             function evaluate(answer) {
                 var pi = Math.PI;
                 var π = Math.PI;
@@ -139,13 +140,11 @@
                     answer.replace('pi', Math.PI);
                     answer = eval(answer);
                     return answer;
-                }
-                else {
+                } else {
                     answer = eval(answer);
                     return answer;
                 }
             }
-
         </script>
         <form name="advcalc">
             <input type="text" id="display" name="exp" value="" readonly>
@@ -181,7 +180,7 @@
             <input type="button" id="num2" value="6" onClick="document.advcalc.exp.value += '6'">
             <input type="button" id="sign2" value="&minus;" onClick="document.advcalc.exp.value += '-'">
             <p class="hi">hi</p>
-            <input type="button" id="size2" value="x&sup2;" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value">            
+            <input type="button" id="size2" value="x&sup2;" onClick="advcalc.exp.value = advcalc.exp.value * advcalc.exp.value">
             <input type="button" id="num2" value="1" onClick="document.advcalc.exp.value += '1'">
             <input type="button" id="num2" value="2" onClick="document.advcalc.exp.value += '2'">
             <input type="button" id="num2" value="3" onClick="document.advcalc.exp.value += '3'">
@@ -192,7 +191,8 @@
             <input type="button" id="num2" value="." onClick="document.advcalc.exp.value += '.'">
             <input type="button" id="sign2" value="=" onClick="document.advcalc.exp.value = evaluate(document.advcalc.exp.value)">
         </form>
-        
+
     </div>
 </body>
+
 </html>
